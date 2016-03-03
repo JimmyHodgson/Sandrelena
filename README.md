@@ -3,7 +3,9 @@ Repositorio para la clase de Ingeniería de Software 1
 
 ### Tabla de Contenido
 
-## Resumen Ejecutivo
+**Jimmy**, hacete esto.
+
+### Resumen Ejecutivo
 
 Sandrelena es una iniciativa que pretende revolucionar el sector educativo a nivel internacional. Es una plataforma ideada para cualquier organización que incursione en el ámbito educacional y es tiene la capacidad de adaptarse a distintas circunstancias, siempre delimitada por la educación. Este proyecto unificará muchos aspectos del típico salón de clases, desde gestión de clases, profesores, estudiantes y aulas, hasta la asignación de trabajos, control de notas, catálogo de integrantes, horarios de clase y mucho más.
 
@@ -18,3 +20,22 @@ En resumen, esta herramienta de gestión educativa (o al menos ese es su enfoque
 ## Público Potencial
 
 Debido a su naturaleza, el sistema “Sandrelena” está enfocado hacia empresas de enfoque educativo tales como colegios y universidades. Este sistema será diseñado específicamente para cumplir con los requerimientos de registro y control de estudiantes en Universidad Americana, pero tiene la escalabilidad necesaria para poder ser implementado en cualquier otra universidad, siendo éstas los clientes potenciales. Los estudiantes podrán revisar sus horarios, notas, clases entre otros y estarán en contacto directo con el uso a la aplicación, convirtiendo a estos en los usuarios potenciales.
+
+## Integrantes
+
+* Carlos Campos
+  * GitHub Handle:[CarlosCampos06](https://github.com/CarlosCampos06)
+  * Rol: Líder del equipo
+  * Responsabilidad: Encargado de la toma de decisiones y control de las operaciones internas. Comunicador directo del equipo con el profesor. Apoyo en la codificación y pruebas del sistema.
+  
+* Los demás llenen sus datos con el formato correcto. El documento está en /doc
+
+## Entregables
+
+1. Registro de estudiantes, profesores, clases y notas.
+2. Inclusión de sistemas de calificación (parciales, avance, promedio, etc.).
+3. Módulo de horarios, tareas y recordatorios.
+4. Módulo de evaluaciones en línea (exámenes online)
+5. Módulo de gestión de tareas
+6. Módulo de gestión de documentos por asignaturas
+7. Módulo de reportes de rendimiento
