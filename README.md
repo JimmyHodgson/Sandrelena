@@ -42,7 +42,7 @@ Debido a su naturaleza, el sistema “Sandrelena” está enfocado hacia empresa
   * Responsabilidad: Encargado de la elaboración de la aplicación y sus funciones. Apoyo en el diseño de la aplicación. Encargado de la codificación y pruebas en el sistema.
   
 * Sandrelena Machado Rodríguez
-  * GitHub Handle: Sandrelena
+  * GitHub Handle: [Sandrelena](https://github.com/Sandrelena)
   * Rol: Analista y encargada de interfaz
   * Responsabilidad: Encargada del control de calidad y revisión de errores. Apoyo en el análisis de la aplicación.
 
