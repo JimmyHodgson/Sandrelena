@@ -27,15 +27,18 @@ Debido a su naturaleza, el sistema “Sandrelena” está enfocado hacia empresa
   * GitHub Handle:[CarlosCampos06](https://github.com/CarlosCampos06)
   * Rol: Líder del equipo
   * Responsabilidad: Encargado de la toma de decisiones y control de las operaciones internas. Comunicador directo del equipo con el profesor. Apoyo en la codificación y pruebas del sistema.
+
+* Kevin Moreira
+  * GitHub Handle:[kevmusic](https://github.com/kevmusic)
+  * Rol: Desarrollador de software
+  * Responsabilidad: Encargado de la elaboración de la aplicación y sus funciones. Apoyo en el diseño de la aplicación. Encargado de la codificación y pruebas en el sistema.
   
 * Los demás llenen sus datos con el formato correcto. El documento está en /doc
 
 ## Entregables
 
 1. Registro de estudiantes, profesores, clases y notas.
-2. Inclusión de sistemas de calificación (parciales, avance, promedio, etc.).
-3. Módulo de horarios, tareas y recordatorios.
-4. Módulo de evaluaciones en línea (exámenes online)
-5. Módulo de gestión de tareas
-6. Módulo de gestión de documentos por asignaturas
-7. Módulo de reportes de rendimiento
+2. Control de notas (parciales, avance, promedio, etc.).
+3. Módulo de horarios para profesores y estudiantes.
+4. Módulo de matrícula de asignaturas
+5. Módulo de reportes de rendimiento
