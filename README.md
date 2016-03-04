@@ -3,9 +3,12 @@ Repositorio para la clase de Ingeniería de Software 1
 
 ### Tabla de Contenido
 
-**Jimmy**, hacete esto.
+* [Resumen Ejecutivo](#resumen)
+* [Público Potencial](#publico)
+* [Integrantes](#integrantes)
+* [Entregables](#entregables)
 
-### Resumen Ejecutivo
+### <a name="resumen"></a>Resumen Ejecutivo
 
 Sandrelena es una iniciativa que pretende revolucionar el sector educativo a nivel internacional. Es una plataforma ideada para cualquier organización que incursione en el ámbito educacional y es tiene la capacidad de adaptarse a distintas circunstancias, siempre delimitada por la educación. Este proyecto unificará muchos aspectos del típico salón de clases, desde gestión de clases, profesores, estudiantes y aulas, hasta la asignación de trabajos, control de notas, catálogo de integrantes, horarios de clase y mucho más.
 
@@ -17,7 +20,7 @@ Sin embargo, el hogar será impactado también, ya que, para centros educativos 
 
 En resumen, esta herramienta de gestión educativa (o al menos ese es su enfoque), tiene alcances extensos. No solo repercute en la educación, sino también en todo lo que se organiza y se considera como “tarea” en la vida, ya sea cotidiana, profesional, educacional, la que aplique.
 
-## Público Potencial
+## <a name="publico"></a>Público Potencial
 
 Debido a su naturaleza, el sistema “Sandrelena” está enfocado hacia empresas de enfoque educativo tales como colegios y universidades. Este sistema será diseñado específicamente para cumplir con los requerimientos de registro y control de estudiantes en Universidad Americana, pero tiene la escalabilidad necesaria para poder ser implementado en cualquier otra universidad, siendo éstas los clientes potenciales. Los estudiantes podrán revisar sus horarios, notas, clases entre otros y estarán en contacto directo con el uso a la aplicación, convirtiendo a estos en los usuarios potenciales.
 
@@ -27,13 +30,22 @@ Debido a su naturaleza, el sistema “Sandrelena” está enfocado hacia empresa
   * GitHub Handle:[CarlosCampos06](https://github.com/CarlosCampos06)
   * Rol: Líder del equipo
   * Responsabilidad: Encargado de la toma de decisiones y control de las operaciones internas. Comunicador directo del equipo con el profesor. Apoyo en la codificación y pruebas del sistema.
+  
+* Jimmy Jaider Hodgson González
+  * GitHub Handle: [JimmyHodgson](https://github.com/JimmyHodgson)
+  * Rol: Líder de desarrollo
+  * Responsabilidad: Encargado de la lógica de la aplicación. Encargado del control de los módulos de la aplicación. Encargado del análisis y diseño de la aplicación. Apoyo en la codificación y pruebas del sistema.
 
 * Kevin Moreira
   * GitHub Handle:[kevmusic](https://github.com/kevmusic)
   * Rol: Desarrollador de software
   * Responsabilidad: Encargado de la elaboración de la aplicación y sus funciones. Apoyo en el diseño de la aplicación. Encargado de la codificación y pruebas en el sistema.
   
-* Los demás llenen sus datos con el formato correcto. El documento está en /doc
+* Sandrelena Machado Rodríguez
+  * GitHub Handle: Sandrelena
+  * Rol: Analista y encargada de interfaz
+  * Responsabilidad: Encargada del control de calidad y revisión de errores. Apoyo en el análisis de la aplicación.
+
 
 ## Entregables
 
