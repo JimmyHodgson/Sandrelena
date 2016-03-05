@@ -4,6 +4,7 @@ Repositorio para la clase de Ingeniería de Software 1
 ### Tabla de Contenido
 
 * [Resumen Ejecutivo](#resumen)
+* [Descripción Técnica](#descripcion)
 * [Público Potencial](#publico)
 * [Integrantes](#integrantes)
 * [Entregables](#entregables)
@@ -19,6 +20,15 @@ Esta innovación tendrá un alto impacto en todo lo que involucra la educación 
 Sin embargo, el hogar será impactado también, ya que, para centros educativos con menores de edad, los padres de estos tendrán acceso a todas las asignaciones, notas, records de asistencia y mucha información más respecto a sus hijos. No obstante, en la casa puede usarse también para organización de estudio familiar, e incluso además de tareas educativas, podrían administrarse hasta las tareas del hogar.  
 
 En resumen, esta herramienta de gestión educativa (o al menos ese es su enfoque), tiene alcances extensos. No solo repercute en la educación, sino también en todo lo que se organiza y se considera como “tarea” en la vida, ya sea cotidiana, profesional, educacional, la que aplique.
+
+### <a name="descripcion"></a>Descripción Técnica
+
+Sandrelena es una aplicación web desarrollada en ASP.NET utilizando C# que utiliza MSSQL Server como gestor de base de datos. Utiliza una metodología orientada a objetos, y está diseñada bajo el modelo de programación MVC (Modelo-Vista-Controlador). Los derechos del sistema se regirán bajo la licencia GNU. Se utilizarán como soporte de desarrollo los siguientes Frameworks:
+* Bootstrap
+* Entity framework
+* Softfluent windows Utilities
+* Codefluent entities
+
 
 ## <a name="publico"></a>Público Potencial
 
