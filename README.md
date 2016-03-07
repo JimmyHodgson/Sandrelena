@@ -47,9 +47,9 @@ Debido a su naturaleza, el sistema “Sandrelena” está enfocado hacia empresa
   * Responsabilidad: Encargado de la lógica de la aplicación. Encargado del control de los módulos de la aplicación. Encargado del análisis y diseño de la aplicación. Apoyo en la codificación y pruebas del sistema.
 
 * Kevin Moreira
-  * GitHub Handle:[kevmusic](https://github.com/kevmusic)
+  * GitHub Handle: [kevmusic](https://github.com/kevmusic)
   * Rol: Desarrollador de software
-  * Responsabilidad: Encargado de la elaboración de la aplicación y sus funciones. Apoyo en el diseño de la aplicación. Encargado de la codificación y pruebas en el sistema.
+  * Responsabilidad: Encargado de la elaboración de la aplicación y sus funciones. Encargado de la codificación y pruebas en el sistema. Apoyo en el diseño de la aplicación
   
 * Sandrelena Machado Rodríguez
   * GitHub Handle: [Sandrelena](https://github.com/Sandrelena)
