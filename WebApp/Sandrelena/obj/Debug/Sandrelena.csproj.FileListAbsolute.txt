@@ -80,3 +80,44 @@ Z:\Datos\Documents\Universities\UAM\2016-01\Ing Software I\Sandrelena private\sa
 Z:\Datos\Documents\Universities\UAM\2016-01\Ing Software I\Sandrelena private\sandrelena\Sandrelena\obj\Debug\Sandrelena.Migrations.DepartmentSP.resources
 Z:\Datos\Documents\Universities\UAM\2016-01\Ing Software I\Sandrelena private\sandrelena\Sandrelena\obj\Debug\Sandrelena.Migrations.RowVersion.resources
 Z:\Datos\Documents\Universities\UAM\2016-01\Ing Software I\Sandrelena private\sandrelena\Sandrelena\obj\Debug\Sandrelena.Migrations.Inheritance.resources
+C:\Users\Carlos\GitLab\Sandrelena\WebApp\Sandrelena\bin\Sandrelena.dll.config
+C:\Users\Carlos\GitLab\Sandrelena\WebApp\Sandrelena\bin\Sandrelena.dll
+C:\Users\Carlos\GitLab\Sandrelena\WebApp\Sandrelena\bin\Sandrelena.pdb
+C:\Users\Carlos\GitLab\Sandrelena\WebApp\Sandrelena\bin\Antlr3.Runtime.dll
+C:\Users\Carlos\GitLab\Sandrelena\WebApp\Sandrelena\bin\EntityFramework.dll
+C:\Users\Carlos\GitLab\Sandrelena\WebApp\Sandrelena\bin\EntityFramework.SqlServer.dll
+C:\Users\Carlos\GitLab\Sandrelena\WebApp\Sandrelena\bin\Microsoft.Web.Infrastructure.dll
+C:\Users\Carlos\GitLab\Sandrelena\WebApp\Sandrelena\bin\Newtonsoft.Json.dll
+C:\Users\Carlos\GitLab\Sandrelena\WebApp\Sandrelena\bin\PagedList.dll
+C:\Users\Carlos\GitLab\Sandrelena\WebApp\Sandrelena\bin\PagedList.Mvc.dll
+C:\Users\Carlos\GitLab\Sandrelena\WebApp\Sandrelena\bin\System.Web.Helpers.dll
+C:\Users\Carlos\GitLab\Sandrelena\WebApp\Sandrelena\bin\System.Web.Mvc.dll
+C:\Users\Carlos\GitLab\Sandrelena\WebApp\Sandrelena\bin\System.Web.Optimization.dll
+C:\Users\Carlos\GitLab\Sandrelena\WebApp\Sandrelena\bin\System.Web.Razor.dll
+C:\Users\Carlos\GitLab\Sandrelena\WebApp\Sandrelena\bin\System.Web.WebPages.Deployment.dll
+C:\Users\Carlos\GitLab\Sandrelena\WebApp\Sandrelena\bin\System.Web.WebPages.dll
+C:\Users\Carlos\GitLab\Sandrelena\WebApp\Sandrelena\bin\System.Web.WebPages.Razor.dll
+C:\Users\Carlos\GitLab\Sandrelena\WebApp\Sandrelena\bin\WebGrease.dll
+C:\Users\Carlos\GitLab\Sandrelena\WebApp\Sandrelena\bin\EntityFramework.xml
+C:\Users\Carlos\GitLab\Sandrelena\WebApp\Sandrelena\bin\EntityFramework.SqlServer.xml
+C:\Users\Carlos\GitLab\Sandrelena\WebApp\Sandrelena\bin\PagedList.xml
+C:\Users\Carlos\GitLab\Sandrelena\WebApp\Sandrelena\bin\PagedList.Mvc.xml
+C:\Users\Carlos\GitLab\Sandrelena\WebApp\Sandrelena\bin\System.Web.Helpers.xml
+C:\Users\Carlos\GitLab\Sandrelena\WebApp\Sandrelena\bin\System.Web.Mvc.xml
+C:\Users\Carlos\GitLab\Sandrelena\WebApp\Sandrelena\bin\System.Web.Optimization.xml
+C:\Users\Carlos\GitLab\Sandrelena\WebApp\Sandrelena\bin\System.Web.Razor.xml
+C:\Users\Carlos\GitLab\Sandrelena\WebApp\Sandrelena\bin\System.Web.WebPages.xml
+C:\Users\Carlos\GitLab\Sandrelena\WebApp\Sandrelena\bin\System.Web.WebPages.Deployment.xml
+C:\Users\Carlos\GitLab\Sandrelena\WebApp\Sandrelena\bin\System.Web.WebPages.Razor.xml
+C:\Users\Carlos\GitLab\Sandrelena\WebApp\Sandrelena\bin\Antlr3.Runtime.pdb
+C:\Users\Carlos\GitLab\Sandrelena\WebApp\Sandrelena\bin\Newtonsoft.Json.xml
+C:\Users\Carlos\GitLab\Sandrelena\WebApp\Sandrelena\obj\Debug\Sandrelena.csprojResolveAssemblyReference.cache
+C:\Users\Carlos\GitLab\Sandrelena\WebApp\Sandrelena\obj\Debug\Sandrelena.Migrations.InitialCreate.resources
+C:\Users\Carlos\GitLab\Sandrelena\WebApp\Sandrelena\obj\Debug\Sandrelena.Migrations.MaxLengthOnNames.resources
+C:\Users\Carlos\GitLab\Sandrelena\WebApp\Sandrelena\obj\Debug\Sandrelena.Migrations.ComplexDataModel.resources
+C:\Users\Carlos\GitLab\Sandrelena\WebApp\Sandrelena\obj\Debug\Sandrelena.Migrations.DepartmentSP.resources
+C:\Users\Carlos\GitLab\Sandrelena\WebApp\Sandrelena\obj\Debug\Sandrelena.Migrations.RowVersion.resources
+C:\Users\Carlos\GitLab\Sandrelena\WebApp\Sandrelena\obj\Debug\Sandrelena.Migrations.Inheritance.resources
+C:\Users\Carlos\GitLab\Sandrelena\WebApp\Sandrelena\obj\Debug\Sandrelena.csproj.GenerateResource.Cache
+C:\Users\Carlos\GitLab\Sandrelena\WebApp\Sandrelena\obj\Debug\Sandrelena.dll
+C:\Users\Carlos\GitLab\Sandrelena\WebApp\Sandrelena\obj\Debug\Sandrelena.pdb
