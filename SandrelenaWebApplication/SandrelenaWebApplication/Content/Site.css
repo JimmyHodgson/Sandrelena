@@ -1,38 +1,199 @@
-﻿/* Move down content because we have a fixed navbar that is 50px tall */
-body {
-    padding-top: 50px;
-    padding-bottom: 20px;
+﻿html{
+	height:100%;	
+}
+body{
+	height:100%;
+	padding-top: 70px;
 }
 
-/* Wrapping element */
-/* Set some basic padding to keep content from hitting the edges */
-.body-content {
-    padding-left: 15px;
+.navbar-default {
+  background-color: #0943a6;
+  border-color: #052f77;
+  background-image: none;
+  background-repeat: no-repeat;
+}
+.navbar-default .navbar-brand {
+  color: #ffffff;
+}
+.navbar-brand,
+.navbar-nav > li > a {
+    line-height: 70px;
+    height: 70px;
+    padding-top: 0px;
+	padding-bottom:0px;
+	font-size:18px;
+}
+
+.navbar-default .navbar-brand:hover, .navbar-default .navbar-brand:focus {
+  color: #ffffff;
+}
+.navbar-default .navbar-text {
+  color: #ffffff;
+}
+.navbar-default .navbar-nav >li{
+	min-width:120px;
+	text-align:center;	
+}
+.navbar-default .navbar-nav > li > a {
+  color: #ffffff;
+}
+.navbar-default .navbar-nav > li > a:hover, .navbar-default .navbar-nav > li > a:focus {
+  background:#052f77;
+  color: #ffffff;
+}
+.navbar-default .navbar-nav > li > .dropdown-menu {
+  background-color: #ffffff;
+  background-image: none;
+  background-repeat: no-repeat;
+  border:2px solid #0943a6;
+  padding-top:0 !important;
+  padding-bottom:0 !important;
+}
+.dropdown-menu .divider {
+	background-color:#0943a6;
+}
+
+.navbar-default .navbar-nav > li > .dropdown-menu > li > a {
+  color: #000000;
+  padding-top:10px;
+  padding-bottom:10px;
+}
+.navbar-default .navbar-nav > li > .dropdown-menu > li > a:hover{
+  color: #ffffff;
+  background-color: #052f77;
+  background-image: none;
+  background-repeat: no-repeat;
+}
+.navbar-default .navbar-nav > li > .dropdown-menu > li > .divider {
+  background-color: #0943a6;
+}
+.navbar-default .navbar-nav > .active > a, .navbar-default .navbar-nav > .active > a:hover, .navbar-default .navbar-nav > .active > a:focus {
+  color: #ffffff;
+  background-color: #052f77;
+  background-image: none;
+  background-repeat: no-repeat;
+}
+.navbar-default .navbar-nav > .open > a, .navbar-default .navbar-nav > .open > a:hover, .navbar-default .navbar-nav > .open > a:focus {
+  color: #ffffff;
+  background-color: #052f77;
+  background-image: none;
+  background-repeat: no-repeat;
+}
+.navbar-default .navbar-toggle {
+  border-color: #052f77;
+}
+.navbar-default .navbar-toggle:hover, .navbar-default .navbar-toggle:focus {
+  background-color: #052f77;
+}
+.navbar-default .navbar-toggle .icon-bar {
+  background-color: #ffffff;
+}
+.navbar-default .navbar-collapse,
+.navbar-default .navbar-form {
+  border-color: #ffffff;
+}
+.navbar-default .navbar-link {
+  color: #ffffff;
+}
+.navbar-default .navbar-link:hover {
+  color: #ffffff;
+}
+
+footer{
+	position:fixed;
+	bottom:0;
+	width:100%;	
+	background-color:#ecf0f1;
+    color:#000;
+	height:40px;
+	line-height:40px;
+	z-index:1000;
+}
+
+.content{
+	margin-bottom:40px;	
+}
+
+
+@media (max-width: 767px) {
+  .navbar-default .navbar-nav .open .dropdown-menu > li > a {
+    color: #000000;
+  }
+  .navbar-default .navbar-nav .open .dropdown-menu > li > a:hover, .navbar-default .navbar-nav .open .dropdown-menu > li > a:focus {
+	color: #ffffff;
+    background-color: #0943a6;
+  }
+  .navbar-default .navbar-nav .open .dropdown-menu > .active > a, .navbar-default .navbar-nav .open .dropdown-menu > .active > a:hover, .navbar-default .navbar-nav .open .dropdown-menu > .active > a:focus {
+    color: #ffffff;
+    background-color: #052f77;
+  }
+}
+
+.clickable{
+	cursor:pointer;
+}
+
+#profile_button {
+    min-width:160px !important;
+}
+
+.dropdown-menu{
+    text-align:left;
+}
+
+.container-fluid {
     padding-right: 15px;
+    padding-left: 15px;
+    margin-right: auto;
+    margin-left: auto;
 }
 
-/* Override the default bootstrap behavior where horizontal description lists 
-   will truncate terms that are too long to fit in the left column 
-*/
-.dl-horizontal dt {
-    white-space: normal;
+.jumbotron{
+    margin-right: -15px;
+    margin-left: -15px;
+    background-image: url(../Resources/coverImage.jpg);
+    background-size:cover;
+    height:400px;
+    background-position-y:bottom;
+    color:#ffffff;
 }
 
-/* Set widths on the form inputs since otherwise they're 100% wide */
-input[type="text"],
-input[type="password"],
-input[type="email"],
-input[type="tel"],
-input[type="select"] {
-    max-width: 280px;
+.custom-button{
+    border-radius:0;
 }
 
-/* Responsive: Portrait tablets and up */
-@media screen and (min-width: 768px) {
-    .jumbotron {
-        margin-top: 20px;
-    }
-    .body-content {
-        padding: 0;
-    }
+.border-right{
+    border-right:1px solid #ccc;
+}
+
+.infobox{
+    border-bottom:1px solid #ccc;
+    height:300px;
+    padding-bottom:60px;
+}
+
+.contact{
+    height:300px;
+    background-color:#ecf0f1;
+}
+
+.section-title{
+    color: #34495e;
+    font-weight: bold;
+    margin-bottom: 20px;
+}
+.custom-field{
+    border-radius:0 !important;
+}
+
+.btn-primary {
+    color: #ffffff;
+    background-color: #0943a6;
+    border:none !important;
+    border-radius:0 !important;
+}
+
+textarea {
+    resize: none;
+    border-radius:0 !important;
 }

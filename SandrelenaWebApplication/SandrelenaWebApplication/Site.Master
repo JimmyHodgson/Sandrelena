@@ -5,13 +5,13 @@
 <html lang="en">
 <head runat="server">
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     <title><%: Page.Title %> - My ASP.NET Application</title>
 
     <asp:PlaceHolder runat="server">
         <%: Scripts.Render("~/bundles/modernizr") %>
     </asp:PlaceHolder>
-    <webopt:bundlereference runat="server" path="~/Content/css" />
+    <webopt:BundleReference runat="server" Path="~/Content/css" />
     <link href="~/favicon.ico" rel="shortcut icon" type="image/x-icon" />
 
 </head>
@@ -38,7 +38,7 @@
             </Scripts>
         </asp:ScriptManager>
 
-        <div class="navbar navbar-inverse navbar-fixed-top">
+        <div class="navbar navbar-default navbar-fixed-top">
             <div class="container">
                 <div class="navbar-header">
                     <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
@@ -46,19 +46,39 @@
                         <span class="icon-bar"></span>
                         <span class="icon-bar"></span>
                     </button>
-                    <a class="navbar-brand" runat="server" href="~/">Application name</a>
+                    <a class="navbar-brand" runat="server" href="~/">Sandrelena |</a>
                 </div>
                 <div class="navbar-collapse collapse">
                     <ul class="nav navbar-nav">
-                        <li><a runat="server" href="~/">Home</a></li>
-                        <li><a runat="server" href="~/About">About</a></li>
-                        <li><a runat="server" href="~/Contact">Contact</a></li>
+                        <li><a runat="server" href="~/">Inicio</a></li>
+                        <li><a runat="server" href="~/About">Matrícula</a></li>
+                        <li><a runat="server" href="~/Contact">Académico</a></li>
+                        <li><a runat="server" href="~/Clases">Clases</a></li>
                     </ul>
                     <asp:LoginView runat="server" ViewStateMode="Disabled">
                         <AnonymousTemplate>
                             <ul class="nav navbar-nav navbar-right">
-                                <li><a runat="server" href="~/Account/Register">Register</a></li>
-                                <li><a runat="server" href="~/Account/Login">Log in</a></li>
+
+
+
+
+                                <li class="dropdown" id="profile_button">
+                                  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
+                                      <span class="fa-stack">
+                                        <i class="fa fa-circle-thin fa-stack-2x"></i>
+                                        <i class="fa fa-user fa-stack-1x"></i>
+                                      </span>
+                                      
+                                    <i class="fa fa-caret-down "></i>
+
+                                  </a>
+                                  <ul class="dropdown-menu">
+                                    <li><a href="#"><i class="fa fa-user fa-fw"></i> Perfil</a></li>
+                                    <li><a href="#"><i class="fa fa-envelope-o fa-fw"></i> Mensajes</a></li>
+                                    <li><a href="#"><i class="fa fa-sign-out fa-fw"></i> Cerrar Sesión</a></li>
+                                  </ul>
+                                </li>
+
                             </ul>
                         </AnonymousTemplate>
                         <LoggedInTemplate>
@@ -73,14 +93,17 @@
                 </div>
             </div>
         </div>
-        <div class="container body-content">
+        
             <asp:ContentPlaceHolder ID="MainContent" runat="server">
             </asp:ContentPlaceHolder>
-            <hr />
+
+       
             <footer>
-                <p>&copy; <%: DateTime.Now.Year %> - My ASP.NET Application</p>
+                <div class="container">
+                    <p>&copy; <%: DateTime.Now.Year %> - Sandrelena v0.1.0</p>
+                </div>
             </footer>
-        </div>
+        
     </form>
 </body>
 </html>
