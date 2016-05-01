@@ -108,6 +108,7 @@ footer{
 	height:40px;
 	line-height:40px;
 	z-index:1000;
+
 }
 
 .content{
@@ -196,4 +197,18 @@ footer{
 textarea {
     resize: none;
     border-radius:0 !important;
+}
+
+.sandrelena-heading{
+    color:#0943a6;
+    font-weight:bold;
+}
+
+.sandrelena-sub-heading{
+    margin-top: -15px;
+    padding-left: 80px;
+}
+
+.margin-top-md{
+    margin-top:30px;
 }

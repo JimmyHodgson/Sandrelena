@@ -34,6 +34,7 @@
                 <asp:ScriptReference Name="WebParts.js" Assembly="System.Web" Path="~/Scripts/WebForms/WebParts.js" />
                 <asp:ScriptReference Name="Focus.js" Assembly="System.Web" Path="~/Scripts/WebForms/Focus.js" />
                 <asp:ScriptReference Name="WebFormsBundle" />
+                <asp:ScriptReference Path="~/Scripts/select2.min.js" />
                 <%--Site Scripts--%>
             </Scripts>
         </asp:ScriptManager>
@@ -53,7 +54,7 @@
                         <li><a runat="server" href="~/">Inicio</a></li>
                         <li><a runat="server" href="~/About">Matrícula</a></li>
                         <li><a runat="server" href="~/Contact">Académico</a></li>
-                        <li><a runat="server" href="~/Clases">Clases</a></li>
+                        <li><a runat="server" href="~/Views/clases.aspx">Clases</a></li>
                     </ul>
                     <asp:LoginView runat="server" ViewStateMode="Disabled">
                         <AnonymousTemplate>
@@ -98,11 +99,7 @@
             </asp:ContentPlaceHolder>
 
        
-            <footer>
-                <div class="container">
-                    <p>&copy; <%: DateTime.Now.Year %> - Sandrelena v0.1.0</p>
-                </div>
-            </footer>
+            
         
     </form>
 </body>

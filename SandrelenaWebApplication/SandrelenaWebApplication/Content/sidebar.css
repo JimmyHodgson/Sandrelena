@@ -34,10 +34,10 @@
 .nav-sidebar > .active > a:hover,
 .nav-sidebar > .active > a:focus {
   color: #fff;
-  background-color: #428bca;
+  background-color: #0943a6;
 }
 
-.nav > li > a:focus, .nav-sidebar > li > a:hover {
+.nav-sidebar > li > a:hover {
     text-decoration: none;
     background-color: #ddd;
 	padding-left:30px;
@@ -50,4 +50,6 @@
 	border-bottom:1px solid #CCC;
 	margin-bottom:5px;	
 }
-
+.footer-sidebar-fix{
+    margin-left:-15px;
+}
