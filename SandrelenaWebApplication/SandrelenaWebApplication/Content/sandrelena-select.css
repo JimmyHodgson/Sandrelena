@@ -28,10 +28,13 @@
     color: #fff;
     font-size: 1.3em;
     padding: 4px 12px;
-      height: 42px;
-  position: absolute;
-  top:0;
-  right: 0px;
-  width: 40px;
-  border:none;
+    height: 42px;
+    position: absolute;
+    top:0;
+    right: 0px;
+    border:none;
+}
+
+.select2-container--default .select2-selection--single .select2-selection__arrow:hover{
+    background:#052f77;
 }

@@ -1,7 +1,6 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="clases.aspx.cs" Inherits="SandrelenaWebApplication.Views.clases" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="MainContent" runat="server">
-        	<div class="container-fluid">
-        <!-- InstanceBeginEditable name="bodyContent" -->
+    <div class="container-fluid">
         <div id="loading"></div>
         	<div class="row">
         <div class="col-sm-3 col-md-2 sidebar">
@@ -23,7 +22,7 @@
                             </div>
                             <div class="col-md-3">
                                 <div class="form-group">
-                                    <select id="class-select" class="margin-top-md">
+                                    <select id="class-select">
                                         <option value=0>Opción 1</option>
                                         <option value=1>Opción 2</option>
                                         <option value=2>Opción 3</option>
