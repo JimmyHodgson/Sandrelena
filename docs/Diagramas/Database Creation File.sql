@@ -71,7 +71,7 @@ Create Table Prerrequisitos (
     id_asignatura_requisito int Foreign Key References Asignaturas(id_asignatura)
 )
 
-Create Table Semestre (
+Create Table Semestres (
     id_semestre int Identity(1,1) Primary Key Not Null,
     no_semestre int Not Null
 )
@@ -104,8 +104,8 @@ Create Table Notas (
 Create Table Aulas (
     id_aula int Identity(1,1) Primary Key Not Null,
     nombre_aula nvarchar(30) Not Null,
-    esLaboratorio boolean Not Null,
-    esActiva boolean Not Null
+    esLaboratorio bit Not Null,
+    esActiva bit Not Null
 )
 
 Create Table DiaDisponibilidades (
