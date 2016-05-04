@@ -149,7 +149,7 @@ Create Table RegistrosDeActividades (
 --************************************************************************
 
 go
---in: name
+-- in: name
 Create Procedure getIDPermiso (
 	@name nvarchar(30)
 )
@@ -159,7 +159,7 @@ begin
 end
 
 go
---in: name
+-- in: name
 Create Procedure addPermiso (
 	@name nvarchar(30)
 )
@@ -169,18 +169,18 @@ begin
 end
 
 go
---in: id_permiso
+-- in: actual_nombre_permiso, toBe_nombre_permiso
 Create Procedure editNamePermiso (
-	@id int,
-	@name nvarchar(30)
+	@actual_name nvarchar,
+	@toBe_name nvarchar(30)
 )
 as
 begin
-	Update Permisos Set nombre_permiso = @name Where id_permiso = @id
+	Update Permisos Set nombre_permiso = @toBe_name Where nombre_permiso = @actual_name
 end
 
 go
---in: id_permiso
+-- in: id_permiso
 Create Procedure activatePermiso (
 	@id int
 )
@@ -190,7 +190,7 @@ begin
 end
 
 go
---in: id_permiso
+-- in: id_permiso
 Create Procedure deactivatePermiso (
 	@id int
 )
@@ -201,8 +201,12 @@ end
 
 --************************************************************************
 
+exec addPermiso 'write'
+
+--************************************************************************
+
 go
---in: name
+-- in: name
 Create Procedure getIDRol (
 	@name nvarchar(30)
 )
@@ -212,7 +216,7 @@ begin
 end
 
 go
---in: name
+-- in: name
 Create Procedure addRol (
 	@name nvarchar(30)
 )
@@ -222,18 +226,18 @@ begin
 end
 
 go
---in: id_rol
+-- in: actuar_nombre_rol, toBe_nombre_rol
 Create Procedure editNameRol (
-	@id int,
-	@name nvarchar(30)
+	@actual_name nvarchar(30),
+	@toBe_name nvarchar(30)
 )
 as
 begin
-	Update Roles Set nombre_rol = @name Where id_rol = @id
+	Update Roles Set nombre_rol = @toBe_name Where nombre_rol = @actual_name
 end
 
 go
---in: id_rol
+-- in: id_rol
 Create Procedure activateRol (
 	@id int
 )
@@ -243,7 +247,7 @@ begin
 end
 
 go
---in: id_rol
+-- in: id_rol
 Create Procedure deactivateRol (
 	@id int
 )
@@ -253,4 +257,124 @@ begin
 end
 
 --************************************************************************
+
+exec addRol 'admin'
+
+--************************************************************************
+
+go
+-- in: nombre_rol, nombre_permiso
+Create Procedure assignPermisoToRol (
+    @nombre_rol nvarchar(30),
+    @nombre_permiso nvarchar(30)
+)
+as
+begin
+    Insert Into PermisosDeRoles (id_permiso, id_rol) Values(
+        (Select id_permiso From Permisos Where nombre_permiso = @nombre_permiso),
+        (Select id_rol From Roles Where nombre_rol = @nombre_rol)
+    )
+end
+
+go
+-- in: nombre_rol
+Create Procedure getPermisosOfRol (
+    @name nvarchar(30)
+)
+as
+begin
+    Select * From Permisos
+end
+
+--************************************************************************
+
+exec assignPermisoToRol 'admin', 'write'
+
+--************************************************************************
+
+go
+-- in: username
+Create Procedure getUser_byUsername (
+    @username nvarchar(30)
+)
+as
+begin
+    Select * From Usuarios Where username = @username
+end
+
+go
+-- in: first_name
+Create Procedure getUser_byFirstName (
+    @f_name nvarchar(30)
+)
+as
+begin
+    Select * From Usuarios Where primer_nombre Like '%'+@f_name+'%'
+end
+
+go
+-- in: first_lastName
+Create Procedure getUser_byFirstLastName (
+    @f_lname nvarchar(30)
+)
+as
+begin
+    Select * From Usuarios Where primer_apellido Like '%'+@f_lname+'%'
+end
+
+go
+-- in: username, pass
+-- out: 0 or 1
+Create Procedure login (
+    @username nvarchar(30),
+    @pass nvarchar(100)
+)
+as
+begin
+    Select Case When Exists (
+        Select * From Usuarios
+        Where   username = @username
+            And pass = @pass
+    )
+    Then CAST(1 As bit)
+    Else CAST(0 As bit) end
+end
+
+go
+-- in: username, pass, primer_nombre, segundo_nombre,
+--     primer_apellido, segundo_apellido,
+--     fecha_de_nacimiento, id_rol
+Create Procedure addUsuario (
+    @username nvarchar(30),
+    @pass nvarchar(100),
+    @f_name nvarchar(30),
+    @s_name nvarchar(30),
+    @f_lname nvarchar(30),
+    @s_lname nvarchar(30),
+    @birth date,
+    @id_rol int
+)
+as
+begin
+    Insert Into Usuarios
+		(username, pass, primer_nombre, segundo_nombre, primer_apellido, segundo_apellido, fecha_de_nacimiento, id_rol, isActive)
+		Values
+			(@username, @pass, @f_name, @s_name, @f_lname, @s_lname, @birth, @id_rol, 1)
+end
+
+--************************************************************************
+
+exec addUsuario 'kevmusic','123','Kevin', 'Jose', 'Moreira', 'Morales', '1994-08-14', 1
+
+--************************************************************************
+
+
+
+
+
+
+
+
+
+
 
