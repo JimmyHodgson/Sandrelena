@@ -147,6 +147,8 @@ Create Table RegistrosDeActividades (
 )
 
 --************************************************************************
+--************************************************************************
+--************************************************************************
 
 go
 -- in: name
@@ -155,7 +157,7 @@ Create Procedure getIDPermiso (
 )
 as
 begin
-	Select id_permiso From Permisos Where nombre_permiso = @name
+	Return (Select id_permiso From Permisos Where nombre_permiso = @name)
 end
 
 go
@@ -201,18 +203,21 @@ end
 
 --************************************************************************
 
+exec addPermiso 'read'
 exec addPermiso 'write'
+exec addPermiso 'execute'
 
 --************************************************************************
 
 go
 -- in: name
+-- out: id
 Create Procedure getIDRol (
 	@name nvarchar(30)
 )
 as
 begin
-	Select id_rol From Roles Where nombre_rol = @name
+	Return (Select id_rol From Roles Where nombre_rol = @name)
 end
 
 go
@@ -283,17 +288,21 @@ Create Procedure getPermisosOfRol (
 )
 as
 begin
+	declare @id int
+	exec @id = getIDRol 'admin'
+
     Select P.nombre_permiso From Permisos As P
         Inner Join PermisosDeRoles As PR On
             P.id_permiso = PR.id_permiso
         Inner Join Roles As R On
             PR.id_rol = R.id_rol And
-            R.id_rol = (exec getIDRol 'admin')
+            R.id_rol = @id
 end
 
 --************************************************************************
 
 exec assignPermisoToRol 'admin', 'write'
+exec assignPermisoToRol 'admin', 'execute'
 
 --************************************************************************
 
@@ -348,7 +357,7 @@ end
 go
 -- in: username, pass, primer_nombre, segundo_nombre,
 --     primer_apellido, segundo_apellido,
---     fecha_de_nacimiento, id_rol
+--     fecha_de_nacimiento, name_rol
 Create Procedure addUsuario (
     @username nvarchar(30),
     @pass nvarchar(100),
@@ -357,19 +366,36 @@ Create Procedure addUsuario (
     @f_lname nvarchar(30),
     @s_lname nvarchar(30),
     @birth date,
-    @id_rol int
+    @name_rol nvarchar(30)
 )
 as
 begin
+	declare @id_rol int
+	exec @id_rol = getIDRol @name_rol
+
     Insert Into Usuarios
 		(username, pass, primer_nombre, segundo_nombre, primer_apellido, segundo_apellido, fecha_de_nacimiento, id_rol, isActive)
 		Values
 			(@username, @pass, @f_name, @s_name, @f_lname, @s_lname, @birth, @id_rol, 1)
 end
 
+go
+-- in: username, name_rol
+Create Procedure changeRolOfUsuario (
+	@username nvarchar(30),
+	@name_rol nvarchar(30)
+)
+as
+begin
+	declare @id_rol int
+	exec @id_rol = getIDRol @name_rol
+
+	Update Usuarios Set id_rol = @id_rol Where username = @username
+end
+
 --************************************************************************
 
-exec addUsuario 'kevmusic','123','Kevin', 'Jose', 'Moreira', 'Morales', '1994-08-14', 1
+exec addUsuario 'kevmusic','123','Kevin', 'Jose', 'Moreira', 'Morales', '1994-08-14', 'admin'
 
 --************************************************************************
 
