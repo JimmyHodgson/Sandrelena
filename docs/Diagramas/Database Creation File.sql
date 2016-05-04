@@ -283,7 +283,12 @@ Create Procedure getPermisosOfRol (
 )
 as
 begin
-    Select * From Permisos
+    Select P.nombre_permiso From Permisos As P
+        Inner Join PermisosDeRoles As PR On
+            P.id_permiso = PR.id_permiso
+        Inner Join Roles As R On
+            PR.id_rol = R.id_rol And
+            R.id_rol = (exec getIDRol 'admin')
 end
 
 --************************************************************************
