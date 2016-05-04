@@ -200,3 +200,57 @@ begin
 end
 
 --************************************************************************
+
+go
+--in: name
+Create Procedure getIDRol (
+	@name nvarchar(30)
+)
+as
+begin
+	Select id_rol From Roles Where nombre_rol = @name
+end
+
+go
+--in: name
+Create Procedure addRol (
+	@name nvarchar(30)
+)
+as
+begin
+	Insert Into Roles (nombre_rol, isActive) Values (@name, 1)
+end
+
+go
+--in: id_rol
+Create Procedure editNameRol (
+	@id int,
+	@name nvarchar(30)
+)
+as
+begin
+	Update Roles Set nombre_rol = @name Where id_rol = @id
+end
+
+go
+--in: id_rol
+Create Procedure activateRol (
+	@id int
+)
+as
+begin
+	Update Roles Set isActive = 1 Where id_rol = @id
+end
+
+go
+--in: id_rol
+Create Procedure deactivateRol (
+	@id int
+)
+as
+begin
+	Update Roles Set isActive = 0 Where id_rol = @id
+end
+
+--************************************************************************
+
