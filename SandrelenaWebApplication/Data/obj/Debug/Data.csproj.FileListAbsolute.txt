@@ -1,0 +1,10 @@
+C:\Users\Carlos\GitLab\Sandrelena\SandrelenaWebApplication\Data\bin\Debug\Data.dll.config
+C:\Users\Carlos\GitLab\Sandrelena\SandrelenaWebApplication\Data\bin\Debug\Data.dll
+C:\Users\Carlos\GitLab\Sandrelena\SandrelenaWebApplication\Data\bin\Debug\Data.pdb
+C:\Users\Carlos\GitLab\Sandrelena\SandrelenaWebApplication\Data\bin\Debug\EntityFramework.dll
+C:\Users\Carlos\GitLab\Sandrelena\SandrelenaWebApplication\Data\bin\Debug\EntityFramework.SqlServer.dll
+C:\Users\Carlos\GitLab\Sandrelena\SandrelenaWebApplication\Data\bin\Debug\EntityFramework.xml
+C:\Users\Carlos\GitLab\Sandrelena\SandrelenaWebApplication\Data\bin\Debug\EntityFramework.SqlServer.xml
+C:\Users\Carlos\GitLab\Sandrelena\SandrelenaWebApplication\Data\obj\Debug\Data.csprojResolveAssemblyReference.cache
+C:\Users\Carlos\GitLab\Sandrelena\SandrelenaWebApplication\Data\obj\Debug\Data.dll
+C:\Users\Carlos\GitLab\Sandrelena\SandrelenaWebApplication\Data\obj\Debug\Data.pdb
