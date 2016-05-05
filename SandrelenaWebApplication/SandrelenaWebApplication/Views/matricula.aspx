@@ -27,7 +27,19 @@
 
                             </div>
                         </div>
-
+                        <div class="row">
+                            <div class="col-md-10 col-md-offset-1">
+                                <asp:GridView ID="GridView1" runat="server">
+                                    <Columns>
+                                        <asp:BoundField DataField="ProductName" HeaderText="ProductName" />
+                                        <asp:BoundField DataField="CategoryName" HeaderText="CategoryName" />
+                                        <asp:BoundField DataField="SupplierName" HeaderText="SupplierName" />
+                                        <asp:BoundField DataField="UnitPrice" HeaderText="UnitPrice" />
+                                        <asp:BoundField DataField="Discontinued" HeaderText="Discontinued" />
+                                    </Columns>
+                                </asp:GridView>
+                            </div>
+                        </div>
 
                     </div>
 
