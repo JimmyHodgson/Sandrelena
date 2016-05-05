@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="e6a223e7fe6449a686cb9ee7c8e8c40b" Name="Diagram1">
+        <EntityTypeShape EntityType="SandrelenaModel.Actividade" Width="1.5" PointX="6" PointY="5.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="SandrelenaModel.Asignatura" Width="1.5" PointX="6" PointY="17.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="SandrelenaModel.AsignaturasDeSemestre" Width="1.5" PointX="8.25" PointY="18.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="SandrelenaModel.Aula" Width="1.5" PointX="6" PointY="21.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="SandrelenaModel.Carrera" Width="1.5" PointX="3" PointY="15.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="SandrelenaModel.CarrerasDeUsuario" Width="1.5" PointX="5.25" PointY="11.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="SandrelenaModel.DiaDisponibilidade" Width="1.5" PointX="6" PointY="24.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="SandrelenaModel.Facultade" Width="1.5" PointX="0.75" PointY="2.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="SandrelenaModel.Grupos" Width="1.5" PointX="3" PointY="2.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="SandrelenaModel.GruposDeUsuario" Width="1.5" PointX="5.25" PointY="8.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="SandrelenaModel.Horario" Width="1.5" PointX="8.25" PointY="15" IsExpanded="true" />
+        <EntityTypeShape EntityType="SandrelenaModel.Nota" Width="1.5" PointX="5.25" PointY="14.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="SandrelenaModel.Permiso" Width="1.5" PointX="0.75" PointY="5.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="SandrelenaModel.PermisosDeRole" Width="1.5" PointX="3" PointY="7.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="SandrelenaModel.Prerrequisito" Width="1.5" PointX="8.25" PointY="24.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="SandrelenaModel.ProfesoresDeAsignatura" Width="1.5" PointX="8.25" PointY="11.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="SandrelenaModel.RegistrosDeActividade" Width="1.5" PointX="8.25" PointY="8.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="SandrelenaModel.Role" Width="1.5" PointX="0.75" PointY="8.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="SandrelenaModel.Semestre" Width="1.5" PointX="6" PointY="27.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="SandrelenaModel.SemestresDeCarrera" Width="1.5" PointX="8.25" PointY="21.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="SandrelenaModel.Usuario" Width="1.5" PointX="3" PointY="10.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="SandrelenaModel.database_firewall_rules" Width="1.5" PointX="5.75" PointY="0.75" IsExpanded="true" />
+        <AssociationConnector Association="SandrelenaModel.FK__Registros__id_ac__71D1E811" ManuallyRouted="false" />
+        <AssociationConnector Association="SandrelenaModel.FK__Asignatur__id_as__59063A47" ManuallyRouted="false" />
+        <AssociationConnector Association="SandrelenaModel.FK__Horarios__id_asi__6C190EBB" ManuallyRouted="false" />
+        <AssociationConnector Association="SandrelenaModel.FK__Notas__id_asigna__6383C8BA" ManuallyRouted="false" />
+        <AssociationConnector Association="SandrelenaModel.FK__Prerrequi__id_as__52593CB8" ManuallyRouted="false" />
+        <AssociationConnector Association="SandrelenaModel.FK__Prerrequi__id_as__534D60F1" ManuallyRouted="false" />
+        <AssociationConnector Association="SandrelenaModel.FK__Profesore__id_as__5FB337D6" ManuallyRouted="false" />
+        <AssociationConnector Association="SandrelenaModel.FK__Asignatur__id_se__5812160E" ManuallyRouted="false" />
+        <AssociationConnector Association="SandrelenaModel.FK__Horarios__id_aul__6B24EA82" ManuallyRouted="false" />
+        <AssociationConnector Association="SandrelenaModel.FK__Carreras__id_fac__49C3F6B7" ManuallyRouted="false" />
+        <AssociationConnector Association="SandrelenaModel.FK__CarrerasD__id_ca__4D94879B" ManuallyRouted="false" />
+        <AssociationConnector Association="SandrelenaModel.FK__Semestres__id_ca__5CD6CB2B" ManuallyRouted="false" />
+        <AssociationConnector Association="SandrelenaModel.FK__CarrerasD__id_us__4CA06362" ManuallyRouted="false" />
+        <AssociationConnector Association="SandrelenaModel.FK__Horarios__id_dia__6D0D32F4" ManuallyRouted="false" />
+        <AssociationConnector Association="SandrelenaModel.FK__Grupos__id_facul__4316F928" ManuallyRouted="false" />
+        <AssociationConnector Association="SandrelenaModel.FK__GruposDeU__id_gr__46E78A0C" ManuallyRouted="false" />
+        <AssociationConnector Association="SandrelenaModel.FK__GruposDeU__id_us__45F365D3" ManuallyRouted="false" />
+        <AssociationConnector Association="SandrelenaModel.FK__Notas__id_usuari__6477ECF3" ManuallyRouted="false" />
+        <AssociationConnector Association="SandrelenaModel.FK__PermisosD__id_pe__3A81B327" ManuallyRouted="false" />
+        <AssociationConnector Association="SandrelenaModel.FK__PermisosD__id_ro__3B75D760" ManuallyRouted="false" />
+        <AssociationConnector Association="SandrelenaModel.FK__Profesore__id_us__60A75C0F" ManuallyRouted="false" />
+        <AssociationConnector Association="SandrelenaModel.FK__Registros__id_us__72C60C4A" ManuallyRouted="false" />
+        <AssociationConnector Association="SandrelenaModel.FK__Usuarios__id_rol__3E52440B" ManuallyRouted="false" />
+        <AssociationConnector Association="SandrelenaModel.FK__Semestres__id_se__5BE2A6F2" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

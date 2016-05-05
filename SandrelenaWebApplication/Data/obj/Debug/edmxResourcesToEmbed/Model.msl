@@ -1,0 +1,213 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="SandrelenaModelStoreContainer" CdmEntityContainer="SandrelenaEntities">
+    <EntitySetMapping Name="Actividades">
+      <EntityTypeMapping TypeName="SandrelenaModel.Actividade">
+        <MappingFragment StoreEntitySet="Actividades">
+          <ScalarProperty Name="id_actividad" ColumnName="id_actividad" />
+          <ScalarProperty Name="nombre_actividad" ColumnName="nombre_actividad" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Asignaturas">
+      <EntityTypeMapping TypeName="SandrelenaModel.Asignatura">
+        <MappingFragment StoreEntitySet="Asignaturas">
+          <ScalarProperty Name="id_asignatura" ColumnName="id_asignatura" />
+          <ScalarProperty Name="codigo_asignatura" ColumnName="codigo_asignatura" />
+          <ScalarProperty Name="nombre_asignatura" ColumnName="nombre_asignatura" />
+          <ScalarProperty Name="creditos" ColumnName="creditos" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="AsignaturasDeSemestres">
+      <EntityTypeMapping TypeName="SandrelenaModel.AsignaturasDeSemestre">
+        <MappingFragment StoreEntitySet="AsignaturasDeSemestres">
+          <ScalarProperty Name="id_asignaturas_semestres" ColumnName="id_asignaturas_semestres" />
+          <ScalarProperty Name="id_semestre" ColumnName="id_semestre" />
+          <ScalarProperty Name="id_asignatura" ColumnName="id_asignatura" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Aulas">
+      <EntityTypeMapping TypeName="SandrelenaModel.Aula">
+        <MappingFragment StoreEntitySet="Aulas">
+          <ScalarProperty Name="id_aula" ColumnName="id_aula" />
+          <ScalarProperty Name="nombre_aula" ColumnName="nombre_aula" />
+          <ScalarProperty Name="esLaboratorio" ColumnName="esLaboratorio" />
+          <ScalarProperty Name="esActiva" ColumnName="esActiva" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Carreras">
+      <EntityTypeMapping TypeName="SandrelenaModel.Carrera">
+        <MappingFragment StoreEntitySet="Carreras">
+          <ScalarProperty Name="id_carrera" ColumnName="id_carrera" />
+          <ScalarProperty Name="nombre_carrera" ColumnName="nombre_carrera" />
+          <ScalarProperty Name="id_facultad" ColumnName="id_facultad" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="CarrerasDeUsuarios">
+      <EntityTypeMapping TypeName="SandrelenaModel.CarrerasDeUsuario">
+        <MappingFragment StoreEntitySet="CarrerasDeUsuarios">
+          <ScalarProperty Name="id_carreras_usuarios" ColumnName="id_carreras_usuarios" />
+          <ScalarProperty Name="id_usuario" ColumnName="id_usuario" />
+          <ScalarProperty Name="id_carrera" ColumnName="id_carrera" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="DiaDisponibilidades">
+      <EntityTypeMapping TypeName="SandrelenaModel.DiaDisponibilidade">
+        <MappingFragment StoreEntitySet="DiaDisponibilidades">
+          <ScalarProperty Name="id_diaDisponibilidad" ColumnName="id_diaDisponibilidad" />
+          <ScalarProperty Name="dia" ColumnName="dia" />
+          <ScalarProperty Name="start_time" ColumnName="start_time" />
+          <ScalarProperty Name="end_time" ColumnName="end_time" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Facultades">
+      <EntityTypeMapping TypeName="SandrelenaModel.Facultade">
+        <MappingFragment StoreEntitySet="Facultades">
+          <ScalarProperty Name="id_facultad" ColumnName="id_facultad" />
+          <ScalarProperty Name="nombre_facultad" ColumnName="nombre_facultad" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Grupos">
+      <EntityTypeMapping TypeName="SandrelenaModel.Grupos">
+        <MappingFragment StoreEntitySet="Grupos">
+          <ScalarProperty Name="id_grupo" ColumnName="id_grupo" />
+          <ScalarProperty Name="nombre_grupo" ColumnName="nombre_grupo" />
+          <ScalarProperty Name="id_facultad" ColumnName="id_facultad" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="GruposDeUsuarios">
+      <EntityTypeMapping TypeName="SandrelenaModel.GruposDeUsuario">
+        <MappingFragment StoreEntitySet="GruposDeUsuarios">
+          <ScalarProperty Name="id_grupos_usuarios" ColumnName="id_grupos_usuarios" />
+          <ScalarProperty Name="id_usuario" ColumnName="id_usuario" />
+          <ScalarProperty Name="id_grupo" ColumnName="id_grupo" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Horarios">
+      <EntityTypeMapping TypeName="SandrelenaModel.Horario">
+        <MappingFragment StoreEntitySet="Horarios">
+          <ScalarProperty Name="id_horario" ColumnName="id_horario" />
+          <ScalarProperty Name="id_aula" ColumnName="id_aula" />
+          <ScalarProperty Name="id_asignatura" ColumnName="id_asignatura" />
+          <ScalarProperty Name="no_grupo" ColumnName="no_grupo" />
+          <ScalarProperty Name="id_diaDisponibilidad" ColumnName="id_diaDisponibilidad" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Notas">
+      <EntityTypeMapping TypeName="SandrelenaModel.Nota">
+        <MappingFragment StoreEntitySet="Notas">
+          <ScalarProperty Name="id_nota" ColumnName="id_nota" />
+          <ScalarProperty Name="id_asignatura" ColumnName="id_asignatura" />
+          <ScalarProperty Name="id_usuario" ColumnName="id_usuario" />
+          <ScalarProperty Name="nota1" ColumnName="nota" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Permisos">
+      <EntityTypeMapping TypeName="SandrelenaModel.Permiso">
+        <MappingFragment StoreEntitySet="Permisos">
+          <ScalarProperty Name="id_permiso" ColumnName="id_permiso" />
+          <ScalarProperty Name="nombre_permiso" ColumnName="nombre_permiso" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="PermisosDeRoles">
+      <EntityTypeMapping TypeName="SandrelenaModel.PermisosDeRole">
+        <MappingFragment StoreEntitySet="PermisosDeRoles">
+          <ScalarProperty Name="id_permisos_roles" ColumnName="id_permisos_roles" />
+          <ScalarProperty Name="id_permiso" ColumnName="id_permiso" />
+          <ScalarProperty Name="id_rol" ColumnName="id_rol" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Prerrequisitos">
+      <EntityTypeMapping TypeName="SandrelenaModel.Prerrequisito">
+        <MappingFragment StoreEntitySet="Prerrequisitos">
+          <ScalarProperty Name="id_prerrequisito" ColumnName="id_prerrequisito" />
+          <ScalarProperty Name="id_asignatura" ColumnName="id_asignatura" />
+          <ScalarProperty Name="id_asignatura_requisito" ColumnName="id_asignatura_requisito" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ProfesoresDeAsignaturas">
+      <EntityTypeMapping TypeName="SandrelenaModel.ProfesoresDeAsignatura">
+        <MappingFragment StoreEntitySet="ProfesoresDeAsignaturas">
+          <ScalarProperty Name="id_profesores_asignaturas" ColumnName="id_profesores_asignaturas" />
+          <ScalarProperty Name="id_asignatura" ColumnName="id_asignatura" />
+          <ScalarProperty Name="id_usuario" ColumnName="id_usuario" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="RegistrosDeActividades">
+      <EntityTypeMapping TypeName="SandrelenaModel.RegistrosDeActividade">
+        <MappingFragment StoreEntitySet="RegistrosDeActividades">
+          <ScalarProperty Name="id_registros_actividades" ColumnName="id_registros_actividades" />
+          <ScalarProperty Name="id_actividad" ColumnName="id_actividad" />
+          <ScalarProperty Name="id_usuario" ColumnName="id_usuario" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Roles">
+      <EntityTypeMapping TypeName="SandrelenaModel.Role">
+        <MappingFragment StoreEntitySet="Roles">
+          <ScalarProperty Name="id_rol" ColumnName="id_rol" />
+          <ScalarProperty Name="nombre_rol" ColumnName="nombre_rol" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Semestres">
+      <EntityTypeMapping TypeName="SandrelenaModel.Semestre">
+        <MappingFragment StoreEntitySet="Semestres">
+          <ScalarProperty Name="id_semestre" ColumnName="id_semestre" />
+          <ScalarProperty Name="no_semestre" ColumnName="no_semestre" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="SemestresDeCarreras">
+      <EntityTypeMapping TypeName="SandrelenaModel.SemestresDeCarrera">
+        <MappingFragment StoreEntitySet="SemestresDeCarreras">
+          <ScalarProperty Name="id_semestres_carreras" ColumnName="id_semestres_carreras" />
+          <ScalarProperty Name="id_semestre" ColumnName="id_semestre" />
+          <ScalarProperty Name="id_carrera" ColumnName="id_carrera" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Usuarios">
+      <EntityTypeMapping TypeName="SandrelenaModel.Usuario">
+        <MappingFragment StoreEntitySet="Usuarios">
+          <ScalarProperty Name="id_usuario" ColumnName="id_usuario" />
+          <ScalarProperty Name="username" ColumnName="username" />
+          <ScalarProperty Name="pass" ColumnName="pass" />
+          <ScalarProperty Name="primer_nombre" ColumnName="primer_nombre" />
+          <ScalarProperty Name="segundo_nombre" ColumnName="segundo_nombre" />
+          <ScalarProperty Name="primer_apellido" ColumnName="primer_apellido" />
+          <ScalarProperty Name="segundo_apellido" ColumnName="segundo_apellido" />
+          <ScalarProperty Name="fecha_de_nacimiento" ColumnName="fecha_de_nacimiento" />
+          <ScalarProperty Name="id_rol" ColumnName="id_rol" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="database_firewall_rules">
+      <EntityTypeMapping TypeName="SandrelenaModel.database_firewall_rules">
+        <MappingFragment StoreEntitySet="database_firewall_rules">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="name" ColumnName="name" />
+          <ScalarProperty Name="start_ip_address" ColumnName="start_ip_address" />
+          <ScalarProperty Name="end_ip_address" ColumnName="end_ip_address" />
+          <ScalarProperty Name="create_date" ColumnName="create_date" />
+          <ScalarProperty Name="modify_date" ColumnName="modify_date" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>
