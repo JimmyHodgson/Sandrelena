@@ -314,6 +314,7 @@
     <Content Include="Views\inbox.aspx" />
     <Content Include="Views\matricula.aspx" />
     <Content Include="Views\academico.aspx" />
+    <Content Include="Views\PruebaEntity.aspx" />
     <Content Include="Web.config" />
     <Content Include="Bundle.config" />
     <Content Include="packages.config" />
@@ -504,6 +505,13 @@
     <Compile Include="Views\academico.aspx.designer.cs">
       <DependentUpon>academico.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Views\PruebaEntity.aspx.cs">
+      <DependentUpon>PruebaEntity.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Views\PruebaEntity.aspx.designer.cs">
+      <DependentUpon>PruebaEntity.aspx</DependentUpon>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -516,6 +524,12 @@
   </ItemGroup>
   <ItemGroup>
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Business\Business.csproj">
+      <Project>{7bcc223d-7b8c-480c-88bf-ae34194214bd}</Project>
+      <Name>Business</Name>
+    </ProjectReference>
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

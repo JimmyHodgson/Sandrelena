@@ -1,8 +1,8 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
-  <EntityContainerMapping StorageEntityContainer="SandrelenaModelStoreContainer" CdmEntityContainer="SandrelenaEntities">
+  <EntityContainerMapping StorageEntityContainer="SandrelenaModelStoreContainer" CdmEntityContainer="SandrelenaCS">
     <EntitySetMapping Name="Actividades">
-      <EntityTypeMapping TypeName="SandrelenaModel.Actividade">
+      <EntityTypeMapping TypeName="SandrelenaModel.Actividades">
         <MappingFragment StoreEntitySet="Actividades">
           <ScalarProperty Name="id_actividad" ColumnName="id_actividad" />
           <ScalarProperty Name="nombre_actividad" ColumnName="nombre_actividad" />
@@ -10,7 +10,7 @@
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="Asignaturas">
-      <EntityTypeMapping TypeName="SandrelenaModel.Asignatura">
+      <EntityTypeMapping TypeName="SandrelenaModel.Asignaturas">
         <MappingFragment StoreEntitySet="Asignaturas">
           <ScalarProperty Name="id_asignatura" ColumnName="id_asignatura" />
           <ScalarProperty Name="codigo_asignatura" ColumnName="codigo_asignatura" />
@@ -20,7 +20,7 @@
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="AsignaturasDeSemestres">
-      <EntityTypeMapping TypeName="SandrelenaModel.AsignaturasDeSemestre">
+      <EntityTypeMapping TypeName="SandrelenaModel.AsignaturasDeSemestres">
         <MappingFragment StoreEntitySet="AsignaturasDeSemestres">
           <ScalarProperty Name="id_asignaturas_semestres" ColumnName="id_asignaturas_semestres" />
           <ScalarProperty Name="id_semestre" ColumnName="id_semestre" />
@@ -29,7 +29,7 @@
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="Aulas">
-      <EntityTypeMapping TypeName="SandrelenaModel.Aula">
+      <EntityTypeMapping TypeName="SandrelenaModel.Aulas">
         <MappingFragment StoreEntitySet="Aulas">
           <ScalarProperty Name="id_aula" ColumnName="id_aula" />
           <ScalarProperty Name="nombre_aula" ColumnName="nombre_aula" />
@@ -39,7 +39,7 @@
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="Carreras">
-      <EntityTypeMapping TypeName="SandrelenaModel.Carrera">
+      <EntityTypeMapping TypeName="SandrelenaModel.Carreras">
         <MappingFragment StoreEntitySet="Carreras">
           <ScalarProperty Name="id_carrera" ColumnName="id_carrera" />
           <ScalarProperty Name="nombre_carrera" ColumnName="nombre_carrera" />
@@ -48,7 +48,7 @@
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="CarrerasDeUsuarios">
-      <EntityTypeMapping TypeName="SandrelenaModel.CarrerasDeUsuario">
+      <EntityTypeMapping TypeName="SandrelenaModel.CarrerasDeUsuarios">
         <MappingFragment StoreEntitySet="CarrerasDeUsuarios">
           <ScalarProperty Name="id_carreras_usuarios" ColumnName="id_carreras_usuarios" />
           <ScalarProperty Name="id_usuario" ColumnName="id_usuario" />
@@ -57,7 +57,7 @@
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="DiaDisponibilidades">
-      <EntityTypeMapping TypeName="SandrelenaModel.DiaDisponibilidade">
+      <EntityTypeMapping TypeName="SandrelenaModel.DiaDisponibilidades">
         <MappingFragment StoreEntitySet="DiaDisponibilidades">
           <ScalarProperty Name="id_diaDisponibilidad" ColumnName="id_diaDisponibilidad" />
           <ScalarProperty Name="dia" ColumnName="dia" />
@@ -67,7 +67,7 @@
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="Facultades">
-      <EntityTypeMapping TypeName="SandrelenaModel.Facultade">
+      <EntityTypeMapping TypeName="SandrelenaModel.Facultades">
         <MappingFragment StoreEntitySet="Facultades">
           <ScalarProperty Name="id_facultad" ColumnName="id_facultad" />
           <ScalarProperty Name="nombre_facultad" ColumnName="nombre_facultad" />
@@ -84,7 +84,7 @@
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="GruposDeUsuarios">
-      <EntityTypeMapping TypeName="SandrelenaModel.GruposDeUsuario">
+      <EntityTypeMapping TypeName="SandrelenaModel.GruposDeUsuarios">
         <MappingFragment StoreEntitySet="GruposDeUsuarios">
           <ScalarProperty Name="id_grupos_usuarios" ColumnName="id_grupos_usuarios" />
           <ScalarProperty Name="id_usuario" ColumnName="id_usuario" />
@@ -93,7 +93,7 @@
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="Horarios">
-      <EntityTypeMapping TypeName="SandrelenaModel.Horario">
+      <EntityTypeMapping TypeName="SandrelenaModel.Horarios">
         <MappingFragment StoreEntitySet="Horarios">
           <ScalarProperty Name="id_horario" ColumnName="id_horario" />
           <ScalarProperty Name="id_aula" ColumnName="id_aula" />
@@ -104,17 +104,17 @@
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="Notas">
-      <EntityTypeMapping TypeName="SandrelenaModel.Nota">
+      <EntityTypeMapping TypeName="SandrelenaModel.Notas">
         <MappingFragment StoreEntitySet="Notas">
           <ScalarProperty Name="id_nota" ColumnName="id_nota" />
           <ScalarProperty Name="id_asignatura" ColumnName="id_asignatura" />
           <ScalarProperty Name="id_usuario" ColumnName="id_usuario" />
-          <ScalarProperty Name="nota1" ColumnName="nota" />
+          <ScalarProperty Name="nota" ColumnName="nota" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="Permisos">
-      <EntityTypeMapping TypeName="SandrelenaModel.Permiso">
+      <EntityTypeMapping TypeName="SandrelenaModel.Permisos">
         <MappingFragment StoreEntitySet="Permisos">
           <ScalarProperty Name="id_permiso" ColumnName="id_permiso" />
           <ScalarProperty Name="nombre_permiso" ColumnName="nombre_permiso" />
@@ -122,7 +122,7 @@
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="PermisosDeRoles">
-      <EntityTypeMapping TypeName="SandrelenaModel.PermisosDeRole">
+      <EntityTypeMapping TypeName="SandrelenaModel.PermisosDeRoles">
         <MappingFragment StoreEntitySet="PermisosDeRoles">
           <ScalarProperty Name="id_permisos_roles" ColumnName="id_permisos_roles" />
           <ScalarProperty Name="id_permiso" ColumnName="id_permiso" />
@@ -131,7 +131,7 @@
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="Prerrequisitos">
-      <EntityTypeMapping TypeName="SandrelenaModel.Prerrequisito">
+      <EntityTypeMapping TypeName="SandrelenaModel.Prerrequisitos">
         <MappingFragment StoreEntitySet="Prerrequisitos">
           <ScalarProperty Name="id_prerrequisito" ColumnName="id_prerrequisito" />
           <ScalarProperty Name="id_asignatura" ColumnName="id_asignatura" />
@@ -140,7 +140,7 @@
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="ProfesoresDeAsignaturas">
-      <EntityTypeMapping TypeName="SandrelenaModel.ProfesoresDeAsignatura">
+      <EntityTypeMapping TypeName="SandrelenaModel.ProfesoresDeAsignaturas">
         <MappingFragment StoreEntitySet="ProfesoresDeAsignaturas">
           <ScalarProperty Name="id_profesores_asignaturas" ColumnName="id_profesores_asignaturas" />
           <ScalarProperty Name="id_asignatura" ColumnName="id_asignatura" />
@@ -149,7 +149,7 @@
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="RegistrosDeActividades">
-      <EntityTypeMapping TypeName="SandrelenaModel.RegistrosDeActividade">
+      <EntityTypeMapping TypeName="SandrelenaModel.RegistrosDeActividades">
         <MappingFragment StoreEntitySet="RegistrosDeActividades">
           <ScalarProperty Name="id_registros_actividades" ColumnName="id_registros_actividades" />
           <ScalarProperty Name="id_actividad" ColumnName="id_actividad" />
@@ -158,7 +158,7 @@
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="Roles">
-      <EntityTypeMapping TypeName="SandrelenaModel.Role">
+      <EntityTypeMapping TypeName="SandrelenaModel.Roles">
         <MappingFragment StoreEntitySet="Roles">
           <ScalarProperty Name="id_rol" ColumnName="id_rol" />
           <ScalarProperty Name="nombre_rol" ColumnName="nombre_rol" />
@@ -166,7 +166,7 @@
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="Semestres">
-      <EntityTypeMapping TypeName="SandrelenaModel.Semestre">
+      <EntityTypeMapping TypeName="SandrelenaModel.Semestres">
         <MappingFragment StoreEntitySet="Semestres">
           <ScalarProperty Name="id_semestre" ColumnName="id_semestre" />
           <ScalarProperty Name="no_semestre" ColumnName="no_semestre" />
@@ -174,7 +174,7 @@
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="SemestresDeCarreras">
-      <EntityTypeMapping TypeName="SandrelenaModel.SemestresDeCarrera">
+      <EntityTypeMapping TypeName="SandrelenaModel.SemestresDeCarreras">
         <MappingFragment StoreEntitySet="SemestresDeCarreras">
           <ScalarProperty Name="id_semestres_carreras" ColumnName="id_semestres_carreras" />
           <ScalarProperty Name="id_semestre" ColumnName="id_semestre" />
@@ -183,7 +183,7 @@
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="Usuarios">
-      <EntityTypeMapping TypeName="SandrelenaModel.Usuario">
+      <EntityTypeMapping TypeName="SandrelenaModel.Usuarios">
         <MappingFragment StoreEntitySet="Usuarios">
           <ScalarProperty Name="id_usuario" ColumnName="id_usuario" />
           <ScalarProperty Name="username" ColumnName="username" />
