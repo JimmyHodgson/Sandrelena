@@ -338,20 +338,16 @@ end
 
 go
 -- in: username, pass
--- out: 0 or 1
 Create Procedure login (
     @username nvarchar(30),
     @pass nvarchar(100)
 )
 as
 begin
-    Select Case When Exists (
-        Select * From Usuarios
-        Where   username = @username
-            And pass = @pass
-    )
-    Then CAST(1 As bit)
-    Else CAST(0 As bit) end
+    Select U.id_usuario, U.username, U.primer_nombre, R.nombre_rol
+    From Usuarios as U Where username = @username And pass = @pass
+    Inner Join Roles As R On
+        U.id_rol = R.id_rol
 end
 
 go
@@ -395,7 +391,7 @@ end
 
 --************************************************************************
 
-exec addUsuario 'kevmusic','123','Kevin', 'Jose', 'Moreira', 'Morales', '1994-08-14', 'admin'
+exec addUsuario 'kevmusic', '123', 'Kevin', 'Jose', 'Moreira', 'Morales', '1994-08-14', 'admin'
 
 --************************************************************************
 

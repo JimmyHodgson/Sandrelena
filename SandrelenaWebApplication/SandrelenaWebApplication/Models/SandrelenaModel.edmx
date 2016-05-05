@@ -1,0 +1,1576 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="SandrelenaModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="Actividades">
+          <Key>
+            <PropertyRef Name="id_actividad" />
+          </Key>
+          <Property Name="id_actividad" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="nombre_actividad" Type="nvarchar" MaxLength="30" Nullable="false" />
+          <Property Name="isActive" Type="bit" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Asignaturas">
+          <Key>
+            <PropertyRef Name="id_asignatura" />
+          </Key>
+          <Property Name="id_asignatura" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="codigo_asignatura" Type="int" Nullable="false" />
+          <Property Name="nombre_asignatura" Type="nvarchar" MaxLength="30" Nullable="false" />
+          <Property Name="creditos" Type="int" Nullable="false" />
+          <Property Name="isActive" Type="bit" Nullable="false" />
+        </EntityType>
+        <EntityType Name="AsignaturasDeSemestres">
+          <Key>
+            <PropertyRef Name="id_asignaturas_semestres" />
+          </Key>
+          <Property Name="id_asignaturas_semestres" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="id_semestre" Type="int" />
+          <Property Name="id_asignatura" Type="int" />
+        </EntityType>
+        <EntityType Name="Aulas">
+          <Key>
+            <PropertyRef Name="id_aula" />
+          </Key>
+          <Property Name="id_aula" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="nombre_aula" Type="nvarchar" MaxLength="30" Nullable="false" />
+          <Property Name="isLab" Type="bit" Nullable="false" />
+          <Property Name="isActive" Type="bit" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Carreras">
+          <Key>
+            <PropertyRef Name="id_carrera" />
+          </Key>
+          <Property Name="id_carrera" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="nombre_carrera" Type="nvarchar" MaxLength="30" Nullable="false" />
+          <Property Name="id_facultad" Type="int" />
+          <Property Name="isActive" Type="bit" Nullable="false" />
+        </EntityType>
+        <EntityType Name="CarrerasDeUsuarios">
+          <Key>
+            <PropertyRef Name="id_carreras_usuarios" />
+          </Key>
+          <Property Name="id_carreras_usuarios" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="id_usuario" Type="int" />
+          <Property Name="id_carrera" Type="int" />
+        </EntityType>
+        <EntityType Name="DiaDisponibilidades">
+          <Key>
+            <PropertyRef Name="id_diaDisponibilidad" />
+          </Key>
+          <Property Name="id_diaDisponibilidad" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="dia" Type="nvarchar" MaxLength="30" Nullable="false" />
+          <Property Name="start_time" Type="time" Precision="7" Nullable="false" />
+          <Property Name="end_time" Type="time" Precision="7" Nullable="false" />
+          <Property Name="isActive" Type="bit" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Facultades">
+          <Key>
+            <PropertyRef Name="id_facultad" />
+          </Key>
+          <Property Name="id_facultad" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="nombre_facultad" Type="nvarchar" MaxLength="30" Nullable="false" />
+          <Property Name="isActive" Type="bit" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Grupos">
+          <Key>
+            <PropertyRef Name="id_grupo" />
+          </Key>
+          <Property Name="id_grupo" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="nombre_grupo" Type="nvarchar" MaxLength="30" Nullable="false" />
+          <Property Name="id_facultad" Type="int" />
+          <Property Name="isActive" Type="bit" Nullable="false" />
+        </EntityType>
+        <EntityType Name="GruposDeUsuarios">
+          <Key>
+            <PropertyRef Name="id_grupos_usuarios" />
+          </Key>
+          <Property Name="id_grupos_usuarios" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="id_usuario" Type="int" />
+          <Property Name="id_grupo" Type="int" />
+        </EntityType>
+        <EntityType Name="Horarios">
+          <Key>
+            <PropertyRef Name="id_horario" />
+          </Key>
+          <Property Name="id_horario" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="id_aula" Type="int" />
+          <Property Name="id_asignatura" Type="int" />
+          <Property Name="no_grupo" Type="int" Nullable="false" />
+          <Property Name="id_diaDisponibilidad" Type="int" />
+          <Property Name="isActive" Type="bit" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Notas">
+          <Key>
+            <PropertyRef Name="id_nota" />
+          </Key>
+          <Property Name="id_nota" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="id_asignatura" Type="int" />
+          <Property Name="id_usuario" Type="int" />
+          <Property Name="nota" Type="int" Nullable="false" />
+          <Property Name="isActive" Type="bit" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Permisos">
+          <Key>
+            <PropertyRef Name="id_permiso" />
+          </Key>
+          <Property Name="id_permiso" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="nombre_permiso" Type="nvarchar" MaxLength="30" Nullable="false" />
+          <Property Name="isActive" Type="bit" Nullable="false" />
+        </EntityType>
+        <EntityType Name="PermisosDeRoles">
+          <Key>
+            <PropertyRef Name="id_permisos_roles" />
+          </Key>
+          <Property Name="id_permisos_roles" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="id_permiso" Type="int" />
+          <Property Name="id_rol" Type="int" />
+        </EntityType>
+        <EntityType Name="Prerrequisitos">
+          <Key>
+            <PropertyRef Name="id_prerrequisito" />
+          </Key>
+          <Property Name="id_prerrequisito" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="id_asignatura" Type="int" />
+          <Property Name="id_asignatura_requisito" Type="int" />
+        </EntityType>
+        <EntityType Name="ProfesoresDeAsignaturas">
+          <Key>
+            <PropertyRef Name="id_profesores_asignaturas" />
+          </Key>
+          <Property Name="id_profesores_asignaturas" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="id_asignatura" Type="int" />
+          <Property Name="id_usuario" Type="int" />
+        </EntityType>
+        <EntityType Name="RegistrosDeActividades">
+          <Key>
+            <PropertyRef Name="id_registros_actividades" />
+          </Key>
+          <Property Name="id_registros_actividades" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="id_actividad" Type="int" />
+          <Property Name="id_usuario" Type="int" />
+        </EntityType>
+        <EntityType Name="Roles">
+          <Key>
+            <PropertyRef Name="id_rol" />
+          </Key>
+          <Property Name="id_rol" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="nombre_rol" Type="nvarchar" MaxLength="30" Nullable="false" />
+          <Property Name="isActive" Type="bit" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Semestres">
+          <Key>
+            <PropertyRef Name="id_semestre" />
+          </Key>
+          <Property Name="id_semestre" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="no_semestre" Type="int" Nullable="false" />
+          <Property Name="isActive" Type="bit" Nullable="false" />
+        </EntityType>
+        <EntityType Name="SemestresDeCarreras">
+          <Key>
+            <PropertyRef Name="id_semestres_carreras" />
+          </Key>
+          <Property Name="id_semestres_carreras" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="id_semestre" Type="int" />
+          <Property Name="id_carrera" Type="int" />
+        </EntityType>
+        <EntityType Name="Usuarios">
+          <Key>
+            <PropertyRef Name="id_usuario" />
+          </Key>
+          <Property Name="id_usuario" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="username" Type="nvarchar" MaxLength="30" Nullable="false" />
+          <Property Name="pass" Type="nvarchar" MaxLength="100" Nullable="false" />
+          <Property Name="primer_nombre" Type="nvarchar" MaxLength="30" Nullable="false" />
+          <Property Name="segundo_nombre" Type="nvarchar" MaxLength="30" Nullable="false" />
+          <Property Name="primer_apellido" Type="nvarchar" MaxLength="30" Nullable="false" />
+          <Property Name="segundo_apellido" Type="nvarchar" MaxLength="30" Nullable="false" />
+          <Property Name="fecha_de_nacimiento" Type="date" Nullable="false" />
+          <Property Name="id_rol" Type="int" />
+          <Property Name="isActive" Type="bit" Nullable="false" />
+        </EntityType>
+        <Association Name="FK__Asignatur__id_as__3A81B327">
+          <End Role="Asignaturas" Type="Self.Asignaturas" Multiplicity="0..1" />
+          <End Role="AsignaturasDeSemestres" Type="Self.AsignaturasDeSemestres" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Asignaturas">
+              <PropertyRef Name="id_asignatura" />
+            </Principal>
+            <Dependent Role="AsignaturasDeSemestres">
+              <PropertyRef Name="id_asignatura" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Asignatur__id_se__398D8EEE">
+          <End Role="Semestres" Type="Self.Semestres" Multiplicity="0..1" />
+          <End Role="AsignaturasDeSemestres" Type="Self.AsignaturasDeSemestres" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Semestres">
+              <PropertyRef Name="id_semestre" />
+            </Principal>
+            <Dependent Role="AsignaturasDeSemestres">
+              <PropertyRef Name="id_semestre" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Carreras__id_fac__29572725">
+          <End Role="Facultades" Type="Self.Facultades" Multiplicity="0..1" />
+          <End Role="Carreras" Type="Self.Carreras" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Facultades">
+              <PropertyRef Name="id_facultad" />
+            </Principal>
+            <Dependent Role="Carreras">
+              <PropertyRef Name="id_facultad" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__CarrerasD__id_ca__2D27B809">
+          <End Role="Carreras" Type="Self.Carreras" Multiplicity="0..1" />
+          <End Role="CarrerasDeUsuarios" Type="Self.CarrerasDeUsuarios" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Carreras">
+              <PropertyRef Name="id_carrera" />
+            </Principal>
+            <Dependent Role="CarrerasDeUsuarios">
+              <PropertyRef Name="id_carrera" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__CarrerasD__id_us__2C3393D0">
+          <End Role="Usuarios" Type="Self.Usuarios" Multiplicity="0..1" />
+          <End Role="CarrerasDeUsuarios" Type="Self.CarrerasDeUsuarios" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Usuarios">
+              <PropertyRef Name="id_usuario" />
+            </Principal>
+            <Dependent Role="CarrerasDeUsuarios">
+              <PropertyRef Name="id_usuario" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Grupos__id_facul__21B6055D">
+          <End Role="Facultades" Type="Self.Facultades" Multiplicity="0..1" />
+          <End Role="Grupos" Type="Self.Grupos" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Facultades">
+              <PropertyRef Name="id_facultad" />
+            </Principal>
+            <Dependent Role="Grupos">
+              <PropertyRef Name="id_facultad" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__GruposDeU__id_gr__25869641">
+          <End Role="Grupos" Type="Self.Grupos" Multiplicity="0..1" />
+          <End Role="GruposDeUsuarios" Type="Self.GruposDeUsuarios" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Grupos">
+              <PropertyRef Name="id_grupo" />
+            </Principal>
+            <Dependent Role="GruposDeUsuarios">
+              <PropertyRef Name="id_grupo" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__GruposDeU__id_us__24927208">
+          <End Role="Usuarios" Type="Self.Usuarios" Multiplicity="0..1" />
+          <End Role="GruposDeUsuarios" Type="Self.GruposDeUsuarios" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Usuarios">
+              <PropertyRef Name="id_usuario" />
+            </Principal>
+            <Dependent Role="GruposDeUsuarios">
+              <PropertyRef Name="id_usuario" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Horarios__id_asi__4E88ABD4">
+          <End Role="Asignaturas" Type="Self.Asignaturas" Multiplicity="0..1" />
+          <End Role="Horarios" Type="Self.Horarios" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Asignaturas">
+              <PropertyRef Name="id_asignatura" />
+            </Principal>
+            <Dependent Role="Horarios">
+              <PropertyRef Name="id_asignatura" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Horarios__id_aul__4D94879B">
+          <End Role="Aulas" Type="Self.Aulas" Multiplicity="0..1" />
+          <End Role="Horarios" Type="Self.Horarios" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Aulas">
+              <PropertyRef Name="id_aula" />
+            </Principal>
+            <Dependent Role="Horarios">
+              <PropertyRef Name="id_aula" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Horarios__id_dia__4F7CD00D">
+          <End Role="DiaDisponibilidades" Type="Self.DiaDisponibilidades" Multiplicity="0..1" />
+          <End Role="Horarios" Type="Self.Horarios" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="DiaDisponibilidades">
+              <PropertyRef Name="id_diaDisponibilidad" />
+            </Principal>
+            <Dependent Role="Horarios">
+              <PropertyRef Name="id_diaDisponibilidad" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Notas__id_asigna__44FF419A">
+          <End Role="Asignaturas" Type="Self.Asignaturas" Multiplicity="0..1" />
+          <End Role="Notas" Type="Self.Notas" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Asignaturas">
+              <PropertyRef Name="id_asignatura" />
+            </Principal>
+            <Dependent Role="Notas">
+              <PropertyRef Name="id_asignatura" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Notas__id_usuari__45F365D3">
+          <End Role="Usuarios" Type="Self.Usuarios" Multiplicity="0..1" />
+          <End Role="Notas" Type="Self.Notas" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Usuarios">
+              <PropertyRef Name="id_usuario" />
+            </Principal>
+            <Dependent Role="Notas">
+              <PropertyRef Name="id_usuario" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__PermisosD__id_pe__164452B1">
+          <End Role="Permisos" Type="Self.Permisos" Multiplicity="0..1" />
+          <End Role="PermisosDeRoles" Type="Self.PermisosDeRoles" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Permisos">
+              <PropertyRef Name="id_permiso" />
+            </Principal>
+            <Dependent Role="PermisosDeRoles">
+              <PropertyRef Name="id_permiso" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__PermisosD__id_ro__173876EA">
+          <End Role="Roles" Type="Self.Roles" Multiplicity="0..1" />
+          <End Role="PermisosDeRoles" Type="Self.PermisosDeRoles" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Roles">
+              <PropertyRef Name="id_rol" />
+            </Principal>
+            <Dependent Role="PermisosDeRoles">
+              <PropertyRef Name="id_rol" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Prerrequi__id_as__33D4B598">
+          <End Role="Asignaturas" Type="Self.Asignaturas" Multiplicity="0..1" />
+          <End Role="Prerrequisitos" Type="Self.Prerrequisitos" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Asignaturas">
+              <PropertyRef Name="id_asignatura" />
+            </Principal>
+            <Dependent Role="Prerrequisitos">
+              <PropertyRef Name="id_asignatura" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Prerrequi__id_as__34C8D9D1">
+          <End Role="Asignaturas" Type="Self.Asignaturas" Multiplicity="0..1" />
+          <End Role="Prerrequisitos" Type="Self.Prerrequisitos" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Asignaturas">
+              <PropertyRef Name="id_asignatura" />
+            </Principal>
+            <Dependent Role="Prerrequisitos">
+              <PropertyRef Name="id_asignatura_requisito" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Profesore__id_as__412EB0B6">
+          <End Role="Asignaturas" Type="Self.Asignaturas" Multiplicity="0..1" />
+          <End Role="ProfesoresDeAsignaturas" Type="Self.ProfesoresDeAsignaturas" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Asignaturas">
+              <PropertyRef Name="id_asignatura" />
+            </Principal>
+            <Dependent Role="ProfesoresDeAsignaturas">
+              <PropertyRef Name="id_asignatura" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Profesore__id_us__4222D4EF">
+          <End Role="Usuarios" Type="Self.Usuarios" Multiplicity="0..1" />
+          <End Role="ProfesoresDeAsignaturas" Type="Self.ProfesoresDeAsignaturas" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Usuarios">
+              <PropertyRef Name="id_usuario" />
+            </Principal>
+            <Dependent Role="ProfesoresDeAsignaturas">
+              <PropertyRef Name="id_usuario" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Registros__id_ac__5535A963">
+          <End Role="Actividades" Type="Self.Actividades" Multiplicity="0..1" />
+          <End Role="RegistrosDeActividades" Type="Self.RegistrosDeActividades" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Actividades">
+              <PropertyRef Name="id_actividad" />
+            </Principal>
+            <Dependent Role="RegistrosDeActividades">
+              <PropertyRef Name="id_actividad" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Registros__id_us__5629CD9C">
+          <End Role="Usuarios" Type="Self.Usuarios" Multiplicity="0..1" />
+          <End Role="RegistrosDeActividades" Type="Self.RegistrosDeActividades" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Usuarios">
+              <PropertyRef Name="id_usuario" />
+            </Principal>
+            <Dependent Role="RegistrosDeActividades">
+              <PropertyRef Name="id_usuario" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Semestres__id_ca__3E52440B">
+          <End Role="Carreras" Type="Self.Carreras" Multiplicity="0..1" />
+          <End Role="SemestresDeCarreras" Type="Self.SemestresDeCarreras" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Carreras">
+              <PropertyRef Name="id_carrera" />
+            </Principal>
+            <Dependent Role="SemestresDeCarreras">
+              <PropertyRef Name="id_carrera" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Semestres__id_se__3D5E1FD2">
+          <End Role="Semestres" Type="Self.Semestres" Multiplicity="0..1" />
+          <End Role="SemestresDeCarreras" Type="Self.SemestresDeCarreras" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Semestres">
+              <PropertyRef Name="id_semestre" />
+            </Principal>
+            <Dependent Role="SemestresDeCarreras">
+              <PropertyRef Name="id_semestre" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Usuarios__id_rol__1B0907CE">
+          <End Role="Roles" Type="Self.Roles" Multiplicity="0..1" />
+          <End Role="Usuarios" Type="Self.Usuarios" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Roles">
+              <PropertyRef Name="id_rol" />
+            </Principal>
+            <Dependent Role="Usuarios">
+              <PropertyRef Name="id_rol" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Function Name="activatePermiso" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="id" Type="int" Mode="In" />
+        </Function>
+        <Function Name="activateRol" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="id" Type="int" Mode="In" />
+        </Function>
+        <Function Name="addPermiso" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="name" Type="nvarchar" Mode="In" />
+        </Function>
+        <Function Name="addRol" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="name" Type="nvarchar" Mode="In" />
+        </Function>
+        <Function Name="assignPermisoToRol" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="nombre_rol" Type="nvarchar" Mode="In" />
+          <Parameter Name="nombre_permiso" Type="nvarchar" Mode="In" />
+        </Function>
+        <Function Name="deactivatePermiso" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="id" Type="int" Mode="In" />
+        </Function>
+        <Function Name="deactivateRol" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="id" Type="int" Mode="In" />
+        </Function>
+        <Function Name="editNamePermiso" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="actual_name" Type="nvarchar" Mode="In" />
+          <Parameter Name="toBe_name" Type="nvarchar" Mode="In" />
+        </Function>
+        <Function Name="editNameRol" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="actual_name" Type="nvarchar" Mode="In" />
+          <Parameter Name="toBe_name" Type="nvarchar" Mode="In" />
+        </Function>
+        <Function Name="getIDPermiso" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="name" Type="nvarchar" Mode="In" />
+        </Function>
+        <Function Name="getIDRol" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="name" Type="nvarchar" Mode="In" />
+        </Function>
+        <Function Name="getPermisosOfRol" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="name" Type="nvarchar" Mode="In" />
+        </Function>
+        <EntityContainer Name="SandrelenaModelStoreContainer">
+          <EntitySet Name="Actividades" EntityType="Self.Actividades" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Asignaturas" EntityType="Self.Asignaturas" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="AsignaturasDeSemestres" EntityType="Self.AsignaturasDeSemestres" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Aulas" EntityType="Self.Aulas" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Carreras" EntityType="Self.Carreras" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="CarrerasDeUsuarios" EntityType="Self.CarrerasDeUsuarios" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="DiaDisponibilidades" EntityType="Self.DiaDisponibilidades" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Facultades" EntityType="Self.Facultades" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Grupos" EntityType="Self.Grupos" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="GruposDeUsuarios" EntityType="Self.GruposDeUsuarios" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Horarios" EntityType="Self.Horarios" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Notas" EntityType="Self.Notas" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Permisos" EntityType="Self.Permisos" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="PermisosDeRoles" EntityType="Self.PermisosDeRoles" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Prerrequisitos" EntityType="Self.Prerrequisitos" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="ProfesoresDeAsignaturas" EntityType="Self.ProfesoresDeAsignaturas" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="RegistrosDeActividades" EntityType="Self.RegistrosDeActividades" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Roles" EntityType="Self.Roles" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Semestres" EntityType="Self.Semestres" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="SemestresDeCarreras" EntityType="Self.SemestresDeCarreras" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Usuarios" EntityType="Self.Usuarios" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK__Asignatur__id_as__3A81B327" Association="Self.FK__Asignatur__id_as__3A81B327">
+            <End Role="Asignaturas" EntitySet="Asignaturas" />
+            <End Role="AsignaturasDeSemestres" EntitySet="AsignaturasDeSemestres" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Asignatur__id_se__398D8EEE" Association="Self.FK__Asignatur__id_se__398D8EEE">
+            <End Role="Semestres" EntitySet="Semestres" />
+            <End Role="AsignaturasDeSemestres" EntitySet="AsignaturasDeSemestres" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Carreras__id_fac__29572725" Association="Self.FK__Carreras__id_fac__29572725">
+            <End Role="Facultades" EntitySet="Facultades" />
+            <End Role="Carreras" EntitySet="Carreras" />
+          </AssociationSet>
+          <AssociationSet Name="FK__CarrerasD__id_ca__2D27B809" Association="Self.FK__CarrerasD__id_ca__2D27B809">
+            <End Role="Carreras" EntitySet="Carreras" />
+            <End Role="CarrerasDeUsuarios" EntitySet="CarrerasDeUsuarios" />
+          </AssociationSet>
+          <AssociationSet Name="FK__CarrerasD__id_us__2C3393D0" Association="Self.FK__CarrerasD__id_us__2C3393D0">
+            <End Role="Usuarios" EntitySet="Usuarios" />
+            <End Role="CarrerasDeUsuarios" EntitySet="CarrerasDeUsuarios" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Grupos__id_facul__21B6055D" Association="Self.FK__Grupos__id_facul__21B6055D">
+            <End Role="Facultades" EntitySet="Facultades" />
+            <End Role="Grupos" EntitySet="Grupos" />
+          </AssociationSet>
+          <AssociationSet Name="FK__GruposDeU__id_gr__25869641" Association="Self.FK__GruposDeU__id_gr__25869641">
+            <End Role="Grupos" EntitySet="Grupos" />
+            <End Role="GruposDeUsuarios" EntitySet="GruposDeUsuarios" />
+          </AssociationSet>
+          <AssociationSet Name="FK__GruposDeU__id_us__24927208" Association="Self.FK__GruposDeU__id_us__24927208">
+            <End Role="Usuarios" EntitySet="Usuarios" />
+            <End Role="GruposDeUsuarios" EntitySet="GruposDeUsuarios" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Horarios__id_asi__4E88ABD4" Association="Self.FK__Horarios__id_asi__4E88ABD4">
+            <End Role="Asignaturas" EntitySet="Asignaturas" />
+            <End Role="Horarios" EntitySet="Horarios" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Horarios__id_aul__4D94879B" Association="Self.FK__Horarios__id_aul__4D94879B">
+            <End Role="Aulas" EntitySet="Aulas" />
+            <End Role="Horarios" EntitySet="Horarios" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Horarios__id_dia__4F7CD00D" Association="Self.FK__Horarios__id_dia__4F7CD00D">
+            <End Role="DiaDisponibilidades" EntitySet="DiaDisponibilidades" />
+            <End Role="Horarios" EntitySet="Horarios" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Notas__id_asigna__44FF419A" Association="Self.FK__Notas__id_asigna__44FF419A">
+            <End Role="Asignaturas" EntitySet="Asignaturas" />
+            <End Role="Notas" EntitySet="Notas" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Notas__id_usuari__45F365D3" Association="Self.FK__Notas__id_usuari__45F365D3">
+            <End Role="Usuarios" EntitySet="Usuarios" />
+            <End Role="Notas" EntitySet="Notas" />
+          </AssociationSet>
+          <AssociationSet Name="FK__PermisosD__id_pe__164452B1" Association="Self.FK__PermisosD__id_pe__164452B1">
+            <End Role="Permisos" EntitySet="Permisos" />
+            <End Role="PermisosDeRoles" EntitySet="PermisosDeRoles" />
+          </AssociationSet>
+          <AssociationSet Name="FK__PermisosD__id_ro__173876EA" Association="Self.FK__PermisosD__id_ro__173876EA">
+            <End Role="Roles" EntitySet="Roles" />
+            <End Role="PermisosDeRoles" EntitySet="PermisosDeRoles" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Prerrequi__id_as__33D4B598" Association="Self.FK__Prerrequi__id_as__33D4B598">
+            <End Role="Asignaturas" EntitySet="Asignaturas" />
+            <End Role="Prerrequisitos" EntitySet="Prerrequisitos" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Prerrequi__id_as__34C8D9D1" Association="Self.FK__Prerrequi__id_as__34C8D9D1">
+            <End Role="Asignaturas" EntitySet="Asignaturas" />
+            <End Role="Prerrequisitos" EntitySet="Prerrequisitos" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Profesore__id_as__412EB0B6" Association="Self.FK__Profesore__id_as__412EB0B6">
+            <End Role="Asignaturas" EntitySet="Asignaturas" />
+            <End Role="ProfesoresDeAsignaturas" EntitySet="ProfesoresDeAsignaturas" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Profesore__id_us__4222D4EF" Association="Self.FK__Profesore__id_us__4222D4EF">
+            <End Role="Usuarios" EntitySet="Usuarios" />
+            <End Role="ProfesoresDeAsignaturas" EntitySet="ProfesoresDeAsignaturas" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Registros__id_ac__5535A963" Association="Self.FK__Registros__id_ac__5535A963">
+            <End Role="Actividades" EntitySet="Actividades" />
+            <End Role="RegistrosDeActividades" EntitySet="RegistrosDeActividades" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Registros__id_us__5629CD9C" Association="Self.FK__Registros__id_us__5629CD9C">
+            <End Role="Usuarios" EntitySet="Usuarios" />
+            <End Role="RegistrosDeActividades" EntitySet="RegistrosDeActividades" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Semestres__id_ca__3E52440B" Association="Self.FK__Semestres__id_ca__3E52440B">
+            <End Role="Carreras" EntitySet="Carreras" />
+            <End Role="SemestresDeCarreras" EntitySet="SemestresDeCarreras" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Semestres__id_se__3D5E1FD2" Association="Self.FK__Semestres__id_se__3D5E1FD2">
+            <End Role="Semestres" EntitySet="Semestres" />
+            <End Role="SemestresDeCarreras" EntitySet="SemestresDeCarreras" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Usuarios__id_rol__1B0907CE" Association="Self.FK__Usuarios__id_rol__1B0907CE">
+            <End Role="Roles" EntitySet="Roles" />
+            <End Role="Usuarios" EntitySet="Usuarios" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="SandrelenaModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="Actividades">
+          <Key>
+            <PropertyRef Name="id_actividad" />
+          </Key>
+          <Property Name="id_actividad" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="nombre_actividad" Type="String" MaxLength="30" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="isActive" Type="Boolean" Nullable="false" />
+          <NavigationProperty Name="RegistrosDeActividades" Relationship="Self.FK__Registros__id_ac__5535A963" FromRole="Actividades" ToRole="RegistrosDeActividades" />
+        </EntityType>
+        <EntityType Name="Asignaturas">
+          <Key>
+            <PropertyRef Name="id_asignatura" />
+          </Key>
+          <Property Name="id_asignatura" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="codigo_asignatura" Type="Int32" Nullable="false" />
+          <Property Name="nombre_asignatura" Type="String" MaxLength="30" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="creditos" Type="Int32" Nullable="false" />
+          <Property Name="isActive" Type="Boolean" Nullable="false" />
+          <NavigationProperty Name="AsignaturasDeSemestres" Relationship="Self.FK__Asignatur__id_as__3A81B327" FromRole="Asignaturas" ToRole="AsignaturasDeSemestres" />
+          <NavigationProperty Name="Horarios" Relationship="Self.FK__Horarios__id_asi__4E88ABD4" FromRole="Asignaturas" ToRole="Horarios" />
+          <NavigationProperty Name="Notas" Relationship="Self.FK__Notas__id_asigna__44FF419A" FromRole="Asignaturas" ToRole="Notas" />
+          <NavigationProperty Name="Prerrequisitos" Relationship="Self.FK__Prerrequi__id_as__33D4B598" FromRole="Asignaturas" ToRole="Prerrequisitos" />
+          <NavigationProperty Name="Prerrequisitos1" Relationship="Self.FK__Prerrequi__id_as__34C8D9D1" FromRole="Asignaturas" ToRole="Prerrequisitos" />
+          <NavigationProperty Name="ProfesoresDeAsignaturas" Relationship="Self.FK__Profesore__id_as__412EB0B6" FromRole="Asignaturas" ToRole="ProfesoresDeAsignaturas" />
+        </EntityType>
+        <EntityType Name="AsignaturasDeSemestres">
+          <Key>
+            <PropertyRef Name="id_asignaturas_semestres" />
+          </Key>
+          <Property Name="id_asignaturas_semestres" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="id_semestre" Type="Int32" />
+          <Property Name="id_asignatura" Type="Int32" />
+          <NavigationProperty Name="Asignaturas" Relationship="Self.FK__Asignatur__id_as__3A81B327" FromRole="AsignaturasDeSemestres" ToRole="Asignaturas" />
+          <NavigationProperty Name="Semestres" Relationship="Self.FK__Asignatur__id_se__398D8EEE" FromRole="AsignaturasDeSemestres" ToRole="Semestres" />
+        </EntityType>
+        <EntityType Name="Aulas">
+          <Key>
+            <PropertyRef Name="id_aula" />
+          </Key>
+          <Property Name="id_aula" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="nombre_aula" Type="String" MaxLength="30" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="isLab" Type="Boolean" Nullable="false" />
+          <Property Name="isActive" Type="Boolean" Nullable="false" />
+          <NavigationProperty Name="Horarios" Relationship="Self.FK__Horarios__id_aul__4D94879B" FromRole="Aulas" ToRole="Horarios" />
+        </EntityType>
+        <EntityType Name="Carreras">
+          <Key>
+            <PropertyRef Name="id_carrera" />
+          </Key>
+          <Property Name="id_carrera" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="nombre_carrera" Type="String" MaxLength="30" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="id_facultad" Type="Int32" />
+          <Property Name="isActive" Type="Boolean" Nullable="false" />
+          <NavigationProperty Name="Facultades" Relationship="Self.FK__Carreras__id_fac__29572725" FromRole="Carreras" ToRole="Facultades" />
+          <NavigationProperty Name="CarrerasDeUsuarios" Relationship="Self.FK__CarrerasD__id_ca__2D27B809" FromRole="Carreras" ToRole="CarrerasDeUsuarios" />
+          <NavigationProperty Name="SemestresDeCarreras" Relationship="Self.FK__Semestres__id_ca__3E52440B" FromRole="Carreras" ToRole="SemestresDeCarreras" />
+        </EntityType>
+        <EntityType Name="CarrerasDeUsuarios">
+          <Key>
+            <PropertyRef Name="id_carreras_usuarios" />
+          </Key>
+          <Property Name="id_carreras_usuarios" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="id_usuario" Type="Int32" />
+          <Property Name="id_carrera" Type="Int32" />
+          <NavigationProperty Name="Carreras" Relationship="Self.FK__CarrerasD__id_ca__2D27B809" FromRole="CarrerasDeUsuarios" ToRole="Carreras" />
+          <NavigationProperty Name="Usuarios" Relationship="Self.FK__CarrerasD__id_us__2C3393D0" FromRole="CarrerasDeUsuarios" ToRole="Usuarios" />
+        </EntityType>
+        <EntityType Name="DiaDisponibilidades">
+          <Key>
+            <PropertyRef Name="id_diaDisponibilidad" />
+          </Key>
+          <Property Name="id_diaDisponibilidad" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="dia" Type="String" MaxLength="30" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="start_time" Type="Time" Nullable="false" Precision="7" />
+          <Property Name="end_time" Type="Time" Nullable="false" Precision="7" />
+          <Property Name="isActive" Type="Boolean" Nullable="false" />
+          <NavigationProperty Name="Horarios" Relationship="Self.FK__Horarios__id_dia__4F7CD00D" FromRole="DiaDisponibilidades" ToRole="Horarios" />
+        </EntityType>
+        <EntityType Name="Facultades">
+          <Key>
+            <PropertyRef Name="id_facultad" />
+          </Key>
+          <Property Name="id_facultad" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="nombre_facultad" Type="String" MaxLength="30" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="isActive" Type="Boolean" Nullable="false" />
+          <NavigationProperty Name="Carreras" Relationship="Self.FK__Carreras__id_fac__29572725" FromRole="Facultades" ToRole="Carreras" />
+          <NavigationProperty Name="Grupos" Relationship="Self.FK__Grupos__id_facul__21B6055D" FromRole="Facultades" ToRole="Grupos" />
+        </EntityType>
+        <EntityType Name="Grupos">
+          <Key>
+            <PropertyRef Name="id_grupo" />
+          </Key>
+          <Property Name="id_grupo" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="nombre_grupo" Type="String" MaxLength="30" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="id_facultad" Type="Int32" />
+          <Property Name="isActive" Type="Boolean" Nullable="false" />
+          <NavigationProperty Name="Facultades" Relationship="Self.FK__Grupos__id_facul__21B6055D" FromRole="Grupos" ToRole="Facultades" />
+          <NavigationProperty Name="GruposDeUsuarios" Relationship="Self.FK__GruposDeU__id_gr__25869641" FromRole="Grupos" ToRole="GruposDeUsuarios" />
+        </EntityType>
+        <EntityType Name="GruposDeUsuarios">
+          <Key>
+            <PropertyRef Name="id_grupos_usuarios" />
+          </Key>
+          <Property Name="id_grupos_usuarios" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="id_usuario" Type="Int32" />
+          <Property Name="id_grupo" Type="Int32" />
+          <NavigationProperty Name="Grupos" Relationship="Self.FK__GruposDeU__id_gr__25869641" FromRole="GruposDeUsuarios" ToRole="Grupos" />
+          <NavigationProperty Name="Usuarios" Relationship="Self.FK__GruposDeU__id_us__24927208" FromRole="GruposDeUsuarios" ToRole="Usuarios" />
+        </EntityType>
+        <EntityType Name="Horarios">
+          <Key>
+            <PropertyRef Name="id_horario" />
+          </Key>
+          <Property Name="id_horario" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="id_aula" Type="Int32" />
+          <Property Name="id_asignatura" Type="Int32" />
+          <Property Name="no_grupo" Type="Int32" Nullable="false" />
+          <Property Name="id_diaDisponibilidad" Type="Int32" />
+          <Property Name="isActive" Type="Boolean" Nullable="false" />
+          <NavigationProperty Name="Asignaturas" Relationship="Self.FK__Horarios__id_asi__4E88ABD4" FromRole="Horarios" ToRole="Asignaturas" />
+          <NavigationProperty Name="Aulas" Relationship="Self.FK__Horarios__id_aul__4D94879B" FromRole="Horarios" ToRole="Aulas" />
+          <NavigationProperty Name="DiaDisponibilidades" Relationship="Self.FK__Horarios__id_dia__4F7CD00D" FromRole="Horarios" ToRole="DiaDisponibilidades" />
+        </EntityType>
+        <EntityType Name="Notas">
+          <Key>
+            <PropertyRef Name="id_nota" />
+          </Key>
+          <Property Name="id_nota" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="id_asignatura" Type="Int32" />
+          <Property Name="id_usuario" Type="Int32" />
+          <Property Name="nota" Type="Int32" Nullable="false" />
+          <Property Name="isActive" Type="Boolean" Nullable="false" />
+          <NavigationProperty Name="Asignaturas" Relationship="Self.FK__Notas__id_asigna__44FF419A" FromRole="Notas" ToRole="Asignaturas" />
+          <NavigationProperty Name="Usuarios" Relationship="Self.FK__Notas__id_usuari__45F365D3" FromRole="Notas" ToRole="Usuarios" />
+        </EntityType>
+        <EntityType Name="Permisos">
+          <Key>
+            <PropertyRef Name="id_permiso" />
+          </Key>
+          <Property Name="id_permiso" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="nombre_permiso" Type="String" MaxLength="30" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="isActive" Type="Boolean" Nullable="false" />
+          <NavigationProperty Name="PermisosDeRoles" Relationship="Self.FK__PermisosD__id_pe__164452B1" FromRole="Permisos" ToRole="PermisosDeRoles" />
+        </EntityType>
+        <EntityType Name="PermisosDeRoles">
+          <Key>
+            <PropertyRef Name="id_permisos_roles" />
+          </Key>
+          <Property Name="id_permisos_roles" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="id_permiso" Type="Int32" />
+          <Property Name="id_rol" Type="Int32" />
+          <NavigationProperty Name="Permisos" Relationship="Self.FK__PermisosD__id_pe__164452B1" FromRole="PermisosDeRoles" ToRole="Permisos" />
+          <NavigationProperty Name="Roles" Relationship="Self.FK__PermisosD__id_ro__173876EA" FromRole="PermisosDeRoles" ToRole="Roles" />
+        </EntityType>
+        <EntityType Name="Prerrequisitos">
+          <Key>
+            <PropertyRef Name="id_prerrequisito" />
+          </Key>
+          <Property Name="id_prerrequisito" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="id_asignatura" Type="Int32" />
+          <Property Name="id_asignatura_requisito" Type="Int32" />
+          <NavigationProperty Name="Asignaturas" Relationship="Self.FK__Prerrequi__id_as__33D4B598" FromRole="Prerrequisitos" ToRole="Asignaturas" />
+          <NavigationProperty Name="Asignaturas1" Relationship="Self.FK__Prerrequi__id_as__34C8D9D1" FromRole="Prerrequisitos" ToRole="Asignaturas" />
+        </EntityType>
+        <EntityType Name="ProfesoresDeAsignaturas">
+          <Key>
+            <PropertyRef Name="id_profesores_asignaturas" />
+          </Key>
+          <Property Name="id_profesores_asignaturas" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="id_asignatura" Type="Int32" />
+          <Property Name="id_usuario" Type="Int32" />
+          <NavigationProperty Name="Asignaturas" Relationship="Self.FK__Profesore__id_as__412EB0B6" FromRole="ProfesoresDeAsignaturas" ToRole="Asignaturas" />
+          <NavigationProperty Name="Usuarios" Relationship="Self.FK__Profesore__id_us__4222D4EF" FromRole="ProfesoresDeAsignaturas" ToRole="Usuarios" />
+        </EntityType>
+        <EntityType Name="RegistrosDeActividades">
+          <Key>
+            <PropertyRef Name="id_registros_actividades" />
+          </Key>
+          <Property Name="id_registros_actividades" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="id_actividad" Type="Int32" />
+          <Property Name="id_usuario" Type="Int32" />
+          <NavigationProperty Name="Actividades" Relationship="Self.FK__Registros__id_ac__5535A963" FromRole="RegistrosDeActividades" ToRole="Actividades" />
+          <NavigationProperty Name="Usuarios" Relationship="Self.FK__Registros__id_us__5629CD9C" FromRole="RegistrosDeActividades" ToRole="Usuarios" />
+        </EntityType>
+        <EntityType Name="Roles">
+          <Key>
+            <PropertyRef Name="id_rol" />
+          </Key>
+          <Property Name="id_rol" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="nombre_rol" Type="String" MaxLength="30" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="isActive" Type="Boolean" Nullable="false" />
+          <NavigationProperty Name="PermisosDeRoles" Relationship="Self.FK__PermisosD__id_ro__173876EA" FromRole="Roles" ToRole="PermisosDeRoles" />
+          <NavigationProperty Name="Usuarios" Relationship="Self.FK__Usuarios__id_rol__1B0907CE" FromRole="Roles" ToRole="Usuarios" />
+        </EntityType>
+        <EntityType Name="Semestres">
+          <Key>
+            <PropertyRef Name="id_semestre" />
+          </Key>
+          <Property Name="id_semestre" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="no_semestre" Type="Int32" Nullable="false" />
+          <Property Name="isActive" Type="Boolean" Nullable="false" />
+          <NavigationProperty Name="AsignaturasDeSemestres" Relationship="Self.FK__Asignatur__id_se__398D8EEE" FromRole="Semestres" ToRole="AsignaturasDeSemestres" />
+          <NavigationProperty Name="SemestresDeCarreras" Relationship="Self.FK__Semestres__id_se__3D5E1FD2" FromRole="Semestres" ToRole="SemestresDeCarreras" />
+        </EntityType>
+        <EntityType Name="SemestresDeCarreras">
+          <Key>
+            <PropertyRef Name="id_semestres_carreras" />
+          </Key>
+          <Property Name="id_semestres_carreras" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="id_semestre" Type="Int32" />
+          <Property Name="id_carrera" Type="Int32" />
+          <NavigationProperty Name="Carreras" Relationship="Self.FK__Semestres__id_ca__3E52440B" FromRole="SemestresDeCarreras" ToRole="Carreras" />
+          <NavigationProperty Name="Semestres" Relationship="Self.FK__Semestres__id_se__3D5E1FD2" FromRole="SemestresDeCarreras" ToRole="Semestres" />
+        </EntityType>
+        <EntityType Name="Usuarios">
+          <Key>
+            <PropertyRef Name="id_usuario" />
+          </Key>
+          <Property Name="id_usuario" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="username" Type="String" MaxLength="30" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="pass" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="primer_nombre" Type="String" MaxLength="30" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="segundo_nombre" Type="String" MaxLength="30" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="primer_apellido" Type="String" MaxLength="30" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="segundo_apellido" Type="String" MaxLength="30" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="fecha_de_nacimiento" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="id_rol" Type="Int32" />
+          <Property Name="isActive" Type="Boolean" Nullable="false" />
+          <NavigationProperty Name="CarrerasDeUsuarios" Relationship="Self.FK__CarrerasD__id_us__2C3393D0" FromRole="Usuarios" ToRole="CarrerasDeUsuarios" />
+          <NavigationProperty Name="GruposDeUsuarios" Relationship="Self.FK__GruposDeU__id_us__24927208" FromRole="Usuarios" ToRole="GruposDeUsuarios" />
+          <NavigationProperty Name="Notas" Relationship="Self.FK__Notas__id_usuari__45F365D3" FromRole="Usuarios" ToRole="Notas" />
+          <NavigationProperty Name="ProfesoresDeAsignaturas" Relationship="Self.FK__Profesore__id_us__4222D4EF" FromRole="Usuarios" ToRole="ProfesoresDeAsignaturas" />
+          <NavigationProperty Name="RegistrosDeActividades" Relationship="Self.FK__Registros__id_us__5629CD9C" FromRole="Usuarios" ToRole="RegistrosDeActividades" />
+          <NavigationProperty Name="Roles" Relationship="Self.FK__Usuarios__id_rol__1B0907CE" FromRole="Usuarios" ToRole="Roles" />
+        </EntityType>
+        <Association Name="FK__Registros__id_ac__5535A963">
+          <End Role="Actividades" Type="Self.Actividades" Multiplicity="0..1" />
+          <End Role="RegistrosDeActividades" Type="Self.RegistrosDeActividades" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Actividades">
+              <PropertyRef Name="id_actividad" />
+            </Principal>
+            <Dependent Role="RegistrosDeActividades">
+              <PropertyRef Name="id_actividad" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Asignatur__id_as__3A81B327">
+          <End Role="Asignaturas" Type="Self.Asignaturas" Multiplicity="0..1" />
+          <End Role="AsignaturasDeSemestres" Type="Self.AsignaturasDeSemestres" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Asignaturas">
+              <PropertyRef Name="id_asignatura" />
+            </Principal>
+            <Dependent Role="AsignaturasDeSemestres">
+              <PropertyRef Name="id_asignatura" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Horarios__id_asi__4E88ABD4">
+          <End Role="Asignaturas" Type="Self.Asignaturas" Multiplicity="0..1" />
+          <End Role="Horarios" Type="Self.Horarios" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Asignaturas">
+              <PropertyRef Name="id_asignatura" />
+            </Principal>
+            <Dependent Role="Horarios">
+              <PropertyRef Name="id_asignatura" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Notas__id_asigna__44FF419A">
+          <End Role="Asignaturas" Type="Self.Asignaturas" Multiplicity="0..1" />
+          <End Role="Notas" Type="Self.Notas" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Asignaturas">
+              <PropertyRef Name="id_asignatura" />
+            </Principal>
+            <Dependent Role="Notas">
+              <PropertyRef Name="id_asignatura" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Prerrequi__id_as__33D4B598">
+          <End Role="Asignaturas" Type="Self.Asignaturas" Multiplicity="0..1" />
+          <End Role="Prerrequisitos" Type="Self.Prerrequisitos" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Asignaturas">
+              <PropertyRef Name="id_asignatura" />
+            </Principal>
+            <Dependent Role="Prerrequisitos">
+              <PropertyRef Name="id_asignatura" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Prerrequi__id_as__34C8D9D1">
+          <End Role="Asignaturas" Type="Self.Asignaturas" Multiplicity="0..1" />
+          <End Role="Prerrequisitos" Type="Self.Prerrequisitos" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Asignaturas">
+              <PropertyRef Name="id_asignatura" />
+            </Principal>
+            <Dependent Role="Prerrequisitos">
+              <PropertyRef Name="id_asignatura_requisito" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Profesore__id_as__412EB0B6">
+          <End Role="Asignaturas" Type="Self.Asignaturas" Multiplicity="0..1" />
+          <End Role="ProfesoresDeAsignaturas" Type="Self.ProfesoresDeAsignaturas" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Asignaturas">
+              <PropertyRef Name="id_asignatura" />
+            </Principal>
+            <Dependent Role="ProfesoresDeAsignaturas">
+              <PropertyRef Name="id_asignatura" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Asignatur__id_se__398D8EEE">
+          <End Role="Semestres" Type="Self.Semestres" Multiplicity="0..1" />
+          <End Role="AsignaturasDeSemestres" Type="Self.AsignaturasDeSemestres" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Semestres">
+              <PropertyRef Name="id_semestre" />
+            </Principal>
+            <Dependent Role="AsignaturasDeSemestres">
+              <PropertyRef Name="id_semestre" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Horarios__id_aul__4D94879B">
+          <End Role="Aulas" Type="Self.Aulas" Multiplicity="0..1" />
+          <End Role="Horarios" Type="Self.Horarios" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Aulas">
+              <PropertyRef Name="id_aula" />
+            </Principal>
+            <Dependent Role="Horarios">
+              <PropertyRef Name="id_aula" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Carreras__id_fac__29572725">
+          <End Role="Facultades" Type="Self.Facultades" Multiplicity="0..1" />
+          <End Role="Carreras" Type="Self.Carreras" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Facultades">
+              <PropertyRef Name="id_facultad" />
+            </Principal>
+            <Dependent Role="Carreras">
+              <PropertyRef Name="id_facultad" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__CarrerasD__id_ca__2D27B809">
+          <End Role="Carreras" Type="Self.Carreras" Multiplicity="0..1" />
+          <End Role="CarrerasDeUsuarios" Type="Self.CarrerasDeUsuarios" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Carreras">
+              <PropertyRef Name="id_carrera" />
+            </Principal>
+            <Dependent Role="CarrerasDeUsuarios">
+              <PropertyRef Name="id_carrera" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Semestres__id_ca__3E52440B">
+          <End Role="Carreras" Type="Self.Carreras" Multiplicity="0..1" />
+          <End Role="SemestresDeCarreras" Type="Self.SemestresDeCarreras" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Carreras">
+              <PropertyRef Name="id_carrera" />
+            </Principal>
+            <Dependent Role="SemestresDeCarreras">
+              <PropertyRef Name="id_carrera" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__CarrerasD__id_us__2C3393D0">
+          <End Role="Usuarios" Type="Self.Usuarios" Multiplicity="0..1" />
+          <End Role="CarrerasDeUsuarios" Type="Self.CarrerasDeUsuarios" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Usuarios">
+              <PropertyRef Name="id_usuario" />
+            </Principal>
+            <Dependent Role="CarrerasDeUsuarios">
+              <PropertyRef Name="id_usuario" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Horarios__id_dia__4F7CD00D">
+          <End Role="DiaDisponibilidades" Type="Self.DiaDisponibilidades" Multiplicity="0..1" />
+          <End Role="Horarios" Type="Self.Horarios" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="DiaDisponibilidades">
+              <PropertyRef Name="id_diaDisponibilidad" />
+            </Principal>
+            <Dependent Role="Horarios">
+              <PropertyRef Name="id_diaDisponibilidad" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Grupos__id_facul__21B6055D">
+          <End Role="Facultades" Type="Self.Facultades" Multiplicity="0..1" />
+          <End Role="Grupos" Type="Self.Grupos" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Facultades">
+              <PropertyRef Name="id_facultad" />
+            </Principal>
+            <Dependent Role="Grupos">
+              <PropertyRef Name="id_facultad" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__GruposDeU__id_gr__25869641">
+          <End Role="Grupos" Type="Self.Grupos" Multiplicity="0..1" />
+          <End Role="GruposDeUsuarios" Type="Self.GruposDeUsuarios" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Grupos">
+              <PropertyRef Name="id_grupo" />
+            </Principal>
+            <Dependent Role="GruposDeUsuarios">
+              <PropertyRef Name="id_grupo" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__GruposDeU__id_us__24927208">
+          <End Role="Usuarios" Type="Self.Usuarios" Multiplicity="0..1" />
+          <End Role="GruposDeUsuarios" Type="Self.GruposDeUsuarios" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Usuarios">
+              <PropertyRef Name="id_usuario" />
+            </Principal>
+            <Dependent Role="GruposDeUsuarios">
+              <PropertyRef Name="id_usuario" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Notas__id_usuari__45F365D3">
+          <End Role="Usuarios" Type="Self.Usuarios" Multiplicity="0..1" />
+          <End Role="Notas" Type="Self.Notas" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Usuarios">
+              <PropertyRef Name="id_usuario" />
+            </Principal>
+            <Dependent Role="Notas">
+              <PropertyRef Name="id_usuario" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__PermisosD__id_pe__164452B1">
+          <End Role="Permisos" Type="Self.Permisos" Multiplicity="0..1" />
+          <End Role="PermisosDeRoles" Type="Self.PermisosDeRoles" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Permisos">
+              <PropertyRef Name="id_permiso" />
+            </Principal>
+            <Dependent Role="PermisosDeRoles">
+              <PropertyRef Name="id_permiso" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__PermisosD__id_ro__173876EA">
+          <End Role="Roles" Type="Self.Roles" Multiplicity="0..1" />
+          <End Role="PermisosDeRoles" Type="Self.PermisosDeRoles" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Roles">
+              <PropertyRef Name="id_rol" />
+            </Principal>
+            <Dependent Role="PermisosDeRoles">
+              <PropertyRef Name="id_rol" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Profesore__id_us__4222D4EF">
+          <End Role="Usuarios" Type="Self.Usuarios" Multiplicity="0..1" />
+          <End Role="ProfesoresDeAsignaturas" Type="Self.ProfesoresDeAsignaturas" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Usuarios">
+              <PropertyRef Name="id_usuario" />
+            </Principal>
+            <Dependent Role="ProfesoresDeAsignaturas">
+              <PropertyRef Name="id_usuario" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Registros__id_us__5629CD9C">
+          <End Role="Usuarios" Type="Self.Usuarios" Multiplicity="0..1" />
+          <End Role="RegistrosDeActividades" Type="Self.RegistrosDeActividades" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Usuarios">
+              <PropertyRef Name="id_usuario" />
+            </Principal>
+            <Dependent Role="RegistrosDeActividades">
+              <PropertyRef Name="id_usuario" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Usuarios__id_rol__1B0907CE">
+          <End Role="Roles" Type="Self.Roles" Multiplicity="0..1" />
+          <End Role="Usuarios" Type="Self.Usuarios" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Roles">
+              <PropertyRef Name="id_rol" />
+            </Principal>
+            <Dependent Role="Usuarios">
+              <PropertyRef Name="id_rol" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Semestres__id_se__3D5E1FD2">
+          <End Role="Semestres" Type="Self.Semestres" Multiplicity="0..1" />
+          <End Role="SemestresDeCarreras" Type="Self.SemestresDeCarreras" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Semestres">
+              <PropertyRef Name="id_semestre" />
+            </Principal>
+            <Dependent Role="SemestresDeCarreras">
+              <PropertyRef Name="id_semestre" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="SandrelenaEntities_ConnectionString" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="Actividades" EntityType="Self.Actividades" />
+          <EntitySet Name="Asignaturas" EntityType="Self.Asignaturas" />
+          <EntitySet Name="AsignaturasDeSemestres" EntityType="Self.AsignaturasDeSemestres" />
+          <EntitySet Name="Aulas" EntityType="Self.Aulas" />
+          <EntitySet Name="Carreras" EntityType="Self.Carreras" />
+          <EntitySet Name="CarrerasDeUsuarios" EntityType="Self.CarrerasDeUsuarios" />
+          <EntitySet Name="DiaDisponibilidades" EntityType="Self.DiaDisponibilidades" />
+          <EntitySet Name="Facultades" EntityType="Self.Facultades" />
+          <EntitySet Name="Grupos" EntityType="Self.Grupos" />
+          <EntitySet Name="GruposDeUsuarios" EntityType="Self.GruposDeUsuarios" />
+          <EntitySet Name="Horarios" EntityType="Self.Horarios" />
+          <EntitySet Name="Notas" EntityType="Self.Notas" />
+          <EntitySet Name="Permisos" EntityType="Self.Permisos" />
+          <EntitySet Name="PermisosDeRoles" EntityType="Self.PermisosDeRoles" />
+          <EntitySet Name="Prerrequisitos" EntityType="Self.Prerrequisitos" />
+          <EntitySet Name="ProfesoresDeAsignaturas" EntityType="Self.ProfesoresDeAsignaturas" />
+          <EntitySet Name="RegistrosDeActividades" EntityType="Self.RegistrosDeActividades" />
+          <EntitySet Name="Roles" EntityType="Self.Roles" />
+          <EntitySet Name="Semestres" EntityType="Self.Semestres" />
+          <EntitySet Name="SemestresDeCarreras" EntityType="Self.SemestresDeCarreras" />
+          <EntitySet Name="Usuarios" EntityType="Self.Usuarios" />
+          <AssociationSet Name="FK__Registros__id_ac__5535A963" Association="Self.FK__Registros__id_ac__5535A963">
+            <End Role="Actividades" EntitySet="Actividades" />
+            <End Role="RegistrosDeActividades" EntitySet="RegistrosDeActividades" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Asignatur__id_as__3A81B327" Association="Self.FK__Asignatur__id_as__3A81B327">
+            <End Role="Asignaturas" EntitySet="Asignaturas" />
+            <End Role="AsignaturasDeSemestres" EntitySet="AsignaturasDeSemestres" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Horarios__id_asi__4E88ABD4" Association="Self.FK__Horarios__id_asi__4E88ABD4">
+            <End Role="Asignaturas" EntitySet="Asignaturas" />
+            <End Role="Horarios" EntitySet="Horarios" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Notas__id_asigna__44FF419A" Association="Self.FK__Notas__id_asigna__44FF419A">
+            <End Role="Asignaturas" EntitySet="Asignaturas" />
+            <End Role="Notas" EntitySet="Notas" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Prerrequi__id_as__33D4B598" Association="Self.FK__Prerrequi__id_as__33D4B598">
+            <End Role="Asignaturas" EntitySet="Asignaturas" />
+            <End Role="Prerrequisitos" EntitySet="Prerrequisitos" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Prerrequi__id_as__34C8D9D1" Association="Self.FK__Prerrequi__id_as__34C8D9D1">
+            <End Role="Asignaturas" EntitySet="Asignaturas" />
+            <End Role="Prerrequisitos" EntitySet="Prerrequisitos" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Profesore__id_as__412EB0B6" Association="Self.FK__Profesore__id_as__412EB0B6">
+            <End Role="Asignaturas" EntitySet="Asignaturas" />
+            <End Role="ProfesoresDeAsignaturas" EntitySet="ProfesoresDeAsignaturas" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Asignatur__id_se__398D8EEE" Association="Self.FK__Asignatur__id_se__398D8EEE">
+            <End Role="Semestres" EntitySet="Semestres" />
+            <End Role="AsignaturasDeSemestres" EntitySet="AsignaturasDeSemestres" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Horarios__id_aul__4D94879B" Association="Self.FK__Horarios__id_aul__4D94879B">
+            <End Role="Aulas" EntitySet="Aulas" />
+            <End Role="Horarios" EntitySet="Horarios" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Carreras__id_fac__29572725" Association="Self.FK__Carreras__id_fac__29572725">
+            <End Role="Facultades" EntitySet="Facultades" />
+            <End Role="Carreras" EntitySet="Carreras" />
+          </AssociationSet>
+          <AssociationSet Name="FK__CarrerasD__id_ca__2D27B809" Association="Self.FK__CarrerasD__id_ca__2D27B809">
+            <End Role="Carreras" EntitySet="Carreras" />
+            <End Role="CarrerasDeUsuarios" EntitySet="CarrerasDeUsuarios" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Semestres__id_ca__3E52440B" Association="Self.FK__Semestres__id_ca__3E52440B">
+            <End Role="Carreras" EntitySet="Carreras" />
+            <End Role="SemestresDeCarreras" EntitySet="SemestresDeCarreras" />
+          </AssociationSet>
+          <AssociationSet Name="FK__CarrerasD__id_us__2C3393D0" Association="Self.FK__CarrerasD__id_us__2C3393D0">
+            <End Role="Usuarios" EntitySet="Usuarios" />
+            <End Role="CarrerasDeUsuarios" EntitySet="CarrerasDeUsuarios" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Horarios__id_dia__4F7CD00D" Association="Self.FK__Horarios__id_dia__4F7CD00D">
+            <End Role="DiaDisponibilidades" EntitySet="DiaDisponibilidades" />
+            <End Role="Horarios" EntitySet="Horarios" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Grupos__id_facul__21B6055D" Association="Self.FK__Grupos__id_facul__21B6055D">
+            <End Role="Facultades" EntitySet="Facultades" />
+            <End Role="Grupos" EntitySet="Grupos" />
+          </AssociationSet>
+          <AssociationSet Name="FK__GruposDeU__id_gr__25869641" Association="Self.FK__GruposDeU__id_gr__25869641">
+            <End Role="Grupos" EntitySet="Grupos" />
+            <End Role="GruposDeUsuarios" EntitySet="GruposDeUsuarios" />
+          </AssociationSet>
+          <AssociationSet Name="FK__GruposDeU__id_us__24927208" Association="Self.FK__GruposDeU__id_us__24927208">
+            <End Role="Usuarios" EntitySet="Usuarios" />
+            <End Role="GruposDeUsuarios" EntitySet="GruposDeUsuarios" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Notas__id_usuari__45F365D3" Association="Self.FK__Notas__id_usuari__45F365D3">
+            <End Role="Usuarios" EntitySet="Usuarios" />
+            <End Role="Notas" EntitySet="Notas" />
+          </AssociationSet>
+          <AssociationSet Name="FK__PermisosD__id_pe__164452B1" Association="Self.FK__PermisosD__id_pe__164452B1">
+            <End Role="Permisos" EntitySet="Permisos" />
+            <End Role="PermisosDeRoles" EntitySet="PermisosDeRoles" />
+          </AssociationSet>
+          <AssociationSet Name="FK__PermisosD__id_ro__173876EA" Association="Self.FK__PermisosD__id_ro__173876EA">
+            <End Role="Roles" EntitySet="Roles" />
+            <End Role="PermisosDeRoles" EntitySet="PermisosDeRoles" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Profesore__id_us__4222D4EF" Association="Self.FK__Profesore__id_us__4222D4EF">
+            <End Role="Usuarios" EntitySet="Usuarios" />
+            <End Role="ProfesoresDeAsignaturas" EntitySet="ProfesoresDeAsignaturas" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Registros__id_us__5629CD9C" Association="Self.FK__Registros__id_us__5629CD9C">
+            <End Role="Usuarios" EntitySet="Usuarios" />
+            <End Role="RegistrosDeActividades" EntitySet="RegistrosDeActividades" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Usuarios__id_rol__1B0907CE" Association="Self.FK__Usuarios__id_rol__1B0907CE">
+            <End Role="Roles" EntitySet="Roles" />
+            <End Role="Usuarios" EntitySet="Usuarios" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Semestres__id_se__3D5E1FD2" Association="Self.FK__Semestres__id_se__3D5E1FD2">
+            <End Role="Semestres" EntitySet="Semestres" />
+            <End Role="SemestresDeCarreras" EntitySet="SemestresDeCarreras" />
+          </AssociationSet>
+          <FunctionImport Name="activatePermiso">
+            <Parameter Name="id" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="activateRol">
+            <Parameter Name="id" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="addPermiso">
+            <Parameter Name="name" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="addRol">
+            <Parameter Name="name" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="assignPermisoToRol">
+            <Parameter Name="nombre_rol" Mode="In" Type="String" />
+            <Parameter Name="nombre_permiso" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="deactivatePermiso">
+            <Parameter Name="id" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="deactivateRol">
+            <Parameter Name="id" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="editNamePermiso">
+            <Parameter Name="actual_name" Mode="In" Type="String" />
+            <Parameter Name="toBe_name" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="editNameRol">
+            <Parameter Name="actual_name" Mode="In" Type="String" />
+            <Parameter Name="toBe_name" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="getIDPermiso">
+            <Parameter Name="name" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="getIDRol">
+            <Parameter Name="name" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="getPermisosOfRol" ReturnType="Collection(String)">
+            <Parameter Name="name" Mode="In" Type="String" />
+          </FunctionImport>
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="SandrelenaModelStoreContainer" CdmEntityContainer="SandrelenaEntities_ConnectionString">
+          <EntitySetMapping Name="Actividades">
+            <EntityTypeMapping TypeName="SandrelenaModel.Actividades">
+              <MappingFragment StoreEntitySet="Actividades">
+                <ScalarProperty Name="id_actividad" ColumnName="id_actividad" />
+                <ScalarProperty Name="nombre_actividad" ColumnName="nombre_actividad" />
+                <ScalarProperty Name="isActive" ColumnName="isActive" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Asignaturas">
+            <EntityTypeMapping TypeName="SandrelenaModel.Asignaturas">
+              <MappingFragment StoreEntitySet="Asignaturas">
+                <ScalarProperty Name="id_asignatura" ColumnName="id_asignatura" />
+                <ScalarProperty Name="codigo_asignatura" ColumnName="codigo_asignatura" />
+                <ScalarProperty Name="nombre_asignatura" ColumnName="nombre_asignatura" />
+                <ScalarProperty Name="creditos" ColumnName="creditos" />
+                <ScalarProperty Name="isActive" ColumnName="isActive" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="AsignaturasDeSemestres">
+            <EntityTypeMapping TypeName="SandrelenaModel.AsignaturasDeSemestres">
+              <MappingFragment StoreEntitySet="AsignaturasDeSemestres">
+                <ScalarProperty Name="id_asignaturas_semestres" ColumnName="id_asignaturas_semestres" />
+                <ScalarProperty Name="id_semestre" ColumnName="id_semestre" />
+                <ScalarProperty Name="id_asignatura" ColumnName="id_asignatura" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Aulas">
+            <EntityTypeMapping TypeName="SandrelenaModel.Aulas">
+              <MappingFragment StoreEntitySet="Aulas">
+                <ScalarProperty Name="id_aula" ColumnName="id_aula" />
+                <ScalarProperty Name="nombre_aula" ColumnName="nombre_aula" />
+                <ScalarProperty Name="isLab" ColumnName="isLab" />
+                <ScalarProperty Name="isActive" ColumnName="isActive" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Carreras">
+            <EntityTypeMapping TypeName="SandrelenaModel.Carreras">
+              <MappingFragment StoreEntitySet="Carreras">
+                <ScalarProperty Name="id_carrera" ColumnName="id_carrera" />
+                <ScalarProperty Name="nombre_carrera" ColumnName="nombre_carrera" />
+                <ScalarProperty Name="id_facultad" ColumnName="id_facultad" />
+                <ScalarProperty Name="isActive" ColumnName="isActive" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="CarrerasDeUsuarios">
+            <EntityTypeMapping TypeName="SandrelenaModel.CarrerasDeUsuarios">
+              <MappingFragment StoreEntitySet="CarrerasDeUsuarios">
+                <ScalarProperty Name="id_carreras_usuarios" ColumnName="id_carreras_usuarios" />
+                <ScalarProperty Name="id_usuario" ColumnName="id_usuario" />
+                <ScalarProperty Name="id_carrera" ColumnName="id_carrera" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="DiaDisponibilidades">
+            <EntityTypeMapping TypeName="SandrelenaModel.DiaDisponibilidades">
+              <MappingFragment StoreEntitySet="DiaDisponibilidades">
+                <ScalarProperty Name="id_diaDisponibilidad" ColumnName="id_diaDisponibilidad" />
+                <ScalarProperty Name="dia" ColumnName="dia" />
+                <ScalarProperty Name="start_time" ColumnName="start_time" />
+                <ScalarProperty Name="end_time" ColumnName="end_time" />
+                <ScalarProperty Name="isActive" ColumnName="isActive" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Facultades">
+            <EntityTypeMapping TypeName="SandrelenaModel.Facultades">
+              <MappingFragment StoreEntitySet="Facultades">
+                <ScalarProperty Name="id_facultad" ColumnName="id_facultad" />
+                <ScalarProperty Name="nombre_facultad" ColumnName="nombre_facultad" />
+                <ScalarProperty Name="isActive" ColumnName="isActive" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Grupos">
+            <EntityTypeMapping TypeName="SandrelenaModel.Grupos">
+              <MappingFragment StoreEntitySet="Grupos">
+                <ScalarProperty Name="id_grupo" ColumnName="id_grupo" />
+                <ScalarProperty Name="nombre_grupo" ColumnName="nombre_grupo" />
+                <ScalarProperty Name="id_facultad" ColumnName="id_facultad" />
+                <ScalarProperty Name="isActive" ColumnName="isActive" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="GruposDeUsuarios">
+            <EntityTypeMapping TypeName="SandrelenaModel.GruposDeUsuarios">
+              <MappingFragment StoreEntitySet="GruposDeUsuarios">
+                <ScalarProperty Name="id_grupos_usuarios" ColumnName="id_grupos_usuarios" />
+                <ScalarProperty Name="id_usuario" ColumnName="id_usuario" />
+                <ScalarProperty Name="id_grupo" ColumnName="id_grupo" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Horarios">
+            <EntityTypeMapping TypeName="SandrelenaModel.Horarios">
+              <MappingFragment StoreEntitySet="Horarios">
+                <ScalarProperty Name="id_horario" ColumnName="id_horario" />
+                <ScalarProperty Name="id_aula" ColumnName="id_aula" />
+                <ScalarProperty Name="id_asignatura" ColumnName="id_asignatura" />
+                <ScalarProperty Name="no_grupo" ColumnName="no_grupo" />
+                <ScalarProperty Name="id_diaDisponibilidad" ColumnName="id_diaDisponibilidad" />
+                <ScalarProperty Name="isActive" ColumnName="isActive" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Notas">
+            <EntityTypeMapping TypeName="SandrelenaModel.Notas">
+              <MappingFragment StoreEntitySet="Notas">
+                <ScalarProperty Name="id_nota" ColumnName="id_nota" />
+                <ScalarProperty Name="id_asignatura" ColumnName="id_asignatura" />
+                <ScalarProperty Name="id_usuario" ColumnName="id_usuario" />
+                <ScalarProperty Name="nota" ColumnName="nota" />
+                <ScalarProperty Name="isActive" ColumnName="isActive" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Permisos">
+            <EntityTypeMapping TypeName="SandrelenaModel.Permisos">
+              <MappingFragment StoreEntitySet="Permisos">
+                <ScalarProperty Name="id_permiso" ColumnName="id_permiso" />
+                <ScalarProperty Name="nombre_permiso" ColumnName="nombre_permiso" />
+                <ScalarProperty Name="isActive" ColumnName="isActive" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="PermisosDeRoles">
+            <EntityTypeMapping TypeName="SandrelenaModel.PermisosDeRoles">
+              <MappingFragment StoreEntitySet="PermisosDeRoles">
+                <ScalarProperty Name="id_permisos_roles" ColumnName="id_permisos_roles" />
+                <ScalarProperty Name="id_permiso" ColumnName="id_permiso" />
+                <ScalarProperty Name="id_rol" ColumnName="id_rol" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Prerrequisitos">
+            <EntityTypeMapping TypeName="SandrelenaModel.Prerrequisitos">
+              <MappingFragment StoreEntitySet="Prerrequisitos">
+                <ScalarProperty Name="id_prerrequisito" ColumnName="id_prerrequisito" />
+                <ScalarProperty Name="id_asignatura" ColumnName="id_asignatura" />
+                <ScalarProperty Name="id_asignatura_requisito" ColumnName="id_asignatura_requisito" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ProfesoresDeAsignaturas">
+            <EntityTypeMapping TypeName="SandrelenaModel.ProfesoresDeAsignaturas">
+              <MappingFragment StoreEntitySet="ProfesoresDeAsignaturas">
+                <ScalarProperty Name="id_profesores_asignaturas" ColumnName="id_profesores_asignaturas" />
+                <ScalarProperty Name="id_asignatura" ColumnName="id_asignatura" />
+                <ScalarProperty Name="id_usuario" ColumnName="id_usuario" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="RegistrosDeActividades">
+            <EntityTypeMapping TypeName="SandrelenaModel.RegistrosDeActividades">
+              <MappingFragment StoreEntitySet="RegistrosDeActividades">
+                <ScalarProperty Name="id_registros_actividades" ColumnName="id_registros_actividades" />
+                <ScalarProperty Name="id_actividad" ColumnName="id_actividad" />
+                <ScalarProperty Name="id_usuario" ColumnName="id_usuario" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Roles">
+            <EntityTypeMapping TypeName="SandrelenaModel.Roles">
+              <MappingFragment StoreEntitySet="Roles">
+                <ScalarProperty Name="id_rol" ColumnName="id_rol" />
+                <ScalarProperty Name="nombre_rol" ColumnName="nombre_rol" />
+                <ScalarProperty Name="isActive" ColumnName="isActive" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Semestres">
+            <EntityTypeMapping TypeName="SandrelenaModel.Semestres">
+              <MappingFragment StoreEntitySet="Semestres">
+                <ScalarProperty Name="id_semestre" ColumnName="id_semestre" />
+                <ScalarProperty Name="no_semestre" ColumnName="no_semestre" />
+                <ScalarProperty Name="isActive" ColumnName="isActive" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="SemestresDeCarreras">
+            <EntityTypeMapping TypeName="SandrelenaModel.SemestresDeCarreras">
+              <MappingFragment StoreEntitySet="SemestresDeCarreras">
+                <ScalarProperty Name="id_semestres_carreras" ColumnName="id_semestres_carreras" />
+                <ScalarProperty Name="id_semestre" ColumnName="id_semestre" />
+                <ScalarProperty Name="id_carrera" ColumnName="id_carrera" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Usuarios">
+            <EntityTypeMapping TypeName="SandrelenaModel.Usuarios">
+              <MappingFragment StoreEntitySet="Usuarios">
+                <ScalarProperty Name="id_usuario" ColumnName="id_usuario" />
+                <ScalarProperty Name="username" ColumnName="username" />
+                <ScalarProperty Name="pass" ColumnName="pass" />
+                <ScalarProperty Name="primer_nombre" ColumnName="primer_nombre" />
+                <ScalarProperty Name="segundo_nombre" ColumnName="segundo_nombre" />
+                <ScalarProperty Name="primer_apellido" ColumnName="primer_apellido" />
+                <ScalarProperty Name="segundo_apellido" ColumnName="segundo_apellido" />
+                <ScalarProperty Name="fecha_de_nacimiento" ColumnName="fecha_de_nacimiento" />
+                <ScalarProperty Name="id_rol" ColumnName="id_rol" />
+                <ScalarProperty Name="isActive" ColumnName="isActive" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <FunctionImportMapping FunctionImportName="activatePermiso" FunctionName="SandrelenaModel.Store.activatePermiso" />
+          <FunctionImportMapping FunctionImportName="activateRol" FunctionName="SandrelenaModel.Store.activateRol" />
+          <FunctionImportMapping FunctionImportName="addPermiso" FunctionName="SandrelenaModel.Store.addPermiso" />
+          <FunctionImportMapping FunctionImportName="addRol" FunctionName="SandrelenaModel.Store.addRol" />
+          <FunctionImportMapping FunctionImportName="assignPermisoToRol" FunctionName="SandrelenaModel.Store.assignPermisoToRol" />
+          <FunctionImportMapping FunctionImportName="deactivatePermiso" FunctionName="SandrelenaModel.Store.deactivatePermiso" />
+          <FunctionImportMapping FunctionImportName="deactivateRol" FunctionName="SandrelenaModel.Store.deactivateRol" />
+          <FunctionImportMapping FunctionImportName="editNamePermiso" FunctionName="SandrelenaModel.Store.editNamePermiso" />
+          <FunctionImportMapping FunctionImportName="editNameRol" FunctionName="SandrelenaModel.Store.editNameRol" />
+          <FunctionImportMapping FunctionImportName="getIDPermiso" FunctionName="SandrelenaModel.Store.getIDPermiso" />
+          <FunctionImportMapping FunctionImportName="getIDRol" FunctionName="SandrelenaModel.Store.getIDRol" />
+          <FunctionImportMapping FunctionImportName="getPermisosOfRol" FunctionName="SandrelenaModel.Store.getPermisosOfRol" />
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="false" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>
