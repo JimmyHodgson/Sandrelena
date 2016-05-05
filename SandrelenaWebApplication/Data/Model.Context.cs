@@ -6,6 +6,7 @@
 //     Manual changes to this file will be overwritten if the code is regenerated.
 // </auto-generated>
 //------------------------------------------------------------------------------
+using System.Configuration;
 
 namespace Data
 {
@@ -13,10 +14,10 @@ namespace Data
     using System.Data.Entity;
     using System.Data.Entity.Infrastructure;
     
-    public partial class SandrelenaEntities : DbContext
+    public partial class SandrelenaCS : DbContext
     {
-        public SandrelenaEntities()
-            : base("name=SandrelenaEntities")
+        public SandrelenaCS()
+            : base(ConfigurationManager.ConnectionStrings["SandrelenaCS"].ToString())
         {
         }
     
@@ -25,27 +26,27 @@ namespace Data
             throw new UnintentionalCodeFirstException();
         }
     
-        public virtual DbSet<Actividade> Actividades { get; set; }
-        public virtual DbSet<Asignatura> Asignaturas { get; set; }
-        public virtual DbSet<AsignaturasDeSemestre> AsignaturasDeSemestres { get; set; }
-        public virtual DbSet<Aula> Aulas { get; set; }
-        public virtual DbSet<Carrera> Carreras { get; set; }
-        public virtual DbSet<CarrerasDeUsuario> CarrerasDeUsuarios { get; set; }
-        public virtual DbSet<DiaDisponibilidade> DiaDisponibilidades { get; set; }
-        public virtual DbSet<Facultade> Facultades { get; set; }
+        public virtual DbSet<Actividades> Actividades { get; set; }
+        public virtual DbSet<Asignaturas> Asignaturas { get; set; }
+        public virtual DbSet<AsignaturasDeSemestres> AsignaturasDeSemestres { get; set; }
+        public virtual DbSet<Aulas> Aulas { get; set; }
+        public virtual DbSet<Carreras> Carreras { get; set; }
+        public virtual DbSet<CarrerasDeUsuarios> CarrerasDeUsuarios { get; set; }
+        public virtual DbSet<DiaDisponibilidades> DiaDisponibilidades { get; set; }
+        public virtual DbSet<Facultades> Facultades { get; set; }
         public virtual DbSet<Grupos> Grupos { get; set; }
-        public virtual DbSet<GruposDeUsuario> GruposDeUsuarios { get; set; }
-        public virtual DbSet<Horario> Horarios { get; set; }
-        public virtual DbSet<Nota> Notas { get; set; }
-        public virtual DbSet<Permiso> Permisos { get; set; }
-        public virtual DbSet<PermisosDeRole> PermisosDeRoles { get; set; }
-        public virtual DbSet<Prerrequisito> Prerrequisitos { get; set; }
-        public virtual DbSet<ProfesoresDeAsignatura> ProfesoresDeAsignaturas { get; set; }
-        public virtual DbSet<RegistrosDeActividade> RegistrosDeActividades { get; set; }
-        public virtual DbSet<Role> Roles { get; set; }
-        public virtual DbSet<Semestre> Semestres { get; set; }
-        public virtual DbSet<SemestresDeCarrera> SemestresDeCarreras { get; set; }
-        public virtual DbSet<Usuario> Usuarios { get; set; }
+        public virtual DbSet<GruposDeUsuarios> GruposDeUsuarios { get; set; }
+        public virtual DbSet<Horarios> Horarios { get; set; }
+        public virtual DbSet<Notas> Notas { get; set; }
+        public virtual DbSet<Permisos> Permisos { get; set; }
+        public virtual DbSet<PermisosDeRoles> PermisosDeRoles { get; set; }
+        public virtual DbSet<Prerrequisitos> Prerrequisitos { get; set; }
+        public virtual DbSet<ProfesoresDeAsignaturas> ProfesoresDeAsignaturas { get; set; }
+        public virtual DbSet<RegistrosDeActividades> RegistrosDeActividades { get; set; }
+        public virtual DbSet<Roles> Roles { get; set; }
+        public virtual DbSet<Semestres> Semestres { get; set; }
+        public virtual DbSet<SemestresDeCarreras> SemestresDeCarreras { get; set; }
+        public virtual DbSet<Usuarios> Usuarios { get; set; }
         public virtual DbSet<database_firewall_rules> database_firewall_rules { get; set; }
     }
 }

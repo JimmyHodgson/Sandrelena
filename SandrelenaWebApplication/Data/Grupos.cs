@@ -17,15 +17,15 @@ namespace Data
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public Grupos()
         {
-            this.GruposDeUsuarios = new HashSet<GruposDeUsuario>();
+            this.GruposDeUsuarios = new HashSet<GruposDeUsuarios>();
         }
     
         public int id_grupo { get; set; }
         public string nombre_grupo { get; set; }
         public Nullable<int> id_facultad { get; set; }
     
-        public virtual Facultade Facultade { get; set; }
+        public virtual Facultades Facultades { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<GruposDeUsuario> GruposDeUsuarios { get; set; }
+        public virtual ICollection<GruposDeUsuarios> GruposDeUsuarios { get; set; }
     }
 }

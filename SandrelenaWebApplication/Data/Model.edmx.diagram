@@ -4,28 +4,28 @@
   <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
-      <Diagram DiagramId="e6a223e7fe6449a686cb9ee7c8e8c40b" Name="Diagram1">
-        <EntityTypeShape EntityType="SandrelenaModel.Actividade" Width="1.5" PointX="6" PointY="5.5" IsExpanded="true" />
-        <EntityTypeShape EntityType="SandrelenaModel.Asignatura" Width="1.5" PointX="6" PointY="17.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="SandrelenaModel.AsignaturasDeSemestre" Width="1.5" PointX="8.25" PointY="18.25" IsExpanded="true" />
-        <EntityTypeShape EntityType="SandrelenaModel.Aula" Width="1.5" PointX="6" PointY="21.875" IsExpanded="true" />
-        <EntityTypeShape EntityType="SandrelenaModel.Carrera" Width="1.5" PointX="3" PointY="15.125" IsExpanded="true" />
-        <EntityTypeShape EntityType="SandrelenaModel.CarrerasDeUsuario" Width="1.5" PointX="5.25" PointY="11.25" IsExpanded="true" />
-        <EntityTypeShape EntityType="SandrelenaModel.DiaDisponibilidade" Width="1.5" PointX="6" PointY="24.625" IsExpanded="true" />
-        <EntityTypeShape EntityType="SandrelenaModel.Facultade" Width="1.5" PointX="0.75" PointY="2.375" IsExpanded="true" />
+      <Diagram DiagramId="fd222d67289c461dae194e9c48c89b38" Name="Diagram1">
+        <EntityTypeShape EntityType="SandrelenaModel.Actividades" Width="1.5" PointX="6" PointY="5.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="SandrelenaModel.Asignaturas" Width="1.5" PointX="6" PointY="17.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="SandrelenaModel.AsignaturasDeSemestres" Width="1.5" PointX="8.25" PointY="18.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="SandrelenaModel.Aulas" Width="1.5" PointX="6" PointY="21.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="SandrelenaModel.Carreras" Width="1.5" PointX="3" PointY="15.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="SandrelenaModel.CarrerasDeUsuarios" Width="1.5" PointX="5.25" PointY="11.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="SandrelenaModel.DiaDisponibilidades" Width="1.5" PointX="6" PointY="24.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="SandrelenaModel.Facultades" Width="1.5" PointX="0.75" PointY="2.375" IsExpanded="true" />
         <EntityTypeShape EntityType="SandrelenaModel.Grupos" Width="1.5" PointX="3" PointY="2.25" IsExpanded="true" />
-        <EntityTypeShape EntityType="SandrelenaModel.GruposDeUsuario" Width="1.5" PointX="5.25" PointY="8.25" IsExpanded="true" />
-        <EntityTypeShape EntityType="SandrelenaModel.Horario" Width="1.5" PointX="8.25" PointY="15" IsExpanded="true" />
-        <EntityTypeShape EntityType="SandrelenaModel.Nota" Width="1.5" PointX="5.25" PointY="14.125" IsExpanded="true" />
-        <EntityTypeShape EntityType="SandrelenaModel.Permiso" Width="1.5" PointX="0.75" PointY="5.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="SandrelenaModel.PermisosDeRole" Width="1.5" PointX="3" PointY="7.5" IsExpanded="true" />
-        <EntityTypeShape EntityType="SandrelenaModel.Prerrequisito" Width="1.5" PointX="8.25" PointY="24.25" IsExpanded="true" />
-        <EntityTypeShape EntityType="SandrelenaModel.ProfesoresDeAsignatura" Width="1.5" PointX="8.25" PointY="11.25" IsExpanded="true" />
-        <EntityTypeShape EntityType="SandrelenaModel.RegistrosDeActividade" Width="1.5" PointX="8.25" PointY="8.25" IsExpanded="true" />
-        <EntityTypeShape EntityType="SandrelenaModel.Role" Width="1.5" PointX="0.75" PointY="8.625" IsExpanded="true" />
-        <EntityTypeShape EntityType="SandrelenaModel.Semestre" Width="1.5" PointX="6" PointY="27.375" IsExpanded="true" />
-        <EntityTypeShape EntityType="SandrelenaModel.SemestresDeCarrera" Width="1.5" PointX="8.25" PointY="21.125" IsExpanded="true" />
-        <EntityTypeShape EntityType="SandrelenaModel.Usuario" Width="1.5" PointX="3" PointY="10.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="SandrelenaModel.GruposDeUsuarios" Width="1.5" PointX="5.25" PointY="8.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="SandrelenaModel.Horarios" Width="1.5" PointX="8.25" PointY="15" IsExpanded="true" />
+        <EntityTypeShape EntityType="SandrelenaModel.Notas" Width="1.5" PointX="5.25" PointY="14.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="SandrelenaModel.Permisos" Width="1.5" PointX="0.75" PointY="5.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="SandrelenaModel.PermisosDeRoles" Width="1.5" PointX="3" PointY="7.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="SandrelenaModel.Prerrequisitos" Width="1.5" PointX="8.25" PointY="24.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="SandrelenaModel.ProfesoresDeAsignaturas" Width="1.5" PointX="8.25" PointY="11.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="SandrelenaModel.RegistrosDeActividades" Width="1.5" PointX="8.25" PointY="8.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="SandrelenaModel.Roles" Width="1.5" PointX="0.75" PointY="8.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="SandrelenaModel.Semestres" Width="1.5" PointX="6" PointY="27.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="SandrelenaModel.SemestresDeCarreras" Width="1.5" PointX="8.25" PointY="21.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="SandrelenaModel.Usuarios" Width="1.5" PointX="3" PointY="10.25" IsExpanded="true" />
         <EntityTypeShape EntityType="SandrelenaModel.database_firewall_rules" Width="1.5" PointX="5.75" PointY="0.75" IsExpanded="true" />
         <AssociationConnector Association="SandrelenaModel.FK__Registros__id_ac__71D1E811" ManuallyRouted="false" />
         <AssociationConnector Association="SandrelenaModel.FK__Asignatur__id_as__59063A47" ManuallyRouted="false" />
