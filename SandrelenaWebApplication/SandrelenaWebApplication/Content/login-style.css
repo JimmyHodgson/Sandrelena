@@ -1,0 +1,48 @@
+﻿body{
+    padding: 50px;
+}
+
+.modal-dialog {
+    width: 400px;
+}
+
+.input-group {
+    margin-bottom: 10px;
+}
+
+.form-control {
+    background-color: #ecf2f4;
+    border: none;
+}
+
+.btn-primary {
+    opacity: 0.9;
+}
+
+.input-group-addon {
+    color: #fff;
+    background: #3276B1;
+}
+
+.glyphicon {
+    top: 0px;
+}
+
+/* *!* Make the modal be always centered*/
+.modal {
+    text-align: center;
+}
+
+.modal:before {
+    content: '';
+    display: inline-block;
+    height: 100%;
+    vertical-align: middle;
+}
+
+.modal-dialog {
+    display: inline-block;
+    text-align: left;
+    vertical-align: middle;
+}
+/* *!* */
