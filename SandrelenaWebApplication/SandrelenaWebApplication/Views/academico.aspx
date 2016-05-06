@@ -30,14 +30,25 @@
                                 </div>
                                 <div class="col-md-3">
                                     <div class="form-group">
-                                        <select id="periodo-select">
-                                            <option value="0">Opción 1</option>
-                                            <option value="1">Opción 2</option>
-                                            <option value="2">Opción 3</option>
-                                        </select>
+                                        <asp:DropDownList ID="periodoSelect" runat="server" CssClass="customSelect">
+                                        </asp:DropDownList>
                                     </div>
 
                                 </div>
+                            </div>
+
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <div class="col-md-12">
+                                        <asp:GridView ID="periodoTable" runat="server" CssClass="table info-table">
+                                            <Columns>
+                                                
+                                            </Columns>
+                                        </asp:GridView>
+                                    </div>
+
+                                </div>
+
                             </div>
 
 
@@ -51,6 +62,20 @@
                                     <h1 class="sandrelena-heading">Reporte de Notas</h1>
                                     <h1 class="sandrelena-sub-heading"><small>Por Historial de Notas</small></h1>
                                 </div>
+                            </div>
+
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <div class="col-md-12">
+                                        <asp:GridView ID="historicoTable" runat="server" CssClass="table info-table">
+                                            <Columns>
+                                                
+                                            </Columns>
+                                        </asp:GridView>
+                                    </div>
+
+                                </div>
+
                             </div>
 
 

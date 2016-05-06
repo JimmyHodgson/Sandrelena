@@ -18,18 +18,15 @@
                             </div>
                             <div class="col-md-3">
                                 <div class="form-group">
-                                    <select id="carrera-select">
-                                        <option value="0">Opción 1</option>
-                                        <option value="1">Opción 2</option>
-                                        <option value="2">Opción 3</option>
-                                    </select>
+                                    <asp:DropDownList ID="carrera_select" runat="server" CssClass="customSelect">
+                                    </asp:DropDownList>
                                 </div>
 
                             </div>
                         </div>
-                        <div class="row">
-                            <div class="col-md-10 col-md-offset-1">
-                                <asp:GridView ID="GridView1" runat="server">
+                        <div class="row padding-bottom-md">
+                            <div class="col-md-12">
+                                <asp:GridView ID="GridView1" runat="server" CssClass="table info-table">
                                     <Columns>
                                         <asp:BoundField DataField="ProductName" HeaderText="ProductName" />
                                         <asp:BoundField DataField="CategoryName" HeaderText="CategoryName" />
@@ -49,7 +46,7 @@
 
     </div>
 
-    <footer class="footer-sidebar-fix">
+    <footer class="">
         <div class="container">
             <p>&copy; <%: DateTime.Now.Year %> - Sandrelena v0.1.0</p>
         </div>

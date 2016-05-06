@@ -216,3 +216,50 @@ textarea {
 .padding-left-sm{
     padding-left:15px;
 }
+
+.padding-bottom-md {
+    padding-bottom:30px;
+}
+
+.padding-top-md{
+    padding-top:30px;
+}
+
+
+.info-table > thead > tr > th,
+.info-table > tbody > tr > th,
+.info-table > thead > tr > td {
+    background:#ccc;
+}
+
+
+.list-table > thead > tr > th,
+.list-table > tbody > tr > th,
+.list-table > thead > tr > td {
+   background:#0943a6;
+   color:#ffffff;
+}
+
+
+.info-table thead > tr > th,
+.info-table tbody > tr > th,
+.info-table tfoot > tr > th,
+.info-table thead > tr > td,
+.info-table tbody > tr > td,
+.info-table tfoot > tr > td {
+
+   border:none;
+   border:1px solid #ccc;
+}
+
+
+.list-table thead > tr > th,
+.list-table tbody > tr > th,
+.list-table tfoot > tr > th,
+.list-table thead > tr > td,
+.list-table tbody > tr > td,
+.list-table tfoot > tr > td {
+
+   border:none;
+   border-bottom:1px solid #ccc;
+}
