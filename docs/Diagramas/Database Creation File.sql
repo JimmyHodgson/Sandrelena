@@ -43,8 +43,11 @@ Insert Into Roles (nombre_rol) Values ('Estudiante') --id:3
 --************************************************************************
 
 Create Table PermisosDeRoles (
-	id_permiso int Foreign Key References Permisos(id_permiso),
-	id_rol int Foreign Key References Roles(id_rol)
+	id_permiso int Not Null,
+	id_rol int Not Null,
+	Primary Key Clustered (id_permiso, id_rol),
+	Foreign Key (id_permiso) References Permisos(id_permiso),
+	Foreign Key (id_rol) References Roles(id_rol)
 )
 
 --************************************************************************
@@ -158,8 +161,11 @@ Insert Into Carreras Values ('Diseño y Comunicación Visual', 2, 1) --id:3
 --************************************************************************
 
 Create Table CarrerasDeEstudiantes (
-    id_estudiante int Foreign Key References Usuarios(id_usuario),
-    id_carrera int Foreign Key References Carreras(id_carrera)
+    id_estudiante int Not Null,
+	id_carrera int Not Null,
+	Primary Key Clustered (id_estudiante, id_carrera),
+	Foreign Key (id_estudiante) References Usuarios(id_usuario),
+    Foreign Key (id_carrera) References Carreras(id_carrera)
 )
 
 --************************************************************************
@@ -234,8 +240,11 @@ Insert Into Semestres Values (02, 3, 1) --id:7
 --************************************************************************
 
 Create Table AsignaturasDeSemestres (
-    id_semestre int Foreign Key References Semestres(id_semestre),
-    id_asignatura int Foreign Key References Asignaturas(id_asignatura)
+    id_semestre int Not Null,
+	id_asignatura int Not Null,
+	Primary Key Clustered (id_semestre, id_asignatura),
+	Foreign Key (id_semestre) References Semestres(id_semestre),
+    Foreign Key (id_asignatura) References Asignaturas(id_asignatura)
 )
 
 --************************************************************************
@@ -259,8 +268,11 @@ Insert Into AsignaturasDeSemestres Values (7, 9) --id:10
 --************************************************************************
 
 Create Table ProfesoresDeAsignaturas (
-    id_asignatura int Foreign Key References Asignaturas(id_asignatura),
-    id_usuario int Foreign Key References Usuarios(id_usuario)
+    id_asignatura int Not Null,
+	id_usuario int Not Null,
+	Primary Key Clustered (id_asignatura, id_usuario),
+	Foreign Key (id_asignatura) References Asignaturas(id_asignatura),
+    Foreign Key (id_usuario) References Usuarios(id_usuario)
 )
 
 --************************************************************************
@@ -283,7 +295,7 @@ Create Table Notas (
     id_asignatura int Foreign Key References Asignaturas(id_asignatura),
     id_usuario int Foreign Key References Usuarios(id_usuario),
     nota int Not Null,
-	isActive bit Not Null
+	isActive bit Not Null Default 1
 )
 
 --************************************************************************
@@ -294,7 +306,7 @@ Create Table Aulas (
     id_aula int Identity(1,1) Primary Key Not Null,
     nombre_aula nvarchar(30) Not Null Unique,
     isLab bit Not Null,
-    isActive bit Not Null
+    isActive bit Not Null Default 1
 )
 
 --************************************************************************
@@ -306,7 +318,7 @@ Create Table DiaDisponibilidades (
     dia nvarchar(30) Not Null,
     start_time time Not Null,
     end_time time Not Null,
-	isActive bit Not Null
+	isActive bit Not Null Default 1
 )
 
 --************************************************************************
@@ -319,7 +331,7 @@ Create Table Horarios (
     id_asignatura int Foreign Key References Asignaturas(id_asignatura),
     no_grupo int Not Null,
     id_diaDisponibilidad int Foreign Key References DiaDisponibilidades(id_diaDisponibilidad),
-	isActive bit Not Null
+	isActive bit Not Null Default 1
 )
 
 --************************************************************************
@@ -329,7 +341,7 @@ Create Table Horarios (
 Create Table Actividades (
     id_actividad int Identity(1,1) Primary Key Not Null,
     nombre_actividad nvarchar(30) Not Null Unique,
-	isActive bit Not Null
+	isActive bit Not Null Default 1
 )
 
 --************************************************************************
@@ -337,8 +349,11 @@ Create Table Actividades (
 --************************************************************************
 
 Create Table RegistrosDeActividades (
-    id_actividad int Foreign Key References Actividades(id_actividad),
-    id_usuario int Foreign Key References Usuarios(id_usuario)
+    id_actividad int Not Null,
+	id_usuario int Not Null,
+	Primary Key Clustered (id_actividad, id_usuario),
+	Foreign Key (id_actividad) References Actividades(id_actividad),
+    Foreign Key (id_usuario) References Usuarios(id_usuario)
 )
 
 --************************************************************************
