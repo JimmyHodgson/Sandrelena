@@ -185,6 +185,16 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Content\sandrelena-select.css" />
+    <Content Include="Models\SandrelenaModel.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>SandrelenaModel.edmx</DependentUpon>
+      <LastGenOutput>SandrelenaModel.Context.cs</LastGenOutput>
+    </Content>
+    <Content Include="Models\SandrelenaModel.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>SandrelenaModel.edmx</DependentUpon>
+      <LastGenOutput>SandrelenaModel.cs</LastGenOutput>
+    </Content>
     <Content Include="Scripts\academico.js" />
     <Content Include="Scripts\clases.js" />
     <Content Include="Account\AddPhoneNumber.aspx" />
@@ -226,6 +236,13 @@
     <Content Include="fonts\fontawesome-webfont.woff" />
     <Content Include="fonts\fontawesome-webfont.ttf" />
     <Content Include="fonts\fontawesome-webfont.eot" />
+    <EntityDeploy Include="Models\SandrelenaModel.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>SandrelenaModel.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <Content Include="Models\SandrelenaModel.edmx.diagram">
+      <DependentUpon>SandrelenaModel.edmx</DependentUpon>
+    </Content>
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <None Include="Resources\coverImage.jpg" />
     <Content Include="Scripts\ai.0.15.0-build58334.js" />
@@ -312,9 +329,9 @@
     <Content Include="Site.Master" />
     <Content Include="ViewSwitcher.ascx" />
     <Content Include="Views\inbox.aspx" />
+    <Content Include="Views\index_test.aspx" />
     <Content Include="Views\matricula.aspx" />
     <Content Include="Views\academico.aspx" />
-    <Content Include="Views\PruebaEntity.aspx" />
     <Content Include="Web.config" />
     <Content Include="Bundle.config" />
     <Content Include="packages.config" />
@@ -438,6 +455,45 @@
     <Compile Include="App_Start\IdentityConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\Startup.Auth.cs" />
+    <Compile Include="Models\Asignaturas.cs">
+      <DependentUpon>SandrelenaModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Carreras.cs">
+      <DependentUpon>SandrelenaModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Facultades.cs">
+      <DependentUpon>SandrelenaModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Permisos.cs">
+      <DependentUpon>SandrelenaModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Prerrequisitos.cs">
+      <DependentUpon>SandrelenaModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Roles.cs">
+      <DependentUpon>SandrelenaModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\SandrelenaModel.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>SandrelenaModel.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\SandrelenaModel.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>SandrelenaModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\SandrelenaModel.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>SandrelenaModel.edmx</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Semestres.cs">
+      <DependentUpon>SandrelenaModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Usuarios.cs">
+      <DependentUpon>SandrelenaModel.tt</DependentUpon>
+    </Compile>
     <Compile Include="Views\clases.aspx.cs">
       <DependentUpon>clases.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -491,6 +547,13 @@
     <Compile Include="Views\inbox.aspx.designer.cs">
       <DependentUpon>inbox.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Views\index_test.aspx.cs">
+      <DependentUpon>index_test.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Views\index_test.aspx.designer.cs">
+      <DependentUpon>index_test.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Views\matricula.aspx.cs">
       <DependentUpon>matricula.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -505,13 +568,6 @@
     <Compile Include="Views\academico.aspx.designer.cs">
       <DependentUpon>academico.aspx</DependentUpon>
     </Compile>
-    <Compile Include="Views\PruebaEntity.aspx.cs">
-      <DependentUpon>PruebaEntity.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="Views\PruebaEntity.aspx.designer.cs">
-      <DependentUpon>PruebaEntity.aspx</DependentUpon>
-    </Compile>
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -524,12 +580,6 @@
   </ItemGroup>
   <ItemGroup>
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
-  </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\Business\Business.csproj">
-      <Project>{7bcc223d-7b8c-480c-88bf-ae34194214bd}</Project>
-      <Name>Business</Name>
-    </ProjectReference>
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

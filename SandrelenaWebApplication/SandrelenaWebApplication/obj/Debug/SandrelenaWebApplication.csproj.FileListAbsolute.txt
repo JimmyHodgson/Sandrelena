@@ -164,3 +164,6 @@ C:\Users\Carlos\GitLab\Sandrelena\SandrelenaWebApplication\SandrelenaWebApplicat
 C:\Users\Carlos\GitLab\Sandrelena\SandrelenaWebApplication\SandrelenaWebApplication\bin\Data.dll
 C:\Users\Carlos\GitLab\Sandrelena\SandrelenaWebApplication\SandrelenaWebApplication\bin\Business.pdb
 C:\Users\Carlos\GitLab\Sandrelena\SandrelenaWebApplication\SandrelenaWebApplication\bin\Data.pdb
+Z:\Datos\Documents\Universities\UAM\2016-01\Ing Software I\Sandrelena\SandrelenaWebApplication\SandrelenaWebApplication\obj\Debug\SandrelenaWebApplication.csprojResolveAssemblyReference.cache
+Z:\Datos\Documents\Universities\UAM\2016-01\Ing Software I\Sandrelena\SandrelenaWebApplication\SandrelenaWebApplication\obj\Debug\SandrelenaWebApplication.dll
+Z:\Datos\Documents\Universities\UAM\2016-01\Ing Software I\Sandrelena\SandrelenaWebApplication\SandrelenaWebApplication\obj\Debug\SandrelenaWebApplication.pdb
