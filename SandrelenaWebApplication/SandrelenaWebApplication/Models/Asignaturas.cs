@@ -17,6 +17,8 @@ namespace SandrelenaWebApplication.Models
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public Asignaturas()
         {
+            this.Horarios = new HashSet<Horarios>();
+            this.Notas = new HashSet<Notas>();
             this.Prerrequisitos = new HashSet<Prerrequisitos>();
             this.Prerrequisitos1 = new HashSet<Prerrequisitos>();
             this.Semestres = new HashSet<Semestres>();
@@ -29,6 +31,10 @@ namespace SandrelenaWebApplication.Models
         public int creditos { get; set; }
         public bool isActive { get; set; }
     
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<Horarios> Horarios { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<Notas> Notas { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Prerrequisitos> Prerrequisitos { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]

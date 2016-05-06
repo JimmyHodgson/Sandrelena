@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="4db3ff62d3c1422cb76f3b226ce0c0bb" Name="Diagram1">
+        <EntityTypeShape EntityType="SandrelenaModel.Actividades" Width="1.5" PointX="3.75" PointY="12.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="SandrelenaModel.Asignaturas" Width="1.5" PointX="0.75" PointY="8.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="SandrelenaModel.Aulas" Width="1.5" PointX="0.75" PointY="12.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="SandrelenaModel.Carreras" Width="1.5" PointX="3.75" PointY="4.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="SandrelenaModel.DiaDisponibilidades" Width="1.5" PointX="0.75" PointY="15" IsExpanded="true" />
+        <EntityTypeShape EntityType="SandrelenaModel.Facultades" Width="1.5" PointX="1.5" PointY="4.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="SandrelenaModel.Grupos" Width="1.5" PointX="3.75" PointY="1.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="SandrelenaModel.Horarios" Width="1.5" PointX="3" PointY="8.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="SandrelenaModel.Notas" Width="1.5" PointX="6" PointY="8.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="SandrelenaModel.Permisos" Width="1.5" PointX="1.5" PointY="19.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="SandrelenaModel.Prerrequisitos" Width="1.5" PointX="3" PointY="15.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="SandrelenaModel.Roles" Width="1.5" PointX="3.75" PointY="19" IsExpanded="true" />
+        <EntityTypeShape EntityType="SandrelenaModel.Semestres" Width="1.5" PointX="6" PointY="5.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="SandrelenaModel.Usuarios" Width="1.5" PointX="6" PointY="11.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="SandrelenaModel.database_firewall_rules" Width="1.5" PointX="0.75" PointY="0.75" IsExpanded="true" />
+        <AssociationConnector Association="SandrelenaModel.FK__Horarios__id_asi__7B5B524B" ManuallyRouted="false" />
+        <AssociationConnector Association="SandrelenaModel.FK__Notas__id_asigna__6EF57B66" ManuallyRouted="false" />
+        <AssociationConnector Association="SandrelenaModel.FK__Prerrequi__id_as__5FB337D6" ManuallyRouted="false" />
+        <AssociationConnector Association="SandrelenaModel.FK__Prerrequi__id_as__60A75C0F" ManuallyRouted="false" />
+        <AssociationConnector Association="SandrelenaModel.FK__Horarios__id_aul__7A672E12" ManuallyRouted="false" />
+        <AssociationConnector Association="SandrelenaModel.FK__Carreras__id_fac__534D60F1" ManuallyRouted="false" />
+        <AssociationConnector Association="SandrelenaModel.FK__Semestres__id_ca__6383C8BA" ManuallyRouted="false" />
+        <AssociationConnector Association="SandrelenaModel.FK__Horarios__id_dia__7C4F7684" ManuallyRouted="false" />
+        <AssociationConnector Association="SandrelenaModel.FK__Grupos__id_facul__4BAC3F29" ManuallyRouted="false" />
+        <AssociationConnector Association="SandrelenaModel.FK__Notas__id_usuari__6FE99F9F" ManuallyRouted="false" />
+        <AssociationConnector Association="SandrelenaModel.FK__Usuarios__id_rol__4316F928" ManuallyRouted="false" />
+        <AssociationConnector Association="SandrelenaModel.AsignaturasDeSemestres" ManuallyRouted="false" />
+        <AssociationConnector Association="SandrelenaModel.CarrerasDeEstudiantes" ManuallyRouted="false" />
+        <AssociationConnector Association="SandrelenaModel.PermisosDeRoles" ManuallyRouted="false" />
+        <AssociationConnector Association="SandrelenaModel.ProfesoresDeAsignaturas" ManuallyRouted="false" />
+        <AssociationConnector Association="SandrelenaModel.RegistrosDeActividades" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

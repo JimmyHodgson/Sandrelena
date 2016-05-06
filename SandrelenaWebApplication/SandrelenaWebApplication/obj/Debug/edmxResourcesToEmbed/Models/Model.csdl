@@ -1,0 +1,416 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="SandrelenaModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="Actividades">
+    <Key>
+      <PropertyRef Name="id_actividad" />
+    </Key>
+    <Property Name="id_actividad" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="nombre_actividad" Type="String" MaxLength="30" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="isActive" Type="Boolean" Nullable="false" />
+    <NavigationProperty Name="Usuarios" Relationship="Self.RegistrosDeActividades" FromRole="Actividades" ToRole="Usuarios" />
+  </EntityType>
+  <EntityType Name="Asignaturas">
+    <Key>
+      <PropertyRef Name="id_asignatura" />
+    </Key>
+    <Property Name="id_asignatura" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="codigo_asignatura" Type="Int32" Nullable="false" />
+    <Property Name="nombre_asignatura" Type="String" MaxLength="60" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="creditos" Type="Int32" Nullable="false" />
+    <Property Name="isActive" Type="Boolean" Nullable="false" />
+    <NavigationProperty Name="Horarios" Relationship="Self.FK__Horarios__id_asi__7B5B524B" FromRole="Asignaturas" ToRole="Horarios" />
+    <NavigationProperty Name="Notas" Relationship="Self.FK__Notas__id_asigna__6EF57B66" FromRole="Asignaturas" ToRole="Notas" />
+    <NavigationProperty Name="Prerrequisitos" Relationship="Self.FK__Prerrequi__id_as__5FB337D6" FromRole="Asignaturas" ToRole="Prerrequisitos" />
+    <NavigationProperty Name="Prerrequisitos1" Relationship="Self.FK__Prerrequi__id_as__60A75C0F" FromRole="Asignaturas" ToRole="Prerrequisitos" />
+    <NavigationProperty Name="Semestres" Relationship="Self.AsignaturasDeSemestres" FromRole="Asignaturas" ToRole="Semestres" />
+    <NavigationProperty Name="Usuarios" Relationship="Self.ProfesoresDeAsignaturas" FromRole="Asignaturas" ToRole="Usuarios" />
+  </EntityType>
+  <EntityType Name="Aulas">
+    <Key>
+      <PropertyRef Name="id_aula" />
+    </Key>
+    <Property Name="id_aula" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="nombre_aula" Type="String" MaxLength="30" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="isLab" Type="Boolean" Nullable="false" />
+    <Property Name="isActive" Type="Boolean" Nullable="false" />
+    <NavigationProperty Name="Horarios" Relationship="Self.FK__Horarios__id_aul__7A672E12" FromRole="Aulas" ToRole="Horarios" />
+  </EntityType>
+  <EntityType Name="Carreras">
+    <Key>
+      <PropertyRef Name="id_carrera" />
+    </Key>
+    <Property Name="id_carrera" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="nombre_carrera" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="id_facultad" Type="Int32" />
+    <Property Name="isActive" Type="Boolean" Nullable="false" />
+    <NavigationProperty Name="Facultades" Relationship="Self.FK__Carreras__id_fac__534D60F1" FromRole="Carreras" ToRole="Facultades" />
+    <NavigationProperty Name="Semestres" Relationship="Self.FK__Semestres__id_ca__6383C8BA" FromRole="Carreras" ToRole="Semestres" />
+    <NavigationProperty Name="Usuarios" Relationship="Self.CarrerasDeEstudiantes" FromRole="Carreras" ToRole="Usuarios" />
+  </EntityType>
+  <EntityType Name="DiaDisponibilidades">
+    <Key>
+      <PropertyRef Name="id_diaDisponibilidad" />
+    </Key>
+    <Property Name="id_diaDisponibilidad" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="dia" Type="String" MaxLength="30" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="start_time" Type="Time" Nullable="false" Precision="7" />
+    <Property Name="end_time" Type="Time" Nullable="false" Precision="7" />
+    <Property Name="isActive" Type="Boolean" Nullable="false" />
+    <NavigationProperty Name="Horarios" Relationship="Self.FK__Horarios__id_dia__7C4F7684" FromRole="DiaDisponibilidades" ToRole="Horarios" />
+  </EntityType>
+  <EntityType Name="Facultades">
+    <Key>
+      <PropertyRef Name="id_facultad" />
+    </Key>
+    <Property Name="id_facultad" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="nombre_facultad" Type="String" MaxLength="30" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="isActive" Type="Boolean" Nullable="false" />
+    <NavigationProperty Name="Carreras" Relationship="Self.FK__Carreras__id_fac__534D60F1" FromRole="Facultades" ToRole="Carreras" />
+    <NavigationProperty Name="Grupos" Relationship="Self.FK__Grupos__id_facul__4BAC3F29" FromRole="Facultades" ToRole="Grupos" />
+  </EntityType>
+  <EntityType Name="Grupos">
+    <Key>
+      <PropertyRef Name="id_grupo" />
+    </Key>
+    <Property Name="id_grupo" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="nombre_grupo" Type="String" MaxLength="30" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="id_facultad" Type="Int32" />
+    <Property Name="isActive" Type="Boolean" Nullable="false" />
+    <NavigationProperty Name="Facultades" Relationship="Self.FK__Grupos__id_facul__4BAC3F29" FromRole="Grupos" ToRole="Facultades" />
+  </EntityType>
+  <EntityType Name="Horarios">
+    <Key>
+      <PropertyRef Name="id_horario" />
+    </Key>
+    <Property Name="id_horario" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="id_aula" Type="Int32" />
+    <Property Name="id_asignatura" Type="Int32" />
+    <Property Name="no_grupo" Type="Int32" Nullable="false" />
+    <Property Name="id_diaDisponibilidad" Type="Int32" />
+    <Property Name="isActive" Type="Boolean" Nullable="false" />
+    <NavigationProperty Name="Asignaturas" Relationship="Self.FK__Horarios__id_asi__7B5B524B" FromRole="Horarios" ToRole="Asignaturas" />
+    <NavigationProperty Name="Aulas" Relationship="Self.FK__Horarios__id_aul__7A672E12" FromRole="Horarios" ToRole="Aulas" />
+    <NavigationProperty Name="DiaDisponibilidades" Relationship="Self.FK__Horarios__id_dia__7C4F7684" FromRole="Horarios" ToRole="DiaDisponibilidades" />
+  </EntityType>
+  <EntityType Name="Notas">
+    <Key>
+      <PropertyRef Name="id_nota" />
+    </Key>
+    <Property Name="id_nota" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="id_asignatura" Type="Int32" />
+    <Property Name="id_usuario" Type="Int32" />
+    <Property Name="nota" Type="Int32" Nullable="false" />
+    <Property Name="isActive" Type="Boolean" Nullable="false" />
+    <NavigationProperty Name="Asignaturas" Relationship="Self.FK__Notas__id_asigna__6EF57B66" FromRole="Notas" ToRole="Asignaturas" />
+    <NavigationProperty Name="Usuarios" Relationship="Self.FK__Notas__id_usuari__6FE99F9F" FromRole="Notas" ToRole="Usuarios" />
+  </EntityType>
+  <EntityType Name="Permisos">
+    <Key>
+      <PropertyRef Name="id_permiso" />
+    </Key>
+    <Property Name="id_permiso" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="nombre_permiso" Type="String" MaxLength="30" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="isActive" Type="Boolean" Nullable="false" />
+    <NavigationProperty Name="Roles" Relationship="Self.PermisosDeRoles" FromRole="Permisos" ToRole="Roles" />
+  </EntityType>
+  <EntityType Name="Prerrequisitos">
+    <Key>
+      <PropertyRef Name="id_prerrequisito" />
+    </Key>
+    <Property Name="id_prerrequisito" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="id_asignatura" Type="Int32" />
+    <Property Name="id_asignatura_requisito" Type="Int32" />
+    <NavigationProperty Name="Asignaturas" Relationship="Self.FK__Prerrequi__id_as__5FB337D6" FromRole="Prerrequisitos" ToRole="Asignaturas" />
+    <NavigationProperty Name="Asignaturas1" Relationship="Self.FK__Prerrequi__id_as__60A75C0F" FromRole="Prerrequisitos" ToRole="Asignaturas" />
+  </EntityType>
+  <EntityType Name="Roles">
+    <Key>
+      <PropertyRef Name="id_rol" />
+    </Key>
+    <Property Name="id_rol" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="nombre_rol" Type="String" MaxLength="30" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="isActive" Type="Boolean" Nullable="false" />
+    <NavigationProperty Name="Usuarios" Relationship="Self.FK__Usuarios__id_rol__4316F928" FromRole="Roles" ToRole="Usuarios" />
+    <NavigationProperty Name="Permisos" Relationship="Self.PermisosDeRoles" FromRole="Roles" ToRole="Permisos" />
+  </EntityType>
+  <EntityType Name="Semestres">
+    <Key>
+      <PropertyRef Name="id_semestre" />
+    </Key>
+    <Property Name="id_semestre" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="no_semestre" Type="Int32" Nullable="false" />
+    <Property Name="id_carrera" Type="Int32" />
+    <Property Name="isActive" Type="Boolean" Nullable="false" />
+    <NavigationProperty Name="Carreras" Relationship="Self.FK__Semestres__id_ca__6383C8BA" FromRole="Semestres" ToRole="Carreras" />
+    <NavigationProperty Name="Asignaturas" Relationship="Self.AsignaturasDeSemestres" FromRole="Semestres" ToRole="Asignaturas" />
+  </EntityType>
+  <EntityType Name="Usuarios">
+    <Key>
+      <PropertyRef Name="id_usuario" />
+    </Key>
+    <Property Name="id_usuario" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="username" Type="String" MaxLength="30" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="pass" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="primer_nombre" Type="String" MaxLength="30" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="segundo_nombre" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
+    <Property Name="primer_apellido" Type="String" MaxLength="30" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="segundo_apellido" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
+    <Property Name="fecha_de_nacimiento" Type="DateTime" Nullable="false" Precision="0" />
+    <Property Name="id_rol" Type="Int32" />
+    <Property Name="isActive" Type="Boolean" Nullable="false" />
+    <NavigationProperty Name="Notas" Relationship="Self.FK__Notas__id_usuari__6FE99F9F" FromRole="Usuarios" ToRole="Notas" />
+    <NavigationProperty Name="Roles" Relationship="Self.FK__Usuarios__id_rol__4316F928" FromRole="Usuarios" ToRole="Roles" />
+    <NavigationProperty Name="Carreras" Relationship="Self.CarrerasDeEstudiantes" FromRole="Usuarios" ToRole="Carreras" />
+    <NavigationProperty Name="Asignaturas" Relationship="Self.ProfesoresDeAsignaturas" FromRole="Usuarios" ToRole="Asignaturas" />
+    <NavigationProperty Name="Actividades" Relationship="Self.RegistrosDeActividades" FromRole="Usuarios" ToRole="Actividades" />
+  </EntityType>
+  <EntityType Name="database_firewall_rules">
+    <Key>
+      <PropertyRef Name="id" />
+      <PropertyRef Name="name" />
+      <PropertyRef Name="start_ip_address" />
+      <PropertyRef Name="end_ip_address" />
+      <PropertyRef Name="create_date" />
+      <PropertyRef Name="modify_date" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="name" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="start_ip_address" Type="String" MaxLength="45" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="end_ip_address" Type="String" MaxLength="45" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="create_date" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="modify_date" Type="DateTime" Nullable="false" Precision="3" />
+  </EntityType>
+  <Association Name="FK__Horarios__id_asi__7B5B524B">
+    <End Role="Asignaturas" Type="Self.Asignaturas" Multiplicity="0..1" />
+    <End Role="Horarios" Type="Self.Horarios" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Asignaturas">
+        <PropertyRef Name="id_asignatura" />
+      </Principal>
+      <Dependent Role="Horarios">
+        <PropertyRef Name="id_asignatura" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Notas__id_asigna__6EF57B66">
+    <End Role="Asignaturas" Type="Self.Asignaturas" Multiplicity="0..1" />
+    <End Role="Notas" Type="Self.Notas" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Asignaturas">
+        <PropertyRef Name="id_asignatura" />
+      </Principal>
+      <Dependent Role="Notas">
+        <PropertyRef Name="id_asignatura" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Prerrequi__id_as__5FB337D6">
+    <End Role="Asignaturas" Type="Self.Asignaturas" Multiplicity="0..1" />
+    <End Role="Prerrequisitos" Type="Self.Prerrequisitos" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Asignaturas">
+        <PropertyRef Name="id_asignatura" />
+      </Principal>
+      <Dependent Role="Prerrequisitos">
+        <PropertyRef Name="id_asignatura" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Prerrequi__id_as__60A75C0F">
+    <End Role="Asignaturas" Type="Self.Asignaturas" Multiplicity="0..1" />
+    <End Role="Prerrequisitos" Type="Self.Prerrequisitos" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Asignaturas">
+        <PropertyRef Name="id_asignatura" />
+      </Principal>
+      <Dependent Role="Prerrequisitos">
+        <PropertyRef Name="id_asignatura_requisito" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Horarios__id_aul__7A672E12">
+    <End Role="Aulas" Type="Self.Aulas" Multiplicity="0..1" />
+    <End Role="Horarios" Type="Self.Horarios" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Aulas">
+        <PropertyRef Name="id_aula" />
+      </Principal>
+      <Dependent Role="Horarios">
+        <PropertyRef Name="id_aula" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Carreras__id_fac__534D60F1">
+    <End Role="Facultades" Type="Self.Facultades" Multiplicity="0..1" />
+    <End Role="Carreras" Type="Self.Carreras" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Facultades">
+        <PropertyRef Name="id_facultad" />
+      </Principal>
+      <Dependent Role="Carreras">
+        <PropertyRef Name="id_facultad" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Semestres__id_ca__6383C8BA">
+    <End Role="Carreras" Type="Self.Carreras" Multiplicity="0..1" />
+    <End Role="Semestres" Type="Self.Semestres" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Carreras">
+        <PropertyRef Name="id_carrera" />
+      </Principal>
+      <Dependent Role="Semestres">
+        <PropertyRef Name="id_carrera" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Horarios__id_dia__7C4F7684">
+    <End Role="DiaDisponibilidades" Type="Self.DiaDisponibilidades" Multiplicity="0..1" />
+    <End Role="Horarios" Type="Self.Horarios" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="DiaDisponibilidades">
+        <PropertyRef Name="id_diaDisponibilidad" />
+      </Principal>
+      <Dependent Role="Horarios">
+        <PropertyRef Name="id_diaDisponibilidad" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Grupos__id_facul__4BAC3F29">
+    <End Role="Facultades" Type="Self.Facultades" Multiplicity="0..1" />
+    <End Role="Grupos" Type="Self.Grupos" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Facultades">
+        <PropertyRef Name="id_facultad" />
+      </Principal>
+      <Dependent Role="Grupos">
+        <PropertyRef Name="id_facultad" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Notas__id_usuari__6FE99F9F">
+    <End Role="Usuarios" Type="Self.Usuarios" Multiplicity="0..1" />
+    <End Role="Notas" Type="Self.Notas" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Usuarios">
+        <PropertyRef Name="id_usuario" />
+      </Principal>
+      <Dependent Role="Notas">
+        <PropertyRef Name="id_usuario" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Usuarios__id_rol__4316F928">
+    <End Role="Roles" Type="Self.Roles" Multiplicity="0..1" />
+    <End Role="Usuarios" Type="Self.Usuarios" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Roles">
+        <PropertyRef Name="id_rol" />
+      </Principal>
+      <Dependent Role="Usuarios">
+        <PropertyRef Name="id_rol" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="AsignaturasDeSemestres">
+    <End Role="Asignaturas" Type="Self.Asignaturas" Multiplicity="*" />
+    <End Role="Semestres" Type="Self.Semestres" Multiplicity="*" />
+  </Association>
+  <Association Name="CarrerasDeEstudiantes">
+    <End Role="Carreras" Type="Self.Carreras" Multiplicity="*" />
+    <End Role="Usuarios" Type="Self.Usuarios" Multiplicity="*" />
+  </Association>
+  <Association Name="PermisosDeRoles">
+    <End Role="Permisos" Type="Self.Permisos" Multiplicity="*" />
+    <End Role="Roles" Type="Self.Roles" Multiplicity="*" />
+  </Association>
+  <Association Name="ProfesoresDeAsignaturas">
+    <End Role="Asignaturas" Type="Self.Asignaturas" Multiplicity="*" />
+    <End Role="Usuarios" Type="Self.Usuarios" Multiplicity="*" />
+  </Association>
+  <Association Name="RegistrosDeActividades">
+    <End Role="Actividades" Type="Self.Actividades" Multiplicity="*" />
+    <End Role="Usuarios" Type="Self.Usuarios" Multiplicity="*" />
+  </Association>
+  <EntityContainer Name="SandrelenaCS" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="Actividades" EntityType="Self.Actividades" />
+    <EntitySet Name="Asignaturas" EntityType="Self.Asignaturas" />
+    <EntitySet Name="Aulas" EntityType="Self.Aulas" />
+    <EntitySet Name="Carreras" EntityType="Self.Carreras" />
+    <EntitySet Name="DiaDisponibilidades" EntityType="Self.DiaDisponibilidades" />
+    <EntitySet Name="Facultades" EntityType="Self.Facultades" />
+    <EntitySet Name="Grupos" EntityType="Self.Grupos" />
+    <EntitySet Name="Horarios" EntityType="Self.Horarios" />
+    <EntitySet Name="Notas" EntityType="Self.Notas" />
+    <EntitySet Name="Permisos" EntityType="Self.Permisos" />
+    <EntitySet Name="Prerrequisitos" EntityType="Self.Prerrequisitos" />
+    <EntitySet Name="Roles" EntityType="Self.Roles" />
+    <EntitySet Name="Semestres" EntityType="Self.Semestres" />
+    <EntitySet Name="Usuarios" EntityType="Self.Usuarios" />
+    <EntitySet Name="database_firewall_rules" EntityType="Self.database_firewall_rules" />
+    <AssociationSet Name="FK__Horarios__id_asi__7B5B524B" Association="Self.FK__Horarios__id_asi__7B5B524B">
+      <End Role="Asignaturas" EntitySet="Asignaturas" />
+      <End Role="Horarios" EntitySet="Horarios" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Notas__id_asigna__6EF57B66" Association="Self.FK__Notas__id_asigna__6EF57B66">
+      <End Role="Asignaturas" EntitySet="Asignaturas" />
+      <End Role="Notas" EntitySet="Notas" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Prerrequi__id_as__5FB337D6" Association="Self.FK__Prerrequi__id_as__5FB337D6">
+      <End Role="Asignaturas" EntitySet="Asignaturas" />
+      <End Role="Prerrequisitos" EntitySet="Prerrequisitos" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Prerrequi__id_as__60A75C0F" Association="Self.FK__Prerrequi__id_as__60A75C0F">
+      <End Role="Asignaturas" EntitySet="Asignaturas" />
+      <End Role="Prerrequisitos" EntitySet="Prerrequisitos" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Horarios__id_aul__7A672E12" Association="Self.FK__Horarios__id_aul__7A672E12">
+      <End Role="Aulas" EntitySet="Aulas" />
+      <End Role="Horarios" EntitySet="Horarios" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Carreras__id_fac__534D60F1" Association="Self.FK__Carreras__id_fac__534D60F1">
+      <End Role="Facultades" EntitySet="Facultades" />
+      <End Role="Carreras" EntitySet="Carreras" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Semestres__id_ca__6383C8BA" Association="Self.FK__Semestres__id_ca__6383C8BA">
+      <End Role="Carreras" EntitySet="Carreras" />
+      <End Role="Semestres" EntitySet="Semestres" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Horarios__id_dia__7C4F7684" Association="Self.FK__Horarios__id_dia__7C4F7684">
+      <End Role="DiaDisponibilidades" EntitySet="DiaDisponibilidades" />
+      <End Role="Horarios" EntitySet="Horarios" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Grupos__id_facul__4BAC3F29" Association="Self.FK__Grupos__id_facul__4BAC3F29">
+      <End Role="Facultades" EntitySet="Facultades" />
+      <End Role="Grupos" EntitySet="Grupos" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Notas__id_usuari__6FE99F9F" Association="Self.FK__Notas__id_usuari__6FE99F9F">
+      <End Role="Usuarios" EntitySet="Usuarios" />
+      <End Role="Notas" EntitySet="Notas" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Usuarios__id_rol__4316F928" Association="Self.FK__Usuarios__id_rol__4316F928">
+      <End Role="Roles" EntitySet="Roles" />
+      <End Role="Usuarios" EntitySet="Usuarios" />
+    </AssociationSet>
+    <AssociationSet Name="AsignaturasDeSemestres" Association="Self.AsignaturasDeSemestres">
+      <End Role="Asignaturas" EntitySet="Asignaturas" />
+      <End Role="Semestres" EntitySet="Semestres" />
+    </AssociationSet>
+    <AssociationSet Name="CarrerasDeEstudiantes" Association="Self.CarrerasDeEstudiantes">
+      <End Role="Carreras" EntitySet="Carreras" />
+      <End Role="Usuarios" EntitySet="Usuarios" />
+    </AssociationSet>
+    <AssociationSet Name="PermisosDeRoles" Association="Self.PermisosDeRoles">
+      <End Role="Permisos" EntitySet="Permisos" />
+      <End Role="Roles" EntitySet="Roles" />
+    </AssociationSet>
+    <AssociationSet Name="ProfesoresDeAsignaturas" Association="Self.ProfesoresDeAsignaturas">
+      <End Role="Asignaturas" EntitySet="Asignaturas" />
+      <End Role="Usuarios" EntitySet="Usuarios" />
+    </AssociationSet>
+    <AssociationSet Name="RegistrosDeActividades" Association="Self.RegistrosDeActividades">
+      <End Role="Actividades" EntitySet="Actividades" />
+      <End Role="Usuarios" EntitySet="Usuarios" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

@@ -1,4 +1,4 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="clases.aspx.cs" Inherits="SandrelenaWebApplication.Views.clases" %>
+﻿<%@ Page Title="Clases" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="clases.aspx.cs" Inherits="SandrelenaWebApplication.Views.clases" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="MainContent" runat="server">
     <div class="container-fluid">
         <div id="loading"></div>
@@ -22,11 +22,8 @@
                             </div>
                             <div class="col-md-3">
                                 <div class="form-group">
-                                    <select id="class-select">
-                                        <option value=0>Opción 1</option>
-                                        <option value=1>Opción 2</option>
-                                        <option value=2>Opción 3</option>
-                                    </select>
+                                    <asp:DropDownList ID="ddlClases" runat="server" CssClass="customSelect">
+                                    </asp:DropDownList>
 
 
 
@@ -59,7 +56,32 @@
 
                                 <!-- Aquí la primera tabla con la info del profesor-->
                                 <h1>Profesor</h1>
-                                <asp:GridView ID="GridView1" runat="server"></asp:GridView>
+
+                                <asp:Table ID="tblProfesor" runat="server">
+                                    <asp:TableHeaderRow>
+                                        <asp:TableHeaderCell>
+                                            Profesor
+                                        </asp:TableHeaderCell>
+                                        <asp:TableHeaderCell>
+                                            Usuario
+                                        </asp:TableHeaderCell>
+                                        <asp:TableHeaderCell>
+                                            Facultad
+                                        </asp:TableHeaderCell>
+                                    </asp:TableHeaderRow>
+                                    <asp:TableRow>
+                                        <asp:TableCell>
+                                            <asp:Label ID="lblProfesor" runat="server"></asp:Label>
+                                        </asp:TableCell>
+                                        <asp:TableCell>
+                                            <asp:Label ID="lblUsuario" runat="server"></asp:Label>
+                                        </asp:TableCell>
+                                        <asp:TableCell>
+                                            <asp:Label ID="lblFacultad" runat="server"></asp:Label>
+                                        </asp:TableCell>
+                                    </asp:TableRow>
+                                </asp:Table>
+
 
                             </div>
                         </div>
@@ -78,6 +100,13 @@
                        <div class="row">
                              <div class="col-md-5">
                                  <h1 class="sandrelena-sub-heading"><small>Listado de estudiantes</small></h1>
+                                 <asp:GridView ID="gvwAlumnos" runat="server" AutoGenerateColumns="false">
+                                    <Columns>
+                                        <asp:BoundField DataField="primer_nombre" HeaderText="Nombre" />
+                                        <asp:BoundField DataField="primer_apellido" HeaderText="Apellido" />
+                                        <asp:BoundField DataField="username" HeaderText="Usuario" />
+                                    </Columns>
+                                </asp:GridView>
                              </div>
                          </div>
 
