@@ -47,17 +47,45 @@
                              </div>
                          </div>
 
-                        <div class="row">
+                        <div class="row padding-top-md">
                             <!-- En esta fila sale el numero de grupo y el numero de creditos -->
+                            <div class="col-md-3">
+                                <asp:Table ID="TableGrupo" runat="server" CssClass="table table-bordered info-table">
+                                    <asp:TableHeaderRow>
+                                        <asp:TableHeaderCell>
+                                            Grupo
+                                        </asp:TableHeaderCell>
+                                    </asp:TableHeaderRow>
+                                    <asp:TableRow>
+                                        <asp:TableCell>
+                                            <asp:Label ID="grupoLabel" runat="server"></asp:Label>
+                                        </asp:TableCell>
+                                    </asp:TableRow>
+                                </asp:Table>
+                            </div>
+                            <div class="col-md-3 col-md-offset-2">
+                                <asp:Table ID="TableCredits" runat="server" CssClass="table table-bordered info-table">
+                                    <asp:TableHeaderRow>
+                                        <asp:TableHeaderCell>
+                                            Creditos
+                                        </asp:TableHeaderCell>
+                                    </asp:TableHeaderRow>
+                                    <asp:TableRow>
+                                        <asp:TableCell>
+                                            <asp:Label ID="creditsLabel" runat="server"></asp:Label>
+                                        </asp:TableCell>
+                                    </asp:TableRow>
+                                </asp:Table>
+                            </div>
                         </div>
 
                         <div class="row">
-                            <div class="col-md-12">
+                            <div class="col-md-8">
 
                                 <!-- Aquí la primera tabla con la info del profesor-->
                                 <h1>Profesor</h1>
 
-                                <asp:Table ID="tblProfesor" runat="server">
+                                <asp:Table ID="tblProfesor" runat="server" CssClass="table table-bordered info-table">
                                     <asp:TableHeaderRow>
                                         <asp:TableHeaderCell>
                                             Profesor
@@ -88,6 +116,11 @@
 
                       <div class="row">
                           <!-- En esta fila va la info de los horarios-->
+                          <asp:GridView ID="horarioGrid" runat="server" AutoGenerateColumns="false" CssClass="table info-table">
+                              <Columns>
+                                  
+                              </Columns>
+                          </asp:GridView>
                       </div>
 
                         
@@ -97,10 +130,15 @@
 
                       <!-- comienza el otro panel -->
                     <div role="tabpanel" class="tab-pane" id="students">
+                        <div class="row">
+                            <div class="col-md-5">
+                                <h1 class="sandrelena-sub-heading"><small>Listado de estudiantes</small></h1>
+                            </div>
+                        </div>
                        <div class="row">
-                             <div class="col-md-5">
-                                 <h1 class="sandrelena-sub-heading"><small>Listado de estudiantes</small></h1>
-                                 <asp:GridView ID="gvwAlumnos" runat="server" AutoGenerateColumns="false">
+                             <div class="col-md-12">
+                                 
+                                 <asp:GridView ID="gvwAlumnos" runat="server" AutoGenerateColumns="false" CssClass="table list-table" BorderWidth="0">
                                     <Columns>
                                         <asp:BoundField DataField="primer_nombre" HeaderText="Nombre" />
                                         <asp:BoundField DataField="primer_apellido" HeaderText="Apellido" />
