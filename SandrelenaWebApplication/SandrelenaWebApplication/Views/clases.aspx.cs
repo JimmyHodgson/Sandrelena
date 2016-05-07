@@ -17,9 +17,14 @@ namespace SandrelenaWebApplication.Views
             if (Page.IsPostBack==false)
             {
                 CargarClases();
-                CargarProfesor();
-                CargarEstudiantes();
+                CargarDatos();
             }
+        }
+
+        private void CargarDatos()
+        {
+            CargarProfesor();
+            CargarEstudiantes();
         }
 
         private void CargarClases()
@@ -28,19 +33,20 @@ namespace SandrelenaWebApplication.Views
             ddlClases.DataValueField = "id_asignatura";
             ddlClases.DataTextField = "nombre_asignatura";
             ddlClases.DataBind();
-
-            //CargarProfesor(Convert.ToInt32(ddlClases.SelectedValue));
         }
 
         private void CargarProfesor()
         {
-            //var profe2 = modelo.Asignaturas.Find(clase);
+            var clase = modelo.Asignaturas.Find(Convert.ToInt32(ddlClases.SelectedValue));
+            var semestre = modelo.Semestres.Find(clase.id_asignatura);
+            var carrera = modelo.Carreras.Find(semestre.id_carrera);
+            var facultad = modelo.Facultades.Find(carrera.id_facultad);
 
             var profe = modelo.Usuarios.Find(2);
 
             lblProfesor.Text = profe.primer_nombre.ToString() + " " + profe.primer_apellido.ToString();
             lblUsuario.Text = profe.username.ToString();
-            lblFacultad.Text = "no contemplado";
+            lblFacultad.Text = facultad.nombre_facultad.ToString();
         }
 
         private void CargarEstudiantes()
@@ -53,5 +59,9 @@ namespace SandrelenaWebApplication.Views
             gvwAlumnos.DataBind();
         }
 
+        protected void ddlClases_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            CargarDatos();
+        }
     }
 }

@@ -32,7 +32,7 @@
         }
         else {
             $('#warning').html("welcome");
-
+            window.location.replace("../Default.aspx");
             $('#warning').removeClass("label-warning").removeClass("label-danger").addClass("label-success");
         }
     });
