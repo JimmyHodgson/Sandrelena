@@ -1,4 +1,4 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="academico.aspx.cs" Inherits="SandrelenaWebApplication.Views.notas" %>
+﻿<%@ Page Title="Académico" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="academico.aspx.cs" Inherits="SandrelenaWebApplication.Views.notas" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="MainContent" runat="server">
     <div class="container-fluid">
         <div id="loading"></div>

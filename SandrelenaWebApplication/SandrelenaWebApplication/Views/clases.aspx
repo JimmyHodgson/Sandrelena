@@ -5,7 +5,7 @@
         	<div class="row">
         <div class="col-sm-3 col-md-2 sidebar">
         	<div class="text-center sidebar-heading">
-            	<h4>Menu</h4>
+            	<h4>Menú</h4>
             </div>
           <ul class="nav nav-sidebar">
             <li class="clickable active" role="presentation"><a href="#general" aria-controls="general" role="tab" data-toggle="tab"><i class="fa fa-info-circle fa-fw"></i> General</a></li>
@@ -18,11 +18,11 @@
             <div class="container">
                     <div class="row">
                             <div class="col-md-5">
-                                <h1 class="sandrelena-heading">Visor de Clases</h1>
+                                <h1 class="sandrelena-heading">Clases en curso</h1>
                             </div>
                             <div class="col-md-3">
                                 <div class="form-group">
-                                    <asp:DropDownList ID="ddlClases" runat="server" CssClass="customSelect">
+                                    <asp:DropDownList ID="ddlClases" runat="server" CssClass="customSelect" OnSelectedIndexChanged="ddlClases_SelectedIndexChanged">
                                     </asp:DropDownList>
 
 
@@ -52,29 +52,25 @@
                             <div class="col-md-3">
                                 <asp:Table ID="TableGrupo" runat="server" CssClass="table table-bordered info-table">
                                     <asp:TableHeaderRow>
-                                        <asp:TableHeaderCell>
+                                        <asp:TableHeaderCell Width="50%">
                                             Grupo
                                         </asp:TableHeaderCell>
-                                    </asp:TableHeaderRow>
-                                    <asp:TableRow>
-                                        <asp:TableCell>
+                                        <asp:TableCell Width="50%">
                                             <asp:Label ID="grupoLabel" runat="server"></asp:Label>
                                         </asp:TableCell>
-                                    </asp:TableRow>
+                                    </asp:TableHeaderRow>
                                 </asp:Table>
                             </div>
                             <div class="col-md-3 col-md-offset-2">
                                 <asp:Table ID="TableCredits" runat="server" CssClass="table table-bordered info-table">
                                     <asp:TableHeaderRow>
-                                        <asp:TableHeaderCell>
+                                        <asp:TableHeaderCell Width="50%">
                                             Creditos
                                         </asp:TableHeaderCell>
-                                    </asp:TableHeaderRow>
-                                    <asp:TableRow>
-                                        <asp:TableCell>
+                                        <asp:TableCell Width="50%">
                                             <asp:Label ID="creditsLabel" runat="server"></asp:Label>
                                         </asp:TableCell>
-                                    </asp:TableRow>
+                                    </asp:TableHeaderRow>
                                 </asp:Table>
                             </div>
                         </div>
