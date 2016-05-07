@@ -252,6 +252,11 @@
     <Content Include="Scripts\login.js" />
     <Content Include="Scripts\matricula.js" />
     <Content Include="Scripts\jquery.transit.min.js" />
+    <Content Include="Views\admin\asignaturas.aspx" />
+    <Content Include="Views\admin\carreras.aspx" />
+    <Content Include="Views\admin\dashboard.aspx" />
+    <Content Include="Views\admin\facultades.aspx" />
+    <Content Include="Views\admin\usuarios.aspx" />
     <Content Include="Views\clases.aspx" />
     <Content Include="Content\alerts.css" />
     <Content Include="Content\bootstrap.css" />
@@ -378,6 +383,7 @@
     <None Include="Project_Readme.html" />
     <Content Include="Scripts\jquery-1.10.2.min.map" />
     <Content Include="Site.Mobile.Master" />
+    <Content Include="SiteAdmin.Master" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -555,6 +561,48 @@
     <Compile Include="Models\Usuarios.cs">
       <DependentUpon>Model.tt</DependentUpon>
     </Compile>
+    <Compile Include="SiteAdmin.Master.cs">
+      <DependentUpon>SiteAdmin.Master</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="SiteAdmin.Master.designer.cs">
+      <DependentUpon>SiteAdmin.Master</DependentUpon>
+    </Compile>
+    <Compile Include="Views\admin\asignaturas.aspx.cs">
+      <DependentUpon>asignaturas.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Views\admin\asignaturas.aspx.designer.cs">
+      <DependentUpon>asignaturas.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Views\admin\carreras.aspx.cs">
+      <DependentUpon>carreras.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Views\admin\carreras.aspx.designer.cs">
+      <DependentUpon>carreras.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Views\admin\dashboard.aspx.cs">
+      <DependentUpon>dashboard.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Views\admin\dashboard.aspx.designer.cs">
+      <DependentUpon>dashboard.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Views\admin\facultades.aspx.cs">
+      <DependentUpon>facultades.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Views\admin\facultades.aspx.designer.cs">
+      <DependentUpon>facultades.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Views\admin\usuarios.aspx.cs">
+      <DependentUpon>usuarios.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Views\admin\usuarios.aspx.designer.cs">
+      <DependentUpon>usuarios.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Views\clases.aspx.cs">
       <DependentUpon>clases.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -639,6 +687,8 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="Views\estudiante\" />
+    <Folder Include="Views\profesor\" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Properties\Resources.resx">
