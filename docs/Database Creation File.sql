@@ -121,27 +121,19 @@ Insert Into Facultades Values ('Diseño', 1) --id:2
 
 --************************************************************************
 
-Create Table Grupos (
-    id_grupo int Identity(1,1) Primary Key Not Null,
-    nombre_grupo nvarchar(30) Not Null Unique,
-    id_facultad int Foreign Key References Facultades(id_facultad),
-	isActive bit Not Null Default 1
-)
+--Create Table Grupos (
+--    id_grupo int Identity(1,1) Primary Key Not Null,
+--  nombre_grupo nvarchar(30) Not Null Unique,
+--   id_facultad int Foreign Key References Facultades(id_facultad),
+--	isActive bit Not Null Default 1
+--)
 
 --************************************************************************
 
-
-
---************************************************************************
-
-Create Table GruposDeUsuarios (
-    id_usuario int Foreign Key References Usuarios(id_usuario),
-    id_grupo int Foreign Key References Grupos(id_grupo)
-)
-
---************************************************************************
-
-
+--Create Table GruposDeUsuarios (
+--    id_usuario int Foreign Key References Usuarios(id_usuario),
+--    id_grupo int Foreign Key References Grupos(id_grupo)
+--)
 
 --************************************************************************
 
@@ -290,18 +282,6 @@ Insert Into ProfesoresDeAsignaturas Values (10, 4) --id:10
 
 --************************************************************************
 
-Create Table Notas (
-    id_nota int Identity(1,1) Primary Key Not Null,
-    id_asignatura int Foreign Key References Asignaturas(id_asignatura),
-    id_usuario int Foreign Key References Usuarios(id_usuario),
-    nota int Not Null,
-	isActive bit Not Null Default 1
-)
-
---************************************************************************
-
---************************************************************************
-
 Create Table Aulas (
     id_aula int Identity(1,1) Primary Key Not Null,
     nombre_aula nvarchar(30) Not Null Unique,
@@ -310,6 +290,18 @@ Create Table Aulas (
 )
 
 --************************************************************************
+Insert Into Aulas Values ('A101', 0, 1) --id:1
+Insert Into Aulas Values ('A102', 0, 1) --id:2
+Insert Into Aulas Values ('A103', 0, 1) --id:3
+Insert Into Aulas Values ('A201', 1, 1) --id:4
+Insert Into Aulas Values ('A302', 1, 1) --id:5
+Insert Into Aulas Values ('A303', 1, 1) --id:6
+Insert Into Aulas Values ('B101', 0, 1) --id:7
+Insert Into Aulas Values ('B102', 0, 1) --id:8
+Insert Into Aulas Values ('B103', 0, 1) --id:9
+Insert Into Aulas Values ('C201', 1, 1) --id:10
+Insert Into Aulas Values ('C202', 1, 1) --id:11
+Insert Into Aulas Values ('C203', 1, 1) --id:12
 
 --************************************************************************
 
@@ -322,6 +314,92 @@ Create Table DiaDisponibilidades (
 )
 
 --************************************************************************
+
+-- Lunes
+	-- Matutino
+Insert Into DiaDisponibilidades Values ('Lunes', '07:00:00', '07:50:00', 1) --id:1
+Insert Into DiaDisponibilidades Values ('Lunes', '08:00:00', '08:50:00', 1) --id:2
+Insert Into DiaDisponibilidades Values ('Lunes', '09:00:00', '09:50:00', 1) --id:3
+Insert Into DiaDisponibilidades Values ('Lunes', '10:00:00', '10:50:00', 1) --id:4
+Insert Into DiaDisponibilidades Values ('Lunes', '11:00:00', '11:50:00', 1) --id:5
+
+Insert Into DiaDisponibilidades Values ('Lunes', '07:00:00', '08:50:00', 1) --id:6
+Insert Into DiaDisponibilidades Values ('Lunes', '08:00:00', '09:50:00', 1) --id:7
+Insert Into DiaDisponibilidades Values ('Lunes', '09:00:00', '10:50:00', 1) --id:8
+Insert Into DiaDisponibilidades Values ('Lunes', '10:00:00', '11:50:00', 1) --id:9
+
+Insert Into DiaDisponibilidades Values ('Lunes', '07:00:00', '09:50:00', 1) --id:10
+Insert Into DiaDisponibilidades Values ('Lunes', '08:00:00', '10:50:00', 1) --id:11
+Insert Into DiaDisponibilidades Values ('Lunes', '09:00:00', '11:50:00', 1) --id:12
+
+	-- Vespertino
+Insert Into DiaDisponibilidades Values ('Lunes', '13:00:00', '13:50:00', 1) --id:13
+Insert Into DiaDisponibilidades Values ('Lunes', '14:00:00', '14:50:00', 1) --id:14
+Insert Into DiaDisponibilidades Values ('Lunes', '15:00:00', '15:50:00', 1) --id:15
+Insert Into DiaDisponibilidades Values ('Lunes', '16:00:00', '16:50:00', 1) --id:16
+Insert Into DiaDisponibilidades Values ('Lunes', '17:00:00', '17:50:00', 1) --id:17
+
+Insert Into DiaDisponibilidades Values ('Lunes', '13:00:00', '14:50:00', 1) --id:18
+Insert Into DiaDisponibilidades Values ('Lunes', '14:00:00', '15:50:00', 1) --id:19
+Insert Into DiaDisponibilidades Values ('Lunes', '15:00:00', '16:50:00', 1) --id:20
+Insert Into DiaDisponibilidades Values ('Lunes', '16:00:00', '17:50:00', 1) --id:21
+
+Insert Into DiaDisponibilidades Values ('Lunes', '13:00:00', '15:50:00', 1) --id:22
+Insert Into DiaDisponibilidades Values ('Lunes', '14:00:00', '16:50:00', 1) --id:23
+Insert Into DiaDisponibilidades Values ('Lunes', '15:00:00', '17:50:00', 1) --id:24
+
+	-- Nocturno
+Insert Into DiaDisponibilidades Values ('Lunes', '17:50:00', '18:40:00', 1) --id:25
+Insert Into DiaDisponibilidades Values ('Lunes', '17:50:00', '19:30:00', 1) --id:26
+Insert Into DiaDisponibilidades Values ('Lunes', '17:50:00', '20:30:00', 1) --id:27
+
+Insert Into DiaDisponibilidades Values ('Lunes', '19:50:00', '21:30:00', 1) --id:28
+
+Insert Into DiaDisponibilidades Values ('Lunes', '18:50:00', '19:30:00', 1) --id:29
+Insert Into DiaDisponibilidades Values ('Lunes', '18:50:00', '20:30:00', 1) --id:30
+
+-- Martes
+	-- Matutino
+Insert Into DiaDisponibilidades Values ('Martes', '07:00:00', '07:50:00', 1) --id:31
+Insert Into DiaDisponibilidades Values ('Martes', '08:00:00', '08:50:00', 1) --id:32
+Insert Into DiaDisponibilidades Values ('Martes', '09:00:00', '09:50:00', 1) --id:33
+Insert Into DiaDisponibilidades Values ('Martes', '10:00:00', '10:50:00', 1) --id:34
+Insert Into DiaDisponibilidades Values ('Martes', '11:00:00', '11:50:00', 1) --id:35
+
+Insert Into DiaDisponibilidades Values ('Martes', '07:00:00', '08:50:00', 1) --id:36
+Insert Into DiaDisponibilidades Values ('Martes', '08:00:00', '09:50:00', 1) --id:37
+Insert Into DiaDisponibilidades Values ('Martes', '09:00:00', '10:50:00', 1) --id:38
+Insert Into DiaDisponibilidades Values ('Martes', '10:00:00', '11:50:00', 1) --id:39
+
+Insert Into DiaDisponibilidades Values ('Martes', '07:00:00', '09:50:00', 1) --id:40
+Insert Into DiaDisponibilidades Values ('Martes', '08:00:00', '10:50:00', 1) --id:41
+Insert Into DiaDisponibilidades Values ('Martes', '09:00:00', '11:50:00', 1) --id:42
+
+	-- Vespertino
+Insert Into DiaDisponibilidades Values ('Martes', '13:00:00', '13:50:00', 1) --id:43
+Insert Into DiaDisponibilidades Values ('Martes', '14:00:00', '14:50:00', 1) --id:44
+Insert Into DiaDisponibilidades Values ('Martes', '15:00:00', '15:50:00', 1) --id:45
+Insert Into DiaDisponibilidades Values ('Martes', '16:00:00', '16:50:00', 1) --id:46
+Insert Into DiaDisponibilidades Values ('Martes', '17:00:00', '17:50:00', 1) --id:47
+
+Insert Into DiaDisponibilidades Values ('Martes', '13:00:00', '14:50:00', 1) --id:48
+Insert Into DiaDisponibilidades Values ('Martes', '14:00:00', '15:50:00', 1) --id:49
+Insert Into DiaDisponibilidades Values ('Martes', '15:00:00', '16:50:00', 1) --id:50
+Insert Into DiaDisponibilidades Values ('Martes', '16:00:00', '17:50:00', 1) --id:51
+
+Insert Into DiaDisponibilidades Values ('Martes', '13:00:00', '15:50:00', 1) --id:52
+Insert Into DiaDisponibilidades Values ('Martes', '14:00:00', '16:50:00', 1) --id:53
+Insert Into DiaDisponibilidades Values ('Martes', '15:00:00', '17:50:00', 1) --id:54
+
+	-- Nocturno
+Insert Into DiaDisponibilidades Values ('Martes', '17:50:00', '18:40:00', 1) --id:55
+Insert Into DiaDisponibilidades Values ('Martes', '17:50:00', '19:30:00', 1) --id:56
+Insert Into DiaDisponibilidades Values ('Martes', '17:50:00', '20:30:00', 1) --id:57
+
+Insert Into DiaDisponibilidades Values ('Martes', '19:50:00', '21:30:00', 1) --id:58
+
+Insert Into DiaDisponibilidades Values ('Martes', '18:50:00', '19:30:00', 1) --id:59
+Insert Into DiaDisponibilidades Values ('Martes', '18:50:00', '20:30:00', 1) --id:60
 
 --************************************************************************
 
@@ -336,6 +414,16 @@ Create Table Horarios (
 
 --************************************************************************
 
+Create Table Matrículas (
+    id_matrícula int Identity(1,1) Primary Key Not Null,
+    id_horario int Foreign Key References Horarios(id_horario),
+    id_usuario int Foreign Key References Usuarios(id_usuario),
+	fecha_inscripcion date Not Null,
+    nota int, -- Puede ser Null si se acaba de inscribir la clase
+	isActive bit Not Null Default 1
+)
+
+
 --************************************************************************
 
 Create Table Actividades (
@@ -346,6 +434,24 @@ Create Table Actividades (
 
 --************************************************************************
 
+-- Por cada permiso hay una actividad
+Insert Into Actividades (nombre_actividad) Values ('Agregar Permiso', 1) --id:1
+Insert Into Actividades (nombre_actividad) Values ('Agregar Rol', 1) --id:2
+Insert Into Actividades (nombre_actividad) Values ('Agregar Usuario', 1) --id:3
+Insert Into Actividades (nombre_actividad) Values ('Agregar Facultad', 1) --id:4
+Insert Into Actividades (nombre_actividad) Values ('Agregar Grupo', 1) --id:5
+Insert Into Actividades (nombre_actividad) Values ('Agregar Carrera', 1) --id:6
+Insert Into Actividades (nombre_actividad) Values ('Agregar Asignatura', 1) --id:7
+Insert Into Actividades (nombre_actividad) Values ('Agregar Semestre', 1) --id:8
+Insert Into Actividades (nombre_actividad) Values ('Agregar Nota', 1) --id:9
+Insert Into Actividades (nombre_actividad) Values ('Agregar Aula', 1) --id:10
+Insert Into Actividades (nombre_actividad) Values ('Agregar DiaDisponibilidad', 1) --id:11
+Insert Into Actividades (nombre_actividad) Values ('Agregar Horario', 1) --id:12
+Insert Into Actividades (nombre_actividad) Values ('Asignar Prerrequisito', 1) --id:13
+Insert Into Actividades (nombre_actividad) Values ('Ver Nota', 1) --id:14
+Insert Into Actividades (nombre_actividad) Values ('Inicio de Sesión', 1) --id:15
+
+
 --************************************************************************
 
 Create Table RegistrosDeActividades (
@@ -355,7 +461,5 @@ Create Table RegistrosDeActividades (
 	Foreign Key (id_actividad) References Actividades(id_actividad),
     Foreign Key (id_usuario) References Usuarios(id_usuario)
 )
-
---************************************************************************
 
 --************************************************************************
