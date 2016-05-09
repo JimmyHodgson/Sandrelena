@@ -44,6 +44,12 @@
         </div>
     </div>
 
+    <footer class="">
+    <div class="container">
+        <p>&copy; <%: DateTime.Now.Year %> - Sandrelena v0.1.0</p>
+     </div>
+    </footer>
+
     <!-- Modales -->
 
     <!-- add user -->

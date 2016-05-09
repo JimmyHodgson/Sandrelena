@@ -263,3 +263,8 @@ textarea {
    border:none;
    border-bottom:1px solid #ccc;
 }
+
+
+.nav-sidebar>li>ul>li{
+    padding-left:20px;
+}

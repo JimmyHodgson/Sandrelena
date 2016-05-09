@@ -1,4 +1,7 @@
 ﻿$(document).ready(function () {
-    $('.datepicker').datepicker({ format: 'yyyy/mm/dd', autoclose: true });
+    var datepicker = $.fn.datepicker.noConflict();
+    $.fn.bootstrapDP = datepicker;
+
+    $('.datepicker').bootstrapDP({ format: 'yyyy/mm/dd', autoclose: true });
     $('.modal-dialog').draggable({ handle: ".modal-header" });
 })

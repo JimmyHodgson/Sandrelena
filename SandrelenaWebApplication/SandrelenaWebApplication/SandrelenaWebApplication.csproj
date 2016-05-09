@@ -248,6 +248,7 @@
     <Content Include="Content\bootstrap-datepicker.css.map" />
     <None Include="Resources\bg.jpg" />
     <Content Include="Scripts\academico.js" />
+    <Content Include="Scripts\asignaturas.js" />
     <Content Include="Scripts\bootstrap-datepicker.js" />
     <Content Include="Scripts\bootstrap-datepicker.min.js" />
     <Content Include="Scripts\clases.js" />
@@ -266,6 +267,7 @@
     <Content Include="Account\ResetPasswordConfirmation.aspx" />
     <Content Include="Account\TwoFactorAuthenticationSignIn.aspx" />
     <Content Include="Account\VerifyPhoneNumber.aspx" />
+    <Content Include="Scripts\facultades.js" />
     <Content Include="Scripts\jquery-ui-1.11.4.js" />
     <Content Include="Scripts\jquery-ui-1.11.4.min.js" />
     <Content Include="Scripts\locales\bootstrap-datepicker.ar.min.js" />
@@ -339,7 +341,6 @@
     <Content Include="Scripts\jquery.transit.min.js" />
     <Content Include="Scripts\usuarios.js" />
     <Content Include="Views\admin\asignaturas.aspx" />
-    <Content Include="Views\admin\carreras.aspx" />
     <Content Include="Views\admin\dashboard.aspx" />
     <Content Include="Views\admin\facultades.aspx" />
     <Content Include="Views\admin\usuarios.aspx" />
@@ -660,13 +661,6 @@
     </Compile>
     <Compile Include="Views\admin\asignaturas.aspx.designer.cs">
       <DependentUpon>asignaturas.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="Views\admin\carreras.aspx.cs">
-      <DependentUpon>carreras.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="Views\admin\carreras.aspx.designer.cs">
-      <DependentUpon>carreras.aspx</DependentUpon>
     </Compile>
     <Compile Include="Views\admin\dashboard.aspx.cs">
       <DependentUpon>dashboard.aspx</DependentUpon>
