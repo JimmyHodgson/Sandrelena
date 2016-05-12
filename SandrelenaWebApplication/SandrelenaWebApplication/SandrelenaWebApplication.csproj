@@ -344,7 +344,7 @@
     <Content Include="Views\admin\dashboard.aspx" />
     <Content Include="Views\admin\facultades.aspx" />
     <Content Include="Views\admin\usuarios.aspx" />
-    <Content Include="Views\clases.aspx" />
+    <Content Include="Views\estudiante\clases.aspx" />
     <Content Include="Content\alerts.css" />
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
@@ -462,8 +462,8 @@
     <Content Include="Views\inbox.aspx" />
     <Content Include="Views\index_test.aspx" />
     <Content Include="Views\login.aspx" />
-    <Content Include="Views\matricula.aspx" />
-    <Content Include="Views\academico.aspx" />
+    <Content Include="Views\estudiante\matricula.aspx" />
+    <Content Include="Views\estudiante\academico.aspx" />
     <Content Include="Web.config" />
     <Content Include="Bundle.config" />
     <Content Include="packages.config" />
@@ -683,11 +683,11 @@
     <Compile Include="Views\admin\usuarios.aspx.designer.cs">
       <DependentUpon>usuarios.aspx</DependentUpon>
     </Compile>
-    <Compile Include="Views\clases.aspx.cs">
+    <Compile Include="Views\estudiante\clases.aspx.cs">
       <DependentUpon>clases.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="Views\clases.aspx.designer.cs">
+    <Compile Include="Views\estudiante\clases.aspx.designer.cs">
       <DependentUpon>clases.aspx</DependentUpon>
     </Compile>
     <Compile Include="Default.aspx.cs">
@@ -750,24 +750,23 @@
     <Compile Include="Views\login.aspx.designer.cs">
       <DependentUpon>login.aspx</DependentUpon>
     </Compile>
-    <Compile Include="Views\matricula.aspx.cs">
+    <Compile Include="Views\estudiante\matricula.aspx.cs">
       <DependentUpon>matricula.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="Views\matricula.aspx.designer.cs">
+    <Compile Include="Views\estudiante\matricula.aspx.designer.cs">
       <DependentUpon>matricula.aspx</DependentUpon>
     </Compile>
-    <Compile Include="Views\academico.aspx.cs">
+    <Compile Include="Views\estudiante\academico.aspx.cs">
       <DependentUpon>academico.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="Views\academico.aspx.designer.cs">
+    <Compile Include="Views\estudiante\academico.aspx.designer.cs">
       <DependentUpon>academico.aspx</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Views\estudiante\" />
     <Folder Include="Views\profesor\" />
   </ItemGroup>
   <ItemGroup>

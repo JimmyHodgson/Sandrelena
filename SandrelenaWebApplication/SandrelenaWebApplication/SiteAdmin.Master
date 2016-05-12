@@ -60,7 +60,7 @@
                             <ul class="dropdown-menu">
                                 <li><a href="usuarios.aspx">Usuarios</a></li>
                                 <li><a href="asignaturas.aspx">Asignaturas</a></li>
-                                <li><a href="#">Carreras</a></li>
+                                <li><a href="facultades.aspx">Facultades</a></li>
                             </ul>
                         </li>
                         

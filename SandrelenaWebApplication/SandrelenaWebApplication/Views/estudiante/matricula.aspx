@@ -41,16 +41,19 @@
                     </div>
 
                 </div>
+                <div class="row">
+                    <footer class="footer-fixed">
+                        <div class="container">
+                            <p>&copy; <%: DateTime.Now.Year %> - Sandrelena v0.1.0</p>
+                        </div>
+                    </footer>
+                </div>
             </div>
         </div>
 
     </div>
 
-    <footer class="">
-        <div class="container">
-            <p>&copy; <%: DateTime.Now.Year %> - Sandrelena v0.1.0</p>
-        </div>
-    </footer>
 
-    <script src="../Scripts/matricula.js" type="text/javascript"></script>
+
+    <script src="../../Scripts/matricula.js" type="text/javascript"></script>
 </asp:Content>

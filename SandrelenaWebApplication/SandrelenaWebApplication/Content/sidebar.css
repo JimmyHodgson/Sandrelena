@@ -5,7 +5,7 @@
   .sidebar {
     position: fixed;
     top: 51px;
-    bottom: 40px;
+    bottom: 0px;
     left: 0;
     z-index: 1000;
     display: block;

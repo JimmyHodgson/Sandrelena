@@ -36,7 +36,7 @@
 
                 </div>
                 <div class="row">
-                    <asp:GridView ID="user_table" runat="server" CssClass="table list-table" AutoGenerateColumns="false" >
+                    <asp:GridView ID="user_table" runat="server" CssClass="table list-table" AutoGenerateColumns="false" BorderWidth="0">
                         <Columns>
                             <asp:BoundField DataField="Nombre" HeaderText="Nombre" />
                             <asp:BoundField DataField="Usuario" HeaderText="Usuario" />
@@ -47,16 +47,19 @@
                     </asp:GridView>
                 </div>
 
+                <div class="row">
+                    <footer class="footer-fixed">
+                        <div class="container">
+                            <p>&copy; <%: DateTime.Now.Year %> - Sandrelena v0.1.0</p>
+                        </div>
+                    </footer>
+                </div>
+
             </div>
 
         </div>
+        
     </div>
-
-    <footer class="">
-    <div class="container">
-        <p>&copy; <%: DateTime.Now.Year %> - Sandrelena v0.1.0</p>
-     </div>
-    </footer>
 
     <!-- Modales -->
 

@@ -4,6 +4,7 @@
 body{
 	height:100%;
 	padding-top: 70px;
+    overflow-x:hidden;
 }
 
 .navbar-default {
@@ -100,7 +101,6 @@ body{
 }
 
 footer{
-	position:fixed;
 	bottom:0;
 	width:100%;	
 	background-color:#ecf0f1;
@@ -108,7 +108,17 @@ footer{
 	height:40px;
 	line-height:40px;
 	z-index:1000;
+    height:100%;
 
+}
+
+.footer-fixed{
+    position:fixed;
+    height:40px;
+}
+
+.footer-padding{
+    padding-bottom:40px;
 }
 
 .content{
@@ -267,4 +277,8 @@ textarea {
 
 .nav-sidebar>li>ul>li{
     padding-left:20px;
+}
+
+.list-table tbody > tr:hover{
+    background:#ecf0f1;
 }

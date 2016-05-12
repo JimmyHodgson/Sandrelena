@@ -167,17 +167,18 @@
 
 
                     </div>
-                  </div>  
-            </div> 
+                  </div>
+            </div>
+            <div class="row">
+                <footer class="footer-fixed">
+                    <div class="container">
+                        <p>&copy; <%: DateTime.Now.Year %> - Sandrelena v0.1.0</p>
+                    </div>
+                </footer>
+            </div>
+
+
         </div>
-      </div>
-
-    <footer class="footer-sidebar-fix">
-    <div class="container">
-        <p>&copy; <%: DateTime.Now.Year %> - Sandrelena v0.1.0</p>
-     </div>
-    </footer>
-
-    
-    <script src="../Scripts/clases.js" type="text/javascript"></script>
+            </div>
+    <script src="../../Scripts/clases.js" type="text/javascript"></script>
 </asp:Content>

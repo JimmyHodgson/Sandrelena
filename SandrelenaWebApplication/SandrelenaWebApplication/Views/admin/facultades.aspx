@@ -28,51 +28,86 @@
             </div>
 
             <div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
-                <div class="row">
-                    <div class="col-md-6">
-                        <h1 class="sandrelena-heading">Administración</h1>
-                        <h1 class="sandrelena-sub-heading"><small>Listado de Facultades</small></h1>
-                    </div>
-                </div>
+                
 
 
 
                 <div class="tab-content">
                     <div role="tabpanel" class="tab-pane active" id="facultades">
+                        <div class="row">
+                            <div class="col-md-6">
+                                <h1 class="sandrelena-heading">Administración</h1>
+                                <h1 class="sandrelena-sub-heading"><small>Listado de Facultades</small></h1>
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <div class="col-md-3">
+                                <div class="form-group">
+                                    <div class="input-group">
+                                        <asp:TextBox ID="search_box" runat="server" CssClass="form-control"></asp:TextBox>
+                                        <div class="input-group-addon"><i class="fa fa-search"></i></div>
+
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+                        <div class="row">
+                            <asp:GridView ID="user_table" runat="server" CssClass="table list-table"  BorderWidth="0"></asp:GridView>
+                        </div>
+
 
                     </div>
                     <div role="tabpanel" class="tab-pane" id="carreras">
-
-                    </div>
-                </div>
-
-
-                <div class="row">
-                    <div class="col-md-3">
-                        <div class="form-group">
-                            <div class="input-group">
-                                <asp:TextBox ID="search_box" runat="server" CssClass="form-control"></asp:TextBox>
-                                <div class="input-group-addon"><i class="fa fa-search"></i></div>
-
+                        <div class="row">
+                            <div class="col-md-6">
+                                <h1 class="sandrelena-heading">Administración</h1>
+                                <h1 class="sandrelena-sub-heading"><small>Listado de Facultades</small></h1>
+                            </div>
+                             <div class="col-md-3">
+                                <asp:DropDownList ID="ddlFacultades" runat="server" CssClass="customSelect">
+                                </asp:DropDownList>
                             </div>
                         </div>
+
+
+                        <div class="row">
+                            <div class="col-md-3">
+                                <div class="form-group">
+                                    <div class="input-group">
+                                        <asp:TextBox ID="search_carreras" runat="server" CssClass="form-control"></asp:TextBox>
+                                        <div class="input-group-addon"><i class="fa fa-search"></i></div>
+
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+                        <div class="row">
+                            <asp:GridView ID="carreras_table" runat="server" CssClass="table list-table"  BorderWidth="0"></asp:GridView>
+                        </div>
+
                     </div>
+                </div>
+
+                <div class="row">
+                    <footer class="footer-fixed">
+                        <div class="container">
+                            <p>&copy; <%: DateTime.Now.Year %> - Sandrelena v0.1.0</p>
+                        </div>
+                    </footer>
 
                 </div>
-                <div class="row">
-                    <asp:GridView ID="user_table" runat="server" CssClass="table list-table"></asp:GridView>
-                </div>
+
+
 
             </div>
 
         </div>
     </div>
 
-    <footer class="">
-    <div class="container">
-        <p>&copy; <%: DateTime.Now.Year %> - Sandrelena v0.1.0</p>
-     </div>
-    </footer>
+   
 
     <!-- Modales -->
 
