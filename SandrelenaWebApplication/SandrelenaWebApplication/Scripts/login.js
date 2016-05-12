@@ -15,25 +15,4 @@
     })
     $("#myModal").modal("show");
 
-    $("#btnlogin").click(function () {
-        var user = $('#uLogin').prop('value');
-        var pass = $('#uPassword').prop('value');
-
-        if (user == "" || pass == "") {
-            $('#warning').html("enter your credentials");
-
-            $('#warning').removeClass("hidden").removeClass("label-danger").addClass("label-warning");
-        }
-        else if (user != pass) {
-            $('.modal-content').effect("shake");
-            $('#warning').html("username or password not valid");
-
-            $('#warning').removeClass("hidden").removeClass("label-warning").addClass("label-danger");
-        }
-        else {
-            $('#warning').html("welcome");
-            window.location.replace("../Default.aspx");
-            $('#warning').removeClass("label-warning").removeClass("label-danger").addClass("label-success");
-        }
-    });
 });

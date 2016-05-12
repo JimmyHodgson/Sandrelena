@@ -63,22 +63,22 @@
                 <div class="modal-header">
                     <!--data-dismiss="modal" makes the click close all modals-->
                     <!--button type="button" class="close">x</button-->
-                    <h4 class="modal-title">Welcome back!</h4>
+                    <h4 class="modal-title">¡Bienvenid@!</h4>
                 </div>
                 
                 <div class="modal-body">
                     
                         <div class="input-group">
-                            <input id="uLogin" type="text" class="form-control" placeholder="Login">
+                            <asp:TextBox ID="uLogin" runat="server" ClientIDMode="Static" CssClass="form-control" PlaceHolder="Usuario"></asp:TextBox>
                             <label for="uLogin" class="input-group-addon glyphicon glyphicon-user"></label>
                         </div>
                             
                         <div class="input-group">
-                            <input id="uPassword" type="password" class="form-control" placeholder="Password">
+                            <asp:TextBox ID="uPassword" runat="server" ClientIDMode="Static" CssClass="form-control" TextMode="Password" PlaceHolder="Contraseña"></asp:TextBox>
                             <label for="uPassword" class="input-group-addon glyphicon glyphicon-lock"></label>
                         </div>
                         
-                        <input type="checkbox"> Remember me
+                        <input type="checkbox"> Recordarme
                         <br>
                         <label id="warning" class="label label-danger hidden" style="float:right; position:relative; bottom:17px"><br></label>
                     
@@ -86,8 +86,8 @@
                 
                 <div class="modal-footer">
                     <div class="division"></div>
-                    <button type="button" class="btn btn-default btn-sm hide">Cancel</button> <!-- Why is this even here? -->
-                    <button type="button" id="btnlogin" class="btn btn-primary btn-sm">Log in</button>
+                    <asp:Button ID="btnCancelar" runat="server" Text="Cancelar" CssClass="btn btn-default btn-sm hide" ClientIDMode="Static" />
+                    <asp:Button ID="btnlogin" runat="server" Text="Iniciar Sesión" CssClass="btn btn-primary btn-sm" ClientIDMode="Static" OnClick="btnlogin_Click" />
                 </div>
             </div>
         </div>

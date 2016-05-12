@@ -69,7 +69,8 @@ namespace SandrelenaWebApplication
 
         protected void Page_Load(object sender, EventArgs e)
         {
-
+            if ((int)Session["IDROL"] != 3)
+                Response.Redirect("~/Views/login.aspx", false);
         }
 
         protected void Unnamed_LoggingOut(object sender, LoginCancelEventArgs e)
