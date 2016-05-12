@@ -85,6 +85,24 @@ namespace SandrelenaWebApplication.Views.admin {
         protected global::System.Web.UI.WebControls.TextBox frm_agr_nacimiento;
         
         /// <summary>
+        /// frm_agr_cancelar control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button frm_agr_cancelar;
+        
+        /// <summary>
+        /// frm_agr_agregar control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button frm_agr_agregar;
+        
+        /// <summary>
         /// frm_mod_nombres control.
         /// </summary>
         /// <remarks>

@@ -36,7 +36,15 @@
 
                 </div>
                 <div class="row">
-                    <asp:GridView ID="user_table" runat="server" CssClass="table list-table"></asp:GridView>
+                    <asp:GridView ID="user_table" runat="server" CssClass="table list-table" AutoGenerateColumns="false" >
+                        <Columns>
+                            <asp:BoundField DataField="Nombre" HeaderText="Nombre" />
+                            <asp:BoundField DataField="Usuario" HeaderText="Usuario" />
+                            <asp:BoundField DataField="Nacimiento" HeaderText="Fecha de nacimiento" DataFormatString="{0:dd/MM/yyyy}" />
+                            <asp:BoundField DataField="Rol" HeaderText="Rol" />
+                            <asp:CheckBoxField DataField="Estado" HeaderText="Estado" />
+                        </Columns>
+                    </asp:GridView>
                 </div>
 
             </div>
@@ -111,8 +119,8 @@
 
                 </div>
                 <div class="modal-footer">
-                    <button type="button" class="btn btn-default" data-dismiss="modal">Cancelar</button>
-                    <button type="button" class="btn btn-primary">Agregar</button>
+                    <asp:Button ID="frm_agr_cancelar" runat="server" Text="Cancelar" CssClass="btn btn-default" data-dismiss="modal" />
+                    <asp:Button ID="frm_agr_agregar" runat="server" Text="Agregar" CssClass="btn btn-primary" OnClick="frm_agr_agregar_Click" />
                 </div>
             </div>
             <!-- /.modal-content -->

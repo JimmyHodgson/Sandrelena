@@ -35,7 +35,14 @@
 
                 </div>
                 <div class="row">
-                    <asp:GridView ID="asignatura_table" runat="server" CssClass="table list-table"></asp:GridView>
+                    <asp:GridView ID="asignatura_table" runat="server" CssClass="table list-table" AutoGenerateColumns="false">
+                        <Columns>
+                            <asp:BoundField DataField="Nombre" HeaderText="Nombre" />
+                            <asp:BoundField DataField="Codigo" HeaderText="Código" />
+                            <asp:BoundField DataField="Creditos" HeaderText="Creditos" />
+                            <asp:CheckBoxField DataField="Estado" HeaderText="Estado" />
+                        </Columns>
+                    </asp:GridView>
                 </div>
 
             </div>
@@ -73,8 +80,8 @@
                     </div>
                 </div>
                 <div class="modal-footer">
-                    <button type="button" class="btn btn-default" data-dismiss="modal">Cancelar</button>
-                    <button type="button" class="btn btn-primary">Aceptar</button>
+                    <asp:Button ID="btnCancelar" runat="server" Text="Cancelar" CssClass="btn btn-default" data-dismiss="modal" />
+                    <asp:Button ID="btnAceptar" runat="server" Text="Aceptar" CssClass="btn btn-primary" OnClick="btnAceptar_Click" />
                 </div>
             </div>
         </div>

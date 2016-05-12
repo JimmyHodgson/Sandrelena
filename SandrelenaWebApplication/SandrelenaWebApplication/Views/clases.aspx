@@ -22,7 +22,7 @@
                             </div>
                             <div class="col-md-3">
                                 <div class="form-group">
-                                    <asp:DropDownList ID="ddlClases" runat="server" CssClass="customSelect" OnSelectedIndexChanged="ddlClases_SelectedIndexChanged">
+                                    <asp:DropDownList ID="ddlClases" runat="server" CssClass="customSelect" OnSelectedIndexChanged="ddlClases_SelectedIndexChanged" AutoPostBack="true">
                                     </asp:DropDownList>
 
 
