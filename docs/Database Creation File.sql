@@ -121,22 +121,6 @@ Insert Into Facultades Values ('Diseño', 1) --id:2
 
 --************************************************************************
 
---Create Table Grupos (
---    id_grupo int Identity(1,1) Primary Key Not Null,
---  nombre_grupo nvarchar(30) Not Null Unique,
---   id_facultad int Foreign Key References Facultades(id_facultad),
---	isActive bit Not Null Default 1
---)
-
---************************************************************************
-
---Create Table GruposDeUsuarios (
---    id_usuario int Foreign Key References Usuarios(id_usuario),
---    id_grupo int Foreign Key References Grupos(id_grupo)
---)
-
---************************************************************************
-
 Create Table Carreras (
     id_carrera int Identity(1,1) Primary Key Not Null,
     nombre_carrera nvarchar(50) Not Null Unique,
@@ -195,11 +179,11 @@ Insert Into Asignaturas Values (010, 'Pensamiento Creativo', 3, 1) --id:10
 --************************************************************************
 
 Create Table Prerrequisitos (
-	id_asignatura Not Null,
-	id_prerrequisito Not Null,
-    id_prerrequisito int Identity(1,1) Primary Key Not Null,
-    id_asignatura int Foreign Key References Asignaturas(id_asignatura),
-    id_asignatura_requisito int Foreign Key References Asignaturas(id_asignatura)
+	id_asignatura int Not Null,
+	id_prerrequisito int Not Null,
+    Primary Key Clustered (id_asignatura, id_prerrequisito),
+    Foreign Key (id_asignatura) References Asignaturas(id_asignatura),
+    Foreign Key (id_prerrequisito) References Asignaturas(id_asignatura)
 )
 
 --************************************************************************
@@ -263,10 +247,10 @@ Insert Into AsignaturasDeSemestres Values (7, 9) --id:10
 
 Create Table ProfesoresDeAsignaturas (
     id_asignatura int Not Null,
-	id_usuario int Not Null,
-	Primary Key Clustered (id_asignatura, id_usuario),
+	id_profesor int Not Null,
+	Primary Key Clustered (id_asignatura, id_profesor),
 	Foreign Key (id_asignatura) References Asignaturas(id_asignatura),
-    Foreign Key (id_usuario) References Usuarios(id_usuario)
+    Foreign Key (id_profesor) References Usuarios(id_usuario)
 )
 
 --************************************************************************
@@ -410,21 +394,29 @@ Create Table Horarios (
     id_aula int Foreign Key References Aulas(id_aula),
     id_asignatura int Foreign Key References Asignaturas(id_asignatura),
     no_grupo int Not Null,
+	id_profesor int Foreign Key References Usuarios(id_usuario),
     id_diaDisponibilidad int Foreign Key References DiaDisponibilidades(id_diaDisponibilidad),
 	isActive bit Not Null Default 1
 )
 
 --************************************************************************
 
+Insert Into Horarios Values (1, 1, 1, 2, 1, 1)
+Insert Into Horarios Values (2, 1, 2, 2, 2, 1)
+
+Insert Into Horarios Values (2, 2, 1, 3, 3, 1)
+Insert Into Horarios Values (3, 8, 1, 4, 4, 1)
+
+--************************************************************************
+
 Create Table Matrículas (
     id_matrícula int Identity(1,1) Primary Key Not Null,
     id_horario int Foreign Key References Horarios(id_horario),
-    id_usuario int Foreign Key References Usuarios(id_usuario),
-	fecha_inscripcion date Not Null,
+    id_estudiante int Foreign Key References Usuarios(id_usuario),
+	fecha_de_inscripcion date Not Null,
     nota int, -- Puede ser Null si se acaba de inscribir la clase
 	isActive bit Not Null Default 1
 )
-
 
 --************************************************************************
 
@@ -437,21 +429,21 @@ Create Table Actividades (
 --************************************************************************
 
 -- Por cada permiso hay una actividad
-Insert Into Actividades (nombre_actividad) Values ('Agregar Permiso', 1) --id:1
-Insert Into Actividades (nombre_actividad) Values ('Agregar Rol', 1) --id:2
-Insert Into Actividades (nombre_actividad) Values ('Agregar Usuario', 1) --id:3
-Insert Into Actividades (nombre_actividad) Values ('Agregar Facultad', 1) --id:4
-Insert Into Actividades (nombre_actividad) Values ('Agregar Grupo', 1) --id:5
-Insert Into Actividades (nombre_actividad) Values ('Agregar Carrera', 1) --id:6
-Insert Into Actividades (nombre_actividad) Values ('Agregar Asignatura', 1) --id:7
-Insert Into Actividades (nombre_actividad) Values ('Agregar Semestre', 1) --id:8
-Insert Into Actividades (nombre_actividad) Values ('Agregar Nota', 1) --id:9
-Insert Into Actividades (nombre_actividad) Values ('Agregar Aula', 1) --id:10
-Insert Into Actividades (nombre_actividad) Values ('Agregar DiaDisponibilidad', 1) --id:11
-Insert Into Actividades (nombre_actividad) Values ('Agregar Horario', 1) --id:12
-Insert Into Actividades (nombre_actividad) Values ('Asignar Prerrequisito', 1) --id:13
-Insert Into Actividades (nombre_actividad) Values ('Ver Nota', 1) --id:14
-Insert Into Actividades (nombre_actividad) Values ('Inicio de Sesión', 1) --id:15
+Insert Into Actividades Values ('Agregar Permiso', 1) --id:1
+Insert Into Actividades Values ('Agregar Rol', 1) --id:2
+Insert Into Actividades Values ('Agregar Usuario', 1) --id:3
+Insert Into Actividades Values ('Agregar Facultad', 1) --id:4
+Insert Into Actividades Values ('Agregar Grupo', 1) --id:5
+Insert Into Actividades Values ('Agregar Carrera', 1) --id:6
+Insert Into Actividades Values ('Agregar Asignatura', 1) --id:7
+Insert Into Actividades Values ('Agregar Semestre', 1) --id:8
+Insert Into Actividades Values ('Agregar Nota', 1) --id:9
+Insert Into Actividades Values ('Agregar Aula', 1) --id:10
+Insert Into Actividades Values ('Agregar DiaDisponibilidad', 1) --id:11
+Insert Into Actividades Values ('Agregar Horario', 1) --id:12
+Insert Into Actividades Values ('Asignar Prerrequisito', 1) --id:13
+Insert Into Actividades Values ('Ver Nota', 1) --id:14
+Insert Into Actividades Values ('Inicio de Sesión', 1) --id:15
 
 
 --************************************************************************
