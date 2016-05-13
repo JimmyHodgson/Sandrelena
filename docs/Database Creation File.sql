@@ -195,6 +195,8 @@ Insert Into Asignaturas Values (010, 'Pensamiento Creativo', 3, 1) --id:10
 --************************************************************************
 
 Create Table Prerrequisitos (
+	id_asignatura Not Null,
+	id_prerrequisito Not Null,
     id_prerrequisito int Identity(1,1) Primary Key Not Null,
     id_asignatura int Foreign Key References Asignaturas(id_asignatura),
     id_asignatura_requisito int Foreign Key References Asignaturas(id_asignatura)

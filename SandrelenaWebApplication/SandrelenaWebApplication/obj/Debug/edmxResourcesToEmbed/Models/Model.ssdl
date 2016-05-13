@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<Schema Namespace="SandrelenaModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012.Azure" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+<Schema Namespace="SandrelenaCS.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012.Azure" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
   <EntityType Name="Actividades">
     <Key>
       <PropertyRef Name="id_actividad" />
@@ -70,21 +70,6 @@
     <Property Name="nombre_facultad" Type="nvarchar" MaxLength="30" Nullable="false" />
     <Property Name="isActive" Type="bit" Nullable="false" />
   </EntityType>
-  <EntityType Name="Grupos">
-    <Key>
-      <PropertyRef Name="id_grupo" />
-    </Key>
-    <Property Name="id_grupo" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-    <Property Name="nombre_grupo" Type="nvarchar" MaxLength="30" Nullable="false" />
-    <Property Name="id_facultad" Type="int" />
-    <Property Name="isActive" Type="bit" Nullable="false" />
-  </EntityType>
-  <!--Errors Found During Generation:
-warning 6013: The table/view 'Sandrelena.dbo.GruposDeUsuarios' does not have a primary key defined and no valid primary key could be inferred. This table/view has been excluded. To use the entity, you will need to review your schema, add the correct keys, and uncomment it.
-        <EntityType Name="GruposDeUsuarios">
-          <Property Name="id_usuario" Type="int" />
-          <Property Name="id_grupo" Type="int" />
-        </EntityType>-->
   <EntityType Name="Horarios">
     <Key>
       <PropertyRef Name="id_horario" />
@@ -96,14 +81,15 @@ warning 6013: The table/view 'Sandrelena.dbo.GruposDeUsuarios' does not have a p
     <Property Name="id_diaDisponibilidad" Type="int" />
     <Property Name="isActive" Type="bit" Nullable="false" />
   </EntityType>
-  <EntityType Name="Notas">
+  <EntityType Name="Matrículas">
     <Key>
-      <PropertyRef Name="id_nota" />
+      <PropertyRef Name="id_matrícula" />
     </Key>
-    <Property Name="id_nota" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-    <Property Name="id_asignatura" Type="int" />
+    <Property Name="id_matrícula" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="id_horario" Type="int" />
     <Property Name="id_usuario" Type="int" />
-    <Property Name="nota" Type="int" Nullable="false" />
+    <Property Name="fecha_inscripcion" Type="date" Nullable="false" />
+    <Property Name="nota" Type="int" />
     <Property Name="isActive" Type="bit" Nullable="false" />
   </EntityType>
   <EntityType Name="Permisos">
@@ -138,14 +124,6 @@ warning 6013: The table/view 'Sandrelena.dbo.GruposDeUsuarios' does not have a p
     <Property Name="id_asignatura" Type="int" Nullable="false" />
     <Property Name="id_usuario" Type="int" Nullable="false" />
   </EntityType>
-  <EntityType Name="RegistrosDeActividades">
-    <Key>
-      <PropertyRef Name="id_actividad" />
-      <PropertyRef Name="id_usuario" />
-    </Key>
-    <Property Name="id_actividad" Type="int" Nullable="false" />
-    <Property Name="id_usuario" Type="int" Nullable="false" />
-  </EntityType>
   <EntityType Name="Roles">
     <Key>
       <PropertyRef Name="id_rol" />
@@ -178,25 +156,7 @@ warning 6013: The table/view 'Sandrelena.dbo.GruposDeUsuarios' does not have a p
     <Property Name="id_rol" Type="int" />
     <Property Name="isActive" Type="bit" Nullable="false" />
   </EntityType>
-  <!--Errors Found During Generation:
-warning 6002: The table/view 'Sandrelena.sys.database_firewall_rules' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
-  <EntityType Name="database_firewall_rules">
-    <Key>
-      <PropertyRef Name="id" />
-      <PropertyRef Name="name" />
-      <PropertyRef Name="start_ip_address" />
-      <PropertyRef Name="end_ip_address" />
-      <PropertyRef Name="create_date" />
-      <PropertyRef Name="modify_date" />
-    </Key>
-    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-    <Property Name="name" Type="nvarchar" MaxLength="128" Nullable="false" />
-    <Property Name="start_ip_address" Type="varchar" MaxLength="45" Nullable="false" />
-    <Property Name="end_ip_address" Type="varchar" MaxLength="45" Nullable="false" />
-    <Property Name="create_date" Type="datetime" Nullable="false" />
-    <Property Name="modify_date" Type="datetime" Nullable="false" />
-  </EntityType>
-  <Association Name="FK__Asignatur__id_as__68487DD7">
+  <Association Name="FK__Asignatur__id_as__60A75C0F">
     <End Role="Asignaturas" Type="Self.Asignaturas" Multiplicity="1" />
     <End Role="AsignaturasDeSemestres" Type="Self.AsignaturasDeSemestres" Multiplicity="*" />
     <ReferentialConstraint>
@@ -208,7 +168,7 @@ warning 6002: The table/view 'Sandrelena.sys.database_firewall_rules' does not h
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Association Name="FK__Asignatur__id_se__6754599E">
+  <Association Name="FK__Asignatur__id_se__5FB337D6">
     <End Role="Semestres" Type="Self.Semestres" Multiplicity="1" />
     <End Role="AsignaturasDeSemestres" Type="Self.AsignaturasDeSemestres" Multiplicity="*" />
     <ReferentialConstraint>
@@ -220,7 +180,7 @@ warning 6002: The table/view 'Sandrelena.sys.database_firewall_rules' does not h
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Association Name="FK__Carreras__id_fac__534D60F1">
+  <Association Name="FK__Carreras__id_fac__4BAC3F29">
     <End Role="Facultades" Type="Self.Facultades" Multiplicity="0..1" />
     <End Role="Carreras" Type="Self.Carreras" Multiplicity="*" />
     <ReferentialConstraint>
@@ -232,7 +192,7 @@ warning 6002: The table/view 'Sandrelena.sys.database_firewall_rules' does not h
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Association Name="FK__CarrerasD__id_ca__5812160E">
+  <Association Name="FK__CarrerasD__id_ca__5070F446">
     <End Role="Carreras" Type="Self.Carreras" Multiplicity="1" />
     <End Role="CarrerasDeEstudiantes" Type="Self.CarrerasDeEstudiantes" Multiplicity="*" />
     <ReferentialConstraint>
@@ -244,7 +204,7 @@ warning 6002: The table/view 'Sandrelena.sys.database_firewall_rules' does not h
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Association Name="FK__CarrerasD__id_es__571DF1D5">
+  <Association Name="FK__CarrerasD__id_es__4F7CD00D">
     <End Role="Usuarios" Type="Self.Usuarios" Multiplicity="1" />
     <End Role="CarrerasDeEstudiantes" Type="Self.CarrerasDeEstudiantes" Multiplicity="*" />
     <ReferentialConstraint>
@@ -256,25 +216,7 @@ warning 6002: The table/view 'Sandrelena.sys.database_firewall_rules' does not h
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Association Name="FK__Grupos__id_facul__4BAC3F29">
-    <End Role="Facultades" Type="Self.Facultades" Multiplicity="0..1" />
-    <End Role="Grupos" Type="Self.Grupos" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="Facultades">
-        <PropertyRef Name="id_facultad" />
-      </Principal>
-      <Dependent Role="Grupos">
-        <PropertyRef Name="id_facultad" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
-  <!--Errors Found During Generation:
-error 6004: The table 'Sandrelena.dbo.GruposDeUsuarios' is referenced by a relationship, but cannot be found.
-        <Association Name="FK__GruposDeU__id_gr__4F7CD00D" />-->
-  <!--Errors Found During Generation:
-error 6004: The table 'Sandrelena.dbo.GruposDeUsuarios' is referenced by a relationship, but cannot be found.
-        <Association Name="FK__GruposDeU__id_us__4E88ABD4" />-->
-  <Association Name="FK__Horarios__id_asi__7B5B524B">
+  <Association Name="FK__Horarios__id_asi__6EF57B66">
     <End Role="Asignaturas" Type="Self.Asignaturas" Multiplicity="0..1" />
     <End Role="Horarios" Type="Self.Horarios" Multiplicity="*" />
     <ReferentialConstraint>
@@ -286,7 +228,7 @@ error 6004: The table 'Sandrelena.dbo.GruposDeUsuarios' is referenced by a relat
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Association Name="FK__Horarios__id_aul__7A672E12">
+  <Association Name="FK__Horarios__id_aul__6E01572D">
     <End Role="Aulas" Type="Self.Aulas" Multiplicity="0..1" />
     <End Role="Horarios" Type="Self.Horarios" Multiplicity="*" />
     <ReferentialConstraint>
@@ -298,7 +240,7 @@ error 6004: The table 'Sandrelena.dbo.GruposDeUsuarios' is referenced by a relat
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Association Name="FK__Horarios__id_dia__7C4F7684">
+  <Association Name="FK__Horarios__id_dia__6FE99F9F">
     <End Role="DiaDisponibilidades" Type="Self.DiaDisponibilidades" Multiplicity="0..1" />
     <End Role="Horarios" Type="Self.Horarios" Multiplicity="*" />
     <ReferentialConstraint>
@@ -310,26 +252,26 @@ error 6004: The table 'Sandrelena.dbo.GruposDeUsuarios' is referenced by a relat
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Association Name="FK__Notas__id_asigna__6EF57B66">
-    <End Role="Asignaturas" Type="Self.Asignaturas" Multiplicity="0..1" />
-    <End Role="Notas" Type="Self.Notas" Multiplicity="*" />
+  <Association Name="FK__Matrícula__id_ho__73BA3083">
+    <End Role="Horarios" Type="Self.Horarios" Multiplicity="0..1" />
+    <End Role="Matrículas" Type="Self.Matrículas" Multiplicity="*" />
     <ReferentialConstraint>
-      <Principal Role="Asignaturas">
-        <PropertyRef Name="id_asignatura" />
+      <Principal Role="Horarios">
+        <PropertyRef Name="id_horario" />
       </Principal>
-      <Dependent Role="Notas">
-        <PropertyRef Name="id_asignatura" />
+      <Dependent Role="Matrículas">
+        <PropertyRef Name="id_horario" />
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Association Name="FK__Notas__id_usuari__6FE99F9F">
+  <Association Name="FK__Matrícula__id_us__74AE54BC">
     <End Role="Usuarios" Type="Self.Usuarios" Multiplicity="0..1" />
-    <End Role="Notas" Type="Self.Notas" Multiplicity="*" />
+    <End Role="Matrículas" Type="Self.Matrículas" Multiplicity="*" />
     <ReferentialConstraint>
       <Principal Role="Usuarios">
         <PropertyRef Name="id_usuario" />
       </Principal>
-      <Dependent Role="Notas">
+      <Dependent Role="Matrículas">
         <PropertyRef Name="id_usuario" />
       </Dependent>
     </ReferentialConstraint>
@@ -358,7 +300,7 @@ error 6004: The table 'Sandrelena.dbo.GruposDeUsuarios' is referenced by a relat
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Association Name="FK__Prerrequi__id_as__5FB337D6">
+  <Association Name="FK__Prerrequi__id_as__5812160E">
     <End Role="Asignaturas" Type="Self.Asignaturas" Multiplicity="0..1" />
     <End Role="Prerrequisitos" Type="Self.Prerrequisitos" Multiplicity="*" />
     <ReferentialConstraint>
@@ -370,7 +312,7 @@ error 6004: The table 'Sandrelena.dbo.GruposDeUsuarios' is referenced by a relat
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Association Name="FK__Prerrequi__id_as__60A75C0F">
+  <Association Name="FK__Prerrequi__id_as__59063A47">
     <End Role="Asignaturas" Type="Self.Asignaturas" Multiplicity="0..1" />
     <End Role="Prerrequisitos" Type="Self.Prerrequisitos" Multiplicity="*" />
     <ReferentialConstraint>
@@ -382,7 +324,7 @@ error 6004: The table 'Sandrelena.dbo.GruposDeUsuarios' is referenced by a relat
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Association Name="FK__Profesore__id_as__6B24EA82">
+  <Association Name="FK__Profesore__id_as__6383C8BA">
     <End Role="Asignaturas" Type="Self.Asignaturas" Multiplicity="1" />
     <End Role="ProfesoresDeAsignaturas" Type="Self.ProfesoresDeAsignaturas" Multiplicity="*" />
     <ReferentialConstraint>
@@ -394,7 +336,7 @@ error 6004: The table 'Sandrelena.dbo.GruposDeUsuarios' is referenced by a relat
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Association Name="FK__Profesore__id_us__6C190EBB">
+  <Association Name="FK__Profesore__id_us__6477ECF3">
     <End Role="Usuarios" Type="Self.Usuarios" Multiplicity="1" />
     <End Role="ProfesoresDeAsignaturas" Type="Self.ProfesoresDeAsignaturas" Multiplicity="*" />
     <ReferentialConstraint>
@@ -406,31 +348,7 @@ error 6004: The table 'Sandrelena.dbo.GruposDeUsuarios' is referenced by a relat
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Association Name="FK__Registros__id_ac__03F0984C">
-    <End Role="Actividades" Type="Self.Actividades" Multiplicity="1" />
-    <End Role="RegistrosDeActividades" Type="Self.RegistrosDeActividades" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="Actividades">
-        <PropertyRef Name="id_actividad" />
-      </Principal>
-      <Dependent Role="RegistrosDeActividades">
-        <PropertyRef Name="id_actividad" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
-  <Association Name="FK__Registros__id_us__04E4BC85">
-    <End Role="Usuarios" Type="Self.Usuarios" Multiplicity="1" />
-    <End Role="RegistrosDeActividades" Type="Self.RegistrosDeActividades" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="Usuarios">
-        <PropertyRef Name="id_usuario" />
-      </Principal>
-      <Dependent Role="RegistrosDeActividades">
-        <PropertyRef Name="id_usuario" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
-  <Association Name="FK__Semestres__id_ca__6383C8BA">
+  <Association Name="FK__Semestres__id_ca__5BE2A6F2">
     <End Role="Carreras" Type="Self.Carreras" Multiplicity="0..1" />
     <End Role="Semestres" Type="Self.Semestres" Multiplicity="*" />
     <ReferentialConstraint>
@@ -454,7 +372,7 @@ error 6004: The table 'Sandrelena.dbo.GruposDeUsuarios' is referenced by a relat
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <EntityContainer Name="SandrelenaModelStoreContainer">
+  <EntityContainer Name="SandrelenaCSStoreContainer">
     <EntitySet Name="Actividades" EntityType="Self.Actividades" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Asignaturas" EntityType="Self.Asignaturas" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="AsignaturasDeSemestres" EntityType="Self.AsignaturasDeSemestres" Schema="dbo" store:Type="Tables" />
@@ -463,70 +381,54 @@ error 6004: The table 'Sandrelena.dbo.GruposDeUsuarios' is referenced by a relat
     <EntitySet Name="CarrerasDeEstudiantes" EntityType="Self.CarrerasDeEstudiantes" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="DiaDisponibilidades" EntityType="Self.DiaDisponibilidades" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Facultades" EntityType="Self.Facultades" Schema="dbo" store:Type="Tables" />
-    <EntitySet Name="Grupos" EntityType="Self.Grupos" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Horarios" EntityType="Self.Horarios" Schema="dbo" store:Type="Tables" />
-    <EntitySet Name="Notas" EntityType="Self.Notas" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Matrículas" EntityType="Self.Matrículas" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Permisos" EntityType="Self.Permisos" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="PermisosDeRoles" EntityType="Self.PermisosDeRoles" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Prerrequisitos" EntityType="Self.Prerrequisitos" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="ProfesoresDeAsignaturas" EntityType="Self.ProfesoresDeAsignaturas" Schema="dbo" store:Type="Tables" />
-    <EntitySet Name="RegistrosDeActividades" EntityType="Self.RegistrosDeActividades" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Roles" EntityType="Self.Roles" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Semestres" EntityType="Self.Semestres" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Usuarios" EntityType="Self.Usuarios" Schema="dbo" store:Type="Tables" />
-    <EntitySet Name="database_firewall_rules" EntityType="Self.database_firewall_rules" store:Type="Views" store:Schema="sys">
-      <DefiningQuery>SELECT 
-    [database_firewall_rules].[id] AS [id], 
-    [database_firewall_rules].[name] AS [name], 
-    [database_firewall_rules].[start_ip_address] AS [start_ip_address], 
-    [database_firewall_rules].[end_ip_address] AS [end_ip_address], 
-    [database_firewall_rules].[create_date] AS [create_date], 
-    [database_firewall_rules].[modify_date] AS [modify_date]
-    FROM [sys].[database_firewall_rules] AS [database_firewall_rules]</DefiningQuery>
-    </EntitySet>
-    <AssociationSet Name="FK__Asignatur__id_as__68487DD7" Association="Self.FK__Asignatur__id_as__68487DD7">
+    <AssociationSet Name="FK__Asignatur__id_as__60A75C0F" Association="Self.FK__Asignatur__id_as__60A75C0F">
       <End Role="Asignaturas" EntitySet="Asignaturas" />
       <End Role="AsignaturasDeSemestres" EntitySet="AsignaturasDeSemestres" />
     </AssociationSet>
-    <AssociationSet Name="FK__Asignatur__id_se__6754599E" Association="Self.FK__Asignatur__id_se__6754599E">
+    <AssociationSet Name="FK__Asignatur__id_se__5FB337D6" Association="Self.FK__Asignatur__id_se__5FB337D6">
       <End Role="Semestres" EntitySet="Semestres" />
       <End Role="AsignaturasDeSemestres" EntitySet="AsignaturasDeSemestres" />
     </AssociationSet>
-    <AssociationSet Name="FK__Carreras__id_fac__534D60F1" Association="Self.FK__Carreras__id_fac__534D60F1">
+    <AssociationSet Name="FK__Carreras__id_fac__4BAC3F29" Association="Self.FK__Carreras__id_fac__4BAC3F29">
       <End Role="Facultades" EntitySet="Facultades" />
       <End Role="Carreras" EntitySet="Carreras" />
     </AssociationSet>
-    <AssociationSet Name="FK__CarrerasD__id_ca__5812160E" Association="Self.FK__CarrerasD__id_ca__5812160E">
+    <AssociationSet Name="FK__CarrerasD__id_ca__5070F446" Association="Self.FK__CarrerasD__id_ca__5070F446">
       <End Role="Carreras" EntitySet="Carreras" />
       <End Role="CarrerasDeEstudiantes" EntitySet="CarrerasDeEstudiantes" />
     </AssociationSet>
-    <AssociationSet Name="FK__CarrerasD__id_es__571DF1D5" Association="Self.FK__CarrerasD__id_es__571DF1D5">
+    <AssociationSet Name="FK__CarrerasD__id_es__4F7CD00D" Association="Self.FK__CarrerasD__id_es__4F7CD00D">
       <End Role="Usuarios" EntitySet="Usuarios" />
       <End Role="CarrerasDeEstudiantes" EntitySet="CarrerasDeEstudiantes" />
     </AssociationSet>
-    <AssociationSet Name="FK__Grupos__id_facul__4BAC3F29" Association="Self.FK__Grupos__id_facul__4BAC3F29">
-      <End Role="Facultades" EntitySet="Facultades" />
-      <End Role="Grupos" EntitySet="Grupos" />
-    </AssociationSet>
-    <AssociationSet Name="FK__Horarios__id_asi__7B5B524B" Association="Self.FK__Horarios__id_asi__7B5B524B">
+    <AssociationSet Name="FK__Horarios__id_asi__6EF57B66" Association="Self.FK__Horarios__id_asi__6EF57B66">
       <End Role="Asignaturas" EntitySet="Asignaturas" />
       <End Role="Horarios" EntitySet="Horarios" />
     </AssociationSet>
-    <AssociationSet Name="FK__Horarios__id_aul__7A672E12" Association="Self.FK__Horarios__id_aul__7A672E12">
+    <AssociationSet Name="FK__Horarios__id_aul__6E01572D" Association="Self.FK__Horarios__id_aul__6E01572D">
       <End Role="Aulas" EntitySet="Aulas" />
       <End Role="Horarios" EntitySet="Horarios" />
     </AssociationSet>
-    <AssociationSet Name="FK__Horarios__id_dia__7C4F7684" Association="Self.FK__Horarios__id_dia__7C4F7684">
+    <AssociationSet Name="FK__Horarios__id_dia__6FE99F9F" Association="Self.FK__Horarios__id_dia__6FE99F9F">
       <End Role="DiaDisponibilidades" EntitySet="DiaDisponibilidades" />
       <End Role="Horarios" EntitySet="Horarios" />
     </AssociationSet>
-    <AssociationSet Name="FK__Notas__id_asigna__6EF57B66" Association="Self.FK__Notas__id_asigna__6EF57B66">
-      <End Role="Asignaturas" EntitySet="Asignaturas" />
-      <End Role="Notas" EntitySet="Notas" />
+    <AssociationSet Name="FK__Matrícula__id_ho__73BA3083" Association="Self.FK__Matrícula__id_ho__73BA3083">
+      <End Role="Horarios" EntitySet="Horarios" />
+      <End Role="Matrículas" EntitySet="Matrículas" />
     </AssociationSet>
-    <AssociationSet Name="FK__Notas__id_usuari__6FE99F9F" Association="Self.FK__Notas__id_usuari__6FE99F9F">
+    <AssociationSet Name="FK__Matrícula__id_us__74AE54BC" Association="Self.FK__Matrícula__id_us__74AE54BC">
       <End Role="Usuarios" EntitySet="Usuarios" />
-      <End Role="Notas" EntitySet="Notas" />
+      <End Role="Matrículas" EntitySet="Matrículas" />
     </AssociationSet>
     <AssociationSet Name="FK__PermisosD__id_pe__3E52440B" Association="Self.FK__PermisosD__id_pe__3E52440B">
       <End Role="Permisos" EntitySet="Permisos" />
@@ -536,31 +438,23 @@ error 6004: The table 'Sandrelena.dbo.GruposDeUsuarios' is referenced by a relat
       <End Role="Roles" EntitySet="Roles" />
       <End Role="PermisosDeRoles" EntitySet="PermisosDeRoles" />
     </AssociationSet>
-    <AssociationSet Name="FK__Prerrequi__id_as__5FB337D6" Association="Self.FK__Prerrequi__id_as__5FB337D6">
+    <AssociationSet Name="FK__Prerrequi__id_as__5812160E" Association="Self.FK__Prerrequi__id_as__5812160E">
       <End Role="Asignaturas" EntitySet="Asignaturas" />
       <End Role="Prerrequisitos" EntitySet="Prerrequisitos" />
     </AssociationSet>
-    <AssociationSet Name="FK__Prerrequi__id_as__60A75C0F" Association="Self.FK__Prerrequi__id_as__60A75C0F">
+    <AssociationSet Name="FK__Prerrequi__id_as__59063A47" Association="Self.FK__Prerrequi__id_as__59063A47">
       <End Role="Asignaturas" EntitySet="Asignaturas" />
       <End Role="Prerrequisitos" EntitySet="Prerrequisitos" />
     </AssociationSet>
-    <AssociationSet Name="FK__Profesore__id_as__6B24EA82" Association="Self.FK__Profesore__id_as__6B24EA82">
+    <AssociationSet Name="FK__Profesore__id_as__6383C8BA" Association="Self.FK__Profesore__id_as__6383C8BA">
       <End Role="Asignaturas" EntitySet="Asignaturas" />
       <End Role="ProfesoresDeAsignaturas" EntitySet="ProfesoresDeAsignaturas" />
     </AssociationSet>
-    <AssociationSet Name="FK__Profesore__id_us__6C190EBB" Association="Self.FK__Profesore__id_us__6C190EBB">
+    <AssociationSet Name="FK__Profesore__id_us__6477ECF3" Association="Self.FK__Profesore__id_us__6477ECF3">
       <End Role="Usuarios" EntitySet="Usuarios" />
       <End Role="ProfesoresDeAsignaturas" EntitySet="ProfesoresDeAsignaturas" />
     </AssociationSet>
-    <AssociationSet Name="FK__Registros__id_ac__03F0984C" Association="Self.FK__Registros__id_ac__03F0984C">
-      <End Role="Actividades" EntitySet="Actividades" />
-      <End Role="RegistrosDeActividades" EntitySet="RegistrosDeActividades" />
-    </AssociationSet>
-    <AssociationSet Name="FK__Registros__id_us__04E4BC85" Association="Self.FK__Registros__id_us__04E4BC85">
-      <End Role="Usuarios" EntitySet="Usuarios" />
-      <End Role="RegistrosDeActividades" EntitySet="RegistrosDeActividades" />
-    </AssociationSet>
-    <AssociationSet Name="FK__Semestres__id_ca__6383C8BA" Association="Self.FK__Semestres__id_ca__6383C8BA">
+    <AssociationSet Name="FK__Semestres__id_ca__5BE2A6F2" Association="Self.FK__Semestres__id_ca__5BE2A6F2">
       <End Role="Carreras" EntitySet="Carreras" />
       <End Role="Semestres" EntitySet="Semestres" />
     </AssociationSet>

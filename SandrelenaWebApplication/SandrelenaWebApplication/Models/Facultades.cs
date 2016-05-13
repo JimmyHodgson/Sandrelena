@@ -18,7 +18,6 @@ namespace SandrelenaWebApplication.Models
         public Facultades()
         {
             this.Carreras = new HashSet<Carreras>();
-            this.Grupos = new HashSet<Grupos>();
         }
     
         public int id_facultad { get; set; }
@@ -27,7 +26,5 @@ namespace SandrelenaWebApplication.Models
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Carreras> Carreras { get; set; }
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Grupos> Grupos { get; set; }
     }
 }

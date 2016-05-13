@@ -14,6 +14,12 @@ namespace SandrelenaWebApplication.Models
     
     public partial class Horarios
     {
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
+        public Horarios()
+        {
+            this.Matrículas = new HashSet<Matrículas>();
+        }
+    
         public int id_horario { get; set; }
         public Nullable<int> id_aula { get; set; }
         public Nullable<int> id_asignatura { get; set; }
@@ -24,5 +30,7 @@ namespace SandrelenaWebApplication.Models
         public virtual Asignaturas Asignaturas { get; set; }
         public virtual Aulas Aulas { get; set; }
         public virtual DiaDisponibilidades DiaDisponibilidades { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<Matrículas> Matrículas { get; set; }
     }
 }

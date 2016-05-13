@@ -14,17 +14,8 @@ namespace SandrelenaWebApplication.Models
     
     public partial class Actividades
     {
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public Actividades()
-        {
-            this.Usuarios = new HashSet<Usuarios>();
-        }
-    
         public int id_actividad { get; set; }
         public string nombre_actividad { get; set; }
         public bool isActive { get; set; }
-    
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Usuarios> Usuarios { get; set; }
     }
 }

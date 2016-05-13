@@ -31,14 +31,12 @@ namespace SandrelenaWebApplication.Models
         public virtual DbSet<Carreras> Carreras { get; set; }
         public virtual DbSet<DiaDisponibilidades> DiaDisponibilidades { get; set; }
         public virtual DbSet<Facultades> Facultades { get; set; }
-        public virtual DbSet<Grupos> Grupos { get; set; }
         public virtual DbSet<Horarios> Horarios { get; set; }
-        public virtual DbSet<Notas> Notas { get; set; }
+        public virtual DbSet<Matrículas> Matrículas { get; set; }
         public virtual DbSet<Permisos> Permisos { get; set; }
         public virtual DbSet<Prerrequisitos> Prerrequisitos { get; set; }
         public virtual DbSet<Roles> Roles { get; set; }
         public virtual DbSet<Semestres> Semestres { get; set; }
         public virtual DbSet<Usuarios> Usuarios { get; set; }
-        public virtual DbSet<database_firewall_rules> database_firewall_rules { get; set; }
     }
 }

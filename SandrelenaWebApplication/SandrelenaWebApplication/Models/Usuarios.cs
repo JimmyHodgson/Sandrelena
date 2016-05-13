@@ -17,10 +17,9 @@ namespace SandrelenaWebApplication.Models
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public Usuarios()
         {
-            this.Notas = new HashSet<Notas>();
+            this.Matrículas = new HashSet<Matrículas>();
             this.Carreras = new HashSet<Carreras>();
             this.Asignaturas = new HashSet<Asignaturas>();
-            this.Actividades = new HashSet<Actividades>();
         }
     
         public int id_usuario { get; set; }
@@ -35,13 +34,11 @@ namespace SandrelenaWebApplication.Models
         public bool isActive { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Notas> Notas { get; set; }
+        public virtual ICollection<Matrículas> Matrículas { get; set; }
         public virtual Roles Roles { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Carreras> Carreras { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Asignaturas> Asignaturas { get; set; }
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Actividades> Actividades { get; set; }
     }
 }
