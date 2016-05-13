@@ -35,6 +35,7 @@
                 <asp:ScriptReference Name="Focus.js" Assembly="System.Web" Path="~/Scripts/WebForms/Focus.js" />
                 <asp:ScriptReference Name="WebFormsBundle" />
                 <asp:ScriptReference Path="~/Scripts/select2.min.js" />
+                <asp:ScriptReference Path="~/Scripts/sandrelena-alerts.js" />
                 <%--Site Scripts--%>
             </Scripts>
         </asp:ScriptManager>
@@ -100,6 +101,98 @@
 
        
             
+
+
+        <!-- ERROR ALERT -->
+      	<div id="e-alert" class="modal fade bs-example-modal-sm alert-modal" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel">
+          <div class="modal-dialog modal-sm">
+            <div class="modal-content alert-body">
+            
+              <div class="modal-header e-alert-header">
+                <button type="button" class="close alert-close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true"><i class="fa fa-times"></i></span></button>
+                <h4 class="modal-title" ><i class="fa fa-exclamation-triangle fa-fw"></i> <span class="alert-title">Modal title</span></h4>
+              </div>
+              
+              <div class="modal-body ">
+              	<span class="alert-message">
+                	This is the message!
+                </span>
+              </div>
+              
+            </div>
+          </div>
+        </div>
+        
+        
+        <!-- SUCCESS ALERT -->
+        <div id="s-alert" class="modal fade bs-example-modal-sm alert-modal" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel" data-backdrop="static" data-keyboard="false">
+          <div class="modal-dialog modal-sm">
+            <div class="modal-content alert-body">
+            
+              <div class="modal-header s-alert-header">
+                <button type="button" class="close alert-close alert-success-close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true"><i class="fa fa-times"></i></span></button>
+                <h4 class="modal-title" ><i class="fa fa-check fa-fw"></i> <span class="alert-title">Modal title</span></h4>
+              </div>
+              
+              <div class="modal-body ">
+              	<span class="alert-message">
+                	This is the message!
+                </span>
+              </div>
+              
+            </div>
+          </div>
+        </div>
+        
+        <!-- WARNING ALERT -->
+        <div id="w-alert" class="modal fade bs-example-modal-sm alert-modal" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel">
+          <div class="modal-dialog modal-sm">
+            <div class="modal-content alert-body">
+            
+              <div class="modal-header w-alert-header">
+                <button type="button" class="close alert-close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true"><i class="fa fa-times"></i></span></button>
+                <h4 class="modal-title" ><i class="fa fa-exclamation-circle fa-fw"></i> <span class="alert-title">Modal title</span></h4>
+              </div>
+              
+              <div class="modal-body ">
+              	<span class="alert-message">
+                	This is the message!
+                </span>
+              </div>
+              
+            </div>
+          </div>
+        </div>
+        
+        <!-- CONFIRM WARNING ALERT -->
+        <div id="cw-alert" class="modal fade bs-example-modal-sm alert-modal" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel">
+          <div class="modal-dialog modal-sm">
+            <div class="modal-content alert-body">
+            
+              <div class="modal-header w-alert-header">
+                <h4 class="modal-title" ><i class="fa fa-exclamation-circle fa-fw"></i> <span class="alert-title">Modal title</span></h4>
+              </div>
+              
+              <div class="modal-body ">
+              	<span class="alert-message">
+                	This is the message!
+                </span>
+              </div>
+              
+
+                <div class="btn-group full-width">
+              	<button id="btn-deny" type="button" class="btn btn-default half-width no-border btn-confirm right-border" >Cancelar</button>
+                <button id="btn-confirm" type="button" class="btn btn-default half-width no-border btn-confirm margin-fix">Aceptar</button>
+                </div>
+
+             
+              
+            </div>
+          </div>
+        </div>
+        
+
+
         
     </form>
 </body>

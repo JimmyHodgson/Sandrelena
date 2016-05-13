@@ -346,6 +346,7 @@
     <Content Include="Scripts\login.js" />
     <Content Include="Scripts\matricula.js" />
     <Content Include="Scripts\jquery.transit.min.js" />
+    <Content Include="Scripts\sandrelena-alerts.js" />
     <Content Include="Scripts\usuarios.js" />
     <Content Include="Views\admin\asignaturas.aspx" />
     <Content Include="Views\admin\dashboard.aspx" />
