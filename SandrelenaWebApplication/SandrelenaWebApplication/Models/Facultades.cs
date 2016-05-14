@@ -14,7 +14,6 @@ namespace SandrelenaWebApplication.Models
     
     public partial class Facultades
     {
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public Facultades()
         {
             this.Carreras = new HashSet<Carreras>();
@@ -24,7 +23,6 @@ namespace SandrelenaWebApplication.Models
         public string nombre_facultad { get; set; }
         public bool isActive { get; set; }
     
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Carreras> Carreras { get; set; }
     }
 }

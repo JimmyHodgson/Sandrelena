@@ -34,7 +34,6 @@ namespace SandrelenaWebApplication.Models
         public virtual DbSet<Horarios> Horarios { get; set; }
         public virtual DbSet<Matrículas> Matrículas { get; set; }
         public virtual DbSet<Permisos> Permisos { get; set; }
-        public virtual DbSet<Prerrequisitos> Prerrequisitos { get; set; }
         public virtual DbSet<Roles> Roles { get; set; }
         public virtual DbSet<Semestres> Semestres { get; set; }
         public virtual DbSet<Usuarios> Usuarios { get; set; }

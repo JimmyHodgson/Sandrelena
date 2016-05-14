@@ -14,8 +14,15 @@ namespace SandrelenaWebApplication.Models
     
     public partial class Actividades
     {
+        public Actividades()
+        {
+            this.Usuarios = new HashSet<Usuarios>();
+        }
+    
         public int id_actividad { get; set; }
         public string nombre_actividad { get; set; }
         public bool isActive { get; set; }
+    
+        public virtual ICollection<Usuarios> Usuarios { get; set; }
     }
 }

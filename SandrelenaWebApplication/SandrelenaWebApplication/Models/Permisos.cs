@@ -14,7 +14,6 @@ namespace SandrelenaWebApplication.Models
     
     public partial class Permisos
     {
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public Permisos()
         {
             this.Roles = new HashSet<Roles>();
@@ -24,7 +23,6 @@ namespace SandrelenaWebApplication.Models
         public string nombre_permiso { get; set; }
         public bool isActive { get; set; }
     
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Roles> Roles { get; set; }
     }
 }
