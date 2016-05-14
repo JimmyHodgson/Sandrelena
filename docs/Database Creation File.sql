@@ -178,18 +178,18 @@ Insert Into Asignaturas Values (010, 'Pensamiento Creativo', 3, 1) --id:10
 
 --************************************************************************
 
-Create Table Prerrequisitos (
-	id_asignatura int Not Null,
-	id_prerrequisito int Not Null,
-    Primary Key Clustered (id_asignatura, id_prerrequisito),
-    Foreign Key (id_asignatura) References Asignaturas(id_asignatura),
-    Foreign Key (id_prerrequisito) References Asignaturas(id_asignatura)
-)
+--Create Table Prerrequisitos (
+--	id_asignatura int Not Null,
+--	id_prerrequisito int Not Null,
+--    Primary Key Clustered (id_asignatura, id_prerrequisito),
+--    Foreign Key (id_asignatura) References Asignaturas(id_asignatura),
+--    Foreign Key (id_prerrequisito) References Asignaturas(id_asignatura)
+--)
 
 --************************************************************************
 
-Insert Into Prerrequisitos Values (5, 4)
-Insert Into Prerrequisitos Values (9, 8)
+--Insert Into Prerrequisitos Values (5, 4)
+--Insert Into Prerrequisitos Values (9, 8)
 
 --************************************************************************
 
@@ -409,8 +409,8 @@ Insert Into Horarios Values (3, 8, 1, 4, 4, 1)
 
 --************************************************************************
 
-Create Table Matr�culas (
-    id_matr�cula int Identity(1,1) Primary Key Not Null,
+Create Table Matriculas (
+    id_matricula int Identity(1,1) Primary Key Not Null,
     id_horario int Foreign Key References Horarios(id_horario),
     id_estudiante int Foreign Key References Usuarios(id_usuario),
 	fecha_de_inscripcion date Not Null,
@@ -420,9 +420,9 @@ Create Table Matr�culas (
 
 --************************************************************************
 
-Insert Into Matr�culas Values (1, 6, '2016-05-01', 20, 1)
-Insert Into Matr�culas Values (3, 6, '2016-05-03', 90, 1)
-Insert Into Matr�culas Values (4, 6, '2016-05-11', 82, 1)
+Insert Into Matriculas Values (1, 6, '2016-05-01', 20, 1)
+Insert Into Matriculas Values (3, 6, '2016-05-03', 90, 1)
+Insert Into Matriculas Values (4, 6, '2016-05-11', 82, 1)
 
 --************************************************************************
 
@@ -449,7 +449,7 @@ Insert Into Actividades Values ('Agregar DiaDisponibilidad', 1) --id:11
 Insert Into Actividades Values ('Agregar Horario', 1) --id:12
 Insert Into Actividades Values ('Asignar Prerrequisito', 1) --id:13
 Insert Into Actividades Values ('Ver Nota', 1) --id:14
-Insert Into Actividades Values ('Inicio de Sesi�n', 1) --id:15
+Insert Into Actividades Values ('Inicio de Sesion', 1) --id:15
 
 
 --************************************************************************
