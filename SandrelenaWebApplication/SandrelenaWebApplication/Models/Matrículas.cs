@@ -16,8 +16,8 @@ namespace SandrelenaWebApplication.Models
     {
         public int id_matrícula { get; set; }
         public Nullable<int> id_horario { get; set; }
-        public Nullable<int> id_usuario { get; set; }
-        public System.DateTime fecha_inscripcion { get; set; }
+        public Nullable<int> id_estudiante { get; set; }
+        public System.DateTime fecha_de_inscripcion { get; set; }
         public Nullable<int> nota { get; set; }
         public bool isActive { get; set; }
     

@@ -5,6 +5,7 @@ using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 using SandrelenaWebApplication.Models;
+using System.Data.Entity;
 
 namespace SandrelenaWebApplication.Views
 {
@@ -29,42 +30,68 @@ namespace SandrelenaWebApplication.Views
 
         private void CargarClases()
         {
-            ddlClases.DataSource = modelo.Asignaturas.ToList();
+            int id_estudiante = Convert.ToInt32(Session["IDUsuario"].ToString());
+            var estudiante = modelo.Usuarios.Find(id_estudiante);
+
+            var matriculas = modelo.Matrículas.Where(o => o.id_estudiante == estudiante.id_usuario);
+
+            List<Horarios> horarios = new List<Horarios>();
+
+
+            foreach (var x in matriculas)
+            {
+                horarios.Add(modelo.Horarios.Find(x.id_horario));
+            }
+
+            List<Asignaturas> clases = new List<Asignaturas>();
+
+            foreach (var x in horarios)
+            {
+                clases.Add(modelo.Asignaturas.Find(x.id_asignatura));
+            }
+
+            ddlClases.DataSource = clases;
             ddlClases.DataValueField = "id_asignatura";
             ddlClases.DataTextField = "nombre_asignatura";
             ddlClases.DataBind();
+
+
+            //ddlClases.DataSource = modelo.Asignaturas.ToList();
+            //ddlClases.DataValueField = "id_asignatura";
+            //ddlClases.DataTextField = "nombre_asignatura";
+            //ddlClases.DataBind();
         }
 
         private void CargarProfesor()
         {
-            //in: id_clase, id_horario; out:info e id_prof
 
-            //id_usuario
-            int id_usuario;
-            Int32.TryParse(Session["IDUsuario"].ToString(), out id_usuario);
-
-            // Info de la clase
             var clase = modelo.Asignaturas.Find(Convert.ToInt32(ddlClases.SelectedValue));
 
-            int id_horario = 1;
-            //id_matricula de la clase del usuario
-            var matricula = modelo.Matrículas.
-                Where(user => user.id_usuario == id_usuario).
-                Where(horario => horario.id_horario == id_horario).
-                FirstOrDefault();
 
-            // Profesores de la clase en 'var profesores'
-            //var clase_inscrita = modelo.;
+            // in: id_asignatura
+            // out: info_asignatura, id_profesor
 
-            //var semestre = modelo.Semestres.Find(clase.id_asignatura);
-            //var carrera = modelo.Carreras.Find(semestre.id_carrera);
-            //var facultad = modelo.Facultades.Find(carrera.id_facultad);
+            int id_estudiante = Convert.ToInt32(Session["IDUsuario"].ToString());
+            int id_asignatura = Convert.ToInt32(ddlClases.SelectedValue);
 
-            //var profe = modelo.Usuarios.Find(2);
+            var estudiante = modelo.Usuarios.Find(id_estudiante);
 
-            //lblProfesor.Text = profe.primer_nombre.ToString() + " " + profe.primer_apellido.ToString();
-            //lblUsuario.Text = profe.username.ToString();
-            //lblFacultad.Text = facultad.nombre_facultad.ToString();
+            var matriculas = modelo.Matrículas.Where(o => o.id_estudiante == estudiante.id_usuario);
+
+            List<Horarios> horarios = new List<Horarios>();
+
+            foreach (var x in matriculas)
+            {
+                horarios.Add(modelo.Horarios.Find(x.id_horario));
+            }
+
+            var horario_clase = horarios.Where(o => o.id_asignatura == id_asignatura).FirstOrDefault();
+
+            var profesor = modelo.Usuarios.Find(horario_clase.id_profesor);
+
+            lblProfesor.Text = profesor.primer_nombre.ToString() + " " + profesor.primer_apellido.ToString();
+            lblUsuario.Text = profesor.username.ToString();
+            lblFacultad.Text = "En desarrollo. ";
         }
 
         private void CargarEstudiantes()

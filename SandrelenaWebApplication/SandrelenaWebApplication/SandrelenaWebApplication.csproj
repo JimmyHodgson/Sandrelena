@@ -631,9 +631,6 @@
     <Compile Include="Models\Permisos.cs">
       <DependentUpon>Model.tt</DependentUpon>
     </Compile>
-    <Compile Include="Models\Prerrequisitos.cs">
-      <DependentUpon>Model.tt</DependentUpon>
-    </Compile>
     <Compile Include="Models\Roles.cs">
       <DependentUpon>Model.tt</DependentUpon>
     </Compile>

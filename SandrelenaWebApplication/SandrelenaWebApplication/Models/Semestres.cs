@@ -14,7 +14,6 @@ namespace SandrelenaWebApplication.Models
     
     public partial class Semestres
     {
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public Semestres()
         {
             this.Asignaturas = new HashSet<Asignaturas>();
@@ -26,7 +25,6 @@ namespace SandrelenaWebApplication.Models
         public bool isActive { get; set; }
     
         public virtual Carreras Carreras { get; set; }
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Asignaturas> Asignaturas { get; set; }
     }
 }
