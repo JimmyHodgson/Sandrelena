@@ -116,8 +116,8 @@ Create Table Facultades (
 
 --************************************************************************
 
-Insert Into Facultades Values ('Ingeniería', 1) --id:1
-Insert Into Facultades Values ('Diseño', 1) --id:2
+Insert Into Facultades Values ('Ingenierï¿½a', 1) --id:1
+Insert Into Facultades Values ('Diseï¿½o', 1) --id:2
 
 --************************************************************************
 
@@ -130,9 +130,9 @@ Create Table Carreras (
 
 --************************************************************************
 
-Insert Into Carreras Values ('Ingeniería en Sistemas', 1, 1) --id:1
-Insert Into Carreras Values ('Ingeniería en Gerencia Informática', 1, 1) --id:2
-Insert Into Carreras Values ('Diseño y Comunicación Visual', 2, 1) --id:3
+Insert Into Carreras Values ('Ingenierï¿½a en Sistemas', 1, 1) --id:1
+Insert Into Carreras Values ('Ingenierï¿½a en Gerencia Informï¿½tica', 1, 1) --id:2
+Insert Into Carreras Values ('Diseï¿½o y Comunicaciï¿½n Visual', 2, 1) --id:3
 
 --************************************************************************
 
@@ -163,8 +163,8 @@ Create Table Asignaturas (
 
 --************************************************************************
 
-Insert Into Asignaturas Values (001, 'Ingeniería de software', 4, 1) --id:1
-Insert Into Asignaturas Values (002, 'Análisis y Diseño de Objetos', 4, 1) --id:2
+Insert Into Asignaturas Values (001, 'Ingenierï¿½a de software', 4, 1) --id:1
+Insert Into Asignaturas Values (002, 'Anï¿½lisis y Diseï¿½o de Objetos', 4, 1) --id:2
 Insert Into Asignaturas Values (003, 'Algoritmos y Estructura de Datos', 3, 1) --id:3
 Insert Into Asignaturas Values (004, 'Sistemas Operativos I', 3, 1) --id:4
 Insert Into Asignaturas Values (005, 'Sistemas Operativos II', 4, 1) --id:5
@@ -172,8 +172,8 @@ Insert Into Asignaturas Values (005, 'Sistemas Operativos II', 4, 1) --id:5
 Insert Into Asignaturas Values (006, 'Gerencia TIC I', 4, 1) --id:6
 Insert Into Asignaturas Values (007, 'Gerencia TIC II', 4, 1) --id:7
 
-Insert Into Asignaturas Values (008, 'Diseño Digital I', 2, 1) --id:8
-Insert Into Asignaturas Values (009, 'Diseño Digital II', 3, 1) --id:9
+Insert Into Asignaturas Values (008, 'Diseï¿½o Digital I', 2, 1) --id:8
+Insert Into Asignaturas Values (009, 'Diseï¿½o Digital II', 3, 1) --id:9
 Insert Into Asignaturas Values (010, 'Pensamiento Creativo', 3, 1) --id:10
 
 --************************************************************************
@@ -211,7 +211,7 @@ Insert Into Semestres Values (03, 1, 1) --id:3
 Insert Into Semestres Values (01, 2, 1) --id:4
 Insert Into Semestres Values (02, 2, 1) --id:5
 
--- Diseño CV
+-- Diseï¿½o CV
 Insert Into Semestres Values (01, 3, 1) --id:6
 Insert Into Semestres Values (02, 3, 1) --id:7
 
@@ -238,7 +238,7 @@ Insert Into AsignaturasDeSemestres Values (3, 5) --id:5
 Insert Into AsignaturasDeSemestres Values (4, 6) --id:6
 Insert Into AsignaturasDeSemestres Values (5, 7) --id:7
 
--- Diseño CV
+-- Diseï¿½o CV
 Insert Into AsignaturasDeSemestres Values (6, 8) --id:8
 Insert Into AsignaturasDeSemestres Values (6, 10) --id:9
 Insert Into AsignaturasDeSemestres Values (7, 9) --id:10
@@ -409,14 +409,20 @@ Insert Into Horarios Values (3, 8, 1, 4, 4, 1)
 
 --************************************************************************
 
-Create Table Matrículas (
-    id_matrícula int Identity(1,1) Primary Key Not Null,
+Create Table Matrï¿½culas (
+    id_matrï¿½cula int Identity(1,1) Primary Key Not Null,
     id_horario int Foreign Key References Horarios(id_horario),
     id_estudiante int Foreign Key References Usuarios(id_usuario),
 	fecha_de_inscripcion date Not Null,
     nota int, -- Puede ser Null si se acaba de inscribir la clase
 	isActive bit Not Null Default 1
 )
+
+--************************************************************************
+
+Insert Into Matrï¿½culas Values (1, 6, '2016-05-01', 20, 1)
+Insert Into Matrï¿½culas Values (3, 6, '2016-05-03', 90, 1)
+Insert Into Matrï¿½culas Values (4, 6, '2016-05-11', 82, 1)
 
 --************************************************************************
 
@@ -443,7 +449,7 @@ Insert Into Actividades Values ('Agregar DiaDisponibilidad', 1) --id:11
 Insert Into Actividades Values ('Agregar Horario', 1) --id:12
 Insert Into Actividades Values ('Asignar Prerrequisito', 1) --id:13
 Insert Into Actividades Values ('Ver Nota', 1) --id:14
-Insert Into Actividades Values ('Inicio de Sesión', 1) --id:15
+Insert Into Actividades Values ('Inicio de Sesiï¿½n', 1) --id:15
 
 
 --************************************************************************
