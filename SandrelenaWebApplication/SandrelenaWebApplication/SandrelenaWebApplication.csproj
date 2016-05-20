@@ -465,6 +465,7 @@
     <Content Include="Views\login.aspx" />
     <Content Include="Views\estudiante\matricula.aspx" />
     <Content Include="Views\estudiante\academico.aspx" />
+    <Content Include="Views\PruebasGV.aspx" />
     <Content Include="Web.config" />
     <Content Include="Bundle.config" />
     <Content Include="packages.config" />
@@ -601,6 +602,9 @@
     <Compile Include="Models\Carreras.cs">
       <DependentUpon>Model.tt</DependentUpon>
     </Compile>
+    <Compile Include="Models\database_firewall_rules.cs">
+      <DependentUpon>Model.tt</DependentUpon>
+    </Compile>
     <Compile Include="Models\DiaDisponibilidades.cs">
       <DependentUpon>Model.tt</DependentUpon>
     </Compile>
@@ -610,7 +614,7 @@
     <Compile Include="Models\Horarios.cs">
       <DependentUpon>Model.tt</DependentUpon>
     </Compile>
-    <Compile Include="Models\Matrículas.cs">
+    <Compile Include="Models\Matriculas.cs">
       <DependentUpon>Model.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\Model.Context.cs">
@@ -755,6 +759,13 @@
     </Compile>
     <Compile Include="Views\estudiante\academico.aspx.designer.cs">
       <DependentUpon>academico.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Views\PruebasGV.aspx.cs">
+      <DependentUpon>PruebasGV.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Views\PruebasGV.aspx.designer.cs">
+      <DependentUpon>PruebasGV.aspx</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup>

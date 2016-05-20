@@ -64,12 +64,27 @@ namespace SandrelenaWebApplication
                     throw new InvalidOperationException("Validation of Anti-XSRF token failed.");
                 }
             }
+
+            try
+            {
+                if (Session["IDROL"] == null || (int)Session["IDROL"] != 1)
+                    Response.Redirect("~/Views/login.aspx", true);
+                Session["IDROL"].ToString();
+                Session["IDUsuario"].ToString();
+                Session["NombreUsuario"].ToString();
+                Session["Nombre"].ToString();
+
+            }
+            catch (Exception)
+            {
+                Response.Redirect("~/Views/login.aspx", true);
+            }
+
         }
 
         protected void Page_Load(object sender, EventArgs e)
         {
-            if (Session["IDROL"] == null || (int)Session["IDROL"] != 1)
-                Response.Redirect("~/Views/login.aspx", false);
+            
         }
 
         protected void Unnamed_LoggingOut(object sender, LoginCancelEventArgs e)

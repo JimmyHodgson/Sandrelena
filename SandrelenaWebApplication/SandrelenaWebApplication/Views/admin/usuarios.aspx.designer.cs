@@ -13,6 +13,24 @@ namespace SandrelenaWebApplication.Views.admin {
     public partial class WebForm1 {
         
         /// <summary>
+        /// lbInhabiltiar control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.LinkButton lbInhabiltiar;
+        
+        /// <summary>
+        /// UpdatePanelSearch control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.UpdatePanel UpdatePanelSearch;
+        
+        /// <summary>
         /// search_box control.
         /// </summary>
         /// <remarks>
@@ -22,6 +40,15 @@ namespace SandrelenaWebApplication.Views.admin {
         protected global::System.Web.UI.WebControls.TextBox search_box;
         
         /// <summary>
+        /// UpdatePanelUsuarios control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.UpdatePanel UpdatePanelUsuarios;
+        
+        /// <summary>
         /// user_table control.
         /// </summary>
         /// <remarks>
@@ -29,6 +56,15 @@ namespace SandrelenaWebApplication.Views.admin {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.GridView user_table;
+        
+        /// <summary>
+        /// lnkDummy control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.LinkButton lnkDummy;
         
         /// <summary>
         /// frm_agr_nombres control.
@@ -103,6 +139,15 @@ namespace SandrelenaWebApplication.Views.admin {
         protected global::System.Web.UI.WebControls.Button frm_agr_agregar;
         
         /// <summary>
+        /// UpdatePanelEditar control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.UpdatePanel UpdatePanelEditar;
+        
+        /// <summary>
         /// frm_mod_nombres control.
         /// </summary>
         /// <remarks>
@@ -155,5 +200,23 @@ namespace SandrelenaWebApplication.Views.admin {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox frm_mod_nacimiento;
+        
+        /// <summary>
+        /// frm_mod_cancelar control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button frm_mod_cancelar;
+        
+        /// <summary>
+        /// frm_mod_aceptar control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button frm_mod_aceptar;
     }
 }

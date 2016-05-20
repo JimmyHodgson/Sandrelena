@@ -4,33 +4,34 @@
   <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
-      <Diagram DiagramId="896cbc7c91174b50aaeb6d0e6a94cb30" Name="Diagram1">
-        <EntityTypeShape EntityType="SandrelenaModel.Actividades" Width="1.5" PointX="3.75" PointY="4" IsExpanded="true" />
-        <EntityTypeShape EntityType="SandrelenaModel.Asignaturas" Width="1.5" PointX="0.75" PointY="7.25" IsExpanded="true" />
-        <EntityTypeShape EntityType="SandrelenaModel.Aulas" Width="1.5" PointX="0.75" PointY="4" IsExpanded="true" />
-        <EntityTypeShape EntityType="SandrelenaModel.Carreras" Width="1.5" PointX="3.75" PointY="11.5" IsExpanded="true" />
-        <EntityTypeShape EntityType="SandrelenaModel.DiaDisponibilidades" Width="1.5" PointX="0.75" PointY="0.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="SandrelenaModel.Facultades" Width="1.5" PointX="1.5" PointY="11.875" IsExpanded="true" />
-        <EntityTypeShape EntityType="SandrelenaModel.Horarios" Width="1.5" PointX="3" PointY="6.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="SandrelenaModel.Matrículas" Width="1.5" PointX="8.25" PointY="5" IsExpanded="true" />
-        <EntityTypeShape EntityType="SandrelenaModel.Permisos" Width="1.5" PointX="1.5" PointY="14.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="SandrelenaModel.Roles" Width="1.5" PointX="3.75" PointY="14.625" IsExpanded="true" />
-        <EntityTypeShape EntityType="SandrelenaModel.Semestres" Width="1.5" PointX="6" PointY="7.375" IsExpanded="true" />
-        <EntityTypeShape EntityType="SandrelenaModel.Usuarios" Width="1.5" PointX="6" PointY="2.375" IsExpanded="true" />
-        <AssociationConnector Association="SandrelenaModel.FK__Horarios__id_asi__6B24EA82" ManuallyRouted="false" />
-        <AssociationConnector Association="SandrelenaModel.FK__Horarios__id_aul__6A30C649" ManuallyRouted="false" />
-        <AssociationConnector Association="SandrelenaModel.FK__Carreras__id_fac__4BAC3F29" ManuallyRouted="false" />
-        <AssociationConnector Association="SandrelenaModel.FK__Semestres__id_ca__5812160E" ManuallyRouted="false" />
-        <AssociationConnector Association="SandrelenaModel.FK__Horarios__id_dia__6D0D32F4" ManuallyRouted="false" />
-        <AssociationConnector Association="SandrelenaModel.FK__Horarios__id_pro__6C190EBB" ManuallyRouted="false" />
-        <AssociationConnector Association="SandrelenaModel.FK__Matrícula__id_ho__70DDC3D8" ManuallyRouted="false" />
-        <AssociationConnector Association="SandrelenaModel.FK__Matrícula__id_es__71D1E811" ManuallyRouted="false" />
-        <AssociationConnector Association="SandrelenaModel.FK__Usuarios__id_rol__4316F928" ManuallyRouted="false" />
-        <AssociationConnector Association="SandrelenaModel.AsignaturasDeSemestres" ManuallyRouted="false" />
-        <AssociationConnector Association="SandrelenaModel.CarrerasDeEstudiantes" ManuallyRouted="false" />
-        <AssociationConnector Association="SandrelenaModel.PermisosDeRoles" ManuallyRouted="false" />
-        <AssociationConnector Association="SandrelenaModel.ProfesoresDeAsignaturas" ManuallyRouted="false" />
-        <AssociationConnector Association="SandrelenaModel.RegistrosDeActividades" ManuallyRouted="false" />
+      <Diagram DiagramId="da1c987c7f5f4624b94c342d8a87053e" Name="Diagram1">
+        <EntityTypeShape EntityType="SandrelenaCS.Actividades" Width="1.5" PointX="3.75" PointY="4" IsExpanded="true" />
+        <EntityTypeShape EntityType="SandrelenaCS.Asignaturas" Width="1.5" PointX="0.75" PointY="7.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="SandrelenaCS.Aulas" Width="1.5" PointX="0.75" PointY="4" IsExpanded="true" />
+        <EntityTypeShape EntityType="SandrelenaCS.Carreras" Width="1.5" PointX="3.75" PointY="11.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="SandrelenaCS.DiaDisponibilidades" Width="1.5" PointX="0.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="SandrelenaCS.Facultades" Width="1.5" PointX="1.5" PointY="11.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="SandrelenaCS.Horarios" Width="1.5" PointX="3" PointY="6.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="SandrelenaCS.Matriculas" Width="1.5" PointX="8.25" PointY="5" IsExpanded="true" />
+        <EntityTypeShape EntityType="SandrelenaCS.Permisos" Width="1.5" PointX="1.5" PointY="14.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="SandrelenaCS.Roles" Width="1.5" PointX="3.75" PointY="14.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="SandrelenaCS.Semestres" Width="1.5" PointX="6" PointY="7.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="SandrelenaCS.Usuarios" Width="1.5" PointX="6" PointY="2.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="SandrelenaCS.database_firewall_rules" Width="1.5" PointX="8.75" PointY="9.25" IsExpanded="true" />
+        <AssociationConnector Association="SandrelenaCS.FK__Horarios__id_asi__6B24EA82" ManuallyRouted="false" />
+        <AssociationConnector Association="SandrelenaCS.FK__Horarios__id_aul__6A30C649" ManuallyRouted="false" />
+        <AssociationConnector Association="SandrelenaCS.FK__Carreras__id_fac__4BAC3F29" ManuallyRouted="false" />
+        <AssociationConnector Association="SandrelenaCS.FK__Semestres__id_ca__5812160E" ManuallyRouted="false" />
+        <AssociationConnector Association="SandrelenaCS.FK__Horarios__id_dia__6D0D32F4" ManuallyRouted="false" />
+        <AssociationConnector Association="SandrelenaCS.FK__Horarios__id_pro__6C190EBB" ManuallyRouted="false" />
+        <AssociationConnector Association="SandrelenaCS.FK__Matricula__id_ho__70DDC3D8" ManuallyRouted="false" />
+        <AssociationConnector Association="SandrelenaCS.FK__Matricula__id_es__71D1E811" ManuallyRouted="false" />
+        <AssociationConnector Association="SandrelenaCS.FK__Usuarios__id_rol__4316F928" ManuallyRouted="false" />
+        <AssociationConnector Association="SandrelenaCS.AsignaturasDeSemestres" ManuallyRouted="false" />
+        <AssociationConnector Association="SandrelenaCS.CarrerasDeEstudiantes" ManuallyRouted="false" />
+        <AssociationConnector Association="SandrelenaCS.PermisosDeRoles" ManuallyRouted="false" />
+        <AssociationConnector Association="SandrelenaCS.ProfesoresDeAsignaturas" ManuallyRouted="false" />
+        <AssociationConnector Association="SandrelenaCS.RegistrosDeActividades" ManuallyRouted="false" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

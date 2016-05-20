@@ -81,7 +81,10 @@
                         
                         <input type="checkbox"> Recordarme
                         <br>
-                        <label id="warning" class="label label-danger hidden" style="float:right; position:relative; bottom:17px"><br></label>
+                        <asp:Label ID="warning" ClientIDMode="Static" CssClass="label label-danger hidden" runat="server" style="float:right; position:relative; bottom:17px"></asp:Label>
+                        <br>
+                        <asp:Label ID="lblError" runat="server" Font-Size="Small" ForeColor="Red"></asp:Label>
+                        
                     
                 </div>
                 

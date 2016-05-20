@@ -43,30 +43,45 @@ namespace SandrelenaWebApplication.Views
                                  Nombre = u.primer_apellido
                              }).FirstOrDefault();
 
-                    Session["IDROL"] = login.IDROL;
-                    Session["IDUsuario"] = login.IDUsuario;
-                    Session["NombreUsuario"] = login.NombreUsuario;
-                    Session["Nombre"] = login.Nombre;
+                if (login==null)
+                {
+                    lblError.Text = "El nombre de usuario y la contraseña no coinciden.";
+                    return;
+                }
+                    
 
-                    switch (login.IDROL.ToString())
-                    {
+                Session["IDROL"] = login.IDROL;
+                Session["IDUsuario"] = login.IDUsuario;
+                Session["NombreUsuario"] = login.NombreUsuario;
+                Session["Nombre"] = login.Nombre;
+
+                switch (login.IDROL.ToString())
+                {
                         case "1":
-                            Response.Redirect("~/Views/admin/dashboard.aspx", false);
+                            Response.Redirect("~/Views/admin/dashboard.aspx", true);
                             break;
                         case "2":
-                            Response.Redirect("~/Views/profesor/enproceso.aspx", false);
+                            Response.Redirect("~/Views/profesor/enproceso.aspx", true);
                             break;
                         case "3":
-                            Response.Redirect("~/Default.aspx", false);
+                            Response.Redirect("~/Default.aspx", true);
                             break;
-                    }
+                }
             }
-            catch (Exception)
+            catch (Exception ex)
             {
-                
+                ExecuteJavaScript("showAlert('#e-alert', 'Error', '" + ex.Message.ToString() + "');");
+                warning.Text = ex.Message.ToString();
+                lblError.Text = "Error: " + ex.Message.ToString();
                 //mensaje de error
             }
 
         }
+
+        public void ExecuteJavaScript(string funcion)
+        {
+            ScriptManager.RegisterStartupScript(this, this.GetType(), UniqueID, funcion, true);
+        }
+
     }
 }

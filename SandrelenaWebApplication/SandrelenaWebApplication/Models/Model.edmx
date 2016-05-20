@@ -4,7 +4,7 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-      <Schema Namespace="SandrelenaModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012.Azure" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+      <Schema Namespace="SandrelenaCS.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012.Azure" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
         <EntityType Name="Actividades">
           <Key>
             <PropertyRef Name="id_actividad" />
@@ -87,11 +87,11 @@
           <Property Name="id_diaDisponibilidad" Type="int" />
           <Property Name="isActive" Type="bit" Nullable="false" />
         </EntityType>
-        <EntityType Name="Matrículas">
+        <EntityType Name="Matriculas">
           <Key>
-            <PropertyRef Name="id_matrícula" />
+            <PropertyRef Name="id_matricula" />
           </Key>
-          <Property Name="id_matrícula" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="id_matricula" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="id_horario" Type="int" />
           <Property Name="id_estudiante" Type="int" />
           <Property Name="fecha_de_inscripcion" Type="date" Nullable="false" />
@@ -161,6 +161,24 @@
           <Property Name="fecha_de_nacimiento" Type="date" Nullable="false" />
           <Property Name="id_rol" Type="int" />
           <Property Name="isActive" Type="bit" Nullable="false" />
+        </EntityType>
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'Sandrelena.sys.database_firewall_rules' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="database_firewall_rules">
+          <Key>
+            <PropertyRef Name="id" />
+            <PropertyRef Name="name" />
+            <PropertyRef Name="start_ip_address" />
+            <PropertyRef Name="end_ip_address" />
+            <PropertyRef Name="create_date" />
+            <PropertyRef Name="modify_date" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="name" Type="nvarchar" MaxLength="128" Nullable="false" />
+          <Property Name="start_ip_address" Type="varchar" MaxLength="45" Nullable="false" />
+          <Property Name="end_ip_address" Type="varchar" MaxLength="45" Nullable="false" />
+          <Property Name="create_date" Type="datetime" Nullable="false" />
+          <Property Name="modify_date" Type="datetime" Nullable="false" />
         </EntityType>
         <Association Name="FK__Asignatur__id_as__5CD6CB2B">
           <End Role="Asignaturas" Type="Self.Asignaturas" Multiplicity="1" />
@@ -270,26 +288,26 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__Matrícula__id_es__71D1E811">
+        <Association Name="FK__Matricula__id_es__71D1E811">
           <End Role="Usuarios" Type="Self.Usuarios" Multiplicity="0..1" />
-          <End Role="Matrículas" Type="Self.Matrículas" Multiplicity="*" />
+          <End Role="Matriculas" Type="Self.Matriculas" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Usuarios">
               <PropertyRef Name="id_usuario" />
             </Principal>
-            <Dependent Role="Matrículas">
+            <Dependent Role="Matriculas">
               <PropertyRef Name="id_estudiante" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__Matrícula__id_ho__70DDC3D8">
+        <Association Name="FK__Matricula__id_ho__70DDC3D8">
           <End Role="Horarios" Type="Self.Horarios" Multiplicity="0..1" />
-          <End Role="Matrículas" Type="Self.Matrículas" Multiplicity="*" />
+          <End Role="Matriculas" Type="Self.Matriculas" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Horarios">
               <PropertyRef Name="id_horario" />
             </Principal>
-            <Dependent Role="Matrículas">
+            <Dependent Role="Matriculas">
               <PropertyRef Name="id_horario" />
             </Dependent>
           </ReferentialConstraint>
@@ -390,7 +408,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <EntityContainer Name="SandrelenaModelStoreContainer">
+        <EntityContainer Name="SandrelenaCSStoreContainer">
           <EntitySet Name="Actividades" EntityType="Self.Actividades" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Asignaturas" EntityType="Self.Asignaturas" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="AsignaturasDeSemestres" EntityType="Self.AsignaturasDeSemestres" Schema="dbo" store:Type="Tables" />
@@ -400,7 +418,7 @@
           <EntitySet Name="DiaDisponibilidades" EntityType="Self.DiaDisponibilidades" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Facultades" EntityType="Self.Facultades" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Horarios" EntityType="Self.Horarios" Schema="dbo" store:Type="Tables" />
-          <EntitySet Name="Matrículas" EntityType="Self.Matrículas" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Matriculas" EntityType="Self.Matriculas" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Permisos" EntityType="Self.Permisos" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="PermisosDeRoles" EntityType="Self.PermisosDeRoles" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="ProfesoresDeAsignaturas" EntityType="Self.ProfesoresDeAsignaturas" Schema="dbo" store:Type="Tables" />
@@ -408,6 +426,16 @@
           <EntitySet Name="Roles" EntityType="Self.Roles" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Semestres" EntityType="Self.Semestres" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Usuarios" EntityType="Self.Usuarios" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="database_firewall_rules" EntityType="Self.database_firewall_rules" store:Type="Views" store:Schema="sys">
+            <DefiningQuery>SELECT 
+    [database_firewall_rules].[id] AS [id], 
+    [database_firewall_rules].[name] AS [name], 
+    [database_firewall_rules].[start_ip_address] AS [start_ip_address], 
+    [database_firewall_rules].[end_ip_address] AS [end_ip_address], 
+    [database_firewall_rules].[create_date] AS [create_date], 
+    [database_firewall_rules].[modify_date] AS [modify_date]
+    FROM [sys].[database_firewall_rules] AS [database_firewall_rules]</DefiningQuery>
+          </EntitySet>
           <AssociationSet Name="FK__Asignatur__id_as__5CD6CB2B" Association="Self.FK__Asignatur__id_as__5CD6CB2B">
             <End Role="Asignaturas" EntitySet="Asignaturas" />
             <End Role="AsignaturasDeSemestres" EntitySet="AsignaturasDeSemestres" />
@@ -444,13 +472,13 @@
             <End Role="Usuarios" EntitySet="Usuarios" />
             <End Role="Horarios" EntitySet="Horarios" />
           </AssociationSet>
-          <AssociationSet Name="FK__Matrícula__id_es__71D1E811" Association="Self.FK__Matrícula__id_es__71D1E811">
+          <AssociationSet Name="FK__Matricula__id_es__71D1E811" Association="Self.FK__Matricula__id_es__71D1E811">
             <End Role="Usuarios" EntitySet="Usuarios" />
-            <End Role="Matrículas" EntitySet="Matrículas" />
+            <End Role="Matriculas" EntitySet="Matriculas" />
           </AssociationSet>
-          <AssociationSet Name="FK__Matrícula__id_ho__70DDC3D8" Association="Self.FK__Matrícula__id_ho__70DDC3D8">
+          <AssociationSet Name="FK__Matricula__id_ho__70DDC3D8" Association="Self.FK__Matricula__id_ho__70DDC3D8">
             <End Role="Horarios" EntitySet="Horarios" />
-            <End Role="Matrículas" EntitySet="Matrículas" />
+            <End Role="Matriculas" EntitySet="Matriculas" />
           </AssociationSet>
           <AssociationSet Name="FK__PermisosD__id_pe__3E52440B" Association="Self.FK__PermisosD__id_pe__3E52440B">
             <End Role="Permisos" EntitySet="Permisos" />
@@ -489,7 +517,7 @@
     </edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
-      <Schema Namespace="SandrelenaModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+      <Schema Namespace="SandrelenaCS" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
         <EntityType Name="Actividades">
           <Key>
             <PropertyRef Name="id_actividad" />
@@ -569,20 +597,20 @@
           <NavigationProperty Name="Aulas" Relationship="Self.FK__Horarios__id_aul__6A30C649" FromRole="Horarios" ToRole="Aulas" />
           <NavigationProperty Name="DiaDisponibilidades" Relationship="Self.FK__Horarios__id_dia__6D0D32F4" FromRole="Horarios" ToRole="DiaDisponibilidades" />
           <NavigationProperty Name="Usuarios" Relationship="Self.FK__Horarios__id_pro__6C190EBB" FromRole="Horarios" ToRole="Usuarios" />
-          <NavigationProperty Name="Matrículas" Relationship="Self.FK__Matrícula__id_ho__70DDC3D8" FromRole="Horarios" ToRole="Matrículas" />
+          <NavigationProperty Name="Matriculas" Relationship="Self.FK__Matricula__id_ho__70DDC3D8" FromRole="Horarios" ToRole="Matriculas" />
         </EntityType>
-        <EntityType Name="Matrículas">
+        <EntityType Name="Matriculas">
           <Key>
-            <PropertyRef Name="id_matrícula" />
+            <PropertyRef Name="id_matricula" />
           </Key>
-          <Property Name="id_matrícula" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="id_matricula" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="id_horario" Type="Int32" />
           <Property Name="id_estudiante" Type="Int32" />
           <Property Name="fecha_de_inscripcion" Type="DateTime" Nullable="false" Precision="0" />
           <Property Name="nota" Type="Int32" />
           <Property Name="isActive" Type="Boolean" Nullable="false" />
-          <NavigationProperty Name="Horarios" Relationship="Self.FK__Matrícula__id_ho__70DDC3D8" FromRole="Matrículas" ToRole="Horarios" />
-          <NavigationProperty Name="Usuarios" Relationship="Self.FK__Matrícula__id_es__71D1E811" FromRole="Matrículas" ToRole="Usuarios" />
+          <NavigationProperty Name="Horarios" Relationship="Self.FK__Matricula__id_ho__70DDC3D8" FromRole="Matriculas" ToRole="Horarios" />
+          <NavigationProperty Name="Usuarios" Relationship="Self.FK__Matricula__id_es__71D1E811" FromRole="Matriculas" ToRole="Usuarios" />
         </EntityType>
         <EntityType Name="Permisos">
           <Key>
@@ -629,11 +657,27 @@
           <Property Name="id_rol" Type="Int32" />
           <Property Name="isActive" Type="Boolean" Nullable="false" />
           <NavigationProperty Name="Horarios" Relationship="Self.FK__Horarios__id_pro__6C190EBB" FromRole="Usuarios" ToRole="Horarios" />
-          <NavigationProperty Name="Matrículas" Relationship="Self.FK__Matrícula__id_es__71D1E811" FromRole="Usuarios" ToRole="Matrículas" />
+          <NavigationProperty Name="Matriculas" Relationship="Self.FK__Matricula__id_es__71D1E811" FromRole="Usuarios" ToRole="Matriculas" />
           <NavigationProperty Name="Roles" Relationship="Self.FK__Usuarios__id_rol__4316F928" FromRole="Usuarios" ToRole="Roles" />
           <NavigationProperty Name="Carreras" Relationship="Self.CarrerasDeEstudiantes" FromRole="Usuarios" ToRole="Carreras" />
           <NavigationProperty Name="Asignaturas" Relationship="Self.ProfesoresDeAsignaturas" FromRole="Usuarios" ToRole="Asignaturas" />
           <NavigationProperty Name="Actividades" Relationship="Self.RegistrosDeActividades" FromRole="Usuarios" ToRole="Actividades" />
+        </EntityType>
+        <EntityType Name="database_firewall_rules">
+          <Key>
+            <PropertyRef Name="id" />
+            <PropertyRef Name="name" />
+            <PropertyRef Name="start_ip_address" />
+            <PropertyRef Name="end_ip_address" />
+            <PropertyRef Name="create_date" />
+            <PropertyRef Name="modify_date" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="name" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="start_ip_address" Type="String" MaxLength="45" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="end_ip_address" Type="String" MaxLength="45" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="create_date" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="modify_date" Type="DateTime" Nullable="false" Precision="3" />
         </EntityType>
         <Association Name="FK__Horarios__id_asi__6B24EA82">
           <End Role="Asignaturas" Type="Self.Asignaturas" Multiplicity="0..1" />
@@ -707,26 +751,26 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__Matrícula__id_ho__70DDC3D8">
+        <Association Name="FK__Matricula__id_ho__70DDC3D8">
           <End Role="Horarios" Type="Self.Horarios" Multiplicity="0..1" />
-          <End Role="Matrículas" Type="Self.Matrículas" Multiplicity="*" />
+          <End Role="Matriculas" Type="Self.Matriculas" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Horarios">
               <PropertyRef Name="id_horario" />
             </Principal>
-            <Dependent Role="Matrículas">
+            <Dependent Role="Matriculas">
               <PropertyRef Name="id_horario" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__Matrícula__id_es__71D1E811">
+        <Association Name="FK__Matricula__id_es__71D1E811">
           <End Role="Usuarios" Type="Self.Usuarios" Multiplicity="0..1" />
-          <End Role="Matrículas" Type="Self.Matrículas" Multiplicity="*" />
+          <End Role="Matriculas" Type="Self.Matriculas" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Usuarios">
               <PropertyRef Name="id_usuario" />
             </Principal>
-            <Dependent Role="Matrículas">
+            <Dependent Role="Matriculas">
               <PropertyRef Name="id_estudiante" />
             </Dependent>
           </ReferentialConstraint>
@@ -771,11 +815,12 @@
           <EntitySet Name="DiaDisponibilidades" EntityType="Self.DiaDisponibilidades" />
           <EntitySet Name="Facultades" EntityType="Self.Facultades" />
           <EntitySet Name="Horarios" EntityType="Self.Horarios" />
-          <EntitySet Name="Matrículas" EntityType="Self.Matrículas" />
+          <EntitySet Name="Matriculas" EntityType="Self.Matriculas" />
           <EntitySet Name="Permisos" EntityType="Self.Permisos" />
           <EntitySet Name="Roles" EntityType="Self.Roles" />
           <EntitySet Name="Semestres" EntityType="Self.Semestres" />
           <EntitySet Name="Usuarios" EntityType="Self.Usuarios" />
+          <EntitySet Name="database_firewall_rules" EntityType="Self.database_firewall_rules" />
           <AssociationSet Name="FK__Horarios__id_asi__6B24EA82" Association="Self.FK__Horarios__id_asi__6B24EA82">
             <End Role="Asignaturas" EntitySet="Asignaturas" />
             <End Role="Horarios" EntitySet="Horarios" />
@@ -800,13 +845,13 @@
             <End Role="Usuarios" EntitySet="Usuarios" />
             <End Role="Horarios" EntitySet="Horarios" />
           </AssociationSet>
-          <AssociationSet Name="FK__Matrícula__id_ho__70DDC3D8" Association="Self.FK__Matrícula__id_ho__70DDC3D8">
+          <AssociationSet Name="FK__Matricula__id_ho__70DDC3D8" Association="Self.FK__Matricula__id_ho__70DDC3D8">
             <End Role="Horarios" EntitySet="Horarios" />
-            <End Role="Matrículas" EntitySet="Matrículas" />
+            <End Role="Matriculas" EntitySet="Matriculas" />
           </AssociationSet>
-          <AssociationSet Name="FK__Matrícula__id_es__71D1E811" Association="Self.FK__Matrícula__id_es__71D1E811">
+          <AssociationSet Name="FK__Matricula__id_es__71D1E811" Association="Self.FK__Matricula__id_es__71D1E811">
             <End Role="Usuarios" EntitySet="Usuarios" />
-            <End Role="Matrículas" EntitySet="Matrículas" />
+            <End Role="Matriculas" EntitySet="Matriculas" />
           </AssociationSet>
           <AssociationSet Name="FK__Usuarios__id_rol__4316F928" Association="Self.FK__Usuarios__id_rol__4316F928">
             <End Role="Roles" EntitySet="Roles" />
@@ -838,9 +883,9 @@
     <!-- C-S mapping content -->
     <edmx:Mappings>
       <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
-        <EntityContainerMapping StorageEntityContainer="SandrelenaModelStoreContainer" CdmEntityContainer="Entities">
+        <EntityContainerMapping StorageEntityContainer="SandrelenaCSStoreContainer" CdmEntityContainer="Entities">
           <EntitySetMapping Name="Actividades">
-            <EntityTypeMapping TypeName="SandrelenaModel.Actividades">
+            <EntityTypeMapping TypeName="SandrelenaCS.Actividades">
               <MappingFragment StoreEntitySet="Actividades">
                 <ScalarProperty Name="id_actividad" ColumnName="id_actividad" />
                 <ScalarProperty Name="nombre_actividad" ColumnName="nombre_actividad" />
@@ -849,7 +894,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="Asignaturas">
-            <EntityTypeMapping TypeName="SandrelenaModel.Asignaturas">
+            <EntityTypeMapping TypeName="SandrelenaCS.Asignaturas">
               <MappingFragment StoreEntitySet="Asignaturas">
                 <ScalarProperty Name="id_asignatura" ColumnName="id_asignatura" />
                 <ScalarProperty Name="codigo_asignatura" ColumnName="codigo_asignatura" />
@@ -860,7 +905,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="Aulas">
-            <EntityTypeMapping TypeName="SandrelenaModel.Aulas">
+            <EntityTypeMapping TypeName="SandrelenaCS.Aulas">
               <MappingFragment StoreEntitySet="Aulas">
                 <ScalarProperty Name="id_aula" ColumnName="id_aula" />
                 <ScalarProperty Name="nombre_aula" ColumnName="nombre_aula" />
@@ -870,7 +915,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="Carreras">
-            <EntityTypeMapping TypeName="SandrelenaModel.Carreras">
+            <EntityTypeMapping TypeName="SandrelenaCS.Carreras">
               <MappingFragment StoreEntitySet="Carreras">
                 <ScalarProperty Name="id_carrera" ColumnName="id_carrera" />
                 <ScalarProperty Name="nombre_carrera" ColumnName="nombre_carrera" />
@@ -880,7 +925,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="DiaDisponibilidades">
-            <EntityTypeMapping TypeName="SandrelenaModel.DiaDisponibilidades">
+            <EntityTypeMapping TypeName="SandrelenaCS.DiaDisponibilidades">
               <MappingFragment StoreEntitySet="DiaDisponibilidades">
                 <ScalarProperty Name="id_diaDisponibilidad" ColumnName="id_diaDisponibilidad" />
                 <ScalarProperty Name="dia" ColumnName="dia" />
@@ -891,7 +936,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="Facultades">
-            <EntityTypeMapping TypeName="SandrelenaModel.Facultades">
+            <EntityTypeMapping TypeName="SandrelenaCS.Facultades">
               <MappingFragment StoreEntitySet="Facultades">
                 <ScalarProperty Name="id_facultad" ColumnName="id_facultad" />
                 <ScalarProperty Name="nombre_facultad" ColumnName="nombre_facultad" />
@@ -900,7 +945,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="Horarios">
-            <EntityTypeMapping TypeName="SandrelenaModel.Horarios">
+            <EntityTypeMapping TypeName="SandrelenaCS.Horarios">
               <MappingFragment StoreEntitySet="Horarios">
                 <ScalarProperty Name="id_horario" ColumnName="id_horario" />
                 <ScalarProperty Name="id_aula" ColumnName="id_aula" />
@@ -912,10 +957,10 @@
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <EntitySetMapping Name="Matrículas">
-            <EntityTypeMapping TypeName="SandrelenaModel.Matrículas">
-              <MappingFragment StoreEntitySet="Matrículas">
-                <ScalarProperty Name="id_matrícula" ColumnName="id_matrícula" />
+          <EntitySetMapping Name="Matriculas">
+            <EntityTypeMapping TypeName="SandrelenaCS.Matriculas">
+              <MappingFragment StoreEntitySet="Matriculas">
+                <ScalarProperty Name="id_matricula" ColumnName="id_matricula" />
                 <ScalarProperty Name="id_horario" ColumnName="id_horario" />
                 <ScalarProperty Name="id_estudiante" ColumnName="id_estudiante" />
                 <ScalarProperty Name="fecha_de_inscripcion" ColumnName="fecha_de_inscripcion" />
@@ -925,7 +970,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="Permisos">
-            <EntityTypeMapping TypeName="SandrelenaModel.Permisos">
+            <EntityTypeMapping TypeName="SandrelenaCS.Permisos">
               <MappingFragment StoreEntitySet="Permisos">
                 <ScalarProperty Name="id_permiso" ColumnName="id_permiso" />
                 <ScalarProperty Name="nombre_permiso" ColumnName="nombre_permiso" />
@@ -934,7 +979,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="Roles">
-            <EntityTypeMapping TypeName="SandrelenaModel.Roles">
+            <EntityTypeMapping TypeName="SandrelenaCS.Roles">
               <MappingFragment StoreEntitySet="Roles">
                 <ScalarProperty Name="id_rol" ColumnName="id_rol" />
                 <ScalarProperty Name="nombre_rol" ColumnName="nombre_rol" />
@@ -943,7 +988,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="Semestres">
-            <EntityTypeMapping TypeName="SandrelenaModel.Semestres">
+            <EntityTypeMapping TypeName="SandrelenaCS.Semestres">
               <MappingFragment StoreEntitySet="Semestres">
                 <ScalarProperty Name="id_semestre" ColumnName="id_semestre" />
                 <ScalarProperty Name="no_semestre" ColumnName="no_semestre" />
@@ -953,7 +998,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="Usuarios">
-            <EntityTypeMapping TypeName="SandrelenaModel.Usuarios">
+            <EntityTypeMapping TypeName="SandrelenaCS.Usuarios">
               <MappingFragment StoreEntitySet="Usuarios">
                 <ScalarProperty Name="id_usuario" ColumnName="id_usuario" />
                 <ScalarProperty Name="username" ColumnName="username" />
@@ -968,7 +1013,19 @@
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <AssociationSetMapping Name="AsignaturasDeSemestres" TypeName="SandrelenaModel.AsignaturasDeSemestres" StoreEntitySet="AsignaturasDeSemestres">
+          <EntitySetMapping Name="database_firewall_rules">
+            <EntityTypeMapping TypeName="SandrelenaCS.database_firewall_rules">
+              <MappingFragment StoreEntitySet="database_firewall_rules">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="name" ColumnName="name" />
+                <ScalarProperty Name="start_ip_address" ColumnName="start_ip_address" />
+                <ScalarProperty Name="end_ip_address" ColumnName="end_ip_address" />
+                <ScalarProperty Name="create_date" ColumnName="create_date" />
+                <ScalarProperty Name="modify_date" ColumnName="modify_date" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <AssociationSetMapping Name="AsignaturasDeSemestres" TypeName="SandrelenaCS.AsignaturasDeSemestres" StoreEntitySet="AsignaturasDeSemestres">
             <EndProperty Name="Asignaturas">
               <ScalarProperty Name="id_asignatura" ColumnName="id_asignatura" />
             </EndProperty>
@@ -976,7 +1033,7 @@
               <ScalarProperty Name="id_semestre" ColumnName="id_semestre" />
             </EndProperty>
           </AssociationSetMapping>
-          <AssociationSetMapping Name="CarrerasDeEstudiantes" TypeName="SandrelenaModel.CarrerasDeEstudiantes" StoreEntitySet="CarrerasDeEstudiantes">
+          <AssociationSetMapping Name="CarrerasDeEstudiantes" TypeName="SandrelenaCS.CarrerasDeEstudiantes" StoreEntitySet="CarrerasDeEstudiantes">
             <EndProperty Name="Carreras">
               <ScalarProperty Name="id_carrera" ColumnName="id_carrera" />
             </EndProperty>
@@ -984,7 +1041,7 @@
               <ScalarProperty Name="id_usuario" ColumnName="id_estudiante" />
             </EndProperty>
           </AssociationSetMapping>
-          <AssociationSetMapping Name="PermisosDeRoles" TypeName="SandrelenaModel.PermisosDeRoles" StoreEntitySet="PermisosDeRoles">
+          <AssociationSetMapping Name="PermisosDeRoles" TypeName="SandrelenaCS.PermisosDeRoles" StoreEntitySet="PermisosDeRoles">
             <EndProperty Name="Permisos">
               <ScalarProperty Name="id_permiso" ColumnName="id_permiso" />
             </EndProperty>
@@ -992,7 +1049,7 @@
               <ScalarProperty Name="id_rol" ColumnName="id_rol" />
             </EndProperty>
           </AssociationSetMapping>
-          <AssociationSetMapping Name="ProfesoresDeAsignaturas" TypeName="SandrelenaModel.ProfesoresDeAsignaturas" StoreEntitySet="ProfesoresDeAsignaturas">
+          <AssociationSetMapping Name="ProfesoresDeAsignaturas" TypeName="SandrelenaCS.ProfesoresDeAsignaturas" StoreEntitySet="ProfesoresDeAsignaturas">
             <EndProperty Name="Asignaturas">
               <ScalarProperty Name="id_asignatura" ColumnName="id_asignatura" />
             </EndProperty>
@@ -1000,7 +1057,7 @@
               <ScalarProperty Name="id_usuario" ColumnName="id_profesor" />
             </EndProperty>
           </AssociationSetMapping>
-          <AssociationSetMapping Name="RegistrosDeActividades" TypeName="SandrelenaModel.RegistrosDeActividades" StoreEntitySet="RegistrosDeActividades">
+          <AssociationSetMapping Name="RegistrosDeActividades" TypeName="SandrelenaCS.RegistrosDeActividades" StoreEntitySet="RegistrosDeActividades">
             <EndProperty Name="Actividades">
               <ScalarProperty Name="id_actividad" ColumnName="id_actividad" />
             </EndProperty>

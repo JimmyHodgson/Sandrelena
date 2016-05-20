@@ -1,4 +1,4 @@
-Create Database Sandrelena
+﻿Create Database Sandrelena
 Use Sandrelena
 
 Create Table Permisos (
@@ -116,8 +116,8 @@ Create Table Facultades (
 
 --************************************************************************
 
-Insert Into Facultades Values ('Ingenier�a', 1) --id:1
-Insert Into Facultades Values ('Dise�o', 1) --id:2
+Insert Into Facultades Values ('Ingeniería', 1) --id:1
+Insert Into Facultades Values ('Diseño', 1) --id:2
 
 --************************************************************************
 
@@ -130,9 +130,9 @@ Create Table Carreras (
 
 --************************************************************************
 
-Insert Into Carreras Values ('Ingenier�a en Sistemas', 1, 1) --id:1
-Insert Into Carreras Values ('Ingenier�a en Gerencia Inform�tica', 1, 1) --id:2
-Insert Into Carreras Values ('Dise�o y Comunicaci�n Visual', 2, 1) --id:3
+Insert Into Carreras Values ('Ingeniería en Sistemas', 1, 1) --id:1
+Insert Into Carreras Values ('Ingeniería en Gerencia Informática', 1, 1) --id:2
+Insert Into Carreras Values ('Diseño y Comunicación Visual', 2, 1) --id:3
 
 --************************************************************************
 
@@ -163,8 +163,8 @@ Create Table Asignaturas (
 
 --************************************************************************
 
-Insert Into Asignaturas Values (001, 'Ingenier�a de software', 4, 1) --id:1
-Insert Into Asignaturas Values (002, 'An�lisis y Dise�o de Objetos', 4, 1) --id:2
+Insert Into Asignaturas Values (001, 'Ingeniería de software', 4, 1) --id:1
+Insert Into Asignaturas Values (002, 'Análisis y Diseño de Objetos', 4, 1) --id:2
 Insert Into Asignaturas Values (003, 'Algoritmos y Estructura de Datos', 3, 1) --id:3
 Insert Into Asignaturas Values (004, 'Sistemas Operativos I', 3, 1) --id:4
 Insert Into Asignaturas Values (005, 'Sistemas Operativos II', 4, 1) --id:5
@@ -172,8 +172,8 @@ Insert Into Asignaturas Values (005, 'Sistemas Operativos II', 4, 1) --id:5
 Insert Into Asignaturas Values (006, 'Gerencia TIC I', 4, 1) --id:6
 Insert Into Asignaturas Values (007, 'Gerencia TIC II', 4, 1) --id:7
 
-Insert Into Asignaturas Values (008, 'Dise�o Digital I', 2, 1) --id:8
-Insert Into Asignaturas Values (009, 'Dise�o Digital II', 3, 1) --id:9
+Insert Into Asignaturas Values (008, 'Diseño Digital I', 2, 1) --id:8
+Insert Into Asignaturas Values (009, 'Diseño Digital II', 3, 1) --id:9
 Insert Into Asignaturas Values (010, 'Pensamiento Creativo', 3, 1) --id:10
 
 --************************************************************************
@@ -211,7 +211,7 @@ Insert Into Semestres Values (03, 1, 1) --id:3
 Insert Into Semestres Values (01, 2, 1) --id:4
 Insert Into Semestres Values (02, 2, 1) --id:5
 
--- Dise�o CV
+-- Diseño CV
 Insert Into Semestres Values (01, 3, 1) --id:6
 Insert Into Semestres Values (02, 3, 1) --id:7
 
@@ -238,7 +238,7 @@ Insert Into AsignaturasDeSemestres Values (3, 5) --id:5
 Insert Into AsignaturasDeSemestres Values (4, 6) --id:6
 Insert Into AsignaturasDeSemestres Values (5, 7) --id:7
 
--- Dise�o CV
+-- Diseño CV
 Insert Into AsignaturasDeSemestres Values (6, 8) --id:8
 Insert Into AsignaturasDeSemestres Values (6, 10) --id:9
 Insert Into AsignaturasDeSemestres Values (7, 9) --id:10

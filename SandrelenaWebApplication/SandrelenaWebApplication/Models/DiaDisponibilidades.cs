@@ -14,6 +14,7 @@ namespace SandrelenaWebApplication.Models
     
     public partial class DiaDisponibilidades
     {
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public DiaDisponibilidades()
         {
             this.Horarios = new HashSet<Horarios>();
@@ -25,6 +26,7 @@ namespace SandrelenaWebApplication.Models
         public System.TimeSpan end_time { get; set; }
         public bool isActive { get; set; }
     
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Horarios> Horarios { get; set; }
     }
 }
