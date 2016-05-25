@@ -346,6 +346,7 @@
     <Content Include="Scripts\login.js" />
     <Content Include="Scripts\matricula.js" />
     <Content Include="Scripts\jquery.transit.min.js" />
+    <Content Include="Scripts\profesores.js" />
     <Content Include="Scripts\sandrelena-alerts.js" />
     <Content Include="Scripts\usuarios.js" />
     <Content Include="Views\admin\asignaturas.aspx" />
@@ -465,6 +466,8 @@
     <Content Include="Views\login.aspx" />
     <Content Include="Views\estudiante\matricula.aspx" />
     <Content Include="Views\estudiante\academico.aspx" />
+    <Content Include="Views\profesor\Default.aspx" />
+    <Content Include="Views\profesor\profesores.aspx" />
     <Content Include="Views\PruebasGV.aspx" />
     <Content Include="Web.config" />
     <Content Include="Bundle.config" />
@@ -473,6 +476,7 @@
     <Content Include="Scripts\jquery-1.10.2.min.map" />
     <Content Include="Site.Mobile.Master" />
     <Content Include="SiteAdmin.Master" />
+    <Content Include="siteTeacher.Master" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -651,6 +655,13 @@
     <Compile Include="SiteAdmin.Master.designer.cs">
       <DependentUpon>SiteAdmin.Master</DependentUpon>
     </Compile>
+    <Compile Include="siteTeacher.Master.cs">
+      <DependentUpon>siteTeacher.Master</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="siteTeacher.Master.designer.cs">
+      <DependentUpon>siteTeacher.Master</DependentUpon>
+    </Compile>
     <Compile Include="Views\admin\asignaturas.aspx.cs">
       <DependentUpon>asignaturas.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -760,6 +771,20 @@
     <Compile Include="Views\estudiante\academico.aspx.designer.cs">
       <DependentUpon>academico.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Views\profesor\Default.aspx.cs">
+      <DependentUpon>Default.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Views\profesor\Default.aspx.designer.cs">
+      <DependentUpon>Default.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Views\profesor\profesores.aspx.cs">
+      <DependentUpon>profesores.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Views\profesor\profesores.aspx.designer.cs">
+      <DependentUpon>profesores.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Views\PruebasGV.aspx.cs">
       <DependentUpon>PruebasGV.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -770,7 +795,6 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Views\profesor\" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Properties\Resources.resx">

@@ -34,6 +34,7 @@
                 <%--Framework Scripts--%>
                 <asp:ScriptReference Name="MsAjaxBundle" />
                 <asp:ScriptReference Name="jquery" />
+                <asp:ScriptReference Path="~/Scripts/sandrelena-alerts.js" />
                 <asp:ScriptReference Name="bootstrap" />
                 <asp:ScriptReference Name="respond" />
                 <asp:ScriptReference Name="WebForms.js" Assembly="System.Web" Path="~/Scripts/WebForms/WebForms.js" />
@@ -48,7 +49,6 @@
                 <asp:ScriptReference Path="~/Scripts/select2.min.js" />
                 <asp:ScriptReference Path="~/Scripts/jquery.transit.min.js" />
                 <asp:ScriptReference Path="~/Scripts/jquery-ui-1.11.4.min.js" />
-                <asp:ScriptReference Path="~/Scripts/sandrelena-alerts.js" />
                 <asp:ScriptReference Path="~/Scripts/login.js" />
                 <%--Site Scripts--%>
             </Scripts>

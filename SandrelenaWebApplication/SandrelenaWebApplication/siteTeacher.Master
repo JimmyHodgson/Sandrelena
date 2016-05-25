@@ -1,0 +1,197 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="siteTeacher.master.cs" Inherits="SandrelenaWebApplication.siteTeacher" %>
+
+<!DOCTYPE html>
+
+<html lang="en">
+<head runat="server">
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title><%: Page.Title %> - Sandrelena</title>
+
+    <asp:PlaceHolder runat="server">
+        <%: Scripts.Render("~/bundles/modernizr") %>
+    </asp:PlaceHolder>
+    <webopt:BundleReference runat="server" Path="~/Content/css" />
+    <link href="~/favicon.ico" rel="shortcut icon" type="image/x-icon" />
+
+</head>
+<body>
+    <form runat="server">
+        <asp:ScriptManager runat="server">
+            <Scripts>
+                <%--To learn more about bundling scripts in ScriptManager see http://go.microsoft.com/fwlink/?LinkID=301884 --%>
+                <%--Framework Scripts--%>
+                <asp:ScriptReference Name="MsAjaxBundle" />
+                <asp:ScriptReference Name="jquery" />
+                <asp:ScriptReference Name="bootstrap" />
+                <asp:ScriptReference Name="respond" />
+                <asp:ScriptReference Name="WebForms.js" Assembly="System.Web" Path="~/Scripts/WebForms/WebForms.js" />
+                <asp:ScriptReference Name="WebUIValidation.js" Assembly="System.Web" Path="~/Scripts/WebForms/WebUIValidation.js" />
+                <asp:ScriptReference Name="MenuStandards.js" Assembly="System.Web" Path="~/Scripts/WebForms/MenuStandards.js" />
+                <asp:ScriptReference Name="GridView.js" Assembly="System.Web" Path="~/Scripts/WebForms/GridView.js" />
+                <asp:ScriptReference Name="DetailsView.js" Assembly="System.Web" Path="~/Scripts/WebForms/DetailsView.js" />
+                <asp:ScriptReference Name="TreeView.js" Assembly="System.Web" Path="~/Scripts/WebForms/TreeView.js" />
+                <asp:ScriptReference Name="WebParts.js" Assembly="System.Web" Path="~/Scripts/WebForms/WebParts.js" />
+                <asp:ScriptReference Name="Focus.js" Assembly="System.Web" Path="~/Scripts/WebForms/Focus.js" />
+                <asp:ScriptReference Name="WebFormsBundle" />
+                <asp:ScriptReference Path="~/Scripts/select2.min.js" />
+                <asp:ScriptReference Path="~/Scripts/sandrelena-alerts.js" />
+                <%--Site Scripts--%>
+            </Scripts>
+        </asp:ScriptManager>
+
+        <div class="navbar navbar-default navbar-fixed-top">
+            <div class="container">
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                    <a class="navbar-brand" runat="server" href="~/">Sandrelena |</a>
+                </div>
+                <div class="navbar-collapse collapse">
+                    <ul class="nav navbar-nav">
+                        <li><a runat="server" href="~/Views/profesor/">Inicio</a></li>
+                        <li><a runat="server" href="~/Views/profesor/profesores.aspx">Académico</a></li>
+                    </ul>
+                    <asp:LoginView runat="server" ViewStateMode="Disabled">
+                        <AnonymousTemplate>
+                            <ul class="nav navbar-nav navbar-right">
+
+
+
+
+                                <li class="dropdown" id="profile_button">
+                                  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
+                                      <span class="fa-stack">
+                                        <i class="fa fa-circle-thin fa-stack-2x"></i>
+                                        <i class="fa fa-user fa-stack-1x"></i>
+                                      </span>
+                                      
+                                    <i class="fa fa-caret-down "></i>
+
+                                  </a>
+                                  <ul class="dropdown-menu">
+                                    <li><a href="#"><i class="fa fa-user fa-fw"></i> Perfil</a></li>
+                                    <li><a href="/Views/inbox.aspx"><i class="fa fa-envelope-o fa-fw"></i> Mensajes</a></li>
+                                    <li><a href="/Views/login.aspx"><i class="fa fa-sign-out fa-fw"></i> Cerrar Sesión</a></li>
+                                  </ul>
+                                </li>
+
+                            </ul>
+                        </AnonymousTemplate>
+                        <LoggedInTemplate>
+                            <ul class="nav navbar-nav navbar-right">
+                                <li><a runat="server" href="~/Account/Manage" title="Manage your account">Hello, <%: Context.User.Identity.GetUserName()  %> !</a></li>
+                                <li>
+                                    <asp:LoginStatus runat="server" LogoutAction="Redirect" LogoutText="Log off" LogoutPageUrl="~/" OnLoggingOut="Unnamed_LoggingOut" />
+                                </li>
+                            </ul>
+                        </LoggedInTemplate>
+                    </asp:LoginView>
+                </div>
+            </div>
+        </div>
+        
+            <asp:ContentPlaceHolder ID="MainContent" runat="server">
+            </asp:ContentPlaceHolder>
+
+       
+            
+
+
+        <!-- ERROR ALERT -->
+      	<div id="e-alert" class="modal fade bs-example-modal-sm alert-modal" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel">
+          <div class="modal-dialog modal-sm">
+            <div class="modal-content alert-body">
+            
+              <div class="modal-header e-alert-header">
+                <button type="button" class="close alert-close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true"><i class="fa fa-times"></i></span></button>
+                <h4 class="modal-title" ><i class="fa fa-exclamation-triangle fa-fw"></i> <span class="alert-title">Modal title</span></h4>
+              </div>
+              
+              <div class="modal-body ">
+              	<span class="alert-message">
+                	This is the message!
+                </span>
+              </div>
+              
+            </div>
+          </div>
+        </div>
+        
+        
+        <!-- SUCCESS ALERT -->
+        <div id="s-alert" class="modal fade bs-example-modal-sm alert-modal" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel" data-backdrop="static" data-keyboard="false">
+          <div class="modal-dialog modal-sm">
+            <div class="modal-content alert-body">
+            
+              <div class="modal-header s-alert-header">
+                <button type="button" class="close alert-close alert-success-close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true"><i class="fa fa-times"></i></span></button>
+                <h4 class="modal-title" ><i class="fa fa-check fa-fw"></i> <span class="alert-title">Modal title</span></h4>
+              </div>
+              
+              <div class="modal-body ">
+              	<span class="alert-message">
+                	This is the message!
+                </span>
+              </div>
+              
+            </div>
+          </div>
+        </div>
+        
+        <!-- WARNING ALERT -->
+        <div id="w-alert" class="modal fade bs-example-modal-sm alert-modal" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel">
+          <div class="modal-dialog modal-sm">
+            <div class="modal-content alert-body">
+            
+              <div class="modal-header w-alert-header">
+                <button type="button" class="close alert-close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true"><i class="fa fa-times"></i></span></button>
+                <h4 class="modal-title" ><i class="fa fa-exclamation-circle fa-fw"></i> <span class="alert-title">Modal title</span></h4>
+              </div>
+              
+              <div class="modal-body ">
+              	<span class="alert-message">
+                	This is the message!
+                </span>
+              </div>
+              
+            </div>
+          </div>
+        </div>
+        
+        <!-- CONFIRM WARNING ALERT -->
+        <div id="cw-alert" class="modal fade bs-example-modal-sm alert-modal" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel">
+          <div class="modal-dialog modal-sm">
+            <div class="modal-content alert-body">
+            
+              <div class="modal-header w-alert-header">
+                <h4 class="modal-title" ><i class="fa fa-exclamation-circle fa-fw"></i> <span class="alert-title">Modal title</span></h4>
+              </div>
+              
+              <div class="modal-body ">
+              	<span class="alert-message">
+                	This is the message!
+                </span>
+              </div>
+              
+
+                <div class="btn-group full-width">
+              	<button id="btn-deny" type="button" class="btn btn-default half-width no-border btn-confirm right-border" >Cancelar</button>
+                <button id="btn-confirm" type="button" class="btn btn-default half-width no-border btn-confirm margin-fix">Aceptar</button>
+                </div>
+
+             
+              
+            </div>
+          </div>
+        </div>
+        
+
+
+        
+    </form>
+</body>
+</html>
