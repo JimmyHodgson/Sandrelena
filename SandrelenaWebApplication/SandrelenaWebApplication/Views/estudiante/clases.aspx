@@ -180,5 +180,6 @@
 
         </div>
             </div>
+        </div>
     <script src="../../Scripts/clases.js" type="text/javascript"></script>
 </asp:Content>

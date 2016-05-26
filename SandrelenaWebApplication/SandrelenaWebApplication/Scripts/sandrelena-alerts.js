@@ -11,6 +11,7 @@ $(document).on('hidden.bs.modal', '.modal', function () {
 });
 
 function showAlert(element, title, message) {
+    console.log('Method is called.');
     $(element + ' .alert-title').html(title);
     $(element + ' .alert-message').html(message);
 

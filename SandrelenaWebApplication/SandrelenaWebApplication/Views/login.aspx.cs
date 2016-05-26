@@ -61,7 +61,7 @@ namespace SandrelenaWebApplication.Views
                             Response.Redirect("~/Views/admin/dashboard.aspx", true);
                             break;
                         case "2":
-                            Response.Redirect("~/Views/profesor/enproceso.aspx", true);
+                            Response.Redirect("~/Views/profesor/", true);
                             break;
                         case "3":
                             Response.Redirect("~/Default.aspx", true);
@@ -71,6 +71,7 @@ namespace SandrelenaWebApplication.Views
             catch (Exception ex)
             {
                 ExecuteJavaScript("showAlert('#e-alert', 'Error', '" + ex.Message.ToString() + "');");
+
                 warning.Text = ex.Message.ToString();
                 lblError.Text = "Error: " + ex.Message.ToString();
                 //mensaje de error

@@ -11,7 +11,7 @@
                 <ul class="nav nav-sidebar">
                     <li class="clickable" data-toggle="modal" data-target="#frm_agr" data-backdrop="static" data-keyboard="false"><a><i class="fa fa-user-plus fa-fw"></i> Agregar</a></li>
                     <li class="clickable" data-toggle="modal" data-target="#frm_mod" data-backdrop="static" data-keyboard="false"><a><i class="fa fa-pencil-square-o fa-fw"></i> Editar</a></li>
-                    <li class="clickable"><i class="fa fa-user-times fa-fw"></i> <asp:LinkButton ID="lbInhabiltiar" Text="Inhabilitar" runat="server" OnClick="Unnamed1_Click"  /></li>
+                    <li class="clickable"><asp:LinkButton ID="lbInhabiltiar" runat="server" OnClick="Unnamed1_Click"><i class="fa fa-user-times fa-fw"></i> Inhabilitar</asp:LinkButton></li>
                 </ul>
             </div>
 
