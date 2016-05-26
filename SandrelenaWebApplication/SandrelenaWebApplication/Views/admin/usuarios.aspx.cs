@@ -48,24 +48,32 @@ namespace SandrelenaWebApplication.Views.admin
                 user_table.DataSource = usuarios;
                 user_table.DataBind();
             }
-            catch (Exception)
+            catch (Exception ex)
             {
-                
+                ExecuteJavaScript("showAlert('#e-alert', 'Error', '" + ex.Message.ToString() + "');");
             }
             
         }
 
         private void CargarRoles()
         {
-            frm_agr_rol.DataSource = modelo.Roles.ToList();
-            frm_agr_rol.DataTextField = "nombre_rol";
-            frm_agr_rol.DataValueField = "id_rol";
-            frm_agr_rol.DataBind();
+            try
+            {
+                frm_agr_rol.DataSource = modelo.Roles.ToList();
+                frm_agr_rol.DataTextField = "nombre_rol";
+                frm_agr_rol.DataValueField = "id_rol";
+                frm_agr_rol.DataBind();
 
-            frm_mod_rol.DataSource = modelo.Roles.ToList();
-            frm_mod_rol.DataTextField = "nombre_rol";
-            frm_mod_rol.DataValueField = "id_rol";
-            frm_mod_rol.DataBind();
+                frm_mod_rol.DataSource = modelo.Roles.ToList();
+                frm_mod_rol.DataTextField = "nombre_rol";
+                frm_mod_rol.DataValueField = "id_rol";
+                frm_mod_rol.DataBind();
+            }
+            catch (Exception ex)
+            {
+                ExecuteJavaScript("showAlert('#e-alert', 'Error', '" + ex.Message.ToString() + "');");
+            }
+            
             
         }
 
@@ -85,9 +93,9 @@ namespace SandrelenaWebApplication.Views.admin
                 modelo.SaveChanges();
                 CargarUsuarios();
             }
-            catch (Exception)
+            catch (Exception ex)
             {
-
+                ExecuteJavaScript("showAlert('#e-alert', 'Error', '" + ex.Message.ToString() + "');");
             }
             
         }
@@ -99,33 +107,48 @@ namespace SandrelenaWebApplication.Views.admin
 
         protected void user_table_RowDataBound(object sender, GridViewRowEventArgs e)
         {
-            if (e.Row.RowType == DataControlRowType.DataRow)
+            try
             {
-                e.Row.Attributes.Add("OnMouseOver", "this.style.cursor = 'hand';");
-                e.Row.Attributes["onclick"] = Page.ClientScript.GetPostBackClientHyperlink(user_table, "Select$" + e.Row.RowIndex);
-                e.Row.ToolTip = "Haga click para seleccionar.";
+                if (e.Row.RowType == DataControlRowType.DataRow)
+                {
+                    e.Row.Attributes.Add("OnMouseOver", "this.style.cursor = 'hand';");
+                    e.Row.Attributes["onclick"] = Page.ClientScript.GetPostBackClientHyperlink(user_table, "Select$" + e.Row.RowIndex);
+                    e.Row.ToolTip = "Haga click para seleccionar.";
+                }
             }
+            catch (Exception ex)
+            {
+                ExecuteJavaScript("showAlert('#e-alert', 'Error', '" + ex.Message.ToString() + "');");
+            }
+            
         }
 
         protected void user_table_SelectedIndexChanged(object sender, EventArgs e)
         {
-            //Label1.Text = user_table.SelectedDataKey.Value.ToString();
-            selectedUserID = Convert.ToInt32(user_table.SelectedDataKey.Value.ToString());
-            foreach (GridViewRow row in user_table.Rows)
+            try
             {
-               
-                if (row.RowIndex == user_table.SelectedIndex)
+                selectedUserID = Convert.ToInt32(user_table.SelectedDataKey.Value.ToString());
+                foreach (GridViewRow row in user_table.Rows)
                 {
-                    row.BackColor = ColorTranslator.FromHtml("#A1DCF2");
-                    row.ToolTip = string.Empty;
+
+                    if (row.RowIndex == user_table.SelectedIndex)
+                    {
+                        row.BackColor = ColorTranslator.FromHtml("#A1DCF2");
+                        row.ToolTip = string.Empty;
+                    }
+                    else
+                    {
+                        row.BackColor = ColorTranslator.FromHtml("#FFFFFF");
+                        row.ToolTip = "Haga click para seleccionar..";
+                    }
                 }
-                else
-                {
-                    row.BackColor = ColorTranslator.FromHtml("#FFFFFF");
-                    row.ToolTip = "Haga click para seleccionar..";
-                }
+                LlenarEditar();
             }
-            LlenarEditar();
+            catch (Exception ex)
+            {
+                ExecuteJavaScript("showAlert('#e-alert', 'Error', '" + ex.Message.ToString() + "');");
+            }
+            
         }
 
         private void LlenarEditar()
@@ -142,7 +165,7 @@ namespace SandrelenaWebApplication.Views.admin
             }
             catch (Exception ex)
             {
-
+                ExecuteJavaScript("showAlert('#e-alert', 'Error', '" + ex.Message.ToString() + "');");
             }
 
         }
@@ -167,7 +190,7 @@ namespace SandrelenaWebApplication.Views.admin
             }
             catch (Exception ex)
             {
-
+                ExecuteJavaScript("showAlert('#e-alert', 'Error', '" + ex.Message.ToString() + "');");
             }
             
         }
@@ -187,9 +210,14 @@ namespace SandrelenaWebApplication.Views.admin
             }
             catch (Exception ex)
             {
-
+                ExecuteJavaScript("showAlert('#e-alert', 'Error', '" + ex.Message.ToString() + "');");
             }
             
+        }
+
+        public void ExecuteJavaScript(string funcion)
+        {
+            ScriptManager.RegisterStartupScript(this, this.GetType(), UniqueID, funcion, true);
         }
     }
 }
