@@ -11,6 +11,8 @@ namespace SandrelenaWebApplication.Views.admin
     public partial class asignaturas : System.Web.UI.Page
     {
         SandrelenaCS contexto = new SandrelenaCS();
+        SiteAdmin MyMasterPage = new SiteAdmin();
+
 
         protected void Page_Load(object sender, EventArgs e)
         {
@@ -36,9 +38,10 @@ namespace SandrelenaWebApplication.Views.admin
                 asignatura_table.DataSource = Asignaturas;
                 asignatura_table.DataBind();
             }
-            catch (Exception)
+            catch (Exception ex)
             {
-                
+                //MyMasterPage.ExecuteJavaScript("showAlert('#e-alert', 'Error', '" + ex.Message.ToString() + "');");
+                ExecuteJavaScript("showAlert('#e-alert', 'Error', '" + ex.Message.ToString() + "');");
             }
             
         }
@@ -56,10 +59,16 @@ namespace SandrelenaWebApplication.Views.admin
                 contexto.SaveChanges();
                 CargarAsignaturas();
             }
-            catch (Exception)
+            catch (Exception ex)
             {
-                
+                //MyMasterPage.ExecuteJavaScript("showAlert('#e-alert', 'Error', '" + ex.Message.ToString() + "');");
+                ExecuteJavaScript("showAlert('#e-alert', 'Error', '" + ex.Message.ToString() + "');");
             }
+        }
+
+        public void ExecuteJavaScript(string funcion)
+        {
+            ScriptManager.RegisterStartupScript(this, this.GetType(), UniqueID, funcion, true);
         }
 
     }
