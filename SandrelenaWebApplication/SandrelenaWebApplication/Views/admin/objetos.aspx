@@ -13,6 +13,7 @@
                     <li class="clickable"><a href="#carreras" aria-controls="carreras" role="tab" data-toggle="tab"><i class="fa fa-graduation-cap fa-fw"></i> Carreras</a>
                     </li>
                     <li class="clickable"><a href="#aulas" aria-controls="aulas" role="tab" data-toggle="tab"><i class="fa fa-book fa-fw"></i> Aulas</a></li>
+                    <li class="clickable"><a href="#semestres" aria-controls="semestres" role="tab" data-toggle="tab"><i class="fa fa-star fa-fw"></i> Semestres</a></li>
                 </ul>
             </div>
 
@@ -50,7 +51,12 @@
 
                         </div>
                         <div class="row">
-                            <asp:GridView ID="user_table" runat="server" CssClass="table list-table"  BorderWidth="0"></asp:GridView>
+                             <asp:GridView ID="faculty_table" runat="server" CssClass="table list-table" BorderWidth="0" AutoGenerateColumns="false">
+                                <Columns>
+                                    <asp:BoundField DataField="nombre_facultad" HeaderText="Nombre de la Facultad"  />
+                                    <asp:CheckBoxField DataField="isActive" HeaderText="Estado" />
+                                </Columns>
+                            </asp:GridView>
                         </div>
 
 
@@ -62,7 +68,7 @@
                                 <h1 class="sandrelena-sub-heading"><small>Listado de carreras</small></h1>
                             </div>
                              <div class="col-md-3">
-                                <asp:DropDownList ID="ddlFacultades" runat="server" CssClass="customSelect">
+                                <asp:DropDownList ID="ddlFacultades" runat="server" CssClass="customSelect" OnSelectedIndexChanged="ddlFacultades_SelectedIndexChanged" AutoPostBack="true">
                                 </asp:DropDownList>
                             </div>
                         </div>
@@ -87,9 +93,24 @@
                             </div>
 
                         </div>
-                        <div class="row">
-                            <asp:GridView ID="carreras_table" runat="server" CssClass="table list-table"  BorderWidth="0"></asp:GridView>
-                        </div>
+                        
+                            <asp:UpdatePanel ID="UpdatePanelCarreras" runat="server">
+                            <ContentTemplate>
+                                <div class="row">
+                                    <asp:GridView ID="carreras_table" runat="server" CssClass="table list-table"  BorderWidth="0" AutoGenerateColumns="false">
+                                        <Columns>
+                                            <asp:BoundField DataField="nombre_carrera" HeaderText="Nombre de la Carrera" />
+                                            <asp:CheckBoxField DataField="isActive" HeaderText="Estado" />
+                                        </Columns>
+                                    </asp:GridView>
+                                </div>
+                            </ContentTemplate>
+                            <Triggers>
+                                <asp:AsyncPostBackTrigger ControlID="ddlFacultades" EventName="SelectedIndexChanged" />
+                            </Triggers>   
+                        </asp:UpdatePanel>
+
+                        
 
                     </div>
 
@@ -126,6 +147,58 @@
                         </div>
 
                     </div>
+
+
+                     <div role="tabpanel" class="tab-pane" id="semestres">
+                        <div class="row">
+                            <div class="col-md-6">
+                                <h1 class="sandrelena-heading">Administración</h1>
+                                
+                            </div>
+                            <div class="col-md-3">
+                                <asp:DropDownList ID="listFacultades_semestres" runat="server" CssClass="customSelect" >
+                                </asp:DropDownList>
+                            </div>
+                        </div>
+                         <div class="row">
+                             <h1><small>Semestres</small></h1>
+                         </div>
+
+                         <div class="row">
+                             <div class="col-md-6">
+                                 <div class="btn-group" role="group">
+                                     <button id="semes_agr" class="btn btn-defaul" data-toggle="modal" data-target="#frm_agr_aul" data-backdrop="static" data-keyboard="false"><i class="fa fa-plus fa-fw"></i>Agregar</button>
+                                     <button id="semes_mod" class="btn btn-defaul" data-toggle="modal" data-target="#frm_mod_aul" data-backdrop="static" data-keyboard="false"><i class="fa fa-pencil-square-o fa-fw"></i>Modificar</button>
+                                     <asp:LinkButton ID="semes_del" runat="server" CssClass="btn btn-defaul"><i class="fa fa-times fa-fw"></i> Eliminar</asp:LinkButton>
+                                 </div>
+                             </div>
+                         </div>
+                         <div class="row">
+                             <asp:GridView ID="semestres_table" runat="server" CssClass="table list-table"  BorderWidth="0"></asp:GridView>
+                         </div>
+                         <div class="row">
+                             <h1><small>Clases</small></h1>
+                         </div>
+                         <div class="row">
+                             <div class="col-md-6">
+                                 <div class="btn-group" role="group">
+                                     <button id="agr_cls_sem" class="btn btn-defaul" data-toggle="modal" data-target="#frm_agr_aul" data-backdrop="static" data-keyboard="false"><i class="fa fa-plus fa-fw"></i>Agregar</button>
+                                     <button id="mod_cls_sem" class="btn btn-defaul" data-toggle="modal" data-target="#frm_mod_aul" data-backdrop="static" data-keyboard="false"><i class="fa fa-pencil-square-o fa-fw"></i>Modificar</button>
+                                     <asp:LinkButton ID="del_cls_sem" runat="server" CssClass="btn btn-defaul"><i class="fa fa-times fa-fw"></i> Eliminar</asp:LinkButton>
+                                 </div>
+                             </div>
+                         </div>
+
+                         <div class="row">
+                             <asp:GridView ID="clases_semestres_table" runat="server" CssClass="table list-table"  BorderWidth="0"></asp:GridView>
+                         </div>
+
+                         <div class="row text-center">
+                             <h1>Sitio en Construcción</h1>
+                         </div>
+
+
+                     </div>
 
                     
                 </div>

@@ -31,13 +31,13 @@ namespace SandrelenaWebApplication.Views.admin {
         protected global::System.Web.UI.WebControls.LinkButton facultades_del;
         
         /// <summary>
-        /// user_table control.
+        /// faculty_table control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.GridView user_table;
+        protected global::System.Web.UI.WebControls.GridView faculty_table;
         
         /// <summary>
         /// ddlFacultades control.
@@ -65,6 +65,15 @@ namespace SandrelenaWebApplication.Views.admin {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.LinkButton carreras_del;
+        
+        /// <summary>
+        /// UpdatePanelCarreras control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.UpdatePanel UpdatePanelCarreras;
         
         /// <summary>
         /// carreras_table control.
@@ -101,6 +110,51 @@ namespace SandrelenaWebApplication.Views.admin {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.GridView aulas_grid;
+        
+        /// <summary>
+        /// listFacultades_semestres control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.DropDownList listFacultades_semestres;
+        
+        /// <summary>
+        /// semes_del control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.LinkButton semes_del;
+        
+        /// <summary>
+        /// semestres_table control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.GridView semestres_table;
+        
+        /// <summary>
+        /// del_cls_sem control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.LinkButton del_cls_sem;
+        
+        /// <summary>
+        /// clases_semestres_table control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.GridView clases_semestres_table;
         
         /// <summary>
         /// nom_agr_fac control.

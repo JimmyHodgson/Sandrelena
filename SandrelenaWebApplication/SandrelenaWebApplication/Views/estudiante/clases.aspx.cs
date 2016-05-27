@@ -80,7 +80,6 @@ namespace SandrelenaWebApplication.Views
             creditsLabel.Text = creditos.ToString();
             lblProfesor.Text = profesor.primer_nombre.ToString() + " " + profesor.primer_apellido.ToString();
             lblUsuario.Text = profesor.username.ToString();
-            lblFacultad.Text = "Jimmy, no ibas a quitar esto? ";
 
             matriculas = modelo.Matriculas.Where(o => o.id_horario == horario_clase.id_horario);
             List<Usuarios> Estudiantes = new List<Usuarios>();
