@@ -275,6 +275,7 @@
     <Content Include="Account\TwoFactorAuthenticationSignIn.aspx" />
     <Content Include="Account\VerifyPhoneNumber.aspx" />
     <Content Include="Scripts\facultades.js" />
+    <Content Include="Scripts\horarios.js" />
     <Content Include="Scripts\jquery-ui-1.11.4.js" />
     <Content Include="Scripts\jquery-ui-1.11.4.min.js" />
     <Content Include="Scripts\locales\bootstrap-datepicker.ar.min.js" />
@@ -351,7 +352,8 @@
     <Content Include="Scripts\usuarios.js" />
     <Content Include="Views\admin\asignaturas.aspx" />
     <Content Include="Views\admin\dashboard.aspx" />
-    <Content Include="Views\admin\facultades.aspx" />
+    <Content Include="Views\admin\horarios.aspx" />
+    <Content Include="Views\admin\objetos.aspx" />
     <Content Include="Views\admin\usuarios.aspx" />
     <Content Include="Views\estudiante\clases.aspx" />
     <Content Include="Content\alerts.css" />
@@ -677,12 +679,19 @@
     <Compile Include="Views\admin\dashboard.aspx.designer.cs">
       <DependentUpon>dashboard.aspx</DependentUpon>
     </Compile>
-    <Compile Include="Views\admin\facultades.aspx.cs">
-      <DependentUpon>facultades.aspx</DependentUpon>
+    <Compile Include="Views\admin\horarios.aspx.cs">
+      <DependentUpon>horarios.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="Views\admin\facultades.aspx.designer.cs">
-      <DependentUpon>facultades.aspx</DependentUpon>
+    <Compile Include="Views\admin\horarios.aspx.designer.cs">
+      <DependentUpon>horarios.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Views\admin\objetos.aspx.cs">
+      <DependentUpon>objetos.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Views\admin\objetos.aspx.designer.cs">
+      <DependentUpon>objetos.aspx</DependentUpon>
     </Compile>
     <Compile Include="Views\admin\usuarios.aspx.cs">
       <DependentUpon>usuarios.aspx</DependentUpon>

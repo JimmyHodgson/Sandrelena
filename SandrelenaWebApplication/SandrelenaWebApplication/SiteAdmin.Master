@@ -60,7 +60,8 @@
                             <ul class="dropdown-menu">
                                 <li><a href="usuarios.aspx">Usuarios</a></li>
                                 <li><a href="asignaturas.aspx">Asignaturas</a></li>
-                                <li><a href="facultades.aspx">Facultades</a></li>
+                                <li><a href="objetos.aspx">Académico</a></li>
+                                <li><a href="horarios.aspx">Horarios</a></li>
                             </ul>
                         </li>
                         

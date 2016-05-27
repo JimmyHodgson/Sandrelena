@@ -106,8 +106,38 @@
                     </div>
                 </div>
                 <div class="modal-footer">
-                    <asp:Button ID="btnCancelar" runat="server" Text="Cancelar" CssClass="btn btn-default" data-dismiss="modal" />
+                    <button id="btnCancelar" Class="btn btn-default" data-dismiss="modal" >Cancelar</button>
                     <asp:Button ID="btnAceptar" runat="server" Text="Aceptar" CssClass="btn btn-primary" OnClick="btnAceptar_Click" />
+                </div>
+            </div>
+        </div>
+    </div>
+
+     <!-- Modales -->
+    <div class="modal fade" tabindex="-1" role="dialog" id="frm_mod">
+        <div class="modal-dialog  modal-sm ">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true"><i class="fa fa-times"></i></span></button>
+                    <h4 class="modal-title"><i class="fa fa-book fa-fw"></i> Editar Asignatura</h4>
+                </div>
+                <div class="modal-body">
+                    <div class="form-group">
+                        <label for="frm_agr_cod">Código</label>
+                        <asp:TextBox ID="TextBox1" runat="server" CssClass="form-control"></asp:TextBox>
+                    </div>
+                    <div class="form-group">
+                        <label for="frm_agr_nom">Nombre</label>
+                        <asp:TextBox ID="TextBox2" runat="server" CssClass="form-control"></asp:TextBox>
+                    </div>
+                    <div class="form-group">
+                        <label for="frm_agr_cre">Créditos</label>
+                        <asp:TextBox ID="TextBox3" runat="server" CssClass="form-control"></asp:TextBox>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button Class="btn btn-default" data-dismiss="modal" >Cancelar</button>
+                    <asp:Button ID="Button1" runat="server" Text="Aceptar" CssClass="btn btn-primary" OnClick="btnAceptar_Click" />
                 </div>
             </div>
         </div>
