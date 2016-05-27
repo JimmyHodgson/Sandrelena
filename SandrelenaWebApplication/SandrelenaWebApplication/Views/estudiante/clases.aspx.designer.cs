@@ -22,42 +22,6 @@ namespace SandrelenaWebApplication.Views {
         protected global::System.Web.UI.WebControls.DropDownList ddlClases;
         
         /// <summary>
-        /// TableGrupo control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Table TableGrupo;
-        
-        /// <summary>
-        /// grupoLabel control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label grupoLabel;
-        
-        /// <summary>
-        /// TableCredits control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Table TableCredits;
-        
-        /// <summary>
-        /// creditsLabel control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label creditsLabel;
-        
-        /// <summary>
         /// tblProfesor control.
         /// </summary>
         /// <remarks>
@@ -85,13 +49,22 @@ namespace SandrelenaWebApplication.Views {
         protected global::System.Web.UI.WebControls.Label lblUsuario;
         
         /// <summary>
-        /// lblFacultad control.
+        /// grupoLabel control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblFacultad;
+        protected global::System.Web.UI.WebControls.Label grupoLabel;
+        
+        /// <summary>
+        /// creditsLabel control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label creditsLabel;
         
         /// <summary>
         /// horarioGrid control.

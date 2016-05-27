@@ -47,39 +47,12 @@
                              </div>
                          </div>
 
-                        <div class="row padding-top-md">
-                            <!-- En esta fila sale el numero de grupo y el numero de creditos -->
-                            <div class="col-md-3">
-                                <asp:Table ID="TableGrupo" runat="server" CssClass="table table-bordered info-table">
-                                    <asp:TableHeaderRow>
-                                        <asp:TableHeaderCell Width="50%">
-                                            Grupo
-                                        </asp:TableHeaderCell>
-                                        <asp:TableCell Width="50%">
-                                            <asp:Label ID="grupoLabel" runat="server"></asp:Label>
-                                        </asp:TableCell>
-                                    </asp:TableHeaderRow>
-                                </asp:Table>
-                            </div>
-                            <div class="col-md-3 col-md-offset-2">
-                                <asp:Table ID="TableCredits" runat="server" CssClass="table table-bordered info-table">
-                                    <asp:TableHeaderRow>
-                                        <asp:TableHeaderCell Width="50%">
-                                            Creditos
-                                        </asp:TableHeaderCell>
-                                        <asp:TableCell Width="50%">
-                                            <asp:Label ID="creditsLabel" runat="server"></asp:Label>
-                                        </asp:TableCell>
-                                    </asp:TableHeaderRow>
-                                </asp:Table>
-                            </div>
-                        </div>
+                        
 
-                        <div class="row">
+                        <div class="row padding-top-md">
                             <div class="col-md-8">
 
                                 <!-- Aquí la primera tabla con la info del profesor-->
-                                <h1>Profesor</h1>
 
                                 <asp:Table ID="tblProfesor" runat="server" CssClass="table table-bordered info-table">
                                     <asp:TableHeaderRow>
@@ -90,7 +63,11 @@
                                             Usuario
                                         </asp:TableHeaderCell>
                                         <asp:TableHeaderCell>
-                                            Facultad
+                                            Grupo
+                                        </asp:TableHeaderCell>
+
+                                        <asp:TableHeaderCell>
+                                            Créditos
                                         </asp:TableHeaderCell>
                                     </asp:TableHeaderRow>
                                     <asp:TableRow>
@@ -100,8 +77,11 @@
                                         <asp:TableCell>
                                             <asp:Label ID="lblUsuario" runat="server"></asp:Label>
                                         </asp:TableCell>
-                                        <asp:TableCell>
-                                            <asp:Label ID="lblFacultad" runat="server"></asp:Label>
+                                        <asp:TableCell >
+                                            <asp:Label ID="grupoLabel" runat="server"></asp:Label>
+                                        </asp:TableCell>
+                                        <asp:TableCell >
+                                            <asp:Label ID="creditsLabel" runat="server"></asp:Label>
                                         </asp:TableCell>
                                     </asp:TableRow>
                                 </asp:Table>
