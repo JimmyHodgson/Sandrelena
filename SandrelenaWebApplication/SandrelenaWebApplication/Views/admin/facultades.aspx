@@ -54,22 +54,30 @@
 
                         </div>
                         <div class="row">
-                            <asp:GridView ID="user_table" runat="server" CssClass="table list-table"  BorderWidth="0"></asp:GridView>
+                            <asp:GridView ID="faculty_table" runat="server" CssClass="table list-table" BorderWidth="0" AutoGenerateColumns="false">
+                                <Columns>
+                                    <asp:BoundField DataField="nombre_facultad" HeaderText="Nombre de la Facultad"  />
+                                    <asp:CheckBoxField DataField="isActive" HeaderText="Estado" />
+                                </Columns>
+                            </asp:GridView>
                         </div>
 
 
                     </div>
                     <div role="tabpanel" class="tab-pane" id="carreras">
-                        <div class="row">
-                            <div class="col-md-6">
-                                <h1 class="sandrelena-heading">Administración</h1>
-                                <h1 class="sandrelena-sub-heading"><small>Listado de Facultades</small></h1>
-                            </div>
-                             <div class="col-md-3">
-                                <asp:DropDownList ID="ddlFacultades" runat="server" CssClass="customSelect">
-                                </asp:DropDownList>
-                            </div>
-                        </div>
+
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <h1 class="sandrelena-heading">Administración</h1>
+                                        <h1 class="sandrelena-sub-heading"><small>Listado de Facultades</small></h1>
+                                    </div>
+                                     <div class="col-md-3">
+                                        <asp:DropDownList ID="ddlFacultades" runat="server" CssClass="customSelect" OnSelectedIndexChanged="ddlFacultades_SelectedIndexChanged" AutoPostBack="true">
+                                        </asp:DropDownList>
+                                    </div>
+                                </div>
+
+                        
 
 
                         <div class="row">
@@ -84,9 +92,22 @@
                             </div>
 
                         </div>
-                        <div class="row">
-                            <asp:GridView ID="carreras_table" runat="server" CssClass="table list-table"  BorderWidth="0"></asp:GridView>
-                        </div>
+
+                        <asp:UpdatePanel ID="UpdatePanelCarreras" runat="server">
+                            <ContentTemplate>
+                                <div class="row">
+                                    <asp:GridView ID="carreras_table" runat="server" CssClass="table list-table"  BorderWidth="0" AutoGenerateColumns="false">
+                                        <Columns>
+                                            <asp:BoundField DataField="nombre_carrera" HeaderText="Nombre de la Carrera" />
+                                            <asp:CheckBoxField DataField="isActive" HeaderText="Estado" />
+                                        </Columns>
+                                    </asp:GridView>
+                                </div>
+                            </ContentTemplate>
+                            <Triggers>
+                                <asp:AsyncPostBackTrigger ControlID="ddlFacultades" EventName="SelectedIndexChanged" />
+                            </Triggers>   
+                        </asp:UpdatePanel>
 
                     </div>
                 </div>

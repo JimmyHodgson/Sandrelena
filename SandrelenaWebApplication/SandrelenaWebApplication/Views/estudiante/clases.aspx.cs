@@ -72,7 +72,7 @@ namespace SandrelenaWebApplication.Views
             var horario_clase = horarios.Where(o => o.id_asignatura == id_asignatura).FirstOrDefault();
 
             var grupo = horario_clase.no_grupo;
-            var creditos = modelo.Asignaturas.Find(id_asignatura).Semestres.First();
+            var creditos = modelo.Asignaturas.Find(id_asignatura).creditos;
 
             var profesor = modelo.Usuarios.Find(horario_clase.id_profesor);
 
@@ -80,7 +80,7 @@ namespace SandrelenaWebApplication.Views
             creditsLabel.Text = creditos.ToString();
             lblProfesor.Text = profesor.primer_nombre.ToString() + " " + profesor.primer_apellido.ToString();
             lblUsuario.Text = profesor.username.ToString();
-            lblFacultad.Text = "En desarrollo. ";
+            lblFacultad.Text = "Jimmy, no ibas a quitar esto? ";
 
             matriculas = modelo.Matriculas.Where(o => o.id_horario == horario_clase.id_horario);
             List<Usuarios> Estudiantes = new List<Usuarios>();

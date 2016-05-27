@@ -13,6 +13,15 @@ namespace SandrelenaWebApplication.Views.admin {
     public partial class asignaturas {
         
         /// <summary>
+        /// UpdatePanelBuscar control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.UpdatePanel UpdatePanelBuscar;
+        
+        /// <summary>
         /// search_box control.
         /// </summary>
         /// <remarks>
@@ -20,6 +29,15 @@ namespace SandrelenaWebApplication.Views.admin {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox search_box;
+        
+        /// <summary>
+        /// UpdatePanelAsignaturas control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.UpdatePanel UpdatePanelAsignaturas;
         
         /// <summary>
         /// asignatura_table control.

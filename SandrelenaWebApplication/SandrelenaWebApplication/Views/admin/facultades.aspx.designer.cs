@@ -22,13 +22,13 @@ namespace SandrelenaWebApplication.Views.admin {
         protected global::System.Web.UI.WebControls.TextBox search_box;
         
         /// <summary>
-        /// user_table control.
+        /// faculty_table control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.GridView user_table;
+        protected global::System.Web.UI.WebControls.GridView faculty_table;
         
         /// <summary>
         /// ddlFacultades control.
@@ -47,6 +47,15 @@ namespace SandrelenaWebApplication.Views.admin {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox search_carreras;
+        
+        /// <summary>
+        /// UpdatePanelCarreras control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.UpdatePanel UpdatePanelCarreras;
         
         /// <summary>
         /// carreras_table control.
