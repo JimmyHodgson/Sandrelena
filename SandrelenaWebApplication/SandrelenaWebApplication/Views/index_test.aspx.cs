@@ -106,6 +106,15 @@ namespace SandrelenaWebApplication.Views
             {
                 var horarios_asignatura = db.Horarios.Where(o => o.id_asignatura == cl.id_asignatura);
             }
+
+            /********************************************************************/
+            /********************************************************************/
+            /********************************************************************/
+
+            // Mayo 27 2016, 00:26am
+            /*Último grupo de la clase*/
+            int id_asignatura = 1;
+            int last_no_grupo = db.Horarios.Where(o => o.id_asignatura == id_asignatura).Max(o => o.no_grupo);
         }
     }
 }

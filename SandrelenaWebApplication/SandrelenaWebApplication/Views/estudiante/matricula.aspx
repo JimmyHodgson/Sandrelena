@@ -28,11 +28,7 @@
                             <div class="col-md-12">
                                 <asp:GridView ID="GridView1" runat="server" CssClass="table info-table" AutoGenerateColumns="false">
                                     <Columns>
-                                        <asp:BoundField DataField="ProductName" HeaderText="ProductName" />
-                                        <asp:BoundField DataField="CategoryName" HeaderText="CategoryName" />
-                                        <asp:BoundField DataField="SupplierName" HeaderText="SupplierName" />
-                                        <asp:BoundField DataField="UnitPrice" HeaderText="UnitPrice" />
-                                        <asp:BoundField DataField="Discontinued" HeaderText="Discontinued" />
+                                        
                                     </Columns>
                                 </asp:GridView>
                             </div>

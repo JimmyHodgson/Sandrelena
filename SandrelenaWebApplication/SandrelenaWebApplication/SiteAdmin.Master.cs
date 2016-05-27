@@ -92,10 +92,5 @@ namespace SandrelenaWebApplication
             Context.GetOwinContext().Authentication.SignOut(DefaultAuthenticationTypes.ApplicationCookie);
         }
 
-        public void ExecuteJavaScript(string funcion)
-        {
-            ScriptManager.RegisterStartupScript(this, this.GetType(), UniqueID, funcion, true);
-        }
-
     }
 }

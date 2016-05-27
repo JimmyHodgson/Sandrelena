@@ -6,6 +6,7 @@ using System.Web.UI;
 using System.Web.UI.WebControls;
 using SandrelenaWebApplication.Models;
 using System.Drawing;
+using SandrelenaWebApplication.Scripts;
 
 namespace SandrelenaWebApplication.Views.admin
 {
@@ -14,6 +15,7 @@ namespace SandrelenaWebApplication.Views.admin
 
         SandrelenaCS modelo = new SandrelenaCS();
         int selectedUserID;
+
 
         protected void Page_Load(object sender, EventArgs e)
         {
@@ -33,15 +35,17 @@ namespace SandrelenaWebApplication.Views.admin
                                 join r in modelo.Roles on u.id_rol equals r.id_rol
                                 where (u.primer_nombre.Contains(search_box.Text)
                                     || u.primer_apellido.Contains(search_box.Text))
-                                    select new
-                                    {
-                                        IDUsuario = u.id_usuario,
-                                        Nombre = (u.primer_nombre + " " + u.primer_apellido),
-                                        Usuario = u.username,
-                                        Nacimiento = u.fecha_de_nacimiento,
-                                        Rol = r.nombre_rol,
-                                        Estado = u.isActive
-                                    }).ToList().OrderBy(u => u.Nombre);
+                                select new
+                                {
+                                    IDUsuario = u.id_usuario,
+                                    Nombre = (u.primer_nombre + " " + u.primer_apellido),
+                                    Usuario = u.username,
+                                    Nacimiento = u.fecha_de_nacimiento,
+                                    Rol = r.nombre_rol,
+                                    Estado = u.isActive
+                                }).ToList().OrderBy(u => u.Nombre);
+
+                //var Usuarios = modelo.Usuarios.ToList().Where(x => x.primer_nombre.Contains(search_box.Text) || x.primer_apellido.Contains(search_box.Text)).OrderBy(x => x.primer_nombre);
 
                 //var users = modelo.Usuarios
 
@@ -50,7 +54,8 @@ namespace SandrelenaWebApplication.Views.admin
             }
             catch (Exception ex)
             {
-                ExecuteJavaScript("showAlert('#e-alert', 'Error', '" + ex.Message.ToString() + "');");
+                Alertas.NuevaAlerta(this, Alertas.Tipos.Error, "Error en CargarUsuarios()");
+                //ExecuteJavaScript("showAlert('#e-alert', 'Error', '" + ex.Message.ToString() + "');");
             }
             
         }
@@ -71,7 +76,8 @@ namespace SandrelenaWebApplication.Views.admin
             }
             catch (Exception ex)
             {
-                ExecuteJavaScript("showAlert('#e-alert', 'Error', '" + ex.Message.ToString() + "');");
+                Alertas.NuevaAlerta(this, Alertas.Tipos.Error, "Error en CargarRoles()");
+                //ExecuteJavaScript("showAlert('#e-alert', 'Error', '" + ex.Message.ToString() + "');");
             }
             
             
@@ -95,7 +101,8 @@ namespace SandrelenaWebApplication.Views.admin
             }
             catch (Exception ex)
             {
-                ExecuteJavaScript("showAlert('#e-alert', 'Error', '" + ex.Message.ToString() + "');");
+                Alertas.NuevaAlerta(this, Alertas.Tipos.Error, "Error en frm_agr_agregar_Click()");
+                //ExecuteJavaScript("showAlert('#e-alert', 'Error', '" + ex.Message.ToString() + "');");
             }
             
         }
@@ -118,7 +125,8 @@ namespace SandrelenaWebApplication.Views.admin
             }
             catch (Exception ex)
             {
-                ExecuteJavaScript("showAlert('#e-alert', 'Error', '" + ex.Message.ToString() + "');");
+                Alertas.NuevaAlerta(this, Alertas.Tipos.Error, "Error en user_table_RowDataBound()");
+                //ExecuteJavaScript("showAlert('#e-alert', 'Error', '" + ex.Message.ToString() + "');");
             }
             
         }
@@ -146,7 +154,8 @@ namespace SandrelenaWebApplication.Views.admin
             }
             catch (Exception ex)
             {
-                ExecuteJavaScript("showAlert('#e-alert', 'Error', '" + ex.Message.ToString() + "');");
+                Alertas.NuevaAlerta(this, Alertas.Tipos.Error, "Error en user_table_SelectedIndexChanged()");
+                //ExecuteJavaScript("showAlert('#e-alert', 'Error', '" + ex.Message.ToString() + "');");
             }
             
         }
@@ -165,7 +174,8 @@ namespace SandrelenaWebApplication.Views.admin
             }
             catch (Exception ex)
             {
-                ExecuteJavaScript("showAlert('#e-alert', 'Error', '" + ex.Message.ToString() + "');");
+                Alertas.NuevaAlerta(this, Alertas.Tipos.Error, "Error en LlenarEditar()");
+                //ExecuteJavaScript("showAlert('#e-alert', 'Error', '" + ex.Message.ToString() + "');");
             }
 
         }
@@ -190,7 +200,8 @@ namespace SandrelenaWebApplication.Views.admin
             }
             catch (Exception ex)
             {
-                ExecuteJavaScript("showAlert('#e-alert', 'Error', '" + ex.Message.ToString() + "');");
+                Alertas.NuevaAlerta(this, Alertas.Tipos.Error, "Error en frm_mod_aceptar_Click()");
+                //ExecuteJavaScript("showAlert('#e-alert', 'Error', '" + ex.Message.ToString() + "');");
             }
             
         }
@@ -210,14 +221,11 @@ namespace SandrelenaWebApplication.Views.admin
             }
             catch (Exception ex)
             {
-                ExecuteJavaScript("showAlert('#e-alert', 'Error', '" + ex.Message.ToString() + "');");
+                Alertas.NuevaAlerta(this, Alertas.Tipos.Error, "Error en Unnamed1_Click()");
+                //ExecuteJavaScript("showAlert('#e-alert', 'Error', '" + ex.Message.ToString() + "');");
             }
             
         }
 
-        public void ExecuteJavaScript(string funcion)
-        {
-            ScriptManager.RegisterStartupScript(this, this.GetType(), UniqueID, funcion, true);
-        }
     }
 }

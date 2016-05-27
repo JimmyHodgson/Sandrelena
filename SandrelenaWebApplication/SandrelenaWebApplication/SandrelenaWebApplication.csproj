@@ -650,6 +650,7 @@
     <Compile Include="Models\Usuarios.cs">
       <DependentUpon>Model.tt</DependentUpon>
     </Compile>
+    <Compile Include="Scripts\Alertas.cs" />
     <Compile Include="SiteAdmin.Master.cs">
       <DependentUpon>SiteAdmin.Master</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>

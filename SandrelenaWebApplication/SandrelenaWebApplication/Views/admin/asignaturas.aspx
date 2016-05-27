@@ -1,4 +1,4 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/SiteAdmin.Master" AutoEventWireup="true" CodeBehind="asignaturas.aspx.cs" Inherits="SandrelenaWebApplication.Views.admin.asignaturas" %>
+﻿<%@ Page Title="Asignaturas" Language="C#" MasterPageFile="~/SiteAdmin.Master" EnableEventValidation="false" AutoEventWireup="true" CodeBehind="asignaturas.aspx.cs" Inherits="SandrelenaWebApplication.Views.admin.asignaturas" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="MainContent" runat="server">
     <div class="container-fluid">
         <div class="row">
@@ -22,28 +22,47 @@
                     </div>
                 </div>
 
-                <div class="row">
-                    <div class="col-md-3">
-                        <div class="form-group">
-                            <div class="input-group">
-                                <asp:TextBox ID="search_box" runat="server" CssClass="form-control"></asp:TextBox>
-                                <div class="input-group-addon"><i class="fa fa-search"></i></div>
-
+                <asp:UpdatePanel ID="UpdatePanelBuscar" runat="server">
+                    <ContentTemplate>
+                        <div class="row">
+                            <div class="col-md-3">
+                                <div class="form-group">
+                                    <div class="input-group">
+                                        <asp:TextBox ID="search_box" runat="server" CssClass="form-control" OnTextChanged="search_box_TextChanged"></asp:TextBox>
+                                        <div class="input-group-addon"><i class="fa fa-search"></i></div>
+                                    </div>
+                                </div>
                             </div>
                         </div>
-                    </div>
+                    </ContentTemplate>
+                    <Triggers>
 
-                </div>
-                <div class="row footer-padding">
-                    <asp:GridView ID="asignatura_table" runat="server" CssClass="table list-table" AutoGenerateColumns="false"  BorderWidth="0">
-                        <Columns>
-                            <asp:BoundField DataField="Nombre" HeaderText="Nombre" />
-                            <asp:BoundField DataField="Codigo" HeaderText="Código" />
-                            <asp:BoundField DataField="Creditos" HeaderText="Creditos" />
-                            <asp:CheckBoxField DataField="Estado" HeaderText="Estado" />
-                        </Columns>
-                    </asp:GridView>
-                </div>
+                    </Triggers>
+                </asp:UpdatePanel>
+                
+
+                <asp:UpdatePanel ID="UpdatePanelAsignaturas" runat="server">
+                    <ContentTemplate>
+                        <div class="row footer-padding">
+                            <asp:GridView ID="asignatura_table" runat="server" CssClass="table list-table"
+                                AutoGenerateColumns="false"  BorderWidth="0" OnRowDataBound="asignatura_table_RowDataBound"
+                                DataKeyNames="id_asignatura" OnSelectedIndexChanged="asignatura_table_SelectedIndexChanged" >
+                                <Columns>
+                                    <asp:BoundField DataField="id_asignatura" Visible="false"/>
+                                    <asp:BoundField DataField="nombre_asignatura" HeaderText="Nombre" />
+                                    <asp:BoundField DataField="codigo_asignatura" HeaderText="Código" />
+                                    <asp:BoundField DataField="creditos" HeaderText="Creditos" />
+                                    <asp:CheckBoxField DataField="isActive" HeaderText="Estado" />
+                                </Columns>
+                            </asp:GridView>
+                        </div>
+                    </ContentTemplate>
+                    <Triggers>
+                        <asp:AsyncPostBackTrigger ControlID="asignatura_table" EventName="SelectedIndexChanged" />
+                        <asp:AsyncPostBackTrigger ControlID="search_box" EventName="TextChanged" />
+                    </Triggers>
+                </asp:UpdatePanel>
+                
 
                 <div class="row">
                     <footer class="footer-fixed">

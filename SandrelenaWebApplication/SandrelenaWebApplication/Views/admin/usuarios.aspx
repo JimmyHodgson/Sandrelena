@@ -193,7 +193,7 @@
                                 <div class="col-md-6">
                                     <div class="form-group">
                                         <label for="frm_mod_rol"> Rol: </label>
-                                        <asp:DropDownList ID="frm_mod_rol" runat="server" Visible="true" CssClass="form-control"></asp:DropDownList>
+                                        <asp:DropDownList ID="frm_mod_rol" runat="server" Visible="true" CssClass="form-control" Enabled="false"></asp:DropDownList>
                                     </div>
                                 </div>
                             </div>

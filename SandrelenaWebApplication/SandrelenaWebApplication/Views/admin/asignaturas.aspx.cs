@@ -5,14 +5,14 @@ using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 using SandrelenaWebApplication.Models;
+using SandrelenaWebApplication.Scripts;
+using System.Drawing;
 
 namespace SandrelenaWebApplication.Views.admin
 {
     public partial class asignaturas : System.Web.UI.Page
     {
         SandrelenaCS contexto = new SandrelenaCS();
-        SiteAdmin MyMasterPage = new SiteAdmin();
-
 
         protected void Page_Load(object sender, EventArgs e)
         {
@@ -26,14 +26,7 @@ namespace SandrelenaWebApplication.Views.admin
         {
             try
             {
-                var Asignaturas = (from a in contexto.Asignaturas
-                                   select new
-                                   {
-                                       Nombre = a.nombre_asignatura,
-                                       Codigo = a.codigo_asignatura,
-                                       Creditos = a.creditos,
-                                       Estado = a.isActive
-                                   }).ToList().OrderBy(a => a.Nombre);
+                var Asignaturas = contexto.Asignaturas.ToList().Where(x => x.nombre_asignatura.Contains(search_box.Text)).OrderBy(x => x.nombre_asignatura);
 
                 asignatura_table.DataSource = Asignaturas;
                 asignatura_table.DataBind();
@@ -41,7 +34,9 @@ namespace SandrelenaWebApplication.Views.admin
             catch (Exception ex)
             {
                 //MyMasterPage.ExecuteJavaScript("showAlert('#e-alert', 'Error', '" + ex.Message.ToString() + "');");
-                ExecuteJavaScript("showAlert('#e-alert', 'Error', '" + ex.Message.ToString() + "');");
+                //ExecuteJavaScript("showAlert('#e-alert', 'Error', '" + "Error en CargarAsignaturas()" + "');");
+                //MyMasterPage.JSAlert(this, "Error en CargarAsignaturas().");
+                Alertas.NuevaAlerta(this, Alertas.Tipos.Error, "Error en CargarAsignaturas()");
             }
             
         }
@@ -61,15 +56,77 @@ namespace SandrelenaWebApplication.Views.admin
             }
             catch (Exception ex)
             {
-                //MyMasterPage.ExecuteJavaScript("showAlert('#e-alert', 'Error', '" + ex.Message.ToString() + "');");
-                ExecuteJavaScript("showAlert('#e-alert', 'Error', '" + ex.Message.ToString() + "');");
+                Alertas.NuevaAlerta(this, Alertas.Tipos.Error, "Error en btnAceptar_Click()");
+                //MyMasterPage.JSAlert(this, "Error en el botón aceptar.");
             }
         }
 
-        public void ExecuteJavaScript(string funcion)
+        private void LlenarEditar()
         {
-            ScriptManager.RegisterStartupScript(this, this.GetType(), UniqueID, funcion, true);
+            try
+            {
+                //var asignatura = contexto.Asignaturas.Find(Convert.ToInt32(asignatura_table.SelectedDataKey.Value.ToString()));
+                //frm_mod_nombres.Text = usuario.primer_nombre;
+                //frm_mod_apellidos.Text = usuario.primer_apellido;
+                //frm_mod_username.Text = usuario.username;
+                //frm_mod_rol.SelectedValue = usuario.id_rol.ToString(); //hay que poner not null para que no salga admin en errores
+                //frm_mod_password.Text = usuario.pass;
+                //frm_mod_nacimiento.Text = usuario.fecha_de_nacimiento.ToString("yyyy/MM/dd");
+            }
+            catch (Exception ex)
+            {
+                Alertas.NuevaAlerta(this, Alertas.Tipos.Error, "Error en LlenarEditar()");
+                //ExecuteJavaScript("showAlert('#e-alert', 'Error', '" + ex.Message.ToString() + "');");
+            }
+
         }
 
+        protected void search_box_TextChanged(object sender, EventArgs e)
+        {
+            CargarAsignaturas();
+        }
+
+        protected void asignatura_table_RowDataBound(object sender, GridViewRowEventArgs e)
+        {
+            try
+            {
+                if (e.Row.RowType == DataControlRowType.DataRow)
+                {
+                    e.Row.Attributes.Add("OnMouseOver", "this.style.cursor = 'hand';");
+                    e.Row.Attributes["onclick"] = Page.ClientScript.GetPostBackClientHyperlink(asignatura_table, "Select$" + e.Row.RowIndex);
+                    e.Row.ToolTip = "Haga click para seleccionar.";
+                }
+            }
+            catch (Exception ex)
+            {
+                Alertas.NuevaAlerta(this, Alertas.Tipos.Error, "Error en asignatura_table_RowDataBound()");
+            }
+        }
+
+        protected void asignatura_table_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            try
+            {
+                foreach (GridViewRow row in asignatura_table.Rows)
+                {
+
+                    if (row.RowIndex == asignatura_table.SelectedIndex)
+                    {
+                        row.BackColor = ColorTranslator.FromHtml("#A1DCF2");
+                        row.ToolTip = string.Empty;
+                    }
+                    else
+                    {
+                        row.BackColor = ColorTranslator.FromHtml("#FFFFFF");
+                        row.ToolTip = "Haga click para seleccionar.";
+                    }
+                }
+                //LlenarEditar();
+            }
+            catch (Exception ex)
+            {
+                Alertas.NuevaAlerta(this, Alertas.Tipos.Error, "Error en asignatura_table_SelectedIndexChanged()");
+            }
+        }
     }
 }
