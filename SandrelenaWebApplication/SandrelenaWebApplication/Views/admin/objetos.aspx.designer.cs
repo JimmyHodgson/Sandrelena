@@ -112,6 +112,51 @@ namespace SandrelenaWebApplication.Views.admin {
         protected global::System.Web.UI.WebControls.GridView aulas_grid;
         
         /// <summary>
+        /// listFacultades_semestres control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.DropDownList listFacultades_semestres;
+        
+        /// <summary>
+        /// semes_del control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.LinkButton semes_del;
+        
+        /// <summary>
+        /// semestres_table control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.GridView semestres_table;
+        
+        /// <summary>
+        /// del_cls_sem control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.LinkButton del_cls_sem;
+        
+        /// <summary>
+        /// clases_semestres_table control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.GridView clases_semestres_table;
+        
+        /// <summary>
         /// nom_agr_fac control.
         /// </summary>
         /// <remarks>
