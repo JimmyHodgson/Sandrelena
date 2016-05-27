@@ -26,10 +26,8 @@
                         </div>
                         <div class="row padding-bottom-md">
                             <div class="col-md-12">
-                                <asp:GridView ID="GridView1" runat="server" CssClass="table info-table" AutoGenerateColumns="false">
-                                    <Columns>
-                                        
-                                    </Columns>
+                                <asp:GridView ID="GridView1" runat="server" CssClass="table info-table" >
+                                   
                                 </asp:GridView>
                             </div>
                         </div>
