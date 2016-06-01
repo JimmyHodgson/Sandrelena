@@ -26,8 +26,12 @@
                         </div>
                         <div class="row padding-bottom-md">
                             <div class="col-md-12">
-                                <asp:GridView ID="GridView1" runat="server" CssClass="table info-table" >
-                                   
+                                <asp:GridView ID="GridView1" runat="server" CssClass="table info-table" AutoGenerateColumns="false" >
+                                    <Columns>
+                                        <asp:BoundField DataField="nombre_asignatura" HeaderText="Asignatura" />
+                                        <asp:BoundField DataField="codigo_asignatura" HeaderText="Código" />
+                                        <asp:BoundField DataField="creditos" HeaderText="Créditos" />
+                                    </Columns>
                                 </asp:GridView>
                             </div>
                         </div>

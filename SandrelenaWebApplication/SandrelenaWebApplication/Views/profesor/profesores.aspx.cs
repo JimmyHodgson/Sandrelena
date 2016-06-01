@@ -27,16 +27,16 @@ namespace SandrelenaWebApplication.Views.profesor
         {
             try
             {
-                //int id_profesor = Convert.ToInt32(Session["IDUsuario"].ToString());
+                int id_profesor = Convert.ToInt32(Session["IDUsuario"].ToString());
 
-                //var profesor = contexto.Usuarios.Find(id_profesor);
+                var profesor = contexto.Usuarios.Find(id_profesor);
 
-                //var clases_profesor = contexto.Asignaturas.Where(o => o.Usuarios == profesor);
+                var clases_profesor = contexto.Asignaturas.Where(o => o.Usuarios.Where(x => x.id_usuario == id_profesor).FirstOrDefault().id_usuario == id_profesor).ToList();
 
-                //ddlClases.DataSource = clases_profesor;
-                //ddlClases.DataTextField = "nombre_asignatura";
-                //ddlClases.DataValueField = "id_asignatura";
-                //ddlClases.DataBind();
+                ddlClases.DataSource = clases_profesor;
+                ddlClases.DataTextField = "nombre_asignatura";
+                ddlClases.DataValueField = "id_asignatura";
+                ddlClases.DataBind();
             }
             catch (Exception)
             {
@@ -48,7 +48,7 @@ namespace SandrelenaWebApplication.Views.profesor
         private void CargarInformacion()
         {
             try
-            {
+            {   
                 //var clase = contexto.Asignaturas.Find(Convert.ToInt32(ddlClases.SelectedValue));
 
                 //int id_profesor = Convert.ToInt32(Session["IDUsuario"].ToString());

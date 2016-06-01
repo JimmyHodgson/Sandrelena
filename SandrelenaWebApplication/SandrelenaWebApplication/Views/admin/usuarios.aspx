@@ -217,7 +217,7 @@
                         </div>
                         <div class="modal-footer">
                             <asp:Button ID="frm_mod_cancelar" runat="server" Text="Cancelar" CssClass="btn btn-default" data-dismiss="modal" />
-                            <asp:Button ID="frm_mod_aceptar" runat="server" Text="Agregar" CssClass="btn btn-primary" OnClick="frm_mod_aceptar_Click" />
+                            <asp:Button ID="frm_mod_aceptar" runat="server" Text="Aceptar" CssClass="btn btn-primary" OnClick="frm_mod_aceptar_Click" />
                         </div>
                     </div>
              </ContentTemplate>
